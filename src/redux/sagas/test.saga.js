@@ -5,7 +5,7 @@ import { put, takeLatest } from "redux-saga/effects";
 function* fetchWidget() {
   try {
     const response = yield axios.get("/api/test");
-    yield get({ type: "SET_WIDGET", payload: response.data });
+    yield put({ type: "SET_WIDGET", payload: response.data });
   } catch (error) {
     alert("no");
     console.log("fetch widget error", error);

@@ -5,19 +5,18 @@ const router = express.Router();
 /**
  * GET route template
  */
+
 router.get("/", (req, res) => {
-  router.get("/", (req, res) => {
-    const query = `SELECT * FROM test`;
-    pool
-      .query(query)
-      .then((result) => {
-        res.send(result.rows);
-      })
-      .catch((err) => {
-        console.log("ERROR: Get test", err);
-        res.sendStatus(500);
-      });
-  });
+  const query = `SELECT * FROM test`;
+  pool
+    .query(query)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((err) => {
+      console.log("ERROR: Get test", err);
+      res.sendStatus(500);
+    });
 });
 
 /**
