@@ -8,3 +8,9 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+CREATE TABLE "test" (
+	"widget_name" VARCHAR (1000) NOT NULL
+	);
+
+    living_room_tutors
