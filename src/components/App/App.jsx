@@ -20,6 +20,11 @@ import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import Test from "../Test/Test";
+import StudentInfo from "../StudentInfo/StudentInfo";
+import StudentSubjects from "../StudentSubjects/StudentSubjects";
+import StudentAvailability from "../StudentAvailability/StudentAvailability";
+import StudentAdditional from "../StudentAdditional/StudentAdditional";
+import StudentTerms from "../StudentTerms/StudentTerms";
 
 import "./App.css";
 
@@ -40,13 +45,49 @@ function App() {
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
 
-          {/* Visiting localhost:3000/about will show the about page. */}
+          {/* Unprotected Routes */}
           <Route
             // shows AboutPage at all times (logged in or not)
+            
             exact
             path="/about"
           >
             <AboutPage />
+          </Route>
+
+          <Route
+            exact
+            path="/StudentAdditional"
+          >
+            <StudentAdditional />
+          </Route>
+
+          <Route
+            exact
+            path="/StudentAvailability"
+          >
+            <StudentAvailability />
+          </Route>
+
+          <Route
+            exact
+            path="/StudentInfo"
+          >
+            <StudentInfo />
+          </Route>
+
+          <Route
+            exact
+            path="/StudentSubjects"
+          >
+            <StudentSubjects />
+          </Route>
+
+          <Route
+            exact
+            path="/StudentTerms"
+          >
+            <StudentTerms />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
