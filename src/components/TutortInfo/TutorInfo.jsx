@@ -3,8 +3,8 @@ import {useSelector} from 'react-redux';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
-// component name TutorInfo with the name for the new component.
-function TutorInfo(props) {
+// component name StudentInfo with the name for the new component.
+function StudentInfo(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
@@ -48,9 +48,9 @@ function TutorInfo(props) {
     }
 
 
-    const AddNewTutorInfo =()=>{
+    const AddNewStudentInfo =()=>{
       //package up new info in object
-      const newTutorInfo = {
+      const newStudentInfo = {
         name: newName,
         parentEmail: newParentEmail,
         email: newEmail,
@@ -58,7 +58,7 @@ function TutorInfo(props) {
         school: newSchool,
         grade: newGrade,
       }
-      dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newTutorInfo})
+      dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newStudentInfo})
 
     }
 
@@ -92,9 +92,9 @@ function TutorInfo(props) {
           <option value="12th Grade">12th Grade</option>
         </select>
 
-      <button onClick={AddNewTutorInfo}>Add A New Student Info</button>
+      <button onClick={AddNewStudentInfo}>Add A New Student Info</button>
     </div>
   );
 }
 
-export default TutorInfo;
+export default StudentInfo;
