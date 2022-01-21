@@ -10,6 +10,7 @@ function TutorInfo(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Student Info');
 
+  const[newSubmitter, setSubmitter]= useState();
   const[newName, setNewName]= useState();
   const[newParentEmail, setNewParentEmail]= useState();
   const[newEmail, setNewEmail]= useState();
@@ -17,13 +18,18 @@ function TutorInfo(props) {
   const[newSchool, setNewSchool]= useState();
   const[newGrade, setNewGrade]= useState();
 
-      const changeName= ()=>{
+    const changeSubmitter= ()=>{
+    console.log('in new submitter');
+    setSubmitter(event.target.value);
+}
+  
+    const changeName= ()=>{
         console.log('in new name');
         setNewName(event.target.value);
     }
 
     const changeParentEmail= ()=>{
-      console.log('in new email');
+      console.log('in new parent email');
       setNewParentEmail(event.target.value);
     }
 
@@ -51,6 +57,7 @@ function TutorInfo(props) {
     const AddNewTutorInfo =()=>{
       //package up new info in object
       const newTutorInfo = {
+        submitter: newSubmitter,
         name: newName,
         parentEmail: newParentEmail,
         email: newEmail,
@@ -66,6 +73,12 @@ function TutorInfo(props) {
   return (
     <div>
       <h2>{heading}</h2>
+
+      <p>Are you a Student or a parent/guardian/teacher registering on behalf of a student?</p>
+      <input type="radio" id="student" name="studentOrParent" value="Student" onChange={(event)=>changeSubmitter(event)}/>
+        <label for="Student">I am a student</label>
+        <input type="radio" id="parentGuardian" name="studentOrParent" value="ParentOrGuardian" onChange={(event)=>changeSubmitter(event)}/>
+        <label for="ParentOrGuardian">I am a Parent or Guardian registering a Student</label>
 
       <input type="text" placeholder="Parent/Guardian's Email" onChange={(event)=>changeParentEmail(event)}></input>
       <input type="text" placeholder="Student Email" onChange={(event)=>changeEmail(event)}></input>
@@ -92,7 +105,49 @@ function TutorInfo(props) {
           <option value="12th Grade">12th Grade</option>
         </select>
 
+        <p>Is the student an English language learner? If so, what is their preferred language?</p>
+        <div>
+          <input type="checkbox" id="Spanish" name="Spanish"/>
+          <label for="Spanish">Spanish</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="Somali" name="Somali"/>
+          <label for="Somali">Somali</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="Arabic" name="Arabic"/>
+          <label for="Arabic">Arabic</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="Chinese" name="Chinese"/>
+          <label for="Chinese">Chinese</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="Tagalog" name="Tagalog"/>
+          <label for="Tagalog">Tagalog</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="French" name="French"/>
+          <label for="French">French</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="Vietnamese" name="Vietnamese"/>
+          <label for="Vietnamese">Vietnamese</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="English" name="English"/>
+          <label for="English">English</label>
+        </div>
+
       <button onClick={AddNewTutorInfo}>Add A New Student Info</button>
+      
     </div>
   );
 }
