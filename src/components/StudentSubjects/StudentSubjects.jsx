@@ -13,6 +13,9 @@ function StudentSubjects(props) {
   const[newPrimarySubject, setNewPrimarySubject]= useState();
   const[newSecondarySubject, setNewSecondarySubject]= useState();
   const[newTertiarySubject, setNewTertiarySubject]= useState();
+  const[newOtherInfo, setNewOtherInfo]= useState();
+  const[newDetailedNeeds, setNewDetailedNeeds]= useState();
+  const[newAdditionalInfo, setNewAdditionalInfo]= useState();
 
   const changePrimarySubject= ()=>{
     console.log('in new primary');
@@ -28,6 +31,22 @@ function StudentSubjects(props) {
     console.log('in new tertiary');
     setNewTertiarySubject(event.target.value);
   }
+
+  const changeOtherInfo= ()=>{
+    console.log('in new other info');
+    setNewOtherInfo(event.target.value);
+  }
+
+  const changeDetailedNeeds= ()=>{
+    console.log('in new detailed needs');
+    setNewDetailedNeeds(event.target.value);
+  }
+
+  const changeAdditionalInfo= ()=>{
+    console.log('in any additional info');
+    setNewAdditionalInfo(event.target.value);
+  }
+
 
   return (
     <div>
@@ -176,6 +195,16 @@ function StudentSubjects(props) {
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
         </select>
+
+        <h3>If you stated "other" for any one of your choices, please describe what support is needed:</h3>
+        <input type="text" placeholder="OtherInfo" onChange={(event)=>changeOtherInfo(event)}></input>
+
+        <h3>Please describe your needs in detail regarding the subject(s) you selected above:</h3>
+        <p>The more detailed you are, the better we can find a tutor to fit your needs! For example: (AP Macroeconomics) I need help understanding Fiscal Policy; (K-5 math) I need help with understanding long division.</p>
+        <input type="text" placeholder="Details of tutoring needs" onChange={(event)=>changeDetailedNeeds(event)}></input>
+
+        <h3>Is there anything else you want us to know about the student?</h3>
+        <input type="text" placeholder="AdditionalInfo" onChange={(event)=>changeAdditionalInfo(event)}></input>
 
     </div>
   );
