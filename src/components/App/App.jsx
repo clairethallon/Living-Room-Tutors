@@ -20,11 +20,18 @@ import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import Test from "../Test/Test";
+
+import StudentAdditional from "../StudentAdditional/StudentAdditional";
+import StudentAvailability from "../StudentAvailability/StudentAvailability";
 import StudentInfo from "../StudentInfo/StudentInfo";
 import StudentSubjects from "../StudentSubjects/StudentSubjects";
-import StudentAvailability from "../StudentAvailability/StudentAvailability";
-import StudentAdditional from "../StudentAdditional/StudentAdditional";
 import StudentTerms from "../StudentTerms/StudentTerms";
+
+import TutorAdditional from "../TutorAdditional/TutorAdditional"
+import TutorAvailability from "../TutorAvailability/TutorAvailability"
+import TutorInfo from "../TutorInfo/TutorInfo";
+import TutorSubjects from "../TutorSubjects/TutorSubjects"
+import TutorTerms from "../TutorTerms/TutorTerms"
 
 import "./App.css";
 
@@ -88,6 +95,41 @@ function App() {
             path="/StudentTerms"
           >
             <StudentTerms />
+          </Route>
+
+          <Route
+            exact
+            path="/TutorAdditional"
+          >
+            <TutorAdditional />
+          </Route>
+
+          <Route
+            exact
+            path="/TutorAvailability"
+          >
+            <TutorAvailability />
+          </Route>
+
+          <Route
+            exact
+            path="/TutorInfo"
+          >
+            <TutorInfo />
+          </Route>
+
+          <Route
+            exact
+            path="/TutorSubjects"
+          >
+            <TutorSubjects />
+          </Route>
+
+          <Route
+            exact
+            path="/TutorTerms"
+          >
+            <TutorTerms />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
