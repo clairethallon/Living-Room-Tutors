@@ -106,6 +106,7 @@ function TutorInfo(props) {
         </select>
 
         <p>Is the student an English language learner? If so, what is their preferred language?</p>
+        {/* NEED TO ADD THE ON CHANGE AND HOOKS FOR LANGUAGE onChange={(event)=>changeGrade(event)} */}
         <div>
           <input type="checkbox" id="Spanish" name="Spanish"/>
           <label for="Spanish">Spanish</label>
