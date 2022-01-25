@@ -8,7 +8,7 @@ function TuteesPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState("Functional Component");
+  const [heading, setHeading] = useState("Tutees Page");
 
   return (
     <div>
