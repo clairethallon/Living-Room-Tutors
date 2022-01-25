@@ -1,3 +1,9 @@
+CREATE TABLE "user" (
+    "id" SERIAL PRIMARY KEY,
+    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "password" VARCHAR (1000) NOT NULL
+);
+
 CREATE TABLE "tutees" (
 	"id" serial NOT NULL,
 	"student_first_name" varchar(255) NOT NULL,
@@ -27,8 +33,8 @@ CREATE TABLE "tutees" (
 
 CREATE TABLE "tutors" (
 	"id" serial NOT NULL,
-	"first_name" varchar(255) NOT NULL,
-	"last_name" varchar(255) NOT NULL,
+	"tutor_first_name" varchar(255) NOT NULL,
+	"tutor_last_name" varchar(255) NOT NULL,
 	"pronouns" varchar(255) NOT NULL,
 	"grade_level" varchar(255) NOT NULL,
 	"school" varchar(255) NOT NULL,
@@ -169,8 +175,6 @@ CREATE TABLE "admin" (
   OIDS=FALSE
 );
 
-
-
 ALTER TABLE "tutees" ADD CONSTRAINT "tutees_fk0" FOREIGN KEY ("subject_1") REFERENCES "subjects_tutees"("id");
 ALTER TABLE "tutees" ADD CONSTRAINT "tutees_fk1" FOREIGN KEY ("subject_2") REFERENCES "subjects_tutees"("id");
 ALTER TABLE "tutees" ADD CONSTRAINT "tutees_fk2" FOREIGN KEY ("subject_3") REFERENCES "subjects_tutees"("id");
@@ -183,15 +187,6 @@ ALTER TABLE "tutors" ADD CONSTRAINT "tutors_fk2" FOREIGN KEY ("language_tutor_id
 ALTER TABLE "matches" ADD CONSTRAINT "matches_fk0" FOREIGN KEY ("tutor_id") REFERENCES "tutors"("id");
 ALTER TABLE "matches" ADD CONSTRAINT "matches_fk1" FOREIGN KEY ("tutee_id") REFERENCES "tutees"("id");
 
-
-
-
-
-ALTER TABLE "tutor_language" ADD CONSTRAINT "tutor_language_fk0" FOREIGN KEY ("tutor_id") REFERENCES "tutors"("id");
-ALTER TABLE "tutor_language" ADD CONSTRAINT "tutor_language_fk1" FOREIGN KEY ("language_id") REFERENCES "language"("id");
-
-ALTER TABLE "tutee_language" ADD CONSTRAINT "tutee_language_fk0" FOREIGN KEY ("tutee_id") REFERENCES "tutees"("id");
-ALTER TABLE "tutee_language" ADD CONSTRAINT "tutee_language_fk1" FOREIGN KEY ("language_id") REFERENCES "language"("id");
 
 INSERT INTO "subjects_tutees" ("subject") VALUES
 ('K5_Math'),		 
