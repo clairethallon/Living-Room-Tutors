@@ -11,9 +11,16 @@ function TutorInfo(props) {
   const [heading, setHeading] = useState('Student Info');
 
   const[newSubmitter, setSubmitter]= useState();
-  const[newName, setNewName]= useState();
+  const[newFirstName, setNewFirstName]= useState();
+  const[newLastName, setNewLastName]= useState();
   const[newParentEmail, setNewParentEmail]= useState();
   const[newEmail, setNewEmail]= useState();
+
+  // ******** PRONOUN CHECK BOXES **************
+  const [sheHerPronoun, setsheHerPronoun] = useState( 'true' );
+  const [heHimPronoun, setheHimPronoun] = useState( 'true' );
+  const [theyThemPronoun, settheyThemPronoun] = useState( 'true' );
+
   const[newPhone, setNewPhone]= useState();
   const[newSchool, setNewSchool]= useState();
   const[newGrade, setNewGrade]= useState();
@@ -23,10 +30,15 @@ function TutorInfo(props) {
     setSubmitter(event.target.value);
 }
   
-    const changeName= ()=>{
+    const changefirstName= ()=>{
         console.log('in new name');
-        setNewName(event.target.value);
+        setNewFirstName(event.target.value);
     }
+
+    const changelastName= ()=>{
+      console.log('in new name');
+      setNewLastName(event.target.value);
+  }
 
     const changeParentEmail= ()=>{
       console.log('in new parent email');
@@ -37,6 +49,24 @@ function TutorInfo(props) {
       console.log('in new email');
       setNewEmail(event.target.value);
     }
+    
+    // ******** PRONOUN CHECK BOXES **************
+    const changesheHerPronoun = () => {
+      setsheHerPronoun(!sheHerPronoun);
+      console.log('she/her statues:', sheHerPronoun)
+    }
+
+    const changeheHimPronoun = () => {
+      setheHimPronoun(!heHimPronoun);
+      console.log('he/him statues:', heHimPronoun)
+    }
+
+    const changetheyThemPronoun = () => {
+      settheyThemPronoun(!theyThemPronoun);
+      console.log('he/him statues:', theyThemPronoun)
+    }
+
+    
 
     const changePhone= ()=>{
       console.log('in new phone');
@@ -58,7 +88,8 @@ function TutorInfo(props) {
       //package up new info in object
       const newTutorInfo = {
         submitter: newSubmitter,
-        name: newName,
+        firstName: newFirstName,
+        lastName: newLastName,
         parentEmail: newParentEmail,
         email: newEmail,
         phone: newPhone,
@@ -74,17 +105,50 @@ function TutorInfo(props) {
     <div>
       <h2>{heading}</h2>
 
-      <p>Are you a Student or a parent/guardian/teacher registering on behalf of a student?</p>
-      <input type="radio" id="student" name="studentOrParent" value="Student" onChange={(event)=>changeSubmitter(event)}/>
-        <label for="Student">I am a student</label>
-        <input type="radio" id="parentGuardian" name="studentOrParent" value="ParentOrGuardian" onChange={(event)=>changeSubmitter(event)}/>
-        <label for="ParentOrGuardian">I am a Parent or Guardian registering a Student</label>
+      <div>
+        <p>Are you a Student or a parent/guardian/teacher registering on behalf of a student?</p>
+        <input type="radio" id="student" name="studentOrParent" value="Student" onChange={(event)=>changeSubmitter(event)}/>
+          <label for="Student">I am a student</label>
+          <input type="radio" id="parentGuardian" name="studentOrParent" value="ParentOrGuardian" onChange={(event)=>changeSubmitter(event)}/>
+          <label for="ParentOrGuardian">I am a Parent or Guardian registering a Student</label>
+      </div>
 
+      <div>
       <input type="text" placeholder="Parent/Guardian's Email" onChange={(event)=>changeParentEmail(event)}></input>
+      </div>
+
+      <div>
       <input type="text" placeholder="Student Email" onChange={(event)=>changeEmail(event)}></input>
-      <input type="text" placeholder="Student Name" onChange={(event)=>changeName(event)}></input>
+      </div>
+
+      <div>
+      <input type="text" placeholder="Student firstName" onChange={(event)=>changefirstName(event)}></input>
+      <input type="text" placeholder="Student lastName" onChange={(event)=>changelastName(event)}></input>
+      </div>
+
+      <p>What are the Student's preferred pronouns?</p>
+        {/* NEED TO ADD THE ON CHANGE AND HOOKS FOR LANGUAGE onChange={(event)=>changeGrade(event)} */}
+        <div>
+          <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun(event.target.value)}/>
+          <label for="She/Her">She/Her</label>
+        </div> 
+        <div>
+          <input type="checkbox" id="He/Him" name="He/Him" onChange={(event)=>changeheHimPronoun(event.target.value)}/>
+          <label for="He/Him">He/Him</label>
+        </div>
+        <div>
+          <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun(event.target.value)}/>
+          <label for="They/Them">They/Them</label>
+        </div>
+
+
+      <div>
       <input type="text" placeholder="Student Phone Number" onChange={(event)=>changePhone(event)}></input>
+      </div>
+
+      <div>
       <input type="text" placeholder="Student School" onChange={(event)=>changeSchool(event)}></input>
+      </div>
 
       <label for="gradeLevel">Choose a Grade Level:</label>
 
