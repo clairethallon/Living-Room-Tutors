@@ -8,12 +8,12 @@ CREATE TABLE "tutees" (
 	"email_student" varchar(255) NOT NULL,
 	"grade_level" varchar(255) NOT NULL,
 	"school" varchar(255) NOT NULL,
+	"language_tutee_id" integer NOT NULL,
 	"subject_1" integer NOT NULL,
 	"subject_2" integer NOT NULL,
 	"subject_3" integer NOT NULL,
 	"subject_other" varchar(10000),
 	"subject_details" varchar(10000),
-    "language_other" varchar(255),
 	"misc_info" varchar(10000),
 	"submission_timestamp" TIMESTAMP NOT NULL,
     "active_tutee" BOOLEAN NOT NULL DEFAULT true,
@@ -33,8 +33,8 @@ CREATE TABLE "tutors" (
 	"grade_level" varchar(255) NOT NULL,
 	"school" varchar(255) NOT NULL,
 	"mentoring_grade_id" integer NOT NULL,
+	"language_tutor_id" integer NOT NULL,
 	"subjects_id" integer NOT NULL,
-    "language_other" varchar(255),
 	"misc_info" varchar(10000),
 	"submission_timestamp" TIMESTAMP NOT NULL,
     "active_tutor" BOOLEAN NOT NULL DEFAULT true,
@@ -141,30 +141,16 @@ CREATE TABLE "subjects_tutees" (
 
 CREATE TABLE "language" (
 	"id" serial NOT NULL,
-	"language_name" varchar(255) NOT NULL,
+	"Spanish" BOOLEAN NOT NULL,
+	"Somali" BOOLEAN NOT NULL,
+	"Arabic" BOOLEAN NOT NULL,
+	"Chinese" BOOLEAN NOT NULL,
+	"Tagalog" BOOLEAN NOT NULL,
+	"French" BOOLEAN NOT NULL,
+	"Vietnamese" BOOLEAN NOT NULL,
+	"Hmong" BOOLEAN NOT NULL,
+	"Other" varchar(255),
 	CONSTRAINT "language_pk" PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
-);
-
-
-
-CREATE TABLE "tutor_language" (
-	"id" serial NOT NULL,
-	"tutor_id" integer NOT NULL,
-	"language_id" integer NOT NULL,
-	CONSTRAINT "tutor_language_pk" PRIMARY KEY ("id")
-) WITH (
-  OIDS=FALSE
-);
-
-
-
-CREATE TABLE "tutee_language" (
-	"id" serial NOT NULL,
-	"tutee_id" integer NOT NULL,
-	"language_id" integer NOT NULL,
-	CONSTRAINT "tutee_language_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
@@ -188,9 +174,11 @@ CREATE TABLE "admin" (
 ALTER TABLE "tutees" ADD CONSTRAINT "tutees_fk0" FOREIGN KEY ("subject_1") REFERENCES "subjects_tutees"("id");
 ALTER TABLE "tutees" ADD CONSTRAINT "tutees_fk1" FOREIGN KEY ("subject_2") REFERENCES "subjects_tutees"("id");
 ALTER TABLE "tutees" ADD CONSTRAINT "tutees_fk2" FOREIGN KEY ("subject_3") REFERENCES "subjects_tutees"("id");
+ALTER TABLE "tutees" ADD CONSTRAINT "tutees_fk3" FOREIGN KEY ("language_tutee_id") REFERENCES "language"("id");
 
 ALTER TABLE "tutors" ADD CONSTRAINT "tutors_fk0" FOREIGN KEY ("mentoring_grade_id") REFERENCES "mentoring_grade"("id");
 ALTER TABLE "tutors" ADD CONSTRAINT "tutors_fk1" FOREIGN KEY ("subjects_id") REFERENCES "subjects_tutors"("id");
+ALTER TABLE "tutors" ADD CONSTRAINT "tutors_fk2" FOREIGN KEY ("language_tutor_id") REFERENCES "language"("id");
 
 ALTER TABLE "matches" ADD CONSTRAINT "matches_fk0" FOREIGN KEY ("tutor_id") REFERENCES "tutors"("id");
 ALTER TABLE "matches" ADD CONSTRAINT "matches_fk1" FOREIGN KEY ("tutee_id") REFERENCES "tutees"("id");
@@ -245,16 +233,5 @@ INSERT INTO "subjects_tutees" ("subject") VALUES
 ('sat_prep'),	 
 ('act_prep'),	 
 ('other');
-
-INSERT INTO "language" ("language_name") VALUES
-('Spanish'),
-('Somali'),
-('Arabic'),
-('Chinese'),
-('Tagalog'),
-('French'),
-('Vietnamese'),
-('Other');
-
 
 
