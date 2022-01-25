@@ -10,9 +10,10 @@
   top: 0;
   height: 100vh;
   /* margin: 0 0 30px; */
-  background-color: rgb(208, 208, 208);
+  background-color: #43545744;
   overflow: hidden;
   padding: 15px;
+  width: 300px;
 }
 
 .AdminNavLink {
@@ -34,7 +35,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 90%;
+  height: 70%;
 }
 
 .navLogo {

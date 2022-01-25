@@ -12,7 +12,7 @@ function MatchButton(props) {
 
   return (
     <div>
-      <h2>{heading}</h2>
+      <button>Match</button>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import { useSelector } from "react-redux";
 import "../AdminNavBar/AdminNavBar.css";
-import Logo from "../../images/tempLETlogo.png";
+import Logo from "../../images/Logo.png";
 
 function AdminNavBar() {
   const user = useSelector((store) => store.user);

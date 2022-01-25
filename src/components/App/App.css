@@ -26,7 +26,7 @@ Container
 Button
 -------------------------------------------------------------------------------- */
 
-.btn {
+/* .btn {
   display: inline-block;
   padding: 10px 20px;
   border-color: #014041;
@@ -57,10 +57,10 @@ Button
 .btn:hover {
   background-color: #008183;
   text-decoration: none;
-}
+} */
 
 /* This line makes the "Register" and "Login" buttons look like links */
-.btn_asLink {
+/* .btn_asLink {
   padding: 0;
   border-width: 0;
   border-bottom: 1px solid #444;
@@ -74,7 +74,7 @@ Button
   background-color: transparent;
   border-color: #008183;
   color: #008183;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Alert
@@ -112,5 +112,74 @@ input {
 }
 
 .adminPageContainer {
-  padding-left: 300px;
+  padding-left: 350px;
+  padding-right: 50px;
+}
+
+/* --------------------------------------------------------------------------------
+tables
+-------------------------------------------------------------------------------- */
+
+/* thead {
+  background-color: rgb(127, 142, 145);
+  border-radius: 40px !important ;
+}
+
+thead th {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+thead th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+thead th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+tbody tr {
+  border: 1px solid black;
+  border-radius: 50px !important;
+  padding: 20px !important;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+}
+
+td {
+  border: solid 1px #000;
+  border-style: solid none;
+  padding: 10px;
+}
+td:first-child {
+  border-left-style: solid;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+td:last-child {
+  border-right-style: solid;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+*/
+
+.cardHead {
+  background-color: rgb(162, 161, 161);
+  display: flex;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.cardHeadCol {
+  display: flex;
+  align-items: center;
+}
+
+.cardHeadCol p {
+  margin: 0px;
 }
