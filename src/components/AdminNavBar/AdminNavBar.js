@@ -2,49 +2,52 @@ import React from "react";
 import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import { useSelector } from "react-redux";
+import "../AdminNavBar/AdminNavBar.css";
 
-function Nav() {
+function AdminNavBar() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div className="nav">
-      <Link to="/home">
+    <div className="AdminNav">
+      <Link to="/admin">
         <h2 className="nav-title">Living Room Tutors</h2>
       </Link>
-      <div>
-        {/* If no user is logged in, show these links */}
-        {user.id === null && (
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        )}
 
-        {/* If a user is logged in, show these links */}
-        {user.id && (
-          <>
-            <Link className="navLink" to="/admin">
+      {/* If no user is logged in, show these links */}
+      {user.id === null && (
+        // If there's no user, show login/registration links
+        <Link className="navLink" to="/login">
+          Login / Register
+        </Link>
+      )}
+
+      {/* If a user is logged in, show these links */}
+      {user.id && (
+        <div className="adminNavContents">
+          <div className="AdminNavLinks">
+            <Link className="AdminNavLink" to="/admin">
               Tutees
             </Link>
 
-            <Link className="navLink" to="/tutors">
+            <Link className="AdminNavLink" to="/tutors">
               Tutors
             </Link>
 
-            <Link className="navLink" to="/records">
+            <Link className="AdminNavLink" to="/records">
               Records
             </Link>
+          </div>
+          <div className="logoutButton">
+            <LogOutButton />
+          </div>
+        </div>
+      )}
 
-            <LogOutButton className="navLink" />
-          </>
-        )}
-
-        {/* <Link className="navLink" to="/about">
+      {/* <Link className="navLink" to="/about">
           About
         </Link> */}
-      </div>
     </div>
   );
 }
 
-export default Nav;
+export default AdminNavBar;

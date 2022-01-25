@@ -12,7 +12,7 @@ function RecordsPage(props) {
   const [heading, setHeading] = useState("Records Page");
 
   return (
-    <div>
+    <div className="adminPageContainer">
       <AdminNavBar />
       <h2>{heading}</h2>
     </div>

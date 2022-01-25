@@ -12,7 +12,7 @@ function TutorsPage(props) {
   const [heading, setHeading] = useState("Tutors Page");
 
   return (
-    <div>
+    <div className="adminPageContainer">
       <AdminNavBar />
       <h2>{heading}</h2>
     </div>

@@ -12,7 +12,7 @@ function TuteesPage(props) {
   const [heading, setHeading] = useState("Tutees Page");
 
   return (
-    <div>
+    <div className="adminPageContainer">
       <AdminNavBar />
       <h2>{heading}</h2>
     </div>
