@@ -7,7 +7,10 @@ const router = express.Router();
  */
 
 router.get("/", (req, res) => {
-  const query = `SELECT * FROM matches`;
+  const query = `SELECT * FROM matches
+  JOIN tutors ON matches.tutor_id = tutors.id
+  JOIN tutees ON matches.tutee_id = tutees.id
+  ORDER BY match_timestamp ASC;`;
   pool
     .query(query)
     .then((result) => {

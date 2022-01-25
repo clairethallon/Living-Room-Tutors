@@ -7,6 +7,7 @@ const router = express.Router();
  */
 
 router.get("/", (req, res) => {
+  console.log('in tutors.router/get');
   const query = `SELECT * FROM tutors`;
   pool
     .query(query)
