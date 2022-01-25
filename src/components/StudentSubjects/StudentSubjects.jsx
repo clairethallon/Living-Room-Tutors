@@ -15,7 +15,7 @@ function StudentSubjects(props) {
   const[newTertiarySubject, setNewTertiarySubject]= useState();
   const[newOtherInfo, setNewOtherInfo]= useState();
   const[newDetailedNeeds, setNewDetailedNeeds]= useState();
-  const[newAdditionalInfo, setNewAdditionalInfo]= useState();
+
 
   const changePrimarySubject= ()=>{
     console.log('in new primary');
@@ -42,17 +42,13 @@ function StudentSubjects(props) {
     setNewDetailedNeeds(event.target.value);
   }
 
-  const changeAdditionalInfo= ()=>{
-    console.log('in any additional info');
-    setNewAdditionalInfo(event.target.value);
-  }
 
 
   return (
     <div>
       <h2>{heading}</h2>
 
-
+      <div>
       <label for="studentSubjects">In what subjects does the student need the most support? (1st Choice)</label>
 
         <select name="gradeLevel" onChange={(event)=>changePrimarySubject(event)} title="Student's Current Grade Level">
@@ -99,8 +95,9 @@ function StudentSubjects(props) {
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
         </select>
+        </div>
 
-
+        <div>
         <label for="studentSubjects">In what subjects does the student need the most support? (2nd Choice)</label>
 
         <select name="gradeLevel" onChange={(event)=>changeSecondarySubject(event)} title="Student's Current Grade Level">
@@ -147,8 +144,9 @@ function StudentSubjects(props) {
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
         </select>
+        </div>
 
-
+        <div>
         <label for="studentSubjects">In what subjects does the student need the most support? (3rd Choice)</label>
 
         <select name="gradeLevel" onChange={(event)=>changeTertiarySubject(event)} title="Student's Current Grade Level">
@@ -195,16 +193,18 @@ function StudentSubjects(props) {
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
         </select>
+        </div>
 
+      <div>
         <h3>If you stated "other" for any one of your choices, please describe what support is needed:</h3>
         <input type="text" placeholder="OtherInfo" onChange={(event)=>changeOtherInfo(event)}></input>
+        </div>
 
+        <div>
         <h3>Please describe your needs in detail regarding the subject(s) you selected above:</h3>
         <p>The more detailed you are, the better we can find a tutor to fit your needs! For example: (AP Macroeconomics) I need help understanding Fiscal Policy; (K-5 math) I need help with understanding long division.</p>
         <input type="text" placeholder="Details of tutoring needs" onChange={(event)=>changeDetailedNeeds(event)}></input>
-
-        <h3>Is there anything else you want us to know about the student?</h3>
-        <input type="text" placeholder="AdditionalInfo" onChange={(event)=>changeAdditionalInfo(event)}></input>
+        </div>
 
     </div>
   );

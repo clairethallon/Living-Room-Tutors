@@ -17,24 +17,25 @@ function TutorInfo(props) {
   const[newEmail, setNewEmail]= useState();
 
   // ******** PRONOUN CHECK BOXES **************
-  const [sheHerPronoun, setsheHerPronoun] = useState( 'true' );
-  const [heHimPronoun, setheHimPronoun] = useState( 'true' );
-  const [theyThemPronoun, settheyThemPronoun] = useState( 'true' );
+  const [sheHerPronoun, setsheHerPronoun] = useState( false );
+  const [heHimPronoun, setheHimPronoun] = useState( false );
+  const [theyThemPronoun, settheyThemPronoun] = useState( false );
+   // ******** PRONOUN CHECK BOXES **************
 
   const[newPhone, setNewPhone]= useState();
   const[newSchool, setNewSchool]= useState();
   const[newGrade, setNewGrade]= useState();
 
   // ******** LANGUAGE CHECK BOXES **************
-  const [Spanish, setSpanish] = useState( 'false' );
-  const [Somali, setSomali] = useState( 'false' );
-  const [Arabic, setArabic] = useState( 'false' );
-  const [Chinese, setChinese] = useState( 'false' );
-  const [Tagalog, setTagalog] = useState( 'false' );
-  const [French, setFrench] = useState( 'false' );
-  const [Vietnamese, setVietnamese] = useState( 'false' );
-  const [Hmong, setHmong] = useState( 'false' );
-  const [English, setEnglish] = useState( 'true' );
+  const [Spanish, setSpanish] = useState( false );
+  const [Somali, setSomali] = useState( false );
+  const [Arabic, setArabic] = useState( false );
+  const [Chinese, setChinese] = useState( false );
+  const [Tagalog, setTagalog] = useState( false );
+  const [French, setFrench] = useState( false );
+  const [Vietnamese, setVietnamese] = useState( false );
+  const [Hmong, setHmong] = useState( false );
+  const [English, setEnglish] = useState( false );
   const [otherLanguage, setotherLanguage] = useState('');
   // ******** LANGUAGE CHECK BOXES **************
 
@@ -144,7 +145,7 @@ function TutorInfo(props) {
 
     const changeotherLangauge = () =>{
       console.log("in other langauge", otherLanguage)
-      setotherLangauge(event.target.value);
+      setotherLanguage(event.target.value);
     }
     // ******** END END END END END **************
 
@@ -194,16 +195,17 @@ function TutorInfo(props) {
       <div>
       <p>What are the Student's preferred pronouns?</p>
         {/* NEED TO ADD THE ON CHANGE AND HOOKS FOR LANGUAGE onChange={(event)=>changeGrade(event)} */}
+        <p>{JSON.stringify(sheHerPronoun)}</p>
         <div>
-          <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun(event.target.value)}/>
+          <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
           <label for="She/Her">She/Her</label>
         </div> 
         <div>
-          <input type="checkbox" id="He/Him" name="He/Him" onChange={(event)=>changeheHimPronoun(event.target.value)}/>
+          <input type="checkbox" id="He/Him" name="He/Him" onChange={(event)=>changeheHimPronoun()}/>
           <label for="He/Him">He/Him</label>
         </div>
         <div>
-          <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun(event.target.value)}/>
+          <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
           <label for="They/Them">They/Them</label>
         </div>
       </div>
@@ -241,48 +243,50 @@ function TutorInfo(props) {
 
         <div>
           <p>Is the student an English language learner? If so, what is their preferred language?</p>
+          {/* <p>{JSON.stringify(Spanish)}</p> */}
+          
           <div>
-            <input type="checkbox" id="Spanish" name="Spanish" onChange={(event)=>changeSpanish(event.target.value)}/>
+            <input type="checkbox" id="Spanish" name="Spanish" onChange={(event)=>changeSpanish()}/>
             <label for="Spanish">Spanish</label>
           </div>
 
           <div>
-            <input type="checkbox" id="Somali" name="Somali" onChange={(event)=>changeSomali(event.target.value)}/>
+            <input type="checkbox" id="Somali" name="Somali" onChange={(event)=>changeSomali()}/>
             <label for="Somali">Somali</label>
           </div>
 
           <div>
-            <input type="checkbox" id="Arabic" name="Arabic" onChange={(event)=>changeArabic(event.target.value)}/>
+            <input type="checkbox" id="Arabic" name="Arabic" onChange={(event)=>changeArabic()}/>
             <label for="Arabic">Arabic</label>
           </div>
 
           <div>
-            <input type="checkbox" id="Chinese" name="Chinese" onChange={(event)=>changeChinese(event.target.value)}/>
+            <input type="checkbox" id="Chinese" name="Chinese" onChange={(event)=>changeChinese()}/>
             <label for="Chinese">Chinese</label>
           </div>
 
           <div>
-            <input type="checkbox" id="Tagalog" name="Tagalog" onChange={(event)=>changeTagalog(event.target.value)}/>
+            <input type="checkbox" id="Tagalog" name="Tagalog" onChange={(event)=>changeTagalog()}/>
             <label for="Tagalog">Tagalog</label>
           </div>
 
           <div>
-            <input type="checkbox" id="French" name="French" onChange={(event)=>changeFrench(event.target.value)}/>
+            <input type="checkbox" id="French" name="French" onChange={(event)=>changeFrench()}/>
             <label for="French">French</label>
           </div>
 
           <div>
-            <input type="checkbox" id="Vietnamese" name="Vietnamese" onChange={(event)=>changeVietnamese(event.target.value)}/>
+            <input type="checkbox" id="Vietnamese" name="Vietnamese" onChange={(event)=>changeVietnamese()}/>
             <label for="Vietnamese">Vietnamese</label>
           </div>
 
           <div>
-            <input type="checkbox" id="Hmong" name="Hmong" onChange={(event)=>changeHmong(event.target.value)}/>
+            <input type="checkbox" id="Hmong" name="Hmong" onChange={(event)=>changeHmong()}/>
             <label for="Hmong">Hmong</label>
           </div>
 
           <div>
-            <input type="checkbox" id="English" name="English" onChange={(event)=>changeEnglish(event.target.value)}/>
+            <input type="checkbox" id="English" name="English" onChange={(event)=>changeEnglish(event)}/>
             <label for="English">English</label>
           </div>
 

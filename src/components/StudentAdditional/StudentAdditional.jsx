@@ -10,9 +10,22 @@ function StudentAdditional(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Student Additional Info');
 
+  const[newAdditionalInfo, setNewAdditionalInfo]= useState();
+
+  const changeAdditionalInfo= ()=>{
+    console.log('in any additional info');
+    setNewAdditionalInfo(event.target.value);
+  }
+
+
   return (
     <div>
       <h2>{heading}</h2>
+
+      <div>
+        <h3>Is there anything else you want us to know about the student?</h3>
+        <input type="text" placeholder="AdditionalInfo" onChange={(event)=>changeAdditionalInfo(event)}></input>
+        </div>
     </div>
   );
 }
