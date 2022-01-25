@@ -7,7 +7,9 @@ const router = express.Router();
  */
 
 router.get("/", (req, res) => {
-  const query = `SELECT * FROM tutees`;
+  const query = `SELECT * FROM tutees
+  ORDER BY submission_timestamp ASC;
+  `;
   pool
     .query(query)
     .then((result) => {
