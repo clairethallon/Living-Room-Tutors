@@ -194,8 +194,7 @@ function TutorInfo(props) {
 
       <div>
       <p>What are the Student's preferred pronouns?</p>
-        {/* NEED TO ADD THE ON CHANGE AND HOOKS FOR LANGUAGE onChange={(event)=>changeGrade(event)} */}
-        <p>{JSON.stringify(sheHerPronoun)}</p>
+        {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
         <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
           <label for="She/Her">She/Her</label>

@@ -22,7 +22,6 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import Test from "../Test/Test";
 
 import StudentAdditional from "../StudentAdditional/StudentAdditional";
-import StudentAvailability from "../StudentAvailability/StudentAvailability";
 import StudentInfo from "../StudentInfo/StudentInfo";
 import StudentSubjects from "../StudentSubjects/StudentSubjects";
 import StudentTerms from "../StudentTerms/StudentTerms";
@@ -67,13 +66,6 @@ function App() {
             path="/StudentAdditional"
           >
             <StudentAdditional />
-          </Route>
-
-          <Route
-            exact
-            path="/StudentAvailability"
-          >
-            <StudentAvailability />
           </Route>
 
           <Route
