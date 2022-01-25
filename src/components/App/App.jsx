@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {
   HashRouter as Router,
+  matchPath,
   Redirect,
   Route,
   Switch,
@@ -35,6 +36,9 @@ import TutorTerms from "../TutorTerms/TutorTerms";
 
 import "./App.css";
 import TuteesPage from "../TuteesPage/TuteesPage";
+import TutorsPage from "../TutorsPage/TutorsPage";
+import RecordsPage from "../RecordsPage /RecordsPage";
+import MatchPage from "../MatchPage/MatchPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -129,6 +133,30 @@ function App() {
             path="/admin"
           >
             <TuteesPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/tutors"
+          >
+            <TutorsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/records"
+          >
+            <RecordsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/match"
+          >
+            <MatchPage />
           </ProtectedRoute>
 
           <Route exact path="/login">
