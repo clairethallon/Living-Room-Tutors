@@ -114,6 +114,7 @@ input {
 .adminPageContainer {
   padding-left: 350px;
   padding-right: 50px;
+  min-height: 100vh;
 }
 
 /* --------------------------------------------------------------------------------
@@ -173,6 +174,8 @@ td:last-child {
   display: flex;
   padding: 15px;
   border-radius: 8px;
+  margin: 40px 0px 20px 0px;
+  margin-bottom: 20px;
 }
 
 .cardHeadCol {
@@ -182,4 +185,13 @@ td:last-child {
 
 .cardHeadCol p {
   margin: 0px;
+}
+
+.accordionHeader {
+  width: 100% !important;
+}
+
+.cardButtons {
+  display: flex;
+  justify-content: space-evenly;
 }
