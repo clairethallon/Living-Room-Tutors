@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import AdminNavBar from "../AdminNavBar/AdminNavBar";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -12,6 +13,7 @@ function RecordsPage(props) {
 
   return (
     <div>
+      <AdminNavBar />
       <h2>{heading}</h2>
     </div>
   );

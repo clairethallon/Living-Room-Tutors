@@ -52,7 +52,8 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        {/* nav bar needs to be moved to the individual components that have to do with a normal (non-admin) user */}
+        {/* <Nav /> */}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
