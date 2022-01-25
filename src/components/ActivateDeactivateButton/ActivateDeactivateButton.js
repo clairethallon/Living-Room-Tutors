@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { Button } from "react-bootstrap";
 
 //this can be managed with a ternary operator to show either the "activate" or "deactivate" buttons
 
@@ -11,7 +12,7 @@ function ActivateDeactivateButton(props) {
 
   return (
     <div>
-      {active ? <button>deactivate</button> : <button>activate</button>}
+      {active ? <Button>deactivate</Button> : <Button>activate</Button>}
     </div>
   );
 }
