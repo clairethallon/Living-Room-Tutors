@@ -193,7 +193,6 @@ td:last-child {
 
 .cardButtons {
   display: flex;
-  justify-content: space-evenly;
 }
 
 .flaggedSubjectLanguage {
@@ -210,4 +209,8 @@ td:last-child {
 
 .languageFlag {
   color: #2f3a8f;
+}
+
+.activationButton {
+  margin-right: 7px;
 }

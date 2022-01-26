@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import AdminNavBar from "../AdminNavBar/AdminNavBar";
 import { Tab, Tabs, Container } from "react-bootstrap";
 import PendingTutees from "../PendingTutees/PendingTutees";
+import DeactivatedTutees from "../DeactivatedTutees/DeactivatedTutees";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -26,7 +27,7 @@ function TuteesPage(props) {
           <PendingTutees />
         </Tab>
         <Tab eventKey="Deactivated-Tutees" title="Deactivated Tutees">
-          {/* this is where all the content goes */}
+          <DeactivatedTutees />
         </Tab>
       </Tabs>
     </div>

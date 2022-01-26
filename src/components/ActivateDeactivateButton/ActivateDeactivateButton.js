@@ -16,7 +16,11 @@ function ActivateDeactivateButton(props) {
 
   return (
     <div onClick={deactivate}>
-      {active ? <Button>deactivate</Button> : <Button>activate</Button>}
+      {active ? (
+        <Button className="activationButton">deactivate</Button>
+      ) : (
+        <Button className="activationButton">activate</Button>
+      )}
     </div>
   );
 }

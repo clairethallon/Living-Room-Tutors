@@ -32,6 +32,7 @@ function TuteeCard(props) {
             <Col className="cardButtons" xs="2">
               <ActivateDeactivateButton />
               <MatchButton />
+              {/* <--conditionally render the MatchButton to only show up when the tutee is activated. */}
             </Col>
             {/* </Row> */}
           </Accordion.Header>
