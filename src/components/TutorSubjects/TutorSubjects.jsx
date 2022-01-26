@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import { Link } from 'react-router-dom'; 
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TutorSubjects with the name for the new component.
+
 function TutorSubjects(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Tutor Terms');
 
@@ -744,7 +742,7 @@ const changeNA = () => {
           </div>
       </div>
 
-
+      <Link to="/TutorAdditional" ><button>Add A New Tutor Info</button></Link>
 
 
     </div>

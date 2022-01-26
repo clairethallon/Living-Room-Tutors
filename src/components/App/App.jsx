@@ -27,7 +27,6 @@ import StudentSubjects from "../StudentSubjects/StudentSubjects";
 import StudentTerms from "../StudentTerms/StudentTerms";
 
 import TutorAdditional from "../TutorAdditional/TutorAdditional"
-import TutorAvailability from "../TutorAvailability/TutorAvailability"
 import TutorInfo from "../TutorInfo/TutorInfo";
 import TutorSubjects from "../TutorSubjects/TutorSubjects"
 import TutorTerms from "../TutorTerms/TutorTerms"
@@ -94,13 +93,6 @@ function App() {
             path="/TutorAdditional"
           >
             <TutorAdditional />
-          </Route>
-
-          <Route
-            exact
-            path="/TutorAvailability"
-          >
-            <TutorAvailability />
           </Route>
 
           <Route

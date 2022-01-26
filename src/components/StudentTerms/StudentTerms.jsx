@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import { Link } from 'react-router-dom'; 
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -10,11 +11,12 @@ function StudentTerms(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Student Terms');
 
-  const[newStudentTerms, setNewStudentTerms]= useState('False');
+  
+  const[studentterms, setStudentTerms]= useState( false );
 
   const changeStudentTerms= ()=>{
     console.log('in terms');
-    setNewStudentTerms(event.target.value);
+    setStudentTerms(!studentterms);
   }
 
 
@@ -41,10 +43,13 @@ function StudentTerms(props) {
         its directors and volunteers for damages that result from the use of our services, however caused, as 
         a result of the student's participation.</p>
 
-      <input type="radio" id="StudentTerms" name="StudentTerms" value="StudentTerms" onChange={(event)=>changeStudentTerms(event)}/>
-        <label for="StudentTerms">I Understand and Agree</label>
-      <input type="radio" id="StudentTerms" name="StudentTerms" value="StudentTerms" onChange={(event)=>changeStudentTerms(event)}/>
-        <label for="StudentTerms">I do not agree and do not want to recieve tutoring services.</label>
+        <div>
+          <input type="checkbox" id="Student Terms" name="Student Terms" onChange={(event)=>changeStudentTerms()}/>
+          <label for="Student Terms">I understand</label>
+        </div>
+        {/* <p>{JSON.stringify(studentterms)}</p> */}
+
+        <Link to="/StudentInfo" ><button>Submit</button></Link>
     </div>
   );
 }
