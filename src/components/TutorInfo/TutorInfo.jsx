@@ -1,30 +1,58 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import { Link } from 'react-router-dom'; 
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name StudentInfo with the name for the new component.
+
 function StudentInfo(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Tutor Info');
 
-  const[newTutorName, setNewTutorName]= useState();
+  const[newTutorFirstName, setNewTutorFirstName]= useState();
+  const[newTutorLastName, setNewTutorLastName]= useState();
   const[newTutorEmail, setNewEmail]= useState();
+
+  // ******** PRONOUN CHECK BOXES **************
+  const [sheHerPronoun, setsheHerPronoun] = useState( false );
+  const [heHimPronoun, setheHimPronoun] = useState( false );
+  const [theyThemPronoun, settheyThemPronoun] = useState( false );
+   // ******** PRONOUN CHECK BOXES **************
+
   const[newTutorPhone, setNewTutorPhone]= useState();
   const[newGrade, setNewGrade]= useState();
   const[newTutorSchool, setNewTutorSchool]= useState();
 
-      const changeTutorName= ()=>{
-        console.log('in new tutor name');
-        setNewTutorName(event.target.value);
+      const changeTutorFirstName= ()=>{
+        console.log('in new tutor first name');
+        setNewTutorFirstName(event.target.value);
     }
+
+    const changeTutorLastName= ()=>{
+      console.log('in new tutor last name');
+      setNewTutorLastName(event.target.value);
+  }
 
     const changeTutorEmail= ()=>{
       console.log('in new tutor email');
       setNewEmail(event.target.value);
     }
+
+    // ******** PRONOUN CHECK BOXES **************
+    const changesheHerPronoun = () => {
+      setsheHerPronoun(!sheHerPronoun);
+      console.log('she/her statues:', sheHerPronoun)
+    }
+
+    const changeheHimPronoun = () => {
+      setheHimPronoun(!heHimPronoun);
+      console.log('he/him statues:', heHimPronoun)
+    }
+
+    const changetheyThemPronoun = () => {
+      settheyThemPronoun(!theyThemPronoun);
+      console.log('he/him statues:', theyThemPronoun)
+    }
+    // ******** END END END END END**************
 
     const changeTutorPhone= ()=>{
       console.log('in new tutor phone');
@@ -45,7 +73,8 @@ function StudentInfo(props) {
     const AddNewTutorInfo =()=>{
       //package up new info in object
       const newStudentInfo = {
-        name: newTutorName,
+        firstName: newTutorFirstName,
+        lastName: newTutorLastName,
         email: newTutorEmail,
         phone: newTutorPhone,
         grade: newGrade,
@@ -60,14 +89,34 @@ function StudentInfo(props) {
     <div>
       <h2>{heading}</h2>
 
+      <div>
+        <h3>What is your name? (First and Last)</h3>
+        <input type="text" placeholder="Tutor First Name" onChange={(event)=>changeTutorFirstName(event)}></input>
+        <input type="text" placeholder="Tutor Last Name" onChange={(event)=>changeTutorLastName(event)}></input>
+      </div>
 
-      <h3>What is your name? (First and Last)</h3>
-      <input type="text" placeholder="Tutor Name" onChange={(event)=>changeTutorName(event)}></input>
-
-
+      <div>
       <h3>What is your email address?</h3>
       <p>Please confirm the email address you enter is correct. Email is our primary way of communicating with our tutors and tutees, so it is crucial that the email address that you provide is correct.</p>
       <input type="text" placeholder="Tutor Email" onChange={(event)=>changeTutorEmail(event)}></input>
+      </div>
+
+      <div>
+      <p>What are your preferred pronouns?</p>
+        <p>{JSON.stringify(sheHerPronoun)}</p>
+        <div>
+          <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
+          <label for="She/Her">She/Her</label>
+        </div> 
+        <div>
+          <input type="checkbox" id="He/Him" name="He/Him" onChange={(event)=>changeheHimPronoun()}/>
+          <label for="He/Him">He/Him</label>
+        </div>
+        <div>
+          <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
+          <label for="They/Them">They/Them</label>
+        </div>
+      </div>
       
 
       <h3>What is your phone number?</h3>
@@ -99,7 +148,7 @@ function StudentInfo(props) {
         </select>
         </div>
 
-      <button onClick={AddNewTutorInfo}>Add A New Tutor Info</button>
+        <Link to="/TutorSubjects" ><button>Add A New Tutor Info</button></Link>
     </div>
   );
 }

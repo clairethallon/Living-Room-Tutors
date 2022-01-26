@@ -23,13 +23,10 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import Test from "../Test/Test";
 
 import StudentAdditional from "../StudentAdditional/StudentAdditional";
-import StudentAvailability from "../StudentAvailability/StudentAvailability";
 import StudentInfo from "../StudentInfo/StudentInfo";
 import StudentSubjects from "../StudentSubjects/StudentSubjects";
 import StudentTerms from "../StudentTerms/StudentTerms";
 
-import TutorAdditional from "../TutorAdditional/TutorAdditional";
-import TutorAvailability from "../TutorAvailability/TutorAvailability";
 import TutorInfo from "../TutorInfo/TutorInfo";
 import TutorSubjects from "../TutorSubjects/TutorSubjects";
 import TutorTerms from "../TutorTerms/TutorTerms";
@@ -72,10 +69,6 @@ function App() {
             <StudentAdditional />
           </Route>
 
-          <Route exact path="/StudentAvailability">
-            <StudentAvailability />
-          </Route>
-
           <Route exact path="/StudentInfo">
             <StudentInfo />
           </Route>
@@ -90,10 +83,6 @@ function App() {
 
           <Route exact path="/TutorAdditional">
             <TutorAdditional />
-          </Route>
-
-          <Route exact path="/TutorAvailability">
-            <TutorAvailability />
           </Route>
 
           <Route exact path="/TutorInfo">
