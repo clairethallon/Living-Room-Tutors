@@ -10,7 +10,7 @@ import TuteeProfile from "../TuteeProfile/TuteeProfile";
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TuteeCard with the name for the new component.
-function TuteeCard(props) {
+function TuteeMatchCard(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
@@ -25,14 +25,10 @@ function TuteeCard(props) {
             <Col xs="3">Tutee Name</Col>
             <Col xs="2">01.25.2022</Col>
             <Col xs="2">12th Grade</Col>
-            <Col xs="2" className="flaggedSubjectLanguage">
+            <Col xs="3">1st subject choice</Col>
+            <Col xs="1" className="flaggedSubjectLanguage">
               <SubjectFlag />
               <LanguageFlag />
-            </Col>
-            <Col className="cardButtons" xs="2">
-              <ActivateDeactivateButton />
-              <MatchButton />
-              {/* <--conditionally render the MatchButton to only show up when the tutee is activated. */}
             </Col>
             {/* </Row> */}
           </Accordion.Header>
@@ -45,4 +41,4 @@ function TuteeCard(props) {
   );
 }
 
-export default TuteeCard;
+export default TuteeMatchCard;

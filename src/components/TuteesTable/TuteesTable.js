@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Table, Card, Col, Row } from "react-bootstrap";
 import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeactivateButton";
-import MatchButton from "../MatchButton/MatchButton";
+import MatchButton from "../MatchButton/MatchPageButton";
 import TuteeCard from "../TuteeCard/TuteeCard";
 
 // Basic functional component structure for React with default state

@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import AdminNavBar from "../AdminNavBar/AdminNavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import TuteeMatchCard from "../TuteeMatchCard/TuteeMatchCard";
+import TutorMatchCard from "../TutorMatchCard/TutorMatchCard";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -30,6 +32,11 @@ function MatchPage(props) {
           </p>
         </div>
       </div>
+      <TuteeMatchCard />
+      <h3>Select Tutor to Complete Match</h3>
+      <TutorMatchCard />
+      <TutorMatchCard />
+      <TutorMatchCard />
     </div>
   );
 }

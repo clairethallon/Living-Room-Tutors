@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name MatchButton with the name for the new component.
-function MatchButton(props) {
+function MatchPageButton(props) {
   const history = useHistory();
 
   const store = useSelector((store) => store);
@@ -23,4 +23,4 @@ function MatchButton(props) {
   );
 }
 
-export default MatchButton;
+export default MatchPageButton;
