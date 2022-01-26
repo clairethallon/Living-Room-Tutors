@@ -27,7 +27,7 @@ function TutorSubjects(props) {
   // ******** GRADE CHECK BOXES **************
  
   // ******** SUBJECT CHECK BOXES **************
-  const [K5Math, changeK5Math] = useState( false );
+  const [K5Math, setK5Math] = useState( false );
   const [K5Reading, setK5Reading] = useState( false );
   const [K5EnglishWriting, setK5EnglishWriting] = useState( false );
   const [K5SocialStudies, setK5SocialStudies] = useState( false );
@@ -47,9 +47,28 @@ function TutorSubjects(props) {
   const [LanguageSpanish, setLanguageSpanish] = useState( false );
   const [LanguageFrench, setLanguageFrench] = useState( false );
   const [LanguageGerman, setLanguageGerman] = useState( false );
-
   const [WorldHistory, setWorldHistory] = useState( false );
   const [USHistory, setUSHistory] = useState( false );
+  const [APHonorsBiology, setAPHonorsBiology] = useState( false );
+  const [APHonorsChemistry, setAPHonorsChemistry] = useState( false );
+  const [APHonorsPhysics, setAPHonorsPhysics] = useState( false );
+  const [APHonorsComputerScience, setAPHonorsComputerScience] = useState( false );
+  const [APHonorsCalculusAB, setAPHonorsCalculusAB] = useState( false );
+  const [APHonorsCalculusBC, setAPHonorsCalculusBC] = useState( false );
+  const [APHonorsStatistics, setAPHonorsStatistics] = useState( false );
+  const [APHonorsEnglishLiterature, setAPHonorsEnglishLiterature] = useState( false );
+  const [APHonorsEnglishLanguage, setAPHonorsEnglishLanguage] = useState( false );
+
+  const [APHonorsMacroeconomics, setAPHonorsMacroeconomics] = useState( false );
+  const [APHonorsMicroeconomics, setAPHonorsMicroeconomics] = useState( false );
+  const [APHonorsUSHistory, setAPHonorsUSHistory] = useState( false );
+
+  const [APHonorsGovernmentPolitics, setAPHonorsGovernmentPolitics] = useState( false );
+  const [APHonorsHumanGeography, setAPHonorsHumanGeography] = useState( false );
+  const [SATSubjectTests, setSATSubjectTests] = useState( false );
+  const [SATPrep, setSATPrep] = useState( false );
+  const [ACTPrep, setACTPrep] = useState( false );
+  const [Other, setOther] = useState( false );
   // ******** SUBJECT CHECK BOXES **************
 
 
@@ -237,8 +256,97 @@ const changeUSHistory= () => {
   setUSHistory(!USHistory);
   console.log('USHistory', USHistory)
 }
-// **************** TUTOR SUBJECTS *******************
 
+const changeAPHonorsBiology= () => {
+  setAPHonorsBiology(!APHonorsBiology);
+  console.log('APHonorsBiology', APHonorsBiology)
+}
+
+const changeAPHonorsChemistry= () => {
+  setAPHonorsChemistry(!APHonorsChemistry);
+  console.log('APHonorsChemistry', APHonorsChemistry)
+}
+
+const changeAPHonorsPhysics= () => {
+  setAPHonorsPhysics(!APHonorsPhysics);
+  console.log('APHonorsPhysics', APHonorsPhysics)
+}
+
+const changeAPHonorsComputerScience= () => {
+  setAPHonorsComputerScience(!APHonorsComputerScience);
+  console.log('APHonorsComputerScience', APHonorsComputerScience)
+}
+
+const changeAPHonorsCalculusAB= () => {
+  setAPHonorsCalculusAB(!APHonorsCalculusAB);
+  console.log('APHonorsCalculusAB', APHonorsCalculusAB)
+}
+
+const changeAPHonorsCalculusBC= () => {
+  setAPHonorsCalculusBC(!APHonorsCalculusBC);
+  console.log('APHonorsCalculusBC', APHonorsCalculusBC)
+}
+
+const changeAPHonorsStatistics= () => {
+  setAPHonorsStatistics(!APHonorsStatistics);
+  console.log('APHonorsStatistics', APHonorsStatistics)
+}
+
+const changeAPHonorsEnglishLiterature= () => {
+  setAPHonorsEnglishLiterature(!APHonorsEnglishLiterature);
+  console.log('APHonorsEnglishLiterature', APHonorsEnglishLiterature)
+}
+
+const changeAPHonorsEnglishLanguage= () => {
+  setAPHonorsEnglishLanguage(!APHonorsEnglishLanguage);
+  console.log('APHonorsEnglishLanguage', APHonorsEnglishLanguage)
+}
+
+const changeAPHonorsMacroeconomics= () => {
+  setAPHonorsMacroeconomics(!APHonorsMacroeconomics);
+  console.log('APHonorsMacroeconomics', APHonorsMacroeconomics)
+}
+
+const changeAPHonorsMicroeconomics= () => {
+  setAPHonorsMicroeconomics(!APHonorsMicroeconomics);
+  console.log('APHonorsMicroeconomics', APHonorsMicroeconomics)
+}
+
+const changeAPHonorsUSHistory= () => {
+  setAPHonorsUSHistory(!APHonorsUSHistory);
+  console.log('APHonorsUSHistory', APHonorsUSHistory)
+}
+
+const changeAPHonorsGovernmentPolitics= () => {
+  setAPHonorsGovernmentPolitics(!APHonorsGovernmentPolitics);
+  console.log('APHonorsGovernmentPolitics', APHonorsGovernmentPolitics)
+}
+const changeAPHonorsHumanGeography= () => {
+  setAPHonorsHumanGeography(!APHonorsHumanGeography);
+  console.log('APHonorsHumanGeography', APHonorsHumanGeography)
+}
+
+const changeSATSubjectTests= () => {
+  setSATSubjectTests(!SATSubjectTests);
+  console.log('SATSubjectTests', SATSubjectTests)
+}
+
+const changeSATPrep= () => {
+  setSATPrep(!SATPrep);
+  console.log('SATPrep', SATPrep)
+}
+
+const changeACTPrep= () => {
+  setACTPrep(!ACTPrep);
+  console.log('ACTPrep', ACTPrep)
+}
+
+const changeOther= () => {
+  setOther(!Other);
+  console.log('Other', Other)
+}
+
+// **************** TUTOR SUBJECTS *******************
 
   return (
     <div>
@@ -431,32 +539,101 @@ const changeUSHistory= () => {
           <label for="History: U.S. History">History: U.S. History</label>
         </div>
 
+        <div>
+          <input type="checkbox" id="AP Honors Biology" name="AP Honors Biology" onChange={(event)=>changeAPHonorsBiology()}/>
+          <label for="AP Honors Biology">AP Honors Biology</label>
+        </div>
 
+        <div>
+          <input type="checkbox" id="AP Honors Chemistry" name="AP Honors Chemistry" onChange={(event)=>changeAPHonorsChemistry()}/>
+          <label for="AP Honors Chemistry">AP Honors Chemistry</label>
+        </div>
 
-          <option value="AP Honors Biology">AP Honors Biology</option>
-          <option value="AP Honors Chemistry">AP Honors Chemistry</option>
-          <option value="AP Honors Physics">AP Honors Physics</option>
-          <option value="AP Honors Computer Science">AP Honors Computer Science</option>
+        <div>
+          <input type="checkbox" id="AP Honors Physics" name="AP Honors Physics" onChange={(event)=>changeAPHonorsPhysics()}/>
+          <label for="AP Honors Physics">AP Honors Physics</label>
+        </div>
 
-          <option value="AP Honors Calculus AB">AP Honors Calculus AB</option>
-          <option value="AP Honors Calculus BC">AP Honors Calculus BC</option>
-          <option value="AP Honors Statistics">AP Honors Statistics</option>
+        <div>
+          <input type="checkbox" id="AP Honors Computer Science" name="AP Honors Computer Science" onChange={(event)=>changeAPHonorsComputerScience()}/>
+          <label for="AP Honors Computer Science">AP Honors Computer Science</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="AP Honors Calculus AB" name="AP Honors Calculus AB" onChange={(event)=>changeAPHonorsCalculusAB()}/>
+          <label for="AP Honors Calculus AB">AP Honors Calculus AB</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="AP Honors Calculus BC" name="AP Honors Calculus BC" onChange={(event)=>changeAPHonorsCalculusBC()}/>
+          <label for="AP Honors Calculus BC">AP Honors Calculus BC</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="AP Honors Statistics" name="AP Honors Statistics" onChange={(event)=>changeAPHonorsStatistics()}/>
+          <label for="AP Honors Statistics">AP Honors Statistics</label>
+        </div>
           
-          <option value="AP Honors English Literature and Composition">AP Honors English Literature and Composition</option>
-          <option value="AP Honors English Language and Composition">AP Honors English Language and Composition</option>
+        <div>
+          <input type="checkbox" id="AP Honors English Literature and Composition" name="AP Honors English Literature and Composition" onChange={(event)=>changeAPHonorsEnglishLiterature()}/>
+          <label for="AP Honors English Literature and Composition">AP Honors English Literature and Composition</label>
+        </div>
 
-          <option value="AP Honors Macroeconomics">AP Honors Macroeconomics</option>
-          <option value="AP Honors Microeconomics">AP Honors Microeconomics</option>
-          <option value="AP Honors Psychology">AP Honors Psychology</option>
+        <div>
+          <input type="checkbox" id="AP Honors English Language and Composition" name="AP Honors English Language and Composition" onChange={(event)=>changeAPHonorsEnglishLanguage()}/>
+          <label for="AP Honors English Language and Composition">AP Honors English Language and Composition</label>
+        </div>
 
-          <option value="AP Honors United States History">AP Honors United States History</option>
-          <option value="AP Honors Government and Politics">AP Honors Government and Politics</option>
-          <option value="AP Honors Human Geography">AP Honors Human Geography</option>
-          
-          <option value="SAT Subject Tests">SAT Subject Tests</option>
-          <option value="SAT Prep">SAT Prep</option>
-          <option value="ACT Prep">ACT Prep</option>
-          <option value="Other">Other</option>
+        <div>
+          <input type="checkbox" id="AP Honors Macroeconomics" name="AP Honors Macroeconomics" onChange={(event)=>changeAPHonorsMacroeconomics()}/>
+          <label for="AP Honors Macroeconomics">AP Honors Macroeconomics</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="AP Honors Microeconomics" name="AP Honors Microeconomics" onChange={(event)=>changeAPHonorsMicroeconomics()}/>
+          <label for="AP Honors Microeconomics">AP Honors Microeconomics</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="AP Honors Psychology" name="AP Honors Psychology" onChange={(event)=>changeAPHonorsPsychology()}/>
+          <label for="AP Honors Psychology">AP Honors Psychology</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="AP Honors United States History" name="AP Honors United States History" onChange={(event)=>changeAPHonorsUSHistory()}/>
+          <label for="AP Honors United States History">AP Honors United States History</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="AP Honors Government and Politics" name="AP Honors Government and Politics" onChange={(event)=>changeAPHonorsGovernmentPolitics()}/>
+          <label for="AP Honors Government and Politics">AP Honors Government and Politics</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="AP Honors Human Geography" name="AP Honors Human Geography" onChange={(event)=>changeAPHonorsHumanGeography()}/>
+          <label for="AP Honors Human Geography">AP Honors Human Geography</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="SAT Subject Tests" name="SAT Subject Tests" onChange={(event)=>changeSATSubjectTests()}/>
+          <label for="SAT Subject Tests">SAT Subject Tests</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="SAT Prep" name="SAT Prep" onChange={(event)=>changeSATPrep()}/>
+          <label for="SAT Prep">SAT Prep</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="ACT Prep" name="ACT Prep" onChange={(event)=>changeACTPrep()}/>
+          <label for="ACT Prep">ACT Prep</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="Other" name="Other" onChange={(event)=>changeOther()}/>
+          <label for="Other">Other</label>
+        </div>
+    
         
 
 
