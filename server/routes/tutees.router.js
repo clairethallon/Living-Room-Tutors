@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
 router.get("/active", (req, res) => {
   const query = `SELECT * FROM tutees
   WHERE tutees.active_tutee = true
-  ORDER BY submission_timestamp ASC;`;
+  ORDER BY matched, submission_timestamp ASC;`;
   pool
     .query(query)
     .then((result) => {
