@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import TutorsTable from "../TutorsTable/TutorsTable";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -12,7 +13,10 @@ function DeactivatedTutors(props) {
 
   return (
     <div>
-      <h2>{heading}</h2>
+      <h1>Deactivated Tutees</h1>
+      {/* number will be replaced with an actual count from the db */}
+      <p>3 count of pending tutees</p>
+      <TutorsTable />
     </div>
   );
 }

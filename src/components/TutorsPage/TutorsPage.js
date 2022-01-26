@@ -17,7 +17,6 @@ function TutorsPage(props) {
   return (
     <div className="adminPageContainer">
       <AdminNavBar />
-      <h1>Tutor Page</h1>
       <Tabs
         defaultActiveKey="Pending-Tutors"
         id="uncontrolled-tab-example"
