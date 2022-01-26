@@ -5,6 +5,7 @@ import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeacti
 import MatchButton from "../MatchButton/MatchButton";
 import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
+import TuteeProfile from "../TuteeProfile/TuteeProfile";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -35,13 +36,7 @@ function TuteeCard(props) {
             {/* </Row> */}
           </Accordion.Header>
           <Accordion.Body>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            <TuteeProfile />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
