@@ -18,15 +18,15 @@ function TutorMatchCard(props) {
 
   return (
     <div>
-      <Accordion className="mb-3" defaultActiveKey="0">
+      <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             {/* <Row> */}
             <Col xs="3">Tutor Name</Col>
             <Col xs="2">01.25.2022</Col>
             <Col xs="2">12th Grade</Col>
-            <Col xs="2">AP/Honors English Literature and Composition</Col>
-            <Col xs="2" className="flaggedSubjectLanguage">
+            <Col xs="3">AP/Honors English Literature and Composition</Col>
+            <Col xs="1" className="flaggedSubjectLanguage">
               <SubjectFlag />
               <LanguageFlag />
             </Col>
