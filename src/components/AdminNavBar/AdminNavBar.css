@@ -1,0 +1,43 @@
+.AdminNav {
+  /* flex box layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: flex-start;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  /* margin: 0 0 30px; */
+  background-color: #43545744;
+  overflow: hidden;
+  padding: 15px;
+  width: 300px;
+}
+
+.AdminNavLink {
+  font-size: 32px;
+  margin-top: 10px;
+}
+
+.AdminNavLinks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 140px;
+}
+
+.logoutButton {
+  display: flex;
+}
+
+.adminNavContents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%;
+}
+
+.navLogo {
+  width: 250px;
+}

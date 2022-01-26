@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import {
   HashRouter as Router,
+  matchPath,
   Redirect,
   Route,
   Switch,
@@ -26,12 +27,15 @@ import StudentInfo from "../StudentInfo/StudentInfo";
 import StudentSubjects from "../StudentSubjects/StudentSubjects";
 import StudentTerms from "../StudentTerms/StudentTerms";
 
-import TutorAdditional from "../TutorAdditional/TutorAdditional"
 import TutorInfo from "../TutorInfo/TutorInfo";
-import TutorSubjects from "../TutorSubjects/TutorSubjects"
-import TutorTerms from "../TutorTerms/TutorTerms"
+import TutorSubjects from "../TutorSubjects/TutorSubjects";
+import TutorTerms from "../TutorTerms/TutorTerms";
 
 import "./App.css";
+import TuteesPage from "../TuteesPage/TuteesPage";
+import TutorsPage from "../TutorsPage/TutorsPage";
+import RecordsPage from "../RecordsPage /RecordsPage";
+import MatchPage from "../MatchPage/MatchPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,7 +49,8 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        {/* nav bar needs to be moved to the individual components that have to do with a normal (non-admin) user */}
+        {/* <Nav /> */}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -53,66 +58,42 @@ function App() {
           {/* Unprotected Routes */}
           <Route
             // shows AboutPage at all times (logged in or not)
-            
+
             exact
             path="/about"
           >
             <AboutPage />
           </Route>
 
-          <Route
-            exact
-            path="/StudentAdditional"
-          >
+          <Route exact path="/StudentAdditional">
             <StudentAdditional />
           </Route>
 
-          <Route
-            exact
-            path="/StudentInfo"
-          >
+          <Route exact path="/StudentInfo">
             <StudentInfo />
           </Route>
 
-          <Route
-            exact
-            path="/StudentSubjects"
-          >
+          <Route exact path="/StudentSubjects">
             <StudentSubjects />
           </Route>
 
-          <Route
-            exact
-            path="/StudentTerms"
-          >
+          <Route exact path="/StudentTerms">
             <StudentTerms />
           </Route>
 
-          <Route
-            exact
-            path="/TutorAdditional"
-          >
+          <Route exact path="/TutorAdditional">
             <TutorAdditional />
           </Route>
 
-          <Route
-            exact
-            path="/TutorInfo"
-          >
+          <Route exact path="/TutorInfo">
             <TutorInfo />
           </Route>
 
-          <Route
-            exact
-            path="/TutorSubjects"
-          >
+          <Route exact path="/TutorSubjects">
             <TutorSubjects />
           </Route>
 
-          <Route
-            exact
-            path="/TutorTerms"
-          >
+          <Route exact path="/TutorTerms">
             <TutorTerms />
           </Route>
 
@@ -120,27 +101,59 @@ function App() {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <ProtectedRoute
+          <Route
             // logged in shows UserPage else shows LoginPage
             exact
             path="/user"
           >
             <UserPage />
-          </ProtectedRoute>
+          </Route>
 
-          <ProtectedRoute
+          <Route
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/info"
           >
             <InfoPage />
+          </Route>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/admin"
+          >
+            <TuteesPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/tutors"
+          >
+            <TutorsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/records"
+          >
+            <RecordsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/match"
+          >
+            <MatchPage />
           </ProtectedRoute>
 
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/admin" />
             ) : (
               // Otherwise, show the login page
               <LoginPage />
@@ -151,10 +164,10 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/admin" />
             ) : (
               // Otherwise, show the registration page
-              <RegisterPage />
+              <TuteesPage />
             )}
           </Route>
 
