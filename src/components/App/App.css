@@ -195,3 +195,19 @@ td:last-child {
   display: flex;
   justify-content: space-evenly;
 }
+
+.flaggedSubjectLanguage {
+  display: flex;
+}
+
+.flag {
+  margin-right: 3px;
+}
+
+.subjectFlag {
+  color: #fe7e6d;
+}
+
+.languageFlag {
+  color: #2f3a8f;
+}

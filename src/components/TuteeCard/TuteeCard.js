@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { Accordion, Row, Col } from "react-bootstrap";
 import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeactivateButton";
 import MatchButton from "../MatchButton/MatchButton";
+import LanguageFlag from "../LanguageFlag/LanguageFlag";
+import SubjectFlag from "../SubjectFlag/SubjectFlag";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -20,8 +22,12 @@ function TuteeCard(props) {
           <Accordion.Header>
             {/* <Row> */}
             <Col xs="3">Tutee Name</Col>
-            <Col xs="3">01.25.2022</Col>
-            <Col xs="3">12th Grade</Col>
+            <Col xs="2">01.25.2022</Col>
+            <Col xs="2">12th Grade</Col>
+            <Col xs="2" className="flaggedSubjectLanguage">
+              <SubjectFlag />
+              <LanguageFlag />
+            </Col>
             <Col className="cardButtons" xs="2">
               <ActivateDeactivateButton />
               <MatchButton />

@@ -178,7 +178,7 @@ function App() {
               <Redirect to="/admin" />
             ) : (
               // Otherwise, show the registration page
-              <TuteesPage />
+              <RegisterPage /> //<----this might need to change back to <TuteesPage/> depending on the client needs and how we want to approach admin registration
             )}
           </Route>
 
