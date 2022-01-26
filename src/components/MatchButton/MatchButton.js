@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { Button } from "react-bootstrap";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -12,7 +13,7 @@ function MatchButton(props) {
 
   return (
     <div>
-      <h2>{heading}</h2>
+      <Button>Match</Button>
     </div>
   );
 }
