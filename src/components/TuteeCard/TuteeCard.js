@@ -2,42 +2,39 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Accordion, Row, Col } from "react-bootstrap";
 import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeactivateButton";
-import MatchButton from "../MatchButton/MatchPageButton";
+import MatchPageButton from "../MatchPageButton/MatchPageButton";
 import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TuteeProfile from "../TuteeProfile/TuteeProfile";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TuteeCard with the name for the new component.
 function TuteeCard(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [heading, setHeading] = useState("Functional Component");
-
   return (
     <div>
+      {JSON.stringify(props)}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             {/* <Row> */}
-            <Col xs="3">Tutee Name</Col>
-            <Col xs="2">01.25.2022</Col>
-            <Col xs="2">12th Grade</Col>
+            <Col xs="3">
+              <p>
+                {props.tutee.student_first_name} {props.tutee.student_last_name}
+              </p>
+            </Col>
+            <Col xs="2">{props.tutee.submission_timestamp}</Col>
+            <Col xs="2">{props.tutee.grade_level}</Col>
             <Col xs="2" className="flaggedSubjectLanguage">
               <SubjectFlag />
               <LanguageFlag />
             </Col>
             <Col className="cardButtons" xs="2">
               <ActivateDeactivateButton />
-              <MatchButton />
+              <MatchPageButton />
               {/* <--conditionally render the MatchButton to only show up when the tutee is activated. */}
             </Col>
             {/* </Row> */}
           </Accordion.Header>
           <Accordion.Body>
-            <TuteeProfile />
+            <TuteeProfile tutee={props.tutee} />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
