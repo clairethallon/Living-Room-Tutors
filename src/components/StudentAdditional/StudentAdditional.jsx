@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import { Link } from 'react-router-dom'; 
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -10,9 +11,24 @@ function StudentAdditional(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Student Additional Info');
 
+  const[newAdditionalInfo, setNewAdditionalInfo]= useState();
+
+  const changeAdditionalInfo= ()=>{
+    console.log('in any additional info');
+    setNewAdditionalInfo(event.target.value);
+  }
+
+
   return (
     <div>
       <h2>{heading}</h2>
+
+      <div>
+        <h3>Is there anything else you want us to know about the student?</h3>
+        <input type="text" placeholder="AdditionalInfo" onChange={(event)=>changeAdditionalInfo(event)}></input>
+      </div>
+
+      <Link to="/StudentTerms" ><button>Save and Continue</button></Link>
     </div>
   );
 }

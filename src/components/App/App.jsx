@@ -23,16 +23,14 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import Test from "../Test/Test";
 
 import StudentAdditional from "../StudentAdditional/StudentAdditional";
-import StudentAvailability from "../StudentAvailability/StudentAvailability";
 import StudentInfo from "../StudentInfo/StudentInfo";
 import StudentSubjects from "../StudentSubjects/StudentSubjects";
 import StudentTerms from "../StudentTerms/StudentTerms";
 
-import TutorAdditional from "../TutorAdditional/TutorAdditional";
-import TutorAvailability from "../TutorAvailability/TutorAvailability";
 import TutorInfo from "../TutorInfo/TutorInfo";
 import TutorSubjects from "../TutorSubjects/TutorSubjects";
 import TutorTerms from "../TutorTerms/TutorTerms";
+import TutorAdditional from "../TutorAdditional/TutorAdditional";
 
 import "./App.css";
 import TuteesPage from "../TuteesPage/TuteesPage";
@@ -72,10 +70,6 @@ function App() {
             <StudentAdditional />
           </Route>
 
-          <Route exact path="/StudentAvailability">
-            <StudentAvailability />
-          </Route>
-
           <Route exact path="/StudentInfo">
             <StudentInfo />
           </Route>
@@ -90,10 +84,6 @@ function App() {
 
           <Route exact path="/TutorAdditional">
             <TutorAdditional />
-          </Route>
-
-          <Route exact path="/TutorAvailability">
-            <TutorAvailability />
           </Route>
 
           <Route exact path="/TutorInfo">
@@ -166,10 +156,11 @@ function App() {
               // redirect to the /user page
               <Redirect to="/admin" />
             ) : (
-              // Otherwise, show the login page
-              <LoginPage />
-            )}
+                // Otherwise, show the login page
+                <LoginPage />
+              )}
           </Route>
+
 
           <Route exact path="/registration">
             {user.id ? (
@@ -193,9 +184,9 @@ function App() {
               // redirect them to the /user page
               <Redirect to="/user" />
             ) : (
-              // Otherwise, show the Landing page
-              <LandingPage />
-            )}
+                // Otherwise, show the Landing page
+                <LandingPage />
+              )}
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
