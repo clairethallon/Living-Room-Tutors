@@ -22,7 +22,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/active", (req, res) => {
-  const query = `  SELECT 
+  console.log('in tutees/active get router');
+  const query = `SELECT 
   tutee.id,
   student_first_name AS tutee_firstname,
 student_last_name AS tutee_lastname,
@@ -30,6 +31,7 @@ pronouns AS tutee_pronouns,
 student_or_guardian,
 email_guardian,
 email_student,
+phone AS tutee_phone,
 grade_level AS tutee_grade,
 school AS tutee_school,
 subject_other AS tutee_subject_other,
@@ -47,7 +49,7 @@ language."Tagalog" AS tutee_language_Tagalog,
 language."Vietnamese" AS tutee_language_Vietnamese,
 language."Spanish" AS tutee_language_Spanish,
 language."Other" AS tutee_language_Other,
-matched AS tutee_matches,
+matched AS tutee_matched,
 Subject1.subject AS subject_1, 
 Subject2.subject AS subject_2,
 Subject3.subject AS subject_3
@@ -71,7 +73,8 @@ Subject3.subject AS subject_3
 });
 
 router.get("/deactive", (req, res) => {
-  const query = `  SELECT 
+  console.log('in tutees/deactive get router');
+  const query = `SELECT 
   tutee.id,
   student_first_name AS tutee_firstname,
 student_last_name AS tutee_lastname,
@@ -79,6 +82,7 @@ pronouns AS tutee_pronouns,
 student_or_guardian,
 email_guardian,
 email_student,
+phone AS tutee_phone,
 grade_level AS tutee_grade,
 school AS tutee_school,
 subject_other AS tutee_subject_other,
@@ -96,7 +100,7 @@ language."Tagalog" AS tutee_language_Tagalog,
 language."Vietnamese" AS tutee_language_Vietnamese,
 language."Spanish" AS tutee_language_Spanish,
 language."Other" AS tutee_language_Other,
-matched AS tutee_matches,
+matched AS tutee_matched,
 Subject1.subject AS subject_1, 
 Subject2.subject AS subject_2,
 Subject3.subject AS subject_3
