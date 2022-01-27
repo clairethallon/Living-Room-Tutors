@@ -115,6 +115,7 @@ input {
   padding-left: 350px;
   padding-right: 50px;
   min-height: 100vh;
+  padding-top: 40px;
 }
 
 /* --------------------------------------------------------------------------------
@@ -193,5 +194,45 @@ td:last-child {
 
 .cardButtons {
   display: flex;
-  justify-content: space-evenly;
+}
+
+.flaggedSubjectLanguage {
+  display: flex;
+}
+
+.flag {
+  margin-right: 3px;
+}
+
+.subjectFlag {
+  color: #fe7e6d;
+}
+
+.languageFlag {
+  color: #2f3a8f;
+}
+
+.activationButton {
+  margin-right: 7px;
+}
+
+.tuteeInfoSubjectsAndLanguages {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.tuteeInfoSubjectsAndLanguages h2 {
+  margin-bottom: 0px;
+}
+
+.tuteeInfoSubjectsAndLanguages p {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  margin-bottom: 0px;
+}
+
+.subjectAndLanguage {
+  display: flex;
 }

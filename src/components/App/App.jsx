@@ -161,15 +161,16 @@ function App() {
               )}
           </Route>
 
+
           <Route exact path="/registration">
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/admin" />
             ) : (
-                // Otherwise, show the registration page
-                <TuteesPage />
-              )}
+              // Otherwise, show the registration page
+              <RegisterPage /> //<----this might need to change back to <TuteesPage/> depending on the client needs and how we want to approach admin registration
+            )}
           </Route>
 
           {/* THIS IS JUST A TEST */}
