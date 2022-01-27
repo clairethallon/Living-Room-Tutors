@@ -7,32 +7,33 @@ const router = express.Router();
  */
 
 router.get("/", (req, res) => {
-  const query = `	SELECT
-  matches.id,
-  tutor_id,
-  tutee_id,
-  match_timestamp,
-  emails_sent,
-  tutor_first_name,
-  tutor_last_name,
-  tutors.pronouns AS tutor_pronouns,
-  tutors.grade_level AS tutor_grade,
-  tutors.school AS tutor_school,
-  tutors.misc_info AS tutor_miscInfo,
-  active_tutor,
-  student_first_name AS tutee_firstname,
-  student_last_name  AS tutee_lastname,
-  tutees.pronouns AS tutee_pronouns,
-  student_or_guardian,
-  email_guardian,
-  email_student,
-  tutees.grade_level AS tutee_grade,
-  tutees.school AS tutee_school,
-  tutees.subject_other AS tutee_subject_details,
-  tutees.misc_info AS tutee_misc_info,
-  Subject1.subject AS subject_1, 
+  const query = `SELECT
+matches.id,
+tutor_id,
+tutee_id,
+match_timestamp,
+emails_sent,
+tutor_first_name,
+tutor_last_name,
+tutors.pronouns AS tutor_pronouns,
+tutors.grade_level AS tutor_grade,
+tutors.school AS tutor_school,
+tutors.misc_info AS tutor_miscInfo,
+active_tutor,
+student_first_name AS tutee_firstname,
+student_last_name  AS tutee_lastname,
+tutees.pronouns AS tutee_pronouns,
+student_or_guardian,
+email_guardian,
+email_student,
+tutees.grade_level AS tutee_grade,
+tutees.school AS tutee_school,
+tutees.subject_other AS tutee_subject_other,
+tutees.subject_details AS tutee_subject_details,
+tutees.misc_info AS tutee_misc_info,
+Subject1.subject AS subject_1, 
 Subject2.subject AS subject_2,
-  Subject3.subject AS subject_3, 
+Subject3.subject AS subject_3, 
 mentoring_grade.prek_kindergarten,
 mentoring_grade."1st",
 "2nd",
@@ -47,37 +48,37 @@ mentoring_grade."1st",
 "11th",
 "12th",
 subjects_tutors."K5_Math" AS tutor_K5_Math,
-		subjects_tutors."K5_Reading" AS tutor_K5_Reading,
-		subjects_tutors."K5_English_Writing" AS tutor_K5_English_Writing,
-		subjects_tutors."K5_Science" AS tutor_K5_Science,
-		subjects_tutors."6th_to_8th_language_arts" AS tutor_6th_to_8th_language_arts,
-		subjects_tutors."6th_to_8th_science" AS tutor_6th_to_8th_science,
-		subjects_tutors."6th_to_8th_social_studies" AS tutor_6th_to_8th_social_studies,
-		subjects_tutors."math_pre_algebra" AS tutor_math_pre_algebra,
-		subjects_tutors."math_alg1_linear_alg" AS tutor_math_alg1_linear_alg,
-		subjects_tutors."math_alg2" AS tutor_math_alg2,
-		subjects_tutors."math_geom" AS tutor_math_geom,
-		subjects_tutors."math_precalc_trig" AS tutor_math_precalc_trig,
-		subjects_tutors."sci_bio_life" AS tutor_sci_bio_life,
-		subjects_tutors."sci_chem" AS tutor_sci_chem,
-		subjects_tutors."sci_physics" AS tutor_sci_physics,
-		subjects_tutors."sci_comp_sci" AS tutor_sci_comp_sci,
-		subjects_tutors."lang_chinese" AS tutor_lang_chinese,
-		subjects_tutors."lang_german" AS tutor_lang_german,
-				subjects_tutors."hist_word" AS tutor_hist_word,
-				subjects_tutors."hist_us" AS tutor_hist_us,
-				subjects_tutors."ap_bio" AS tutor_lap_bio,
-				subjects_tutors."ap_chem" AS tutor_ap_chem,
-				subjects_tutors."ap_physics" AS tutor_ap_physics,
-				subjects_tutors."ap_calc_AB" AS tutor_ap_calc_AB,
-				subjects_tutors."ap_calc_BC" AS tutor_ap_calc_BC,
-				subjects_tutors."ap_stats" AS tutor_ap_stats,
-				subjects_tutors."ap_comp_sci" AS tutor_p_comp_sci,
-				subjects_tutors."ap_english_lit_comp" AS tutor_lap_english_lit_comp,
-				subjects_tutors."ap_lang_comp" AS tutor_ap_lang_comp,
-				subjects_tutors."ap_macro_econ" AS tutor_ap_macro_econ,
-				subjects_tutors."ap_micro_econ" AS tutor_ap_micro_econ,
-				subjects_tutors."ap_psyc" AS tutor_ap_psyc, subjects_tutors."ap_hist_us" AS tutor_ap_hist_us,
+subjects_tutors."K5_Reading" AS tutor_K5_Reading,
+subjects_tutors."K5_English_Writing" AS tutor_K5_English_Writing,
+subjects_tutors."K5_Science" AS tutor_K5_Science,
+subjects_tutors."6th_to_8th_language_arts" AS tutor_6th_to_8th_language_arts,
+subjects_tutors."6th_to_8th_science" AS tutor_6th_to_8th_science,
+subjects_tutors."6th_to_8th_social_studies" AS tutor_6th_to_8th_social_studies,
+subjects_tutors."math_pre_algebra" AS tutor_math_pre_algebra,
+subjects_tutors."math_alg1_linear_alg" AS tutor_math_alg1_linear_alg,
+subjects_tutors."math_alg2" AS tutor_math_alg2,
+subjects_tutors."math_geom" AS tutor_math_geom,
+subjects_tutors."math_precalc_trig" AS tutor_math_precalc_trig,
+subjects_tutors."sci_bio_life" AS tutor_sci_bio_life,
+subjects_tutors."sci_chem" AS tutor_sci_chem,
+subjects_tutors."sci_physics" AS tutor_sci_physics,
+subjects_tutors."sci_comp_sci" AS tutor_sci_comp_sci,
+subjects_tutors."lang_chinese" AS tutor_lang_chinese,
+subjects_tutors."lang_german" AS tutor_lang_german,
+subjects_tutors."hist_word" AS tutor_hist_word,
+subjects_tutors."hist_us" AS tutor_hist_us,
+subjects_tutors."ap_bio" AS tutor_lap_bio,
+subjects_tutors."ap_chem" AS tutor_ap_chem,
+subjects_tutors."ap_physics" AS tutor_ap_physics,
+subjects_tutors."ap_calc_AB" AS tutor_ap_calc_AB,
+subjects_tutors."ap_calc_BC" AS tutor_ap_calc_BC,
+subjects_tutors."ap_stats" AS tutor_ap_stats,
+subjects_tutors."ap_comp_sci" AS tutor_p_comp_sci,
+subjects_tutors."ap_english_lit_comp" AS tutor_lap_english_lit_comp,
+subjects_tutors."ap_lang_comp" AS tutor_ap_lang_comp,
+subjects_tutors."ap_macro_econ" AS tutor_ap_macro_econ,
+subjects_tutors."ap_micro_econ" AS tutor_ap_micro_econ,
+subjects_tutors."ap_psyc" AS tutor_ap_psyc, subjects_tutors."ap_hist_us" AS tutor_ap_hist_us,
 subjects_tutors."ap_gov_politics_us" AS tutor_ap_gov_politics_us,
 subjects_tutors."ap_human_geog" AS tutor_lap_human_geog,
 subjects_tutors."sat_subject_tests" AS tutor_sat_subject_tests,
@@ -102,17 +103,17 @@ tutee_languages."Tagalog" AS tutee_language_Tagalog,
 tutee_languages."Vietnamese" AS tutee_language_Vietnamese,
 tutee_languages."Spanish" AS tutee_language_Spanish,
 tutee_languages."Other" AS tutee_language_Other
-	FROM matches
-  JOIN tutors ON matches.tutor_id = tutors.id
-  JOIN tutees ON matches.tutee_id = tutees.id
-   JOIN subjects_tutors ON tutors.subjects_id = subjects_tutors.id 
-   inner join subjects_tutees AS Subject1 on Subject1.id = tutees.subject_1
-   inner join subjects_tutees AS Subject2 on Subject2.id = tutees.subject_2
-    inner join subjects_tutees AS Subject3 on Subject3.id = tutees.subject_3
-    inner join "language" AS tutor_languages on tutor_languages.id = tutors.language_tutor_id
+FROM matches
+JOIN tutors ON matches.tutor_id = tutors.id
+JOIN tutees ON matches.tutee_id = tutees.id
+JOIN subjects_tutors ON tutors.subjects_id = subjects_tutors.id 
+inner join subjects_tutees AS Subject1 on Subject1.id = tutees.subject_1
+inner join subjects_tutees AS Subject2 on Subject2.id = tutees.subject_2
+inner join subjects_tutees AS Subject3 on Subject3.id = tutees.subject_3
+inner join "language" AS tutor_languages on tutor_languages.id = tutors.language_tutor_id
 inner join "language" AS tutee_languages on tutee_languages.id = tutees.language_tutee_id
-  JOIN mentoring_grade ON tutors.mentoring_grade_id = mentoring_grade.id
-  ORDER BY match_timestamp ASC;`;
+JOIN mentoring_grade ON tutors.mentoring_grade_id = mentoring_grade.id
+ORDER BY match_timestamp ASC;`;
   pool
     .query(query)
     .then((result) => {
