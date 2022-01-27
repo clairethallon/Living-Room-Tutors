@@ -120,6 +120,7 @@ inner join "language" AS tutor_languages on tutor_languages.id = tutors.language
 inner join "language" AS tutee_languages on tutee_languages.id = tutees.language_tutee_id
 JOIN mentoring_grade ON tutors.mentoring_grade_id = mentoring_grade.id
 ORDER BY match_timestamp ASC;`;
+
   pool
     .query(query)
     .then((result) => {
