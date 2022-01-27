@@ -23,8 +23,10 @@ router.get("/", (req, res) => {
 
 router.get("/active", (req, res) => {
   const query = `SELECT * FROM tutees
-  WHERE tutees.active_tutee = true
-  ORDER BY matched, submission_timestamp ASC;`;
+  JOIN subjects_tutees ON tutees.subject_1 = subjects_tutees.id
+  JOIN "language" ON tutees.language_tutee_id = "language".id
+  WHERE tutees.active_tutee = true and tutees.matched = false
+  ORDER BY submission_timestamp ASC;`;
   pool
     .query(query)
     .then((result) => {
@@ -37,8 +39,10 @@ router.get("/active", (req, res) => {
 });
 
 router.get("/deactive", (req, res) => {
-  const query = `SELECT * FROM tutees
-  WHERE tutees.active_tutee = false
+  const query = ` SELECT * FROM tutees
+  JOIN subjects_tutees ON tutees.subject_1 = subjects_tutees.id
+  JOIN "language" ON tutees.language_tutee_id = "language".id
+  WHERE tutees.active_tutee = false and tutees.matched = false
   ORDER BY submission_timestamp ASC;`;
   pool
     .query(query)
