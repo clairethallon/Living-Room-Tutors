@@ -20,6 +20,35 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/active", (req, res) => {
+  const query = `SELECT * FROM tutors
+  WHERE tutors.active_tutor = true
+  ORDER BY submission_timestamp ASC;`;
+  pool
+    .query(query)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((err) => {
+      console.log("ERROR: Get test", err);
+      res.sendStatus(500);
+    });
+});
+
+router.get("/deactive", (req, res) => {
+  const query = `SELECT * FROM tutors
+  WHERE tutors.active_tutor = false
+  ORDER BY submission_timestamp ASC;`;
+  pool
+    .query(query)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((err) => {
+      console.log("ERROR: Get test", err);
+      res.sendStatus(500);
+    });
+});
 /**
  * POST route template
  */

@@ -10,9 +10,14 @@ function ActivateDeactivateButton(props) {
   //the active useState hook is only temporary so that "active" can be defined and not give an error
   const [active, setActive] = useState(true);
 
+  const handleClick = () => {
+    console.log('in handleClick');
+
+  }
+
   return (
     <div>
-      {active ? <Button>deactivate</Button> : <Button>activate</Button>}
+      {active ? <Button onClick={handleClick}>deactivate</Button> : <Button>activate</Button>}
     </div>
   );
 }

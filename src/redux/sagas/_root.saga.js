@@ -4,7 +4,11 @@ import registrationSaga from "./registration.saga";
 import userSaga from "./user.saga";
 import testSaga from "./test.saga";
 import tutorsSaga from "./tutors.saga";
+import activetutorsSaga from "./active_tutors.saga";
+import deactivetutorsSaga from "./deactive_tutors.saga";
 import tuteesSaga from "./tutees.saga";
+import activetuteesSaga from "./active_tutees.saga";
+import deactivetuteesSaga from "./deactive_tutees.saga";
 import matchesSaga from "./matches.saga";
 
 // rootSaga is the primary saga.
@@ -22,6 +26,10 @@ export default function* rootSaga() {
     userSaga(),
     tutorsSaga(),
     tuteesSaga(),
-    matchesSaga()
+    matchesSaga(),
+    activetutorsSaga(),
+    deactivetutorsSaga(),
+    activetuteesSaga(),
+    deactivetuteesSaga()
   ]);
 }
