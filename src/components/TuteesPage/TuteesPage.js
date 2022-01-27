@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import AdminNavBar from "../AdminNavBar/AdminNavBar";
-import { Tab, Tabs, Container } from "react-bootstrap";
+import { Tab, Tabs } from "react-bootstrap";
 import PendingTutees from "../PendingTutees/PendingTutees";
 import DeactivatedTutees from "../DeactivatedTutees/DeactivatedTutees";
 

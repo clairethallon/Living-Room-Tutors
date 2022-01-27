@@ -19,7 +19,7 @@ function TuteeProfile(props) {
       <p>Grade Level:</p>
       <p>School attending:</p>
       <p>Language preference (if not English):</p>
-      <p>1st subject choice:</p>
+      <p>1st subject choice: </p>
       <p>2st subject choice:</p>
       <p>3st subject choice:</p>
       <p>other subject (if applicable):</p>

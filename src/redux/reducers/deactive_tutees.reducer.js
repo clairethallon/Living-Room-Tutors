@@ -1,4 +1,4 @@
-const deactiveTuteesReducer = (state = {}, action) => {
+const deactiveTuteesReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_DEACTIVE_TUTEES":
       return action.payload;
