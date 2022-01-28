@@ -159,15 +159,7 @@ function TutorInfo(props) {
           <label htmlFor="Other Pronouns">Other</label>
           <input type="text" placeholder="Tutor Phone Number" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
         </div>
-{/* 
-        <FormGroup check>
-          <Label check>
-            <Input type="checkbox" id="mpCheckbox" onChange={(e) => setIsChecked(e.target.checked)} />
-            <Label for="mpinput">Input Field</Label>
-            <Input type="text" name="pmInput" id="pmInput" disabled={isChecked} />
-          </Label>
-        </FormGroup> */}
-        
+
       </div>
       
 

@@ -23,6 +23,8 @@ function TutorInfo(props) {
   const [sheHerPronoun, setsheHerPronoun] = useState( false );
   const [heHimPronoun, setheHimPronoun] = useState( false );
   const [theyThemPronoun, settheyThemPronoun] = useState( false );
+  const [IsChecked, setIsChecked] = useState( true );
+  const [otherPronoun, setOtherPronoun] = useState( );
    // ******** PRONOUN CHECK BOXES **************
 
   const[newPhone, setNewPhone]= useState();
@@ -82,6 +84,17 @@ function TutorInfo(props) {
       settheyThemPronoun(!theyThemPronoun);
       console.log('he/him statues:', theyThemPronoun)
     }
+
+    const changeIsChecked = () => {
+      setIsChecked(!IsChecked);
+      console.log('is other checked?', IsChecked)
+    }
+
+    const changeOtherPronoun = () => {
+      console.log('Other is:', otherPronoun)
+      setOtherPronoun(event.target.value)
+    }
+
     // ******** END END END END END**************
     
 
@@ -164,6 +177,7 @@ function TutorInfo(props) {
         sheHerPronoun: sheHerPronoun,
         heHimPronoun: heHimPronoun,
         theyThemPronoun: theyThemPronoun,
+        otherPronoun: otherPronoun,
         phone: newPhone,
         school: newSchool,
         grade: newGrade,
@@ -180,9 +194,12 @@ function TutorInfo(props) {
       }
 
       let pronounerrors = false;
-      if( (newStudentInfo.sheHerPronoun == false ) && ( newStudentInfo.heHimPronoun == false ) && (newStudentInfo.theyThemPronoun == false ) ){
-        pronounerrors = true;
-      }
+      if( (newStudentInfo.sheHerPronoun == false ) && 
+          ( newStudentInfo.heHimPronoun == false ) && 
+          (newStudentInfo.theyThemPronoun == false ) && 
+          (newStudentInfo.otherPronoun == '' || newStudentInfo.otherPronoun == null)){
+            pronounerrors = true;
+          }
       if (newStudentInfo.submitter == '' || newStudentInfo.submitter == null ||
       newStudentInfo.firstName == '' || newStudentInfo.firstName== null ||
       newStudentInfo.lastName == '' || newStudentInfo.lastName == null ||
@@ -235,6 +252,11 @@ function TutorInfo(props) {
         <div>
           <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
           <label for="They/Them">They/Them</label>
+        </div>
+        <div>
+          <input type="checkbox" id="OtherPronoun" name="OtherPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
+          <label htmlFor="Other Pronouns">Other</label>
+          <input type="text" placeholder="Tutor Phone Number" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
         </div>
       </div>
 
