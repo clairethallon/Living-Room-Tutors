@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 
 
 
@@ -142,21 +143,19 @@ function TutorInfo(props) {
       <input type="text" placeholder="Tutor Phone Number" onChange={(event)=>changeTutorPhone(event)}></input>
 
       <div>
-      <label htmlFor="gradeLevel">What is your current grade level?</label>
-        <select name="tutorGradeLevel" onChange={(event)=>changeTutorGrade(event)} title="Tutor's Current Grade Level">
-        <option value="Select One">Select One</option>
+      <Form.Select aria-label="gradeLevel" onChange={(event)=>changeTutorGrade(event)}>
+        <option>What is your current grade level?</option>
           <option value="Freshman">Freshman</option>
           <option value="Sophomore">Sophomore</option>
           <option value="Junior">Junior</option>
           <option value="Senior">Senior</option>
           <option value="College">I'm in College</option>
-        </select>
+          </Form.Select>
         </div>
 
         <div>
-        <label htmlFor="tutorSchool">Where do you go to school?</label>
-        <select name="tutorSchool" onChange={(event)=>changeTutorSchool(event)} title="Tutor's Current School">
-        <option value="Select One">Select One</option>
+        <Form.Select aria-label="Tutor's Current School" onChange={(event)=>changeTutorSchool(event)}>
+        <option>Where do you go to school?</option>
           <option value="Mayo High School">Mayo High School</option>
           <option value="John Marshall High School">John Marshall High School</option>
           <option value="Century High School">Century High School</option>
@@ -166,7 +165,7 @@ function TutorInfo(props) {
           <option value="Stewertville High School">Stewertville High School</option>
           <option value="College">I'm in College</option>
           <option value="Other">Other</option>
-        </select>
+          </Form.Select>
         </div>
 
         <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
