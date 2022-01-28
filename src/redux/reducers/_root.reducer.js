@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 import errors from "./errors.reducer";
+import newStudent from "./newStudent.reducer";
+import newtutor from "./newtutor.reducer"
 import user from "./user.reducer";
 import test from "./test.reducer";
 import tutors from "./tutors.reducer";
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   test,
+  newStudent,
+  newtutor,
   tutors,
   tutees,
   matches

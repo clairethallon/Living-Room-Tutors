@@ -1,4 +1,4 @@
-const tutorsReducer = (state = {}, action) => {
+const tutorsReducer= (state = {}, action) => {
   switch (action.type) {
     case "SET_TUTORS":
       return action.payload;

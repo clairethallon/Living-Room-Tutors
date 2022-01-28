@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
+import Button from 'react-bootstrap/Button';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name StudentSubjects with the name for the new component.
 function StudentSubjects(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  
+  const dispatch = useDispatch();
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Student Subjects');
 
@@ -44,6 +45,18 @@ function StudentSubjects(props) {
   }
 
 
+  const AddNewStudentSubjects =()=>{
+    //package up new info in object
+    const newStudentSubjects = {
+      newPrimarySubject: newPrimarySubject,
+      newSecondarySubject: newSecondarySubject,
+      newTertiarySubject: newTertiarySubject,
+      newOtherInfo: newOtherInfo,
+      newDetailedNeeds: newDetailedNeeds,
+    }
+    dispatch( {type:'ADD_NEW_STUDENT_SUBJECTS', payload: newStudentSubjects})
+  }
+
 
   return (
     <div>
@@ -53,6 +66,7 @@ function StudentSubjects(props) {
       <label for="studentSubjects">In what subjects does the student need the most support? (1st Choice)</label>
 
         <select name="gradeLevel" onChange={(event)=>changePrimarySubject(event)} title="Student's Current Grade Level">
+        <option value="select one">Select One</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>
@@ -102,6 +116,7 @@ function StudentSubjects(props) {
         <label for="studentSubjects">In what subjects does the student need the most support? (2nd Choice)</label>
 
         <select name="gradeLevel" onChange={(event)=>changeSecondarySubject(event)} title="Student's Current Grade Level">
+        <option value="select one">Select One</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>
@@ -151,6 +166,7 @@ function StudentSubjects(props) {
         <label for="studentSubjects">In what subjects does the student need the most support? (3rd Choice)</label>
 
         <select name="gradeLevel" onChange={(event)=>changeTertiarySubject(event)} title="Student's Current Grade Level">
+        <option value="select one">Select One</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>
@@ -207,7 +223,7 @@ function StudentSubjects(props) {
         <input type="text" placeholder="Details of tutoring needs" onChange={(event)=>changeDetailedNeeds(event)}></input>
         </div>
 
-        <Link to="/StudentAdditional" ><button>Save and Continue</button></Link>
+        <Link to="/StudentAdditional" ><Button onClick={AddNewStudentSubjects}>Save and Continue</Button></Link>
     </div>
   );
 }
