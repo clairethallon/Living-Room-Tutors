@@ -1,4 +1,4 @@
-const tuteesReducer = (state = {}, action) => {
+const tuteesReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_TUTEES":
       return action.payload;

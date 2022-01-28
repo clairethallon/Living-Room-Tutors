@@ -1,4 +1,4 @@
-const matchesReducer = (state = {}, action) => {
+const matchesReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_MATCHES":
       return action.payload;

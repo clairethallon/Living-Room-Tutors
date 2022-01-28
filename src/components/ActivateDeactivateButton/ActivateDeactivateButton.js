@@ -9,7 +9,6 @@ function ActivateDeactivateButton(props) {
   //the active status will come from the store rather than from the usestate hook below.
   //the active useState hook is only temporary so that "active" can be defined and not give an error
   const [active, setActive] = useState(true);
-
   return (
     <div>
       {active ? <Button>deactivate</Button> : <Button>activate</Button>}

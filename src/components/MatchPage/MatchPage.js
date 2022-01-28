@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import AdminNavBar from "../AdminNavBar/AdminNavBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import TuteeMatchCard from "../TuteeMatchCard/TuteeMatchCard";
+import TutorMatchCard from "../TutorMatchCard/TutorMatchCard";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -10,9 +15,28 @@ function MatchPage(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState("Match Page");
 
+  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+
   return (
-    <div>
-      <h2>{heading}</h2>
+    <div className="adminPageContainer">
+      <AdminNavBar />
+      <h1>Tutee & Tutor Match</h1>
+      <div className="tuteeInfoSubjectsAndLanguages">
+        <h2>Tutee Information:</h2>
+        <div className="subjectAndLanguage">
+          <p>
+            <span className="flag subjectFlag">{flagIcon}</span>subjects
+          </p>
+          <p>
+            <span className="flag languageFlag">{flagIcon}</span>Languages
+          </p>
+        </div>
+      </div>
+      <TuteeMatchCard />
+      <h3>Select Tutor to Complete Match</h3>
+      <TutorMatchCard />
+      <TutorMatchCard />
+      <TutorMatchCard />
     </div>
   );
 }

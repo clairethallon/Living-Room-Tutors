@@ -1,4 +1,4 @@
-const testReducer = (state = {}, action) => {
+const testReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_WIDGET":
       return action.payload;

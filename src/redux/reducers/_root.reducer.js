@@ -7,6 +7,10 @@ import test from "./test.reducer";
 import tutors from "./tutors.reducer";
 import tutees from "./tutees.reducer";
 import matches from "./matches.reducer";
+import activeTutors from "./active_tutors.reducer";
+import deactiveTutors from "./deactive_tutors.reducer";
+import activeTutees from "./active_tutees.reducer";
+import deactiveTutees from "./deactive_tutees.reducer"
 
 
 // rootReducer is the primary reducer for our entire project
@@ -23,7 +27,11 @@ const rootReducer = combineReducers({
   newtutor,
   tutors,
   tutees,
-  matches
+  matches,
+  activeTutors,
+  deactiveTutors,
+  activeTutees,
+  deactiveTutees
 });
 
 export default rootReducer;

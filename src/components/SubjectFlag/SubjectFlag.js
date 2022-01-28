@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFlag } from "@fortawesome/free-solid-svg-icons";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -10,11 +12,9 @@ function SubjectFlag(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState("Functional Component");
 
-  return (
-    <div>
-      <h2>{heading}</h2>
-    </div>
-  );
+  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+
+  return <div className="flag subjectFlag">{flagIcon}</div>;
 }
 
 export default SubjectFlag;

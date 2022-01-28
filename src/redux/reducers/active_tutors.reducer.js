@@ -1,8 +1,8 @@
-const userReducer = (state = [], action) => {
+const activeTutorsReducer = (state = [], action) => {
   switch (action.type) {
-    case "SET_USER":
+    case "SET_ACTIVE_TUTORS":
       return action.payload;
-    case "UNSET_USER":
+    case "UNSET_ACTIVE_TUTORS":
       return {};
     default:
       return state;
@@ -11,4 +11,4 @@ const userReducer = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.user
-export default userReducer;
+export default activeTutorsReducer;
