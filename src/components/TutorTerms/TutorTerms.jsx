@@ -24,6 +24,13 @@ function StudentTerms(props) {
     const newTutorTerms = {
       tutorTerms: tutorterms,
     }
+
+    let termserrors = false;
+    if( (newTutorTerms.tutorTerms == false )){
+      termserrors = true;
+    }
+
+    if (termserrors){alert('Please agree to the terms to submit your application.')}
     dispatch( {type:'ADD_TUTOR_TERMS', payload: newTutorTerms})
   }
 

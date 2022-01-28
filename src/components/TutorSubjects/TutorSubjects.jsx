@@ -490,12 +490,12 @@ const AddNewTutorSubjects =()=>{
         
         <div>
           <input type="checkbox" id="Pre-K/Kindergarten" name="Pre-K/Kindergarten" onChange={(event)=>changePreK()}/>
-          <label for="Pre-K/Kindergarten">Pre-K/Kindergarten</label>
+          <label htmlFor="Pre-K/Kindergarten">Pre-K/Kindergarten</label>
         </div>
 
         <div>
           <input type="checkbox" id="1st Grade" name="1st Grade" onChange={(event)=>changeFirstGrade()}/>
-          <label for="1st Grade">1st Grade</label>
+          <label htmlFor="1st Grade">1st Grade</label>
         </div>
 
         <div>
@@ -505,52 +505,52 @@ const AddNewTutorSubjects =()=>{
 
         <div>
           <input type="checkbox" id="3rd Grade" name="3rd Grade" onChange={(event)=>changeThirdGrade()}/>
-          <label for="3rd Grade">3rd Grade</label>
+          <label htmlFor="3rd Grade">3rd Grade</label>
         </div>
 
         <div>
           <input type="checkbox" id="4th Grade" name="4th Grade" onChange={(event)=>changeFourthGrade()}/>
-          <label for="4th Grade">4th Grade</label>
+          <label htmlFor="4th Grade">4th Grade</label>
         </div>
 
         <div>
           <input type="checkbox" id="5th Grade" name="5th Grade" onChange={(event)=>changeFithGrade()}/>
-          <label for="5th Grade">5th Grade</label>
+          <label htmlFor="5th Grade">5th Grade</label>
         </div>
 
         <div>
           <input type="checkbox" id="6th Grade" name="6th Grade" onChange={(event)=>changeSixthGrade()}/>
-          <label for="6th Grade">6th Grade</label>
+          <label htmlFor="6th Grade">6th Grade</label>
         </div>
 
         <div>
           <input type="checkbox" id="7th Grade" name="7th Grade" onChange={(event)=>changeSeventhGrade()}/>
-          <label for="7th Grade">7th Grade</label>
+          <label htmlFor="7th Grade">7th Grade</label>
         </div>
 
         <div>
           <input type="checkbox" id="8th Grade" name="8th Grade" onChange={(event)=>changeEigthGrade()}/>
-          <label for="8th Grade">8th Grade</label>
+          <label htmlFor="8th Grade">8th Grade</label>
         </div>
 
         <div>
           <input type="checkbox" id="9th Grade" name="9th Grade"onChange={(event)=>changeNinthGrade()}/>
-          <label for="9th Grade">9th Grade</label>
+          <label htmlFor="9th Grade">9th Grade</label>
         </div>
 
         <div>
           <input type="checkbox" id="10th Grade" name="10th Grade" onChange={(event)=>changeTenthGrade()}/>
-          <label for="10th Grade">10th Grade</label>
+          <label htmlFor="10th Grade">10th Grade</label>
         </div>
 
         <div>
           <input type="checkbox" id="11th Grade" name="11th Grade" onChange={(event)=>changeEleventhGrade()}/>
-          <label for="11th Grade">11th Grade</label>
+          <label htmlFor="11th Grade">11th Grade</label>
         </div>
 
         <div>
           <input type="checkbox" id="12th Grade" name="12th Grade" onChange={(event)=>changeTwelthGrade()}/>
-          <label for="12th Grade">12th Grade</label>
+          <label htmlFor="12th Grade">12th Grade</label>
         </div>
 
 
@@ -559,212 +559,212 @@ const AddNewTutorSubjects =()=>{
 
         <div>
           <input type="checkbox" id="K-5 Math" name="K-5 Math" onChange={(event)=>changeK5Math()}/>
-          <label for="K-5 Math">K-5 Math</label>
+          <label htmlFor="K-5 Math">K-5 Math</label>
         </div>
 
         <div>
           <input type="checkbox" id="K-5 Reading" name="K-5 Reading" onChange={(event)=>changeK5Reading()}/>
-          <label for="K-5 Reading">K-5 Reading</label>
+          <label htmlFor="K-5 Reading">K-5 Reading</label>
         </div>
 
         <div>
           <input type="checkbox" id="K-5 English/Writing" name="K-5 English/Writing" onChange={(event)=>changeK5EnglishWriting()}/>
-          <label for="K-5 English/Writing">K-5 English/Writing</label>
+          <label htmlFor="K-5 English/Writing">K-5 English/Writing</label>
         </div>
 
         <div>
           <input type="checkbox" id="K-5 Social Studies" name="K-5 Social Studies" onChange={(event)=>changeK5SocialStudies()}/>
-          <label for="K-5 Social Studies">K-5 Social Studies</label>
+          <label htmlFor="K-5 Social Studies">K-5 Social Studies</label>
         </div>
 
         <div>
           <input type="checkbox" id="K-5 Science" name="K-5 Science" onChange={(event)=>changeK5Science()}/>
-          <label for="K-5 Science">K-5 Science</label>
+          <label htmlFor="K-5 Science">K-5 Science</label>
         </div>
       
         <div>
           <input type="checkbox" id="6-8th Language Arts" name="6-8th Language Arts" onChange={(event)=>changeSixToEightLanguageArts()}/>
-          <label for="6-8th Language Arts">6-8th Language Arts</label>
+          <label htmlFor="6-8th Language Arts">6-8th Language Arts</label>
         </div>
 
         <div>
           <input type="checkbox" id="6-8th Science" name="6-8th Science" onChange={(event)=>changeSixToEightScience()}/>
-          <label for="6-8th Science">6-8th Science</label>
+          <label htmlFor="6-8th Science">6-8th Science</label>
         </div>
 
         <div>
           <input type="checkbox" id="6-8th Social Studies" name="6-8th Social Studies" onChange={(event)=>changeSixToEigthSocialStudies()}/>
-          <label for="6-8th Social Studies">6-8th Social Studies</label>
+          <label htmlFor="6-8th Social Studies">6-8th Social Studies</label>
         </div>
           
         <div>
           <input type="checkbox" id="Math: Pre-Algebra" name="K-5 Science" onChange={(event)=>changeMathPreAlgebra()}/>
-          <label for="Math: Pre-Algebra">Math: Pre-Algebra</label>
+          <label htmlFor="Math: Pre-Algebra">Math: Pre-Algebra</label>
         </div>
       
         <div>
           <input type="checkbox" id="Math: Algebra 1/Linear Algebra" name="Math: Algebra 1/Linear Algebra" onChange={(event)=>changeMathLinearAlgebra()}/>
-          <label for="Math: Algebra 1/Linear Algebra">Math: Algebra 1/Linear Algebra</label>
+          <label htmlFor="Math: Algebra 1/Linear Algebra">Math: Algebra 1/Linear Algebra</label>
         </div>
 
         <div>
           <input type="checkbox" id="Math: Algebra II" name="Math: Algebra II" onChange={(event)=>changeMathAlgebraII()}/>
-          <label for="Math: Algebra II">Math: Algebra II</label>
+          <label htmlFor="Math: Algebra II">Math: Algebra II</label>
         </div>
 
         <div>
           <input type="checkbox" id="Math: Geometry" name="Math: Geometry" onChange={(event)=>changeMathGeometry()}/>
-          <label for="Math: Geometry">Math: Geometry</label>
+          <label htmlFor="Math: Geometry">Math: Geometry</label>
         </div>
           
         <div>
           <input type="checkbox" id="Math: Precalculus/Trigonometry" name="Math: Precalculus/Trigonometry" onChange={(event)=>changeMathPrecalculusTrigonometry()}/>
-          <label for="Math: Precalculus/Trigonometry">Math: Precalculus/Trigonometry</label>
+          <label htmlFor="Math: Precalculus/Trigonometry">Math: Precalculus/Trigonometry</label>
         </div>
 
         <div>
           <input type="checkbox" id="Science: Biology/Life Sciences" name="Science: Biology/Life Sciences" onChange={(event)=>changeBiologyLifeSciences()}/>
-          <label for="Science: Biology/Life Sciences">Science: Biology/Life Sciences</label>
+          <label htmlFor="Science: Biology/Life Sciences">Science: Biology/Life Sciences</label>
         </div>
 
         <div>
           <input type="checkbox" id="Science: Chemistry" name="Science: Chemistry" onChange={(event)=>changeScienceChemistry()}/>
-          <label for="Science: Chemistry">Science: Chemistry</label>
+          <label htmlFor="Science: Chemistry">Science: Chemistry</label>
         </div>
 
         <div>
           <input type="checkbox" id="Science: Physics" name="Science: Physics" onChange={(event)=>changeSciencePhysics()}/>
-          <label for="Science: Physics">Science: Physics</label>
+          <label htmlFor="Science: Physics">Science: Physics</label>
         </div>
 
         <div>
           <input type="checkbox" id="Science: Computer Science" name="Science: Computer Science" onChange={(event)=>changeComputerScience()}/>
-          <label for="Science: Computer Science">Science: Computer Science</label>
+          <label htmlFor="Science: Computer Science">Science: Computer Science</label>
         </div>
         
         <div>
           <input type="checkbox" id="Language: Chinese" name="Language: Chinese" onChange={(event)=>changeLanguageChinese()}/>
-          <label for="Language: Chinese">Language: Chinese</label>
+          <label htmlFor="Language: Chinese">Language: Chinese</label>
         </div> 
         
         <div>
           <input type="checkbox" id="Language: Spanish" name="Language: Spanish" onChange={(event)=>changeLanguageSpanish()}/>
-          <label for="Language: Spanish">Language: Spanish</label>
+          <label htmlFor="Language: Spanish">Language: Spanish</label>
         </div> 
         
         <div>
           <input type="checkbox" id="Language: French" name="Language: French" onChange={(event)=>changeLanguageFrench()}/>
-          <label for="Language: French">Language: French</label>
+          <label htmlFor="Language: French">Language: French</label>
         </div> 
         
         <div>
           <input type="checkbox" id="Language: German" name="Language: German" onChange={(event)=>changeLanguageGerman()}/>
-          <label for="Language: German">Language: German</label>
+          <label htmlFor="Language: German">Language: German</label>
         </div>
       
         <div>
           <input type="checkbox" id="History: World History" name="History: World History" onChange={(event)=>changeWorldHistory()}/>
-          <label for="History: World History">History: World History</label>
+          <label htmlFor="History: World History">History: World History</label>
         </div>
 
         <div>
           <input type="checkbox" id="History: U.S. Historyn" name="History: U.S. History" onChange={(event)=>changeUSHistory()}/>
-          <label for="History: U.S. History">History: U.S. History</label>
+          <label htmlFor="History: U.S. History">History: U.S. History</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Biology" name="AP Honors Biology" onChange={(event)=>changeAPHonorsBiology()}/>
-          <label for="AP Honors Biology">AP Honors Biology</label>
+          <label htmlFor="AP Honors Biology">AP Honors Biology</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Chemistry" name="AP Honors Chemistry" onChange={(event)=>changeAPHonorsChemistry()}/>
-          <label for="AP Honors Chemistry">AP Honors Chemistry</label>
+          <label htmlFor="AP Honors Chemistry">AP Honors Chemistry</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Physics" name="AP Honors Physics" onChange={(event)=>changeAPHonorsPhysics()}/>
-          <label for="AP Honors Physics">AP Honors Physics</label>
+          <label htmlFor="AP Honors Physics">AP Honors Physics</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Computer Science" name="AP Honors Computer Science" onChange={(event)=>changeAPHonorsComputerScience()}/>
-          <label for="AP Honors Computer Science">AP Honors Computer Science</label>
+          <label htmlFor="AP Honors Computer Science">AP Honors Computer Science</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Calculus AB" name="AP Honors Calculus AB" onChange={(event)=>changeAPHonorsCalculusAB()}/>
-          <label for="AP Honors Calculus AB">AP Honors Calculus AB</label>
+          <label htmlFor="AP Honors Calculus AB">AP Honors Calculus AB</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Calculus BC" name="AP Honors Calculus BC" onChange={(event)=>changeAPHonorsCalculusBC()}/>
-          <label for="AP Honors Calculus BC">AP Honors Calculus BC</label>
+          <label htmlFor="AP Honors Calculus BC">AP Honors Calculus BC</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Statistics" name="AP Honors Statistics" onChange={(event)=>changeAPHonorsStatistics()}/>
-          <label for="AP Honors Statistics">AP Honors Statistics</label>
+          <label htmlFor="AP Honors Statistics">AP Honors Statistics</label>
         </div>
           
         <div>
           <input type="checkbox" id="AP Honors English Literature and Composition" name="AP Honors English Literature and Composition" onChange={(event)=>changeAPHonorsEnglishLiterature()}/>
-          <label for="AP Honors English Literature and Composition">AP Honors English Literature and Composition</label>
+          <label htmlFor="AP Honors English Literature and Composition">AP Honors English Literature and Composition</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors English Language and Composition" name="AP Honors English Language and Composition" onChange={(event)=>changeAPHonorsEnglishLanguage()}/>
-          <label for="AP Honors English Language and Composition">AP Honors English Language and Composition</label>
+          <label htmlFor="AP Honors English Language and Composition">AP Honors English Language and Composition</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Macroeconomics" name="AP Honors Macroeconomics" onChange={(event)=>changeAPHonorsMacroeconomics()}/>
-          <label for="AP Honors Macroeconomics">AP Honors Macroeconomics</label>
+          <label htmlFor="AP Honors Macroeconomics">AP Honors Macroeconomics</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Microeconomics" name="AP Honors Microeconomics" onChange={(event)=>changeAPHonorsMicroeconomics()}/>
-          <label for="AP Honors Microeconomics">AP Honors Microeconomics</label>
+          <label htmlFor="AP Honors Microeconomics">AP Honors Microeconomics</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Psychology" name="AP Honors Psychology" onChange={(event)=>changeAPHonorsPsychology()}/>
-          <label for="AP Honors Psychology">AP Honors Psychology</label>
+          <label htmlFor="AP Honors Psychology">AP Honors Psychology</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors United States History" name="AP Honors United States History" onChange={(event)=>changeAPHonorsUSHistory()}/>
-          <label for="AP Honors United States History">AP Honors United States History</label>
+          <label htmlFor="AP Honors United States History">AP Honors United States History</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Government and Politics" name="AP Honors Government and Politics" onChange={(event)=>changeAPHonorsGovernmentPolitics()}/>
-          <label for="AP Honors Government and Politics">AP Honors Government and Politics</label>
+          <label htmlFor="AP Honors Government and Politics">AP Honors Government and Politics</label>
         </div>
 
         <div>
           <input type="checkbox" id="AP Honors Human Geography" name="AP Honors Human Geography" onChange={(event)=>changeAPHonorsHumanGeography()}/>
-          <label for="AP Honors Human Geography">AP Honors Human Geography</label>
+          <label htmlFor="AP Honors Human Geography">AP Honors Human Geography</label>
         </div>
 
         <div>
           <input type="checkbox" id="SAT Subject Tests" name="SAT Subject Tests" onChange={(event)=>changeSATSubjectTests()}/>
-          <label for="SAT Subject Tests">SAT Subject Tests</label>
+          <label htmlFor="SAT Subject Tests">SAT Subject Tests</label>
         </div>
 
         <div>
           <input type="checkbox" id="SAT Prep" name="SAT Prep" onChange={(event)=>changeSATPrep()}/>
-          <label for="SAT Prep">SAT Prep</label>
+          <label htmlFor="SAT Prep">SAT Prep</label>
         </div>
 
         <div>
           <input type="checkbox" id="ACT Prep" name="ACT Prep" onChange={(event)=>changeACTPrep()}/>
-          <label for="ACT Prep">ACT Prep</label>
+          <label htmlFor="ACT Prep">ACT Prep</label>
         </div>
 
         <div>
           <input type="checkbox" id="Other" name="Other" onChange={(event)=>changeOther()}/>
-          <label for="Other">Other</label>
+          <label htmlFor="Other">Other</label>
         </div>
     
         
@@ -774,47 +774,47 @@ const AddNewTutorSubjects =()=>{
           
           <div>
             <input type="checkbox" id="Spanish" name="Spanish" onChange={(event)=>changeSpanish()}/>
-            <label for="Spanish">Spanish</label>
+            <label htmlFor="Spanish">Spanish</label>
           </div>
 
           <div>
             <input type="checkbox" id="Somali" name="Somali" onChange={(event)=>changeSomali()}/>
-            <label for="Somali">Somali</label>
+            <label htmlFor="Somali">Somali</label>
           </div>
 
           <div>
             <input type="checkbox" id="Arabic" name="Arabic" onChange={(event)=>changeArabic()}/>
-            <label for="Arabic">Arabic</label>
+            <label htmlFor="Arabic">Arabic</label>
           </div>
 
           <div>
             <input type="checkbox" id="Chinese" name="Chinese" onChange={(event)=>changeChinese()}/>
-            <label for="Chinese">Chinese</label>
+            <label htmlFor="Chinese">Chinese</label>
           </div>
 
           <div>
             <input type="checkbox" id="Tagalog" name="Tagalog" onChange={(event)=>changeTagalog()}/>
-            <label for="Tagalog">Tagalog</label>
+            <label htmlFor="Tagalog">Tagalog</label>
           </div>
 
           <div>
             <input type="checkbox" id="French" name="French" onChange={(event)=>changeFrench()}/>
-            <label for="French">French</label>
+            <label htmlFor="French">French</label>
           </div>
 
           <div>
             <input type="checkbox" id="Vietnamese" name="Vietnamese" onChange={(event)=>changeVietnamese()}/>
-            <label for="Vietnamese">Vietnamese</label>
+            <label htmlFor="Vietnamese">Vietnamese</label>
           </div>
 
           <div>
             <input type="checkbox" id="Hmong" name="Hmong" onChange={(event)=>changeHmong()}/>
-            <label for="Hmong">Hmong</label>
+            <label htmlFor="Hmong">Hmong</label>
           </div>
 
           <div>
             <input type="checkbox" id="NA" name="NA" onChange={(event)=>changeNA(event)}/>
-            <label for="NA">N/A</label>
+            <label htmlFor="NA">N/A</label>
           </div>
       </div>
 

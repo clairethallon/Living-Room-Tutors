@@ -177,8 +177,21 @@ function TutorInfo(props) {
         English: English,
         otherLanguage: otherLanguage,
       }
-      dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newStudentInfo})
 
+      let pronounerrors = false;
+      if( (newStudentInfo.sheHerPronoun == false ) && ( newStudentInfo.heHimPronoun == false ) && (newStudentInfo.theyThemPronoun == false ) ){
+        pronounerrors = true;
+      }
+      if (newStudentInfo.submitter == '' || newStudentInfo.submitter == null ||
+      newStudentInfo.firstName == '' || newStudentInfo.firstName== null ||
+      newStudentInfo.lastName == '' || newStudentInfo.lastName == null ||
+      newStudentInfo.parentEmail== '' || newStudentInfo.parentEmail== null ||
+      newStudentInfo.email== '' || newStudentInfo.email== null ||
+      newStudentInfo.phone== '' || newStudentInfo.phone== null ||
+      newStudentInfo.school== '' || newStudentInfo.school== null ||
+      newStudentInfo.grade== '' || newStudentInfo.grade== null ||
+      pronounerrors ){alert('Please complete all required fields.')}
+      dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newStudentInfo})
     }
 
 
@@ -237,6 +250,7 @@ function TutorInfo(props) {
       <label for="gradeLevel">Choose a Grade Level:</label>
 
         <select name="gradeLevel" onChange={(event)=>changeGrade(event)} title="Student's Current Grade Level">
+          <option value="Select One">Select One</option>
           <option value="Pre-K">Pre-K</option>
           <option value="Kindergarten">Kindergarten</option>
           <option value="1st Grade">1st Grade</option>
