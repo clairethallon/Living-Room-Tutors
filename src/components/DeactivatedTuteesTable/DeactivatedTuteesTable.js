@@ -5,23 +5,20 @@ import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeacti
 import MatchPageButton from "../MatchPageButton/MatchPageButton";
 import TuteeCard from "../TuteeCard/TuteeCard";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TuteesTable with the name for the new component.
-function TuteesTable(props) {
+function ActiveTuteesTable(props) {
   const dispatch = useDispatch();
 
-  const activeTutees = useSelector((store) => store.activeTutees);
+  const deactiveTutees = useSelector((store) => store.deactiveTutees);
 
   useEffect(() => {
     dispatch({
-      type: "FETCH_ACTIVE_TUTEES",
+      type: "FETCH_DEACTIVE_TUTEES",
     });
   }, []);
 
   return (
     <div>
-      {JSON.stringify(activeTutees)}
+      {JSON.stringify(deactiveTutees)}
       <div>
         <Row className="cardHead">
           <Col xs="3" className="cardHeadCol">
@@ -44,7 +41,7 @@ function TuteesTable(props) {
       </div>
       {/* map though all active tutees and pass each individual tutee's info via props to tuteeCard */}
       <div>
-        {activeTutees.map((tutee) => {
+        {deactiveTutees.map((tutee) => {
           return <TuteeCard tutee={tutee} />;
         })}
       </div>
@@ -52,4 +49,4 @@ function TuteesTable(props) {
   );
 }
 
-export default TuteesTable;
+export default ActiveTuteesTable;

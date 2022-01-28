@@ -12,8 +12,6 @@ import TutorMatchCard from "../TutorMatchCard/TutorMatchCard";
 function MatchPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [heading, setHeading] = useState("Match Page");
 
   const flagIcon = <FontAwesomeIcon icon={faFlag} />;
 

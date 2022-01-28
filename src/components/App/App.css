@@ -236,3 +236,7 @@ td:last-child {
 .subjectAndLanguage {
   display: flex;
 }
+
+h2 {
+  text-transform: capitalize;
+}
