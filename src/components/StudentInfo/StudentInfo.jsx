@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -221,7 +222,7 @@ function TutorInfo(props) {
       </div>
 
       <div>
-      <p>What are the Student's preferred pronouns?</p>
+      <p>What are the Student's pronouns?</p>
         {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
         <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
@@ -247,10 +248,8 @@ function TutorInfo(props) {
 
 
       <div>
-      <label for="gradeLevel">Choose a Grade Level:</label>
-
-        <select name="gradeLevel" onChange={(event)=>changeGrade(event)} title="Student's Current Grade Level">
-          <option value="Select One">Select One</option>
+      <Form.Select aria-label="gradeLevel" onChange={(event)=>changeGrade(event)}>
+          <option>Select Student's Current Grade Level:</option>
           <option value="Pre-K">Pre-K</option>
           <option value="Kindergarten">Kindergarten</option>
           <option value="1st Grade">1st Grade</option>
@@ -265,7 +264,7 @@ function TutorInfo(props) {
           <option value="10th Grade">10th Grade</option>
           <option value="11th Grade">11th Grade</option>
           <option value="12th Grade">12th Grade</option>
-        </select>
+          </Form.Select>
         </div>
 
 

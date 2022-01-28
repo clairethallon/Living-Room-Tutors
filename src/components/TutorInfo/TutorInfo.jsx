@@ -121,7 +121,7 @@ function TutorInfo(props) {
       </div>
 
       <div>
-      <p>What are your preferred pronouns?</p>
+      <p>What are your pronouns?</p>
         <p>{JSON.stringify(sheHerPronoun)}</p>
         <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
