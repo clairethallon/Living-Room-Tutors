@@ -23,6 +23,8 @@ function TutorInfo(props) {
   const [sheHerPronoun, setsheHerPronoun] = useState( false );
   const [heHimPronoun, setheHimPronoun] = useState( false );
   const [theyThemPronoun, settheyThemPronoun] = useState( false );
+  const [IsChecked, setIsChecked] = useState( true );
+  const [otherPronoun, setOtherPronoun] = useState( );
    // ******** PRONOUN CHECK BOXES **************
 
   const[newTutorPhone, setNewTutorPhone]= useState();
@@ -48,18 +50,29 @@ function TutorInfo(props) {
     // ******** PRONOUN CHECK BOXES **************
     const changesheHerPronoun = () => {
       setsheHerPronoun(!sheHerPronoun);
-      console.log('she/her statues:', sheHerPronoun)
+      console.log('she/her status:', sheHerPronoun)
     }
 
     const changeheHimPronoun = () => {
       setheHimPronoun(!heHimPronoun);
-      console.log('he/him statues:', heHimPronoun)
+      console.log('he/him status:', heHimPronoun)
     }
 
     const changetheyThemPronoun = () => {
       settheyThemPronoun(!theyThemPronoun);
-      console.log('he/him statues:', theyThemPronoun)
+      console.log('he/him status:', theyThemPronoun)
     }
+
+    const changeIsChecked = () => {
+      setIsChecked(!IsChecked);
+      console.log('is other checked?', IsChecked)
+    }
+
+    const changeOtherPronoun = () => {
+      console.log('Other is:', otherPronoun)
+      setOtherPronoun(event.target.value)
+    }
+
     // ******** END END END END END**************
 
     const changeTutorPhone= ()=>{
@@ -87,12 +100,16 @@ function TutorInfo(props) {
         sheHerPronoun: sheHerPronoun,
         heHimPronoun: heHimPronoun,
         theyThemPronoun: theyThemPronoun,
+        otherPronoun: otherPronoun,
         phone: newTutorPhone,
         grade: newGrade,
         school: newTutorSchool,
       }
       let pronounerrors = false;
-      if( (newTutorInfo.sheHerPronoun == false ) && ( newTutorInfo.heHimPronoun == false ) && (newTutorInfo.theyThemPronoun == false ) ){
+      if( (newTutorInfo.sheHerPronoun == false ) && 
+          ( newTutorInfo.heHimPronoun == false ) && 
+          (newTutorInfo.theyThemPronoun == false ) && 
+          (newTutorInfo.otherPronoun == '' || newTutorInfo.otherPronoun == null)){
         pronounerrors = true;
       }
       if (newTutorInfo.firstName == '' || newTutorInfo.firstName== null ||
@@ -123,7 +140,7 @@ function TutorInfo(props) {
 
       <div>
       <p>What are your pronouns?</p>
-        <p>{JSON.stringify(sheHerPronoun)}</p>
+        {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
         <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
           <label htmlFor="She/Her">She/Her</label>
@@ -136,6 +153,21 @@ function TutorInfo(props) {
           <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
           <label htmlFor="They/Them">They/Them</label>
         </div>
+
+        <div>
+          <input type="checkbox" id="OtherPronoun" name="OtherPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
+          <label htmlFor="Other Pronouns">Other</label>
+          <input type="text" placeholder="Tutor Phone Number" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
+        </div>
+{/* 
+        <FormGroup check>
+          <Label check>
+            <Input type="checkbox" id="mpCheckbox" onChange={(e) => setIsChecked(e.target.checked)} />
+            <Label for="mpinput">Input Field</Label>
+            <Input type="text" name="pmInput" id="pmInput" disabled={isChecked} />
+          </Label>
+        </FormGroup> */}
+        
       </div>
       
 
