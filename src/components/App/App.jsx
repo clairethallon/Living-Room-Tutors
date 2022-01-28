@@ -31,7 +31,7 @@ import TutorInfo from "../TutorInfo/TutorInfo";
 import TutorSubjects from "../TutorSubjects/TutorSubjects";
 import TutorAdditional from "../TutorAdditional/TutorAdditional";
 import TutorTerms from "../TutorTerms/TutorTerms";
-import TutorAdditional from "../TutorAdditional/TutorAdditional";
+// import TutorAdditional from "../TutorAdditional/TutorAdditional";
 
 import "./App.css";
 import TuteesPage from "../TuteesPage/TuteesPage";
@@ -157,11 +157,10 @@ function App() {
               // redirect to the /user page
               <Redirect to="/admin" />
             ) : (
-                // Otherwise, show the login page
-                <LoginPage />
-              )}
+              // Otherwise, show the login page
+              <LoginPage />
+            )}
           </Route>
-
 
           <Route exact path="/registration">
             {user.id ? (
@@ -185,9 +184,9 @@ function App() {
               // redirect them to the /user page
               <Redirect to="/user" />
             ) : (
-                // Otherwise, show the Landing page
-                <LandingPage />
-              )}
+              // Otherwise, show the Landing page
+              <LandingPage />
+            )}
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
