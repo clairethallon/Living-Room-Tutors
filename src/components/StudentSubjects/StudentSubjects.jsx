@@ -55,12 +55,21 @@ function StudentSubjects(props) {
       newOtherInfo: newOtherInfo,
       newDetailedNeeds: newDetailedNeeds,
     }
+
+    if (newStudentSubjects.newPrimarySubject == null ||
+        newStudentSubjects.newSecondarySubject == null ||
+        newStudentSubjects.newTertiarySubject == null ||
+        newStudentSubjects.newDetailedNeeds == "" || 
+        newStudentSubjects.newDetailedNeeds == null)
+    {alert('Please complete all required fields.')}
+
     dispatch( {type:'ADD_NEW_STUDENT_SUBJECTS', payload: newStudentSubjects})
   }
 
 
   return (
     <div>
+      <p>details equals: {JSON.stringify(newDetailedNeeds)}</p>
       <h2>{heading}</h2>
 
       <div>
