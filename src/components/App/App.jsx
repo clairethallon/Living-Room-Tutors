@@ -29,6 +29,7 @@ import StudentTerms from "../StudentTerms/StudentTerms";
 
 import TutorInfo from "../TutorInfo/TutorInfo";
 import TutorSubjects from "../TutorSubjects/TutorSubjects";
+import TutorAdditional from "../TutorAdditional/TutorAdditional";
 import TutorTerms from "../TutorTerms/TutorTerms";
 import TutorAdditional from "../TutorAdditional/TutorAdditional";
 

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
+import Button from 'react-bootstrap/Button';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TutorInfo with the name for the new component.
 function TutorInfo(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
+  const dispatch = useDispatch();
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Student Info');
 
@@ -149,21 +150,34 @@ function TutorInfo(props) {
       setotherLanguage(event.target.value);
     }
     // ******** END END END END END **************
-
+   
 
     const AddNewTutorInfo =()=>{
       //package up new info in object
-      const newTutorInfo = {
+      const newStudentInfo = {
         submitter: newSubmitter,
         firstName: newFirstName,
         lastName: newLastName,
         parentEmail: newParentEmail,
         email: newEmail,
+        sheHerPronoun: sheHerPronoun,
+        heHimPronoun: heHimPronoun,
+        theyThemPronoun: theyThemPronoun,
         phone: newPhone,
         school: newSchool,
         grade: newGrade,
+        Spanish: Spanish,
+        Somali: Somali, 
+        Arabic: Arabic,
+        Chinese: Chinese,
+        Tagalog: Tagalog,
+        French: French,
+        Vietnamese: Vietnamese,
+        Hmong: Hmong,
+        English: English,
+        otherLanguage: otherLanguage,
       }
-      dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newTutorInfo})
+      dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newStudentInfo})
 
     }
 
@@ -294,7 +308,7 @@ function TutorInfo(props) {
       </div>
 
 
-      <Link to="/StudentSubjects" ><button>Save and Continue</button></Link>
+      <Link to="/StudentSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
       
     </div>
   );

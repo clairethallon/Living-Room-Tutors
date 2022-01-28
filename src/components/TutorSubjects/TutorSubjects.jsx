@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
-
+import Button from 'react-bootstrap/Button';
 
 function TutorSubjects(props) {
 
+  const dispatch = useDispatch();
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Tutor Terms');
 
@@ -29,6 +30,7 @@ function TutorSubjects(props) {
   const [K5Reading, setK5Reading] = useState( false );
   const [K5EnglishWriting, setK5EnglishWriting] = useState( false );
   const [K5SocialStudies, setK5SocialStudies] = useState( false );
+  const [K5Science, setK5Science] = useState( false );
   const [SixToEightLanguageArts, setSixToEightLanguageArts] = useState( false );
   const [SixToEightScience, setSixToEightScience] = useState( false );
   const [SixToEigthSocialStudies, setSixToEigthSocialStudies] = useState( false );
@@ -405,6 +407,80 @@ const changeNA = () => {
 // ******** LANGUAGE CHECK BOXES **************
 
 
+const AddNewTutorSubjects =()=>{
+  //package up new info in object
+  const newTutorSubjects = {
+    PreK: PreK,
+    FirstGrade: FirstGrade,
+    SecondGrade: SecondGrade,
+    ThirdGrade: ThirdGrade,
+    FourthGrade: FourthGrade,
+    FithGrade: FithGrade,
+    SixthGrade: SixthGrade,
+    SeventhGrade: SeventhGrade,
+    EigthGrade: EigthGrade,
+    NinthGrade: NinthGrade,
+    TenthGrade: TenthGrade,
+    EleventhGrade: EleventhGrade,
+    TwelthGrade: TwelthGrade,
+
+    K5Math: K5Math,
+    K5Reading: K5Reading,
+    K5EnglishWriting: K5EnglishWriting,
+    K5SocialStudies: K5SocialStudies,
+    K5Science: K5Science,
+    SixToEightLanguageArts: SixToEightLanguageArts,
+    SixToEightScience: SixToEightScience,
+    SixToEigthSocialStudies: SixToEigthSocialStudies,
+    MathPreAlgebra: MathPreAlgebra,
+    MathLinearAlgebra: MathPreAlgebra,
+    MathGeometry: MathGeometry,
+    MathAlgebraII: MathAlgebraII,
+    MathPrecalculusTrigonometry: MathPrecalculusTrigonometry,
+    BiologyLifeSciences: BiologyLifeSciences,
+    ScienceChemistry: ScienceChemistry,
+    SciencePhysics: SciencePhysics,
+    ComputerScience: ComputerScience,
+    LanguageChinese: LanguageChinese,
+    LanguageSpanish: LanguageSpanish,
+    LanguageFrench: LanguageFrench,
+    LanguageGerman: LanguageGerman,
+    WorldHistory: WorldHistory,
+    USHistory: USHistory,
+    APHonorsBiology: APHonorsBiology,
+    APHonorsChemistry: APHonorsChemistry,
+    APHonorsPhysics: APHonorsPhysics,
+    APHonorsComputerScience: APHonorsComputerScience,
+    APHonorsCalculusAB: APHonorsCalculusAB,
+    APHonorsCalculusBC: APHonorsCalculusBC,
+    APHonorsStatistics: APHonorsStatistics,
+    APHonorsEnglishLiterature: APHonorsEnglishLiterature,
+    APHonorsEnglishLanguage: APHonorsEnglishLanguage,
+    APHonorsMacroeconomics: APHonorsMacroeconomics,
+    APHonorsMicroeconomics: APHonorsMicroeconomics,
+    APHonorsUSHistory: APHonorsUSHistory,
+    APHonorsGovernmentPolitics: APHonorsGovernmentPolitics,
+    APHonorsHumanGeography: APHonorsHumanGeography,
+    SATSubjectTests: SATSubjectTests,
+    SATPrep: SATPrep,
+    ACTPrep: ACTPrep,
+    Other: Other,
+
+    Spanish: Spanish,
+    Somali: Somali,
+    Arabic: Arabic,
+    Chinese: Chinese,
+    Tagalog: Tagalog,
+    French: French,
+    Vietnamese: Vietnamese,
+    Hmong: Hmong,
+    NA: NA,
+  }
+  dispatch( {type:'ADD_NEW_TUTOR_SUBJECTS', payload: newTutorSubjects})
+}
+
+
+
   return (
     <div>
       <h2>{heading}</h2>
@@ -742,7 +818,7 @@ const changeNA = () => {
           </div>
       </div>
 
-      <Link to="/TutorAdditional" ><button>Add A New Tutor Info</button></Link>
+      <Link to="/TutorAdditional" ><Button onClick={AddNewTutorSubjects}>Add A New Tutor Info</Button></Link>
 
 
     </div>
