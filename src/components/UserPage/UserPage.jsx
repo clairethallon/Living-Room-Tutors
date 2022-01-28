@@ -42,8 +42,7 @@ function UserPage() {
       <p>active tutees: {JSON.stringify(activeTutees)}</p>
       <p>deactive tutees: {JSON.stringify(deactiveTutees)}</p>
 
-      <p>{JSON.stringify(tutees)}</p>
-      <p>{JSON.stringify(matches)}</p>
+      <p>matches {JSON.stringify(matches)}</p>
 
       <LogOutButton className="btn" />
     </div>
