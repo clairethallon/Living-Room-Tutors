@@ -1,19 +1,24 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { Table, Card, Col, Row } from "react-bootstrap";
 import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeactivateButton";
 import MatchPageButton from "../MatchPageButton/MatchPageButton";
-import TutorCard from "../TutorCard/TutorCard";
+import TuteeCard from "../TuteeCard/TuteeCard";
 
-// component name TuteesTable with the name for the new component.
-function TutorTable(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [heading, setHeading] = useState("Tutees Pending Matches");
+function ActiveTuteesTable(props) {
+  const dispatch = useDispatch();
+
+  const activeTutees = useSelector((store) => store.activeTutees);
+
+  useEffect(() => {
+    dispatch({
+      type: "FETCH_ACTIVE_TUTEES",
+    });
+  }, []);
 
   return (
     <div>
+      {JSON.stringify(activeTutees)}
       <div>
         <Row className="cardHead">
           <Col xs="3" className="cardHeadCol">
@@ -34,13 +39,14 @@ function TutorTable(props) {
           <Col xs="1"></Col>
         </Row>
       </div>
-      {/* the div below is where the mapping through all the tutee cards will take place */}
+      {/* map though all active tutees and pass each individual tutee's info via props to tuteeCard */}
       <div>
-        <TutorCard />
-        <TutorCard />
+        {activeTutees.map((tutee) => {
+          return <TuteeCard tutee={tutee} />;
+        })}
       </div>
     </div>
   );
 }
 
-export default TutorTable;
+export default ActiveTuteesTable;

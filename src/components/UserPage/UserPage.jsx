@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import LogOutButton from "../LogOutButton/LogOutButton";
+import { useDispatch, useSelector } from "react-redux";
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -16,7 +16,6 @@ function UserPage() {
     dispatch({ type: 'FETCH_DEACTIVE_TUTORS' });
     dispatch({ type: 'FETCH_ACTIVE_TUTEES' });
     dispatch({ type: 'FETCH_DEACTIVE_TUTEES' });
-
   }, []);
 
   const tutors = useSelector((store) => store.tutors);
@@ -42,7 +41,9 @@ function UserPage() {
       <p>active tutees: {JSON.stringify(activeTutees)}</p>
       <p>deactive tutees: {JSON.stringify(deactiveTutees)}</p>
 
+
       <p>matches {JSON.stringify(matches)}</p>
+
 
       <LogOutButton className="btn" />
     </div>

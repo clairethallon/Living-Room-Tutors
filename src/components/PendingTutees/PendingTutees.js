@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import TuteesTable from "../TuteesTable/TuteesTable";
+import ActiveTuteesTable from "../ActiveTuteesTable/ActiveTuteesTable";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -16,7 +16,7 @@ function PendingTutees(props) {
       <h1>Tutees Pending Matches</h1>
       {/* number will be replaced with an actual count from the db */}
       <p>3 count of pending tutees</p>
-      <TuteesTable />
+      <ActiveTuteesTable />
     </div>
   );
 }

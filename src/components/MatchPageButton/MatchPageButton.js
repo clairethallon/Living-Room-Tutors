@@ -13,7 +13,7 @@ function MatchPageButton(props) {
   const [heading, setHeading] = useState("Functional Component");
 
   const navigateToMatchPage = () => {
-    history.push("/match");
+    history.push(`/match`);
   };
 
   return (

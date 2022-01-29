@@ -90,7 +90,7 @@ CREATE TABLE "mentoring_grade" (
 
 
 
-CREATE TABLE "subjects_tutors" (
+
 	"id" serial NOT NULL,
 	"K5_Math" BOOLEAN NOT NULL,
 	"K5_Reading" BOOLEAN NOT NULL,
