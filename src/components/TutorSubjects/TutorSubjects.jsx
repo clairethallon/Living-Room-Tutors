@@ -476,6 +476,38 @@ const AddNewTutorSubjects =()=>{
     Hmong: Hmong,
     NA: NA,
   }
+
+  let gradesErrors= false;
+    if((newTutorSubjects.PreK == false ) && 
+        (newTutorSubjects.FirstGrade == false ) && 
+        (newTutorSubjects.SecondGrade == false ) && 
+        (newTutorSubjects.ThirdGrade == false ) && 
+        (newTutorSubjects.FourthGrade == false ) && 
+        (newTutorSubjects.FithGrade == false ) && 
+        (newTutorSubjects.SixthGrade == false ) && 
+        (newTutorSubjects.SeventhGrade == false ) && 
+        (newTutorSubjects.EigthGrade == false ) && 
+        (newTutorSubjects.NinthGrade == false ) && 
+        (newTutorSubjects.TenthGrade == false ) && 
+        (newTutorSubjects.EleventhGrade == false ) && 
+        (newTutorSubjects.TwelthGrade == false ))
+      {gradesErrors = true;}
+
+  let languageErrors= false;
+      if( (newTutorSubjects.Spanish == false ) && 
+          (newTutorSubjects.Somali == false ) && 
+          (newTutorSubjects.Arabic == false ) &&
+          (newTutorSubjects.Chinese == false ) &&
+          (newTutorSubjects.Tagalog == false ) &&
+          (newTutorSubjects.French == false ) &&
+          (newTutorSubjects.Vietnamese == false ) &&
+          (newTutorSubjects.Hmong == false ) &&
+          (newTutorSubjects.English == false ) &&
+          (newTutorSubjects.Somali == false ) &&
+          (newTutorSubjects.NA == false))
+            {languageErrors = true;}
+
+          if(languageErrors, gradesErrors){alert('Plase make at least one selection in each category')}
   dispatch( {type:'ADD_NEW_TUTOR_SUBJECTS', payload: newTutorSubjects})
 }
 

@@ -216,7 +216,7 @@ function TutorInfo(props) {
           (newStudentInfo.French == false ) &&
           (newStudentInfo.Vietnamese == false ) &&
           (newStudentInfo.Hmong == false ) &&
-          (newStudentInfo.English == false ) &&
+          // (newStudentInfo.English == false ) &&
           (newStudentInfo.Somali == false ) &&
           (newStudentInfo.otherLanguage == '' || newStudentInfo.otherLanguage == null)){
             languageErrors = true;
@@ -277,7 +277,7 @@ function TutorInfo(props) {
         <div>
           <input type="checkbox" id="OtherPronoun" name="OtherPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
           <label htmlFor="Other Pronouns">Other</label>
-          <input type="text" placeholder="Tutor Phone Number" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
+          <input type="text" placeholder="What are your Pronouns" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
         </div>
       </div>
 
