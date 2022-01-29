@@ -22,8 +22,8 @@ function StudentTerms(props) {
   const [tutorTerms, setTutorTerms] = useState(false);
 
   const changeTutorTerms = () => {
-    setTutorTerms(!tutorterms);
-    console.log("in terms", tutorterms);
+    setTutorTerms(!tutorTerms);
+    console.log("in terms", tutorTerms);
   };
 
   //package up all collected info into object
@@ -90,6 +90,14 @@ function StudentTerms(props) {
     French: tutorSubjects.French,
     Vietnamese: tutorSubjects.Vietnamese,
     Hmong: tutorSubjects.Hmong,
+    firstName: tutorInfo.firstName,
+    lastName: tutorInfo.lastName,
+    email: tutorInfo.email,
+    pronouns: tutorInfo.pronouns,
+    phone: tutorInfo.phone,
+    grade: tutorInfo.grade,
+    school: tutorInfo.school,
+    miscInfo: tutorAdditional.tutorAdditionalInfo,
   };
 
   const sendNewTutor = () => {
