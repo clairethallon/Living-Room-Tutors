@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+import Header from '../Header/Header';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -214,6 +215,7 @@ function TutorInfo(props) {
 
   return (
     <div>
+      <Header/>
       <div className= 'maincard'>
       <h2>{heading}</h2>
 

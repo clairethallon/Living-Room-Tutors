@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
+import Header from '../Header/Header';
 
 
 function StudentAdditional(props) {
@@ -28,6 +29,7 @@ function StudentAdditional(props) {
   
   return (
     <div>
+      <Header/>
       <div className= 'maincard'>
         <h2>{heading}</h2>
 
