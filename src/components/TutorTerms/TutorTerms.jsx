@@ -34,7 +34,7 @@ function StudentTerms(props) {
     FifthGrade: tutorSubjects.FifthGrade,
     SixthGrade: tutorSubjects.SixthGrade,
     SeventhGrade: tutorSubjects.SeventhGrade,
-    EightGrade: tutorSubjects.EigthGrade,
+    EighthGrade: tutorSubjects.EighthGrade,
     NinthGrade: tutorSubjects.NinthGrade,
     TenthGrade: tutorSubjects.TenthGrade,
     EleventhGrade: tutorSubjects.EleventhGrade,
@@ -80,6 +80,14 @@ function StudentTerms(props) {
     SATPrep: tutorSubjects.SATPrep,
     ACTPrep: tutorSubjects.ACTPrep,
     Other: tutorSubjects.Other,
+    Spanish: tutorSubjects.Spanish,
+    Somali: tutorSubjects.Somali,
+    Arabic: tutorSubjects.Arabic,
+    Chinese: tutorSubjects.Chinese,
+    Tagalog: tutorSubjects.Tagalog,
+    French: tutorSubjects.French,
+    Vietnamese: tutorSubjects.Vietnamese,
+    Hmong: tutorSubjects.Hmong,
   };
 
   const sendNewTutor = () => {

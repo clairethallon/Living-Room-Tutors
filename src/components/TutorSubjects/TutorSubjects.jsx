@@ -17,7 +17,7 @@ function TutorSubjects(props) {
   const [FifthGrade, setFifthGrade] = useState(false);
   const [SixthGrade, setSixthGrade] = useState(false);
   const [SeventhGrade, setSeventhGrade] = useState(false);
-  const [EighthGrade, setEightGrade] = useState(false);
+  const [EighthGrade, setEighthGrade] = useState(false);
   const [NinthGrade, setNinthGrade] = useState(false);
   const [TenthGrade, setTenthGrade] = useState(false);
   const [EleventhGrade, setEleventhGrade] = useState(false);
@@ -125,8 +125,8 @@ function TutorSubjects(props) {
   };
 
   const changeEighthGrade = () => {
-    setEighthGrade(!EightGrade);
-    console.log("EightGrade", EightGrade);
+    setEighthGrade(!EighthGrade);
+    console.log("EighthGrade", EighthGrade);
   };
 
   const changeNinthGrade = () => {
@@ -414,7 +414,7 @@ function TutorSubjects(props) {
       FifthGrade: FifthGrade,
       SixthGrade: SixthGrade,
       SeventhGrade: SeventhGrade,
-      EightGrade: EightGrade,
+      EighthGrade: EighthGrade,
       NinthGrade: NinthGrade,
       TenthGrade: TenthGrade,
       EleventhGrade: EleventhGrade,
