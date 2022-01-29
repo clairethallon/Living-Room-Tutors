@@ -284,9 +284,62 @@ RETURNING "id";`;
           "false",
         ])
         .then((result) => {
-          console.log("SubjectTutorID:", result.rows[0].id);
+          const subjectTutorId = result.rows[0].id;
+          console.log("SubjectTutorID:", subjectTutorId);
           console.log("MentoringGradeID", mentoringGradeId);
-          res.sendStatus(201);
+          const insertTutorLanguageQuery = `
+            INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+            VALUES  ($1, $2, $3, $4, $5, $6, $7, $8)
+            RETURNING "id";`;
+          pool
+            .query(insertTutorLanguageQuery, [
+              "false",
+              "false",
+              "false",
+              "false",
+              "false",
+              "false",
+              "false",
+              "false",
+            ])
+            .then((result) => {
+              const languageTutorId = result.rows[0].id;
+              console.log("SubjectTutorID:", subjectTutorId);
+              console.log("MentoringGradeID", mentoringGradeId);
+              console.log("LanguageTutorID:", languageTutorId);
+              const insertTutorQuery = `
+                INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone", "email", "grade_level", "school", "mentoring_grade_id", "language_tutor_id", "subjects_id", "misc_info", "submission_timestamp", "matched"  )
+                VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);`;
+              pool
+                .query(insertTutorQuery, [
+                  "Miriam",
+                  "McNamara",
+                  "she/her",
+                  "828-423-2307",
+                  "stars4mimi@gmail.com",
+                  "I'm in College",
+                  "Prime Digital Academy",
+                  mentoringGradeId,
+                  languageTutorId,
+                  subjectTutorId,
+                  "Holy crap this post route is working!",
+                  "01-29-22",
+                  "false",
+                ])
+                .then((results) => {
+                  res.sendStatus(201);
+                })
+                .catch((err) => {
+                  //CATCH FOR FOURTH QUERY
+                  console.log("error posting to tutor table:", err);
+                  res.sendStatus(500);
+                });
+            })
+            .catch((err) => {
+              //CATCH FOR THIRD QUERY
+              console.log("error posting to language table", err);
+              res.sendStatus(500);
+            });
         })
         .catch((err) => {
           //CATCH FOR SECOND QUERY
