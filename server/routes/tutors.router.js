@@ -210,7 +210,7 @@ tutors.email AS tutor_email,
  * POST route template
  */
 router.post("/", (req, res) => {
-  console.log(req.body);
+  console.log("newTutorObject:", req.body);
 });
 
 module.exports = router;
