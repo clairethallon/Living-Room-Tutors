@@ -8,7 +8,7 @@ CREATE TABLE "tutees" (
 	"id" serial NOT NULL,
 	"student_first_name" varchar(255) NOT NULL,
 	"student_last_name" varchar(255) NOT NULL,
-	"pronouns" varchar(255) NOT NULL,
+	"pronouns" varchar(255),
 	"student_or_guardian" varchar(255) NOT NULL,
 	"email_guardian" varchar(255) NOT NULL,
 	"email_student" varchar(255) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE "tutors" (
 	"id" serial NOT NULL,
 	"tutor_first_name" varchar(255) NOT NULL,
 	"tutor_last_name" varchar(255) NOT NULL,
-	"pronouns" varchar(255) NOT NULL,
+	"pronouns" varchar(255),
 	"email" varchar(255) NOT NULL,
 	"phone" varchar(255) NOT NULL,
 	"grade_level" varchar(255) NOT NULL,
@@ -234,4 +234,20 @@ INSERT INTO "subjects_tutees" ("subject") VALUES
 ('act_prep'),	 
 ('other');
 
+--DUMMY DATA INSERTS FOR JINGLIN LI
 
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, false, false, false, false, false, false);
+
+INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_Social_Studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep")
+	VALUES ( true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true );
+
+INSERT INTO "mentoring_grade" ( "prek_kindergarten", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th" )
+VALUES ( true, true, true, true, true, true, true, false, false, false, false, false, false );
+
+INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone", "email", "grade_level", "school", "mentoring_grade_id", "language_tutor_id", "subjects_id", "misc_info", "submission_timestamp", "matched"  ) VALUES
+('Jinglin', 'Li', 'she/her', '5075174954', 'tutee.lrtmatching@gmail.com', 'In College', 'UMN Twin Cities', 
+--MENTORING_GRADE.ID GOES HERE, 
+--LANGUAGE_TUTOR.ID GOES HERE, 
+--SUBJECTS.ID GOES HERE, 
+NULL, '1/9/2022 15:15:01', false );
