@@ -31,6 +31,7 @@ function TutorInfo(props) {
   const[newTutorPhone, setNewTutorPhone]= useState();
   const[newGrade, setNewGrade]= useState();
   const[newTutorSchool, setNewTutorSchool]= useState();
+  
 
 
     const changeTutorFirstName= ()=>{
@@ -112,6 +113,12 @@ function TutorInfo(props) {
 
       setNewTutorSchool(event.target.value) 
     }
+
+    const changeOtherSchool= ()=>{
+      console.log('in other school');
+      setNewTutorSchool(event.target.value);
+    }
+    
 
     const AddNewTutorInfo =()=>{
       //package up new info in object
@@ -224,7 +231,7 @@ function TutorInfo(props) {
           <option value="Other">Other</option>
           </Form.Select>
 
-          { changeOtherField? <input type="text" placeholder="Other School"></input> : <> </>
+          { changeOtherField? <input type="text" placeholder="Other School" onChange={(event)=>changeOtherSchool(event)}></input> : <> </>
           }
         </div>
 
