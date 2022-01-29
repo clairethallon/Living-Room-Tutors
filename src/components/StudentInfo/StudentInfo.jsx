@@ -40,7 +40,6 @@ function TutorInfo(props) {
   const [French, setFrench] = useState( false );
   const [Vietnamese, setVietnamese] = useState( false );
   const [Hmong, setHmong] = useState( false );
-  const [English, setEnglish] = useState( false );
   const [IsLangChecked, setIsLangChecked] = useState( true );
   const [otherLanguage, setotherLanguage] = useState();
   // ******** LANGUAGE CHECK BOXES **************
@@ -155,11 +154,6 @@ function TutorInfo(props) {
       console.log('Hmong', Hmong)
     }
 
-    const changeEnglish = () => {
-      setEnglish(!English);
-      console.log('English', English)
-    }
-
     const changeIsLangChecked = () => {
       setIsLangChecked(!IsLangChecked);
       console.log('is other checked?', IsLangChecked)
@@ -195,7 +189,6 @@ function TutorInfo(props) {
         French: French,
         Vietnamese: Vietnamese,
         Hmong: Hmong,
-        English: English,
         otherLanguage: otherLanguage,
       }
 
@@ -205,21 +198,6 @@ function TutorInfo(props) {
           (newStudentInfo.theyThemPronoun == false ) && 
           (newStudentInfo.otherPronoun == '' || newStudentInfo.otherPronoun == null)){
             pronounerrors = true;
-          }
-      
-      let languageErrors= false;
-      if( (newStudentInfo.Spanish == false ) && 
-          (newStudentInfo.Somali == false ) && 
-          (newStudentInfo.Arabic == false ) &&
-          (newStudentInfo.Chinese == false ) &&
-          (newStudentInfo.Tagalog == false ) &&
-          (newStudentInfo.French == false ) &&
-          (newStudentInfo.Vietnamese == false ) &&
-          (newStudentInfo.Hmong == false ) &&
-          // (newStudentInfo.English == false ) &&
-          (newStudentInfo.Somali == false ) &&
-          (newStudentInfo.otherLanguage == '' || newStudentInfo.otherLanguage == null)){
-            languageErrors = true;
           }
 
       if (newStudentInfo.submitter== '' || newStudentInfo.submitter== null ||
@@ -353,11 +331,6 @@ function TutorInfo(props) {
           <div>
             <input type="checkbox" id="Hmong" name="Hmong" onChange={(event)=>changeHmong()}/>
             <label for="Hmong">Hmong</label>
-          </div>
-
-          <div>
-            <input type="checkbox" id="English" name="English" onChange={(event)=>changeEnglish(event)}/>
-            <label for="English">English</label>
           </div>
 
           <div>
