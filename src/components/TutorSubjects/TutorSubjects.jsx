@@ -78,7 +78,6 @@ function TutorSubjects(props) {
     const [French, setFrench] = useState( false );
     const [Vietnamese, setVietnamese] = useState( false );
     const [Hmong, setHmong] = useState( false );
-    const [NA, setNA] = useState( false );
     // ******** LANGUAGE CHECK BOXES **************
 
 
@@ -400,10 +399,6 @@ const changeHmong = () => {
   console.log('Hmong', Hmong)
 }
 
-const changeNA = () => {
-  setNA(!NA);
-  console.log('NA', NA)
-}
 // ******** LANGUAGE CHECK BOXES **************
 
 
@@ -474,7 +469,6 @@ const AddNewTutorSubjects =()=>{
     French: French,
     Vietnamese: Vietnamese,
     Hmong: Hmong,
-    NA: NA,
   }
 
   let gradesErrors= false;
@@ -493,21 +487,20 @@ const AddNewTutorSubjects =()=>{
         (newTutorSubjects.TwelthGrade == false ))
       {gradesErrors = true;}
 
-  let languageErrors= false;
-      if( (newTutorSubjects.Spanish == false ) && 
-          (newTutorSubjects.Somali == false ) && 
-          (newTutorSubjects.Arabic == false ) &&
-          (newTutorSubjects.Chinese == false ) &&
-          (newTutorSubjects.Tagalog == false ) &&
-          (newTutorSubjects.French == false ) &&
-          (newTutorSubjects.Vietnamese == false ) &&
-          (newTutorSubjects.Hmong == false ) &&
-          (newTutorSubjects.English == false ) &&
-          (newTutorSubjects.Somali == false ) &&
-          (newTutorSubjects.NA == false))
-            {languageErrors = true;}
+  // let languageErrors= false;
+  //     if( (newTutorSubjects.Spanish == false ) && 
+  //         (newTutorSubjects.Somali == false ) && 
+  //         (newTutorSubjects.Arabic == false ) &&
+  //         (newTutorSubjects.Chinese == false ) &&
+  //         (newTutorSubjects.Tagalog == false ) &&
+  //         (newTutorSubjects.French == false ) &&
+  //         (newTutorSubjects.Vietnamese == false ) &&
+  //         (newTutorSubjects.Hmong == false ) &&
+  //         (newTutorSubjects.English == false ) &&
+  //         (newTutorSubjects.Somali == false ))
+  //           {languageErrors = true;}
 
-          if(languageErrors, gradesErrors){alert('Plase make at least one selection in each category')}
+          if(gradesErrors){alert('Plase make at least one selection in each category')}
   dispatch( {type:'ADD_NEW_TUTOR_SUBJECTS', payload: newTutorSubjects})
 }
 
@@ -842,11 +835,6 @@ const AddNewTutorSubjects =()=>{
           <div>
             <input type="checkbox" id="Hmong" name="Hmong" onChange={(event)=>changeHmong()}/>
             <label htmlFor="Hmong">Hmong</label>
-          </div>
-
-          <div>
-            <input type="checkbox" id="NA" name="NA" onChange={(event)=>changeNA(event)}/>
-            <label htmlFor="NA">N/A</label>
           </div>
       </div>
 
