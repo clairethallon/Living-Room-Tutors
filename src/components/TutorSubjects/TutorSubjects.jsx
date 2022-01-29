@@ -483,7 +483,7 @@ function TutorSubjects(props) {
       newTutorSubjects.FifthGrade == false &&
       newTutorSubjects.SixthGrade == false &&
       newTutorSubjects.SeventhGrade == false &&
-      newTutorSubjects.EightGrade == false &&
+      newTutorSubjects.EighthGrade == false &&
       newTutorSubjects.NinthGrade == false &&
       newTutorSubjects.TenthGrade == false &&
       newTutorSubjects.EleventhGrade == false &&
