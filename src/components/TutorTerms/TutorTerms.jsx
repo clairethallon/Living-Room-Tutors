@@ -10,7 +10,7 @@ function StudentTerms(props) {
   
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Student Terms');
+  const [heading, setHeading] = useState('Tutor Terms');
 
   const[tutorterms, setTutorTerms]= useState( false );
 

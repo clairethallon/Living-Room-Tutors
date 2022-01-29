@@ -8,7 +8,7 @@ function StudentAdditional(props) {
   
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Student Additional Info');
+  const [heading, setHeading] = useState('Tutor Additional Info');
 
 
   const[newutorAdditionalInfo, setNewTutorAdditionalInfo]= useState();
