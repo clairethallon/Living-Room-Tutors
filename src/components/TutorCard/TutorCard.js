@@ -24,7 +24,7 @@ function TutorCard(props) {
               <LanguageFlag />
             </Col>
             <Col className="cardButtons" xs="2">
-              <ActivateDeactivateButton />
+              <ActivateDeactivateButton active={props.tutor} />
               {/* <--conditionally render the MatchButton to only show up when the Tutor is activated. */}
             </Col>
             {/* </Row> */}
