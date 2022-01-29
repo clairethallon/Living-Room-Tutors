@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import "../TuteeProfile/TuteeProfile.css";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -9,34 +10,39 @@ function TuteeProfile(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState("Functional Component");
+  const [tuteeLanguages, setTuteeLanguages] = useState([]);
 
-  // const languages = [
-  //   props.tutee.tutee_language_arabic,
-  //   props.tutee.tutee_language_chinese,
-  //   props.tutee.tutee_language_french,
-  //   props.tutee.tutee_language_hmong,
-  //   props.tutee.tutee_language_somali,
-  //   props.tutee.tutee_language_tagalog,
-  //   props.tutee.tutee_language_vietnamese,
-  //   props.tutee.tutee_language_spanish,
-  // ];
+  useEffect(() => {
+    languageFinder(languages);
+  }, []);
 
-  const languages = {
-    arabic: props.tutee.tutee_language_arabic,
+  const languages = [
+    { name: "Arabic ", status: props.tutee.tutee_language_arabic },
+    { name: "Chinese ", status: props.tutee.tutee_language_chinese },
+    { name: "French ", status: props.tutee.tutee_language_french },
+    { name: "Hmong ", status: props.tutee.tutee_language_hmong },
+    { name: "Somali ", status: props.tutee.tutee_language_somali },
+    { name: "Tagalog ", status: props.tutee.tutee_language_tagalog },
+    { name: "Vietnamese ", status: props.tutee.tutee_language_vietnamese },
+    { name: "Spanish ", status: props.tutee.tutee_language_spanish },
+  ];
+
+  const languageFinder = (languages) => {
+    console.log(languages);
+    let currentLanguages = [];
+    for (let i = 0; i < languages.length; i++) {
+      if (languages[i].status === true) {
+        currentLanguages.push(languages[i].name);
+      }
+    }
+    console.log('CURRENT LANGUAGES', currentLanguages);
+    setTuteeLanguages(currentLanguages);
+    return currentLanguages;
   };
-
-  // const languageFinder = (languages) => {
-  //   let currentLanguages = [];
-  //   for (let i = 0; i < languages.length; i++) {
-  //     if (languages[0] === true) {
-  //       currentLanguages.push("Arabic");
-  //     }
-  //   }
-  // };
 
   return (
     <div>
-      {JSON.stringify(languages)}
+      {/* {JSON.stringify(currentLanguages)} */}
       <h2>
         {props.tutee.tutee_firstname} {props.tutee.tutee_lastname} (
         {props.tutee.tutee_pronouns})
@@ -48,8 +54,9 @@ function TuteeProfile(props) {
       <p>Phone number: {props.tutee.tutee_phone}</p>
       <p>Grade Level: {props.tutee.grade_level}</p>
       <p>School attending: {props.tutee.school}</p>
+
       <p>
-        Language preference (if not English): {props.tutee.language_tutee_id}
+        Language preference (if not English): {tuteeLanguages.map((language) => { return <p>{language}</p> })}
       </p>
       <p>1st subject choice: {props.tutee.subject_1}</p>
       <p>2st subject choice: {props.tutee.subject_2}</p>
