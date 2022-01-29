@@ -531,20 +531,7 @@ const AddNewTutorSubjects =()=>{
         (newTutorSubjects.ACTPrep == false) &&
         (newTutorSubjects.Other == false))
         {subjectErrors = true;}
-        
-      
-  // let languageErrors= false;
-  //     if( (newTutorSubjects.Spanish == false ) && 
-  //         (newTutorSubjects.Somali == false ) && 
-  //         (newTutorSubjects.Arabic == false ) &&
-  //         (newTutorSubjects.Chinese == false ) &&
-  //         (newTutorSubjects.Tagalog == false ) &&
-  //         (newTutorSubjects.French == false ) &&
-  //         (newTutorSubjects.Vietnamese == false ) &&
-  //         (newTutorSubjects.Hmong == false ) &&
-  //         (newTutorSubjects.English == false ) &&
-  //         (newTutorSubjects.Somali == false ))
-  //           {languageErrors = true;}
+
 
           if(gradesErrors || subjectErrors ){alert('Plase make at least one selection in each category')}
   dispatch( {type:'ADD_NEW_TUTOR_SUBJECTS', payload: newTutorSubjects})
@@ -554,6 +541,7 @@ const AddNewTutorSubjects =()=>{
 
   return (
     <div>
+      <div className= 'maincard'>
       <h2>{heading}</h2>
 
       <h3>What grade levels are you comfortable tutoring/mentoring?</h3>
@@ -886,7 +874,7 @@ const AddNewTutorSubjects =()=>{
 
       <Link to="/TutorAdditional" ><Button onClick={AddNewTutorSubjects}>Add A New Tutor Info</Button></Link>
 
-
+      </div>
     </div>
   ); 
 }

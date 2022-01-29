@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+import Header from '../Header/Header';
 
 
 
@@ -53,6 +54,15 @@ function TutorInfo(props) {
       console.log('she/her status:', sheHerPronoun)
     }
 
+    // const changesheHerPronoun = () => {
+    //   !sheHerPronoun;
+    //   if (sheHerPronoun = true){
+    //     setsheHerPronoun('She/Her')
+    //   }
+    //   else {setsheHerPronoun( false )}
+    //   console.log('she/her status:', sheHerPronoun)
+    // }
+
     const changeheHimPronoun = () => {
       setheHimPronoun(!heHimPronoun);
       console.log('he/him status:', heHimPronoun)
@@ -93,6 +103,8 @@ function TutorInfo(props) {
 
     const AddNewTutorInfo =()=>{
       //package up new info in object
+
+
       const newTutorInfo = {
         firstName: newTutorFirstName,
         lastName: newTutorLastName,
@@ -105,6 +117,7 @@ function TutorInfo(props) {
         grade: newGrade,
         school: newTutorSchool,
       }
+
       let pronounerrors = false;
       if( (newTutorInfo.sheHerPronoun == false ) && 
           ( newTutorInfo.heHimPronoun == false ) && 
@@ -125,6 +138,8 @@ function TutorInfo(props) {
 
   return (
     <div>
+      <div className= 'maincard'>
+        <Header/>
       <h2>{heading}</h2>
       <div>
         <h3>What is your name? (First and Last)</h3>
@@ -140,7 +155,8 @@ function TutorInfo(props) {
 
       <div>
       <p>What are your pronouns?</p>
-        {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
+        <p>{JSON.stringify(sheHerPronoun)}</p>
+  
         <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
           <label htmlFor="She/Her">She/Her</label>
@@ -193,6 +209,7 @@ function TutorInfo(props) {
         </div>
 
         <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
+        </div> 
     </div>
   );
 }

@@ -28,13 +28,14 @@ function StudentAdditional(props) {
   
   return (
     <div>
-      <h2>{heading}</h2>
+      <div className= 'maincard'>
+        <h2>{heading}</h2>
 
-      <h3>Is there any additional information you would like to provide?</h3>
-      <input type="text" placeholder="Additional Info" onChange={(event)=>changeTutorAdditionalInfo(event)}></input>
+        <h3>Is there any additional information you would like to provide?</h3>
+        <input type="text" placeholder="Additional Info" onChange={(event)=>changeTutorAdditionalInfo(event)}></input>
 
-      <Link to="/TutorTerms"><Button onClick={AddTutorAdditionalInfo}>Save and Continue</Button></Link>
-
+        <Link to="/TutorTerms"><Button onClick={AddTutorAdditionalInfo}>Save and Continue</Button></Link>
+      </div>
     </div>
   );
 }

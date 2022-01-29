@@ -214,6 +214,7 @@ function TutorInfo(props) {
 
   return (
     <div>
+      <div className= 'maincard'>
       <h2>{heading}</h2>
 
       <div>
@@ -343,7 +344,7 @@ function TutorInfo(props) {
 
 
       <Link to="/StudentSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
-      
+      </div>
     </div>
   );
 }
