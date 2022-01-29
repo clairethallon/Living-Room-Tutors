@@ -7,14 +7,9 @@ import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TutorProfile from "../TutorProfile/TutorProfile";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TutorCard with the name for the new component.
+
 function TutorCard(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [heading, setHeading] = useState("Functional Component");
+
 
   return (
     <div>
@@ -36,7 +31,7 @@ function TutorCard(props) {
             {/* </Row> */}
           </Accordion.Header>
           <Accordion.Body>
-            <TutorProfile />
+            <TutorProfile tutor={props.tutor} />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>

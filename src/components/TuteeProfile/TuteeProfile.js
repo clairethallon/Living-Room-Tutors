@@ -27,6 +27,7 @@ function TuteeProfile(props) {
     { name: "Spanish ", status: props.tutee.tutee_language_spanish },
   ];
 
+
   const languageFinder = (languages) => {
     console.log(languages);
     let currentLanguages = [];
