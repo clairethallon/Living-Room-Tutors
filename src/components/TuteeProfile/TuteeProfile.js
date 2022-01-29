@@ -21,6 +21,10 @@ function TuteeProfile(props) {
   //   props.tutee.tutee_language_spanish,
   // ];
 
+  const languages = {
+    arabic: props.tutee.tutee_language_arabic,
+  };
+
   // const languageFinder = (languages) => {
   //   let currentLanguages = [];
   //   for (let i = 0; i < languages.length; i++) {
@@ -32,7 +36,7 @@ function TuteeProfile(props) {
 
   return (
     <div>
-      {/* {JSON.stringify(languages)} */}
+      {JSON.stringify(languages)}
       <h2>
         {props.tutee.tutee_firstname} {props.tutee.tutee_lastname} (
         {props.tutee.tutee_pronouns})
