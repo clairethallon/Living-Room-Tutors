@@ -1,13 +1,16 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+
+import React, { useState } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import { Link } from 'react-router-dom'; 
+import Button from 'react-bootstrap/Button';
+import Header from '../Header/Header';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name StudentTerms with the name for the new component.
 function StudentTerms(props) {
   const dispatch = useDispatch();
+  
   const tutorInfo = useSelector((store) => store.newtutor.newtutorInfoReducer);
   const tutorAdditional = useSelector(
     (store) => store.newtutor.newtutorAdditionalReducer
@@ -15,7 +18,7 @@ function StudentTerms(props) {
   const tutorSubjects = useSelector(
     (store) => store.newtutor.newtutorSubjectReducer
   );
-  const [heading, setHeading] = useState("Student Terms");
+  const [heading, setHeading] = useState("Tutor Terms");
 
   const [tutorTerms, setTutorTerms] = useState(false);
 
@@ -104,6 +107,8 @@ function StudentTerms(props) {
 
   return (
     <div>
+      <Header/>
+      <div className= 'maincard'>
       <h2>{heading}</h2>
 
       <p>
@@ -149,6 +154,7 @@ function StudentTerms(props) {
       <Link to="/TutorInfo">
         <Button onClick={sendNewTutor}>Submit</Button>
       </Link>
+
     </div>
   );
 }

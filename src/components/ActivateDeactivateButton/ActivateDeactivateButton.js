@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 function ActivateDeactivateButton(props) {
   return (
     <div>
-      <div>{JSON.stringify(props.tutee)}</div>
+      <div>{JSON.stringify(props)}</div>
       {props.active ? <Button>deactivate</Button> : <Button>activate</Button>}
     </div>
   );

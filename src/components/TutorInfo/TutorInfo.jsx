@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+import Header from '../Header/Header';
 
 
 
@@ -20,16 +21,17 @@ function TutorInfo(props) {
   const[newTutorEmail, setNewEmail]= useState();
 
   // ******** PRONOUN CHECK BOXES **************
-  const [sheHerPronoun, setsheHerPronoun] = useState( false );
-  const [heHimPronoun, setheHimPronoun] = useState( false );
-  const [theyThemPronoun, settheyThemPronoun] = useState( false );
-  const [IsChecked, setIsChecked] = useState( true );
-  const [otherPronoun, setOtherPronoun] = useState( );
+  const [Pronouns, setPronouns] = useState('');
+  // const [heHimPronoun, setheHimPronoun] = useState('');
+  // const [theyThemPronoun, settheyThemPronoun] = useState('');
+  // const [IsChecked, setIsChecked] = useState( false);
+  // const [CustomPronoun, setCustomPronoun] = useState( );
    // ******** PRONOUN CHECK BOXES **************
 
   const[newTutorPhone, setNewTutorPhone]= useState();
   const[newGrade, setNewGrade]= useState();
   const[newTutorSchool, setNewTutorSchool]= useState();
+  
 
 
     const changeTutorFirstName= ()=>{
@@ -48,30 +50,47 @@ function TutorInfo(props) {
     }
 
     // ******** PRONOUN CHECK BOXES **************
-    const changesheHerPronoun = () => {
-      setsheHerPronoun(!sheHerPronoun);
-      console.log('she/her status:', sheHerPronoun)
-    }
 
-    const changeheHimPronoun = () => {
-      setheHimPronoun(!heHimPronoun);
-      console.log('he/him status:', heHimPronoun)
+    const changePronouns= ()=>{
+      console.log('in new tutor email');
+      setPronouns (event.target.value);
     }
+    // const changesheHerPronoun = () => {
+    //   if (sheHerPronoun == ""){
+    //     setsheHerPronoun('She/Her')
+    //     console.log('she/her equals', sheHerPronoun )
+    //   }
+    //   else {setsheHerPronoun("")
+    //   console.log('she/her equals', sheHerPronoun )}
+    // }
 
-    const changetheyThemPronoun = () => {
-      settheyThemPronoun(!theyThemPronoun);
-      console.log('he/him status:', theyThemPronoun)
-    }
+    // const changeheHimPronoun = () => {
+    //   if (heHimPronoun == ""){
+    //     setheHimPronoun('He/Him')
+    //     console.log('he/Him equals', heHimPronoun )
+    //   }
+    //   else {setheHimPronoun("")
+    //   console.log('he/him equals', heHimPronoun )}
+    // }
 
-    const changeIsChecked = () => {
-      setIsChecked(!IsChecked);
-      console.log('is other checked?', IsChecked)
-    }
+    // const changetheyThemPronoun = () => {
+    //   if (theyThemPronoun == ""){
+    //     settheyThemPronoun('They/Them')
+    //     console.log('they/them equals', theyThemPronoun )
+    //   }
+    //   else {settheyThemPronoun("")
+    //   console.log('they/them equals', theyThemPronoun )}
+    // }
 
-    const changeOtherPronoun = () => {
-      console.log('Other is:', otherPronoun)
-      setOtherPronoun(event.target.value)
-    }
+    // const changeIsChecked = () => {
+    //   setIsChecked(!IsChecked);
+    //   console.log('is Custom checked?', IsChecked)
+    // }
+
+    // const changeCustomPronoun = () => {
+    //   console.log('Custom is:', CustomPronoun)
+    //   setCustomPronoun(event.target.value)
+    // }
 
     // ******** END END END END END**************
 
@@ -85,39 +104,50 @@ function TutorInfo(props) {
       setNewGrade(event.target.value);
     }
 
+    
+    const[changeOtherField, setOtherField]= useState(false);
+
     const changeTutorSchool= ()=>{ 
       console.log('in new tutor school');
-      setNewTutorSchool(event.target.value);
+      console.log('event', event.target.value);
+
+      if(event.target.value == 'Other')
+      {setOtherField(true)}
+      else{setOtherField(false)}
+
+      setNewTutorSchool(event.target.value) 
     }
 
+    const changeOtherSchool= ()=>{
+      console.log('in other school');
+      setNewTutorSchool(event.target.value);
+    }
+    
 
     const AddNewTutorInfo =()=>{
       //package up new info in object
+
+
       const newTutorInfo = {
         firstName: newTutorFirstName,
         lastName: newTutorLastName,
         email: newTutorEmail,
-        sheHerPronoun: sheHerPronoun,
-        heHimPronoun: heHimPronoun,
-        theyThemPronoun: theyThemPronoun,
-        otherPronoun: otherPronoun,
+        // sheHerPronoun: sheHerPronoun,
+        // heHimPronoun: heHimPronoun,
+        // theyThemPronoun: theyThemPronoun,
+        // CustomPronoun: CustomPronoun,
+        pronouns: Pronouns,
         phone: newTutorPhone,
         grade: newGrade,
         school: newTutorSchool,
       }
-      let pronounerrors = false;
-      if( (newTutorInfo.sheHerPronoun == false ) && 
-          ( newTutorInfo.heHimPronoun == false ) && 
-          (newTutorInfo.theyThemPronoun == false ) && 
-          (newTutorInfo.otherPronoun == '' || newTutorInfo.otherPronoun == null)){
-        pronounerrors = true;
-      }
+
       if (newTutorInfo.firstName == '' || newTutorInfo.firstName== null ||
       newTutorInfo.lastName == '' || newTutorInfo.lastName == null ||
       newTutorInfo.email== '' || newTutorInfo.email== null ||
       newTutorInfo.phone== '' || newTutorInfo.phone== null ||
       newTutorInfo.grade== '' || newTutorInfo.grade== null ||
-      newTutorInfo.school== '' || newTutorInfo.school== null || pronounerrors ){alert('problem!')}
+      newTutorInfo.school== '' || newTutorInfo.school== null ){alert('problem!')}
 
       else{dispatch( {type:'ADD_NEW_TUTOR_INFO', payload: newTutorInfo})}
     }
@@ -125,6 +155,10 @@ function TutorInfo(props) {
 
   return (
     <div>
+      
+      <Header/>
+
+      <div className= 'maincard'>
       <h2>{heading}</h2>
       <div>
         <h3>What is your name? (First and Last)</h3>
@@ -140,7 +174,12 @@ function TutorInfo(props) {
 
       <div>
       <p>What are your pronouns?</p>
-        {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
+      <input type="text" placeholder="Pronouns" onChange={(event)=>changePronouns(event)}></input>
+        {/* <p>{JSON.stringify(sheHerPronoun)}</p>
+        <p>{JSON.stringify(heHimPronoun)}</p>
+        <p>{JSON.stringify(theyThemPronoun)}</p>
+        <p>{JSON.stringify(CustomPronoun)}</p>
+  
         <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
           <label htmlFor="She/Her">She/Her</label>
@@ -155,10 +194,10 @@ function TutorInfo(props) {
         </div>
 
         <div>
-          <input type="checkbox" id="OtherPronoun" name="OtherPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
-          <label htmlFor="Other Pronouns">Other</label>
-          <input type="text" placeholder="Tutor Phone Number" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
-        </div>
+          <input type="checkbox" id="CustomPronoun" name="CustomPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
+          <label htmlFor="Custom Pronouns">Custom</label>
+          <input type="text" placeholder="Tutor Phone Number" disabled={!IsChecked} onChange={(event)=>changeCustomPronoun()}></input>
+        </div> */}
 
       </div>
       
@@ -190,9 +229,13 @@ function TutorInfo(props) {
           <option value="College">I'm in College</option>
           <option value="Other">Other</option>
           </Form.Select>
+
+          { changeOtherField? <input type="text" placeholder="Other School" onChange={(event)=>changeOtherSchool(event)}></input> : <> </>
+          }
         </div>
 
         <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
+        </div> 
     </div>
   );
 }

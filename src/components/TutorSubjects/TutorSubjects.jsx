@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+
+import React, { useEffect, useState } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import { Link } from 'react-router-dom'; 
+import Button from 'react-bootstrap/Button';
+import Header from '../Header/Header';
 
 function TutorSubjects(props) {
   const dispatch = useDispatch();
@@ -71,17 +73,16 @@ function TutorSubjects(props) {
   const [Other, setOther] = useState(false);
   // ******** SUBJECT CHECK BOXES **************
 
-  // ******** LANGUAGE CHECK BOXES **************
-  const [Spanish, setSpanish] = useState(false);
-  const [Somali, setSomali] = useState(false);
-  const [Arabic, setArabic] = useState(false);
-  const [Chinese, setChinese] = useState(false);
-  const [Tagalog, setTagalog] = useState(false);
-  const [French, setFrench] = useState(false);
-  const [Vietnamese, setVietnamese] = useState(false);
-  const [Hmong, setHmong] = useState(false);
-  const [NA, setNA] = useState(false);
-  // ******** LANGUAGE CHECK BOXES **************
+    // ******** LANGUAGE CHECK BOXES **************
+    const [Spanish, setSpanish] = useState( false );
+    const [Somali, setSomali] = useState( false );
+    const [Arabic, setArabic] = useState( false );
+    const [Chinese, setChinese] = useState( false );
+    const [Tagalog, setTagalog] = useState( false );
+    const [French, setFrench] = useState( false );
+    const [Vietnamese, setVietnamese] = useState( false );
+    const [Hmong, setHmong] = useState( false );
+    // ******** LANGUAGE CHECK BOXES **************
 
   // *********** TUTOR GRADE LEVELS ****************
   const changePreK = () => {
@@ -473,47 +474,67 @@ function TutorSubjects(props) {
       NA: NA,
     };
 
-    let gradesErrors = false;
-    if (
-      newTutorSubjects.PreK == false &&
-      newTutorSubjects.FirstGrade == false &&
-      newTutorSubjects.SecondGrade == false &&
-      newTutorSubjects.ThirdGrade == false &&
-      newTutorSubjects.FourthGrade == false &&
-      newTutorSubjects.FifthGrade == false &&
-      newTutorSubjects.SixthGrade == false &&
-      newTutorSubjects.SeventhGrade == false &&
-      newTutorSubjects.EighthGrade == false &&
-      newTutorSubjects.NinthGrade == false &&
-      newTutorSubjects.TenthGrade == false &&
-      newTutorSubjects.EleventhGrade == false &&
-      newTutorSubjects.TwelfthGrade == false
-    ) {
-      gradesErrors = true;
-    }
-
-    let languageErrors = false;
-    if (
-      newTutorSubjects.Spanish == false &&
-      newTutorSubjects.Somali == false &&
-      newTutorSubjects.Arabic == false &&
-      newTutorSubjects.Chinese == false &&
-      newTutorSubjects.Tagalog == false &&
-      newTutorSubjects.French == false &&
-      newTutorSubjects.Vietnamese == false &&
-      newTutorSubjects.Hmong == false &&
-      newTutorSubjects.English == false &&
-      newTutorSubjects.Somali == false &&
-      newTutorSubjects.NA == false
-    ) {
-      languageErrors = true;
-    }
-
-    if ((languageErrors, gradesErrors)) {
-      alert("Plase make at least one selection in each category");
-    }
-    dispatch({ type: "ADD_NEW_TUTOR_SUBJECTS", payload: newTutorSubjects });
-  };
+    let gradesErrors= false;
+    if((newTutorSubjects.PreK == false ) &&
+        (newTutorSubjects.FirstGrade == false ) &&
+        (newTutorSubjects.SecondGrade == false ) &&
+        (newTutorSubjects.ThirdGrade == false ) &&
+        (newTutorSubjects.FourthGrade == false ) &&
+        (newTutorSubjects.FithGrade == false ) &&
+        (newTutorSubjects.SixthGrade == false ) &&
+        (newTutorSubjects.SeventhGrade == false ) &&
+        (newTutorSubjects.EigthGrade == false ) &&
+        (newTutorSubjects.NinthGrade == false ) &&
+        (newTutorSubjects.TenthGrade == false ) &&
+        (newTutorSubjects.EleventhGrade == false ) &&
+        (newTutorSubjects.TwelthGrade == false ))
+      {gradesErrors = true;}
+      let subjectErrors = false;
+      if((newTutorSubjects.K5Math == false) &&
+        (newTutorSubjects.K5Reading == false) &&
+        (newTutorSubjects.K5EnglishWriting == false) &&
+        (newTutorSubjects.K5SocialStudies == false) &&
+        (newTutorSubjects.K5Science == false) &&
+        (newTutorSubjects.SixToEightLanguageArts == false) &&
+        (newTutorSubjects.SixToEightScience == false) &&
+        (newTutorSubjects.SixToEigthSocialStudies == false) &&
+        (newTutorSubjects.MathPreAlgebra == false) &&
+        (newTutorSubjects.MathLinearAlgebra == false) &&
+        (newTutorSubjects.MathGeometry == false) &&
+        (newTutorSubjects.MathAlgebraII == false) &&
+        (newTutorSubjects.MathPrecalculusTrigonometry == false) &&
+        (newTutorSubjects.BiologyLifeSciences == false) &&
+        (newTutorSubjects.ScienceChemistry == false) &&
+        (newTutorSubjects.SciencePhysics == false) &&
+        (newTutorSubjects.ComputerScience == false) &&
+        (newTutorSubjects.LanguageChinese == false) &&
+        (newTutorSubjects.LanguageSpanish == false) &&
+        (newTutorSubjects.LanguageFrench == false) &&
+        (newTutorSubjects.LanguageGerman == false) &&
+        (newTutorSubjects.WorldHistory == false) &&
+        (newTutorSubjects.USHistory == false) &&
+        (newTutorSubjects.APHonorsBiology == false) &&
+        (newTutorSubjects.APHonorsChemistry == false) &&
+        (newTutorSubjects.APHonorsPhysics == false) &&
+        (newTutorSubjects.APHonorsComputerScience == false) &&
+        (newTutorSubjects.APHonorsCalculusAB == false) &&
+        (newTutorSubjects.APHonorsCalculusBC == false) &&
+        (newTutorSubjects.APHonorsStatistics == false) &&
+        (newTutorSubjects.APHonorsEnglishLiterature == false) &&
+        (newTutorSubjects.APHonorsEnglishLanguage == false) &&
+        (newTutorSubjects.APHonorsMacroeconomics == false) &&
+        (newTutorSubjects.APHonorsMicroeconomics == false) &&
+        (newTutorSubjects.APHonorsUSHistory == false) &&
+        (newTutorSubjects.APHonorsGovernmentPolitics == false) &&
+        (newTutorSubjects.APHonorsHumanGeography == false) &&
+        (newTutorSubjects.SATSubjectTests == false) &&
+        (newTutorSubjects.SATPrep == false) &&
+        (newTutorSubjects.ACTPrep == false) &&
+        (newTutorSubjects.Other == false))
+        {subjectErrors = true;}
+          if(gradesErrors || subjectErrors ){alert(‘Plase make at least one selection in each category’)}
+  dispatch( {type:‘ADD_NEW_TUTOR_SUBJECTS’, payload: newTutorSubjects})
+}
 
   return (
     <div>
@@ -1186,20 +1207,12 @@ function TutorSubjects(props) {
           <label htmlFor="Hmong">Hmong</label>
         </div>
 
-        <div>
-          <input
-            type="checkbox"
-            id="NA"
-            name="NA"
-            onChange={(event) => changeNA(event)}
-          />
-          <label htmlFor="NA">N/A</label>
-        </div>
       </div>
 
       <Link to="/TutorAdditional">
         <Button onClick={AddNewTutorSubjects}>Add A New Tutor Info</Button>
       </Link>
+
     </div>
   );
 }

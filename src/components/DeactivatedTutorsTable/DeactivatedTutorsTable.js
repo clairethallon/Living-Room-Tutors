@@ -1,24 +1,32 @@
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import { Table, Card, Col, Row } from "react-bootstrap";
 import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeactivateButton";
 import MatchPageButton from "../MatchPageButton/MatchPageButton";
-import TuteeCard from "../TuteeCard/TuteeCard";
+import TutorCard from "../TutorCard/TutorCard";
 
-function DeactivatedTuteesTable(props) {
+// component name TuteesTable with the name for the new component.
+function DeactivatedTutorsTable(props) {
+  // Using hooks we're creating local state for a "heading" variable with
+  // a default value of 'Functional Component'
+  const store = useSelector((store) => store);
+  const [heading, setHeading] = useState("Tutees Pending Matches");
   const dispatch = useDispatch();
 
-  const deactiveTutees = useSelector((store) => store.deactiveTutees);
+
+  const deactiveTutors = useSelector((store) => store.deactiveTutors);
 
   useEffect(() => {
     dispatch({
-      type: "FETCH_DEACTIVE_TUTEES",
+      type: "FETCH_DEACTIVE_TUTORS",
     });
   }, []);
 
+
   return (
     <div>
-      {JSON.stringify(deactiveTutees)}
+      {JSON.stringify(deactiveTutors)}
+
       <div>
         <Row className="cardHead">
           <Col xs="3" className="cardHeadCol">
@@ -39,14 +47,14 @@ function DeactivatedTuteesTable(props) {
           <Col xs="1"></Col>
         </Row>
       </div>
-      {/* map though all active tutees and pass each individual tutee's info via props to tuteeCard */}
+      {/* the div below is where the mapping through all the tutee cards will take place */}
       <div>
-        {deactiveTutees.map((tutee) => {
-          return <TuteeCard tutee={tutee} />;
+        {deactiveTutors.map((tutor) => {
+          return <TutorCard tutor={tutor} />;
         })}
       </div>
     </div>
   );
 }
 
-export default DeactivatedTuteesTable;
+export default DeactivatedTutorsTable;
