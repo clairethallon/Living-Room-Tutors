@@ -7,14 +7,8 @@ import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TutorProfile from "../TutorProfile/TutorProfile";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TutorCard with the name for the new component.
+
 function TutorCard(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [heading, setHeading] = useState("Functional Component");
 
   return (
     <div>
@@ -22,21 +16,21 @@ function TutorCard(props) {
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             {/* <Row> */}
-            <Col xs="3">Tutor Name</Col>
-            <Col xs="2">01.25.2022</Col>
-            <Col xs="2">12th Grade</Col>
+            <Col xs="3">{props.tutor.tutor_first_name} {props.tutor.tutor_last_name}</Col>
+            <Col xs="2">{props.tutor.tutor_submission_timestamp}</Col>
+            <Col xs="2">{props.tutor.tutor_grade}</Col>
             <Col xs="2" className="flaggedSubjectLanguage">
               <SubjectFlag />
               <LanguageFlag />
             </Col>
             <Col className="cardButtons" xs="2">
-              <ActivateDeactivateButton />
+              <ActivateDeactivateButton active={props.tutor} />
               {/* <--conditionally render the MatchButton to only show up when the Tutor is activated. */}
             </Col>
             {/* </Row> */}
           </Accordion.Header>
           <Accordion.Body>
-            <TutorProfile />
+            <TutorProfile tutor={props.tutor} />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
