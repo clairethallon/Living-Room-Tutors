@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
+import Header from '../Header/Header';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -38,7 +39,8 @@ function StudentTerms(props) {
 
   return (
     <div>
-      {/* <p>terms is equal to: {JSON.stringify(studentterms)}</p> */}
+      <Header/>
+      <div className= 'maincard'>
       <h2>{heading}</h2>
 
       <p>Living Room Tutors (LRT) is supporting communities in their efforts to mitigate the immediate 
@@ -67,6 +69,7 @@ function StudentTerms(props) {
         {/* <p>{JSON.stringify(studentterms)}</p> */}
 
         <Link to="/StudentInfo" ><Button onClick={AddStudentTerms}>Submit</Button></Link>
+        </div>
     </div>
   );
 }

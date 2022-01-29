@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
+import Header from '../Header/Header';
 
 
 function StudentAdditional(props) {
   
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Student Additional Info');
+  const [heading, setHeading] = useState('Tutor Additional Info');
 
 
   const[newutorAdditionalInfo, setNewTutorAdditionalInfo]= useState();
@@ -28,13 +29,15 @@ function StudentAdditional(props) {
   
   return (
     <div>
-      <h2>{heading}</h2>
+      <Header/>
+      <div className= 'maincard'>
+        <h2>{heading}</h2>
 
-      <h3>Is there any additional information you would like to provide?</h3>
-      <input type="text" placeholder="Additional Info" onChange={(event)=>changeTutorAdditionalInfo(event)}></input>
+        <h3>Is there any additional information you would like to provide?</h3>
+        <input type="text" placeholder="Additional Info" onChange={(event)=>changeTutorAdditionalInfo(event)}></input>
 
-      <Link to="/TutorTerms"><Button onClick={AddTutorAdditionalInfo}>Save and Continue</Button></Link>
-
+        <Link to="/TutorTerms"><Button onClick={AddTutorAdditionalInfo}>Save and Continue</Button></Link>
+      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
+import Header from '../Header/Header';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -31,6 +32,10 @@ function StudentAdditional(props) {
 
   return (
     <div>
+      
+     <Header/>
+
+      <div className= 'maincard'>
       <h2>{heading}</h2>
 
       <div>
@@ -39,6 +44,7 @@ function StudentAdditional(props) {
       </div>
 
       <Link to="/StudentTerms"><Button onClick={AddNewStudentAdditional}>Save and Continue</Button></Link>
+      </div>
     </div>
   );
 }

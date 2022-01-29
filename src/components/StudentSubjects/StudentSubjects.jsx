@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+import Header from '../Header/Header';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -69,6 +70,10 @@ function StudentSubjects(props) {
 
   return (
     <div>
+
+      <Header/>
+
+      <div className= 'maincard'>
       <p>details equals: {JSON.stringify(newDetailedNeeds)}</p>
       <h2>{heading}</h2>
 
@@ -228,6 +233,7 @@ function StudentSubjects(props) {
         </div>
 
         <Link to="/StudentAdditional" ><Button onClick={AddNewStudentSubjects}>Save and Continue</Button></Link>
+        </div>
     </div>
   );
 }
