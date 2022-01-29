@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
+import Button from 'react-bootstrap/Button';
 
 
-function StudentInfo(props) {
 
+function TutorInfo(props) {
+
+  const dispatch = useDispatch();
   const store = useSelector((store) => store);
+  const newtutorInfo = useSelector((store) => store.newtutorInfo);
+
+
   const [heading, setHeading] = useState('Tutor Info');
 
   const[newTutorFirstName, setNewTutorFirstName]= useState();
@@ -22,7 +28,8 @@ function StudentInfo(props) {
   const[newGrade, setNewGrade]= useState();
   const[newTutorSchool, setNewTutorSchool]= useState();
 
-      const changeTutorFirstName= ()=>{
+
+    const changeTutorFirstName= ()=>{
         console.log('in new tutor first name');
         setNewTutorFirstName(event.target.value);
     }
@@ -72,23 +79,35 @@ function StudentInfo(props) {
 
     const AddNewTutorInfo =()=>{
       //package up new info in object
-      const newStudentInfo = {
+      const newTutorInfo = {
         firstName: newTutorFirstName,
         lastName: newTutorLastName,
         email: newTutorEmail,
+        sheHerPronoun: sheHerPronoun,
+        heHimPronoun: heHimPronoun,
+        theyThemPronoun: theyThemPronoun,
         phone: newTutorPhone,
         grade: newGrade,
         school: newTutorSchool,
       }
-      dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newStudentInfo})
+      let pronounerrors = false;
+      if( (newTutorInfo.sheHerPronoun == false ) && ( newTutorInfo.heHimPronoun == false ) && (newTutorInfo.theyThemPronoun == false ) ){
+        pronounerrors = true;
+      }
+      if (newTutorInfo.firstName == '' || newTutorInfo.firstName== null ||
+      newTutorInfo.lastName == '' || newTutorInfo.lastName == null ||
+      newTutorInfo.email== '' || newTutorInfo.email== null ||
+      newTutorInfo.phone== '' || newTutorInfo.phone== null ||
+      newTutorInfo.grade== '' || newTutorInfo.grade== null ||
+      newTutorInfo.school== '' || newTutorInfo.school== null || pronounerrors ){alert('problem!')}
 
+      else{dispatch( {type:'ADD_NEW_TUTOR_INFO', payload: newTutorInfo})}
     }
 
 
   return (
     <div>
       <h2>{heading}</h2>
-
       <div>
         <h3>What is your name? (First and Last)</h3>
         <input type="text" placeholder="Tutor First Name" onChange={(event)=>changeTutorFirstName(event)}></input>
@@ -106,15 +125,15 @@ function StudentInfo(props) {
         <p>{JSON.stringify(sheHerPronoun)}</p>
         <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
-          <label for="She/Her">She/Her</label>
+          <label htmlFor="She/Her">She/Her</label>
         </div> 
         <div>
           <input type="checkbox" id="He/Him" name="He/Him" onChange={(event)=>changeheHimPronoun()}/>
-          <label for="He/Him">He/Him</label>
+          <label htmlFor="He/Him">He/Him</label>
         </div>
         <div>
           <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
-          <label for="They/Them">They/Them</label>
+          <label htmlFor="They/Them">They/Them</label>
         </div>
       </div>
       
@@ -123,8 +142,9 @@ function StudentInfo(props) {
       <input type="text" placeholder="Tutor Phone Number" onChange={(event)=>changeTutorPhone(event)}></input>
 
       <div>
-      <label for="gradeLevel">What is your current grade level?</label>
+      <label htmlFor="gradeLevel">What is your current grade level?</label>
         <select name="tutorGradeLevel" onChange={(event)=>changeTutorGrade(event)} title="Tutor's Current Grade Level">
+        <option value="Select One">Select One</option>
           <option value="Freshman">Freshman</option>
           <option value="Sophomore">Sophomore</option>
           <option value="Junior">Junior</option>
@@ -134,8 +154,9 @@ function StudentInfo(props) {
         </div>
 
         <div>
-        <label for="tutorSchool">Where do you go to school?</label>
+        <label htmlFor="tutorSchool">Where do you go to school?</label>
         <select name="tutorSchool" onChange={(event)=>changeTutorSchool(event)} title="Tutor's Current School">
+        <option value="Select One">Select One</option>
           <option value="Mayo High School">Mayo High School</option>
           <option value="John Marshall High School">John Marshall High School</option>
           <option value="Century High School">Century High School</option>
@@ -148,9 +169,9 @@ function StudentInfo(props) {
         </select>
         </div>
 
-        <Link to="/TutorSubjects" ><button>Add A New Tutor Info</button></Link>
+        <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
     </div>
   );
 }
 
-export default StudentInfo;
+export default TutorInfo;

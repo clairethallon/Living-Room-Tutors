@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
+import Button from 'react-bootstrap/Button';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name StudentAdditional with the name for the new component.
 function StudentAdditional(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
+  const dispatch = useDispatch();
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Student Additional Info');
 
@@ -17,6 +18,15 @@ function StudentAdditional(props) {
     console.log('in any additional info');
     setNewAdditionalInfo(event.target.value);
   }
+
+  const AddNewStudentAdditional =()=>{
+    //package up new info in object
+    const newStudentAdditional = {
+      newAdditionalInfo: newAdditionalInfo,
+    }
+    dispatch( {type:'ADD_NEW_STUDENT_ADDITIONAL', payload: newStudentAdditional})
+  }
+  
 
 
   return (
@@ -28,7 +38,7 @@ function StudentAdditional(props) {
         <input type="text" placeholder="AdditionalInfo" onChange={(event)=>changeAdditionalInfo(event)}></input>
       </div>
 
-      <Link to="/StudentTerms" ><button>Save and Continue</button></Link>
+      <Link to="/StudentTerms"><Button onClick={AddNewStudentAdditional}>Save and Continue</Button></Link>
     </div>
   );
 }

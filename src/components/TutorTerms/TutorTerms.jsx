@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
+import Button from 'react-bootstrap/Button';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name StudentTerms with the name for the new component.
 function StudentTerms(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  
+  const dispatch = useDispatch();
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Student Terms');
 
@@ -18,6 +19,13 @@ function StudentTerms(props) {
     console.log('in terms', tutorterms);
   }
 
+  const AddTutorTerms =()=>{
+    //package up new info in object
+    const newTutorTerms = {
+      tutorTerms: tutorterms,
+    }
+    dispatch( {type:'ADD_TUTOR_TERMS', payload: newTutorTerms})
+  }
 
   return (
     <div>
@@ -47,8 +55,9 @@ function StudentTerms(props) {
           <input type="checkbox" id="Tutor Terms" name="Tutor Terms" onChange={(event)=>changeTutorTerms()}/>
           <label for="Tutor Terms">I understand</label>
         </div>
-    <p>{JSON.stringify(tutorterms)}</p>
-        <Link to="/TutorInfo" ><button>Submit</button></Link>
+        {/* <p>{JSON.stringify(tutorterms)}</p> */}
+
+        <Link to="/TutorInfo"><Button onClick={AddTutorTerms}>Submit</Button></Link>
     </div>
   );
 }
