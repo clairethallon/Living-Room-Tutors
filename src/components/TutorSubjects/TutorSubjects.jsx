@@ -17,7 +17,7 @@ function TutorSubjects(props) {
   const [FifthGrade, setFifthGrade] = useState(false);
   const [SixthGrade, setSixthGrade] = useState(false);
   const [SeventhGrade, setSeventhGrade] = useState(false);
-  const [EigthGrade, setEigthGrade] = useState(false);
+  const [EighthGrade, setEightGrade] = useState(false);
   const [NinthGrade, setNinthGrade] = useState(false);
   const [TenthGrade, setTenthGrade] = useState(false);
   const [EleventhGrade, setEleventhGrade] = useState(false);
@@ -32,7 +32,7 @@ function TutorSubjects(props) {
   const [K5Science, setK5Science] = useState(false);
   const [SixToEightLanguageArts, setSixToEightLanguageArts] = useState(false);
   const [SixToEightScience, setSixToEightScience] = useState(false);
-  const [SixToEigthSocialStudies, setSixToEigthSocialStudies] = useState(false);
+  const [SixToEightSocialStudies, setSixToEightSocialStudies] = useState(false);
   const [MathPreAlgebra, setMathPreAlgebra] = useState(false);
   const [MathLinearAlgebra, setMathLinearAlgebra] = useState(false);
   const [MathGeometry, setMathGeometry] = useState(false);
@@ -124,9 +124,9 @@ function TutorSubjects(props) {
     console.log("SeventhGrade", SeventhGrade);
   };
 
-  const changeEigthGrade = () => {
-    setEigthGrade(!EigthGrade);
-    console.log("EigthGrade", EigthGrade);
+  const changeEighthGrade = () => {
+    setEighthGrade(!EightGrade);
+    console.log("EightGrade", EightGrade);
   };
 
   const changeNinthGrade = () => {
@@ -186,9 +186,9 @@ function TutorSubjects(props) {
     console.log("SixToEightScience", SixToEightScience);
   };
 
-  const changeSixToEigthSocialStudies = () => {
-    setSixToEigthSocialStudies(!SixToEigthSocialStudies);
-    console.log("SixToEigthSocialStudies", SixToEigthSocialStudies);
+  const changeSixToEightSocialStudies = () => {
+    setSixToEightSocialStudies(!SixToEightSocialStudies);
+    console.log("SixToEightSocialStudies", SixToEightSocialStudies);
   };
 
   const changeMathPreAlgebra = () => {
@@ -414,7 +414,7 @@ function TutorSubjects(props) {
       FifthGrade: FifthGrade,
       SixthGrade: SixthGrade,
       SeventhGrade: SeventhGrade,
-      EigthGrade: EigthGrade,
+      EightGrade: EightGrade,
       NinthGrade: NinthGrade,
       TenthGrade: TenthGrade,
       EleventhGrade: EleventhGrade,
@@ -427,7 +427,7 @@ function TutorSubjects(props) {
       K5Science: K5Science,
       SixToEightLanguageArts: SixToEightLanguageArts,
       SixToEightScience: SixToEightScience,
-      SixToEigthSocialStudies: SixToEigthSocialStudies,
+      SixToEightSocialStudies: SixToEightSocialStudies,
       MathPreAlgebra: MathPreAlgebra,
       MathLinearAlgebra: MathPreAlgebra,
       MathGeometry: MathGeometry,
@@ -483,7 +483,7 @@ function TutorSubjects(props) {
       newTutorSubjects.FifthGrade == false &&
       newTutorSubjects.SixthGrade == false &&
       newTutorSubjects.SeventhGrade == false &&
-      newTutorSubjects.EigthGrade == false &&
+      newTutorSubjects.EightGrade == false &&
       newTutorSubjects.NinthGrade == false &&
       newTutorSubjects.TenthGrade == false &&
       newTutorSubjects.EleventhGrade == false &&
@@ -607,7 +607,7 @@ function TutorSubjects(props) {
           type="checkbox"
           id="8th Grade"
           name="8th Grade"
-          onChange={(event) => changeEigthGrade()}
+          onChange={(event) => changeEighthGrade()}
         />
         <label htmlFor="8th Grade">8th Grade</label>
       </div>
@@ -730,7 +730,7 @@ function TutorSubjects(props) {
           type="checkbox"
           id="6-8th Social Studies"
           name="6-8th Social Studies"
-          onChange={(event) => changeSixToEigthSocialStudies()}
+          onChange={(event) => changeSixToEightSocialStudies()}
         />
         <label htmlFor="6-8th Social Studies">6-8th Social Studies</label>
       </div>
