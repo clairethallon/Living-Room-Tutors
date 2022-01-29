@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -22,6 +23,8 @@ function TutorInfo(props) {
   const [sheHerPronoun, setsheHerPronoun] = useState( false );
   const [heHimPronoun, setheHimPronoun] = useState( false );
   const [theyThemPronoun, settheyThemPronoun] = useState( false );
+  const [IsChecked, setIsChecked] = useState( true );
+  const [otherPronoun, setOtherPronoun] = useState();
    // ******** PRONOUN CHECK BOXES **************
 
   const[newPhone, setNewPhone]= useState();
@@ -38,7 +41,8 @@ function TutorInfo(props) {
   const [Vietnamese, setVietnamese] = useState( false );
   const [Hmong, setHmong] = useState( false );
   const [English, setEnglish] = useState( false );
-  const [otherLanguage, setotherLanguage] = useState('');
+  const [IsLangChecked, setIsLangChecked] = useState( true );
+  const [otherLanguage, setotherLanguage] = useState();
   // ******** LANGUAGE CHECK BOXES **************
 
     const changeSubmitter= ()=>{
@@ -81,6 +85,17 @@ function TutorInfo(props) {
       settheyThemPronoun(!theyThemPronoun);
       console.log('he/him statues:', theyThemPronoun)
     }
+
+    const changeIsChecked = () => {
+      setIsChecked(!IsChecked);
+      console.log('is other checked?', IsChecked)
+    }
+
+    const changeOtherPronoun = () => {
+      console.log('Other is:', otherPronoun)
+      setOtherPronoun(event.target.value)
+    }
+
     // ******** END END END END END**************
     
 
@@ -145,6 +160,11 @@ function TutorInfo(props) {
       console.log('English', English)
     }
 
+    const changeIsLangChecked = () => {
+      setIsLangChecked(!IsLangChecked);
+      console.log('is other checked?', IsLangChecked)
+    }
+
     const changeotherLangauge = () =>{
       console.log("in other langauge", otherLanguage)
       setotherLanguage(event.target.value);
@@ -163,6 +183,7 @@ function TutorInfo(props) {
         sheHerPronoun: sheHerPronoun,
         heHimPronoun: heHimPronoun,
         theyThemPronoun: theyThemPronoun,
+        otherPronoun: otherPronoun,
         phone: newPhone,
         school: newSchool,
         grade: newGrade,
@@ -177,8 +198,39 @@ function TutorInfo(props) {
         English: English,
         otherLanguage: otherLanguage,
       }
-      dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newStudentInfo})
 
+      let pronounerrors = false;
+      if( (newStudentInfo.sheHerPronoun == false ) && 
+          ( newStudentInfo.heHimPronoun == false ) && 
+          (newStudentInfo.theyThemPronoun == false ) && 
+          (newStudentInfo.otherPronoun == '' || newStudentInfo.otherPronoun == null)){
+            pronounerrors = true;
+          }
+      
+      let languageErrors= false;
+      if( (newStudentInfo.Spanish == false ) && 
+          (newStudentInfo.Somali == false ) && 
+          (newStudentInfo.Arabic == false ) &&
+          (newStudentInfo.Chinese == false ) &&
+          (newStudentInfo.Tagalog == false ) &&
+          (newStudentInfo.French == false ) &&
+          (newStudentInfo.Vietnamese == false ) &&
+          (newStudentInfo.Hmong == false ) &&
+          // (newStudentInfo.English == false ) &&
+          (newStudentInfo.Somali == false ) &&
+          (newStudentInfo.otherLanguage == '' || newStudentInfo.otherLanguage == null)){
+            languageErrors = true;
+          }
+
+      if (newStudentInfo.submitter== '' || newStudentInfo.submitter== null ||
+      newStudentInfo.firstName == '' || newStudentInfo.firstName== null ||
+      newStudentInfo.lastName == '' || newStudentInfo.lastName == null ||
+      newStudentInfo.email== '' || newStudentInfo.email== null ||
+      newStudentInfo.phone== '' || newStudentInfo.phone== null ||
+      newStudentInfo.school== '' || newStudentInfo.school== null ||
+      newStudentInfo.grade== '' || newStudentInfo.grade== null ||
+      pronounerrors || languageErrors ){alert('Please complete all required fields.')}
+      dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newStudentInfo})
     }
 
 
@@ -199,16 +251,16 @@ function TutorInfo(props) {
       </div>
 
       <div>
-      <input type="text" placeholder="Student Email" onChange={(event)=>changeEmail(event)}></input>
+        <input type="text" placeholder="Student First Name" onChange={(event)=>changefirstName(event)}></input>
+        <input type="text" placeholder="Student Last Name" onChange={(event)=>changelastName(event)}></input>
       </div>
 
       <div>
-      <input type="text" placeholder="Student firstName" onChange={(event)=>changefirstName(event)}></input>
-      <input type="text" placeholder="Student lastName" onChange={(event)=>changelastName(event)}></input>
+        <input type="text" placeholder="Student Email" onChange={(event)=>changeEmail(event)}></input>
       </div>
 
       <div>
-      <p>What are the Student's preferred pronouns?</p>
+      <p>What are the Student's pronouns?</p>
         {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
         <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
@@ -222,6 +274,11 @@ function TutorInfo(props) {
           <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
           <label for="They/Them">They/Them</label>
         </div>
+        <div>
+          <input type="checkbox" id="OtherPronoun" name="OtherPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
+          <label htmlFor="Other Pronouns">Other</label>
+          <input type="text" placeholder="What are your Pronouns" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
+        </div>
       </div>
 
       <div>
@@ -234,9 +291,8 @@ function TutorInfo(props) {
 
 
       <div>
-      <label for="gradeLevel">Choose a Grade Level:</label>
-
-        <select name="gradeLevel" onChange={(event)=>changeGrade(event)} title="Student's Current Grade Level">
+      <Form.Select aria-label="gradeLevel" onChange={(event)=>changeGrade(event)}>
+          <option>Select Student's Current Grade Level:</option>
           <option value="Pre-K">Pre-K</option>
           <option value="Kindergarten">Kindergarten</option>
           <option value="1st Grade">1st Grade</option>
@@ -251,7 +307,7 @@ function TutorInfo(props) {
           <option value="10th Grade">10th Grade</option>
           <option value="11th Grade">11th Grade</option>
           <option value="12th Grade">12th Grade</option>
-        </select>
+          </Form.Select>
         </div>
 
 
@@ -304,7 +360,12 @@ function TutorInfo(props) {
             <label for="English">English</label>
           </div>
 
-          <input type="text" placeholder="Other Language" onChange={(event)=>changeotherLangauge(event)}></input>
+          <div>
+          <input type="checkbox" id="OtherLanguage" name="OtherLanguage" onChange={(e) => changeIsLangChecked(event.target.checked)}/>
+          <label htmlFor="Other Pronouns">Other</label>
+          <input type="text" placeholder="Other Language" disabled={IsLangChecked} onChange={(event)=>changeotherLangauge(event)}></input>
+        </div>
+
       </div>
 
 

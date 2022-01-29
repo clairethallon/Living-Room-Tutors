@@ -25,12 +25,20 @@ function StudentTerms(props) {
     const newStudentTerms = {
       studentterms: studentterms,
     }
+
+    let termserrors = false;
+      if( (newStudentTerms.studentterms == false )){
+        termserrors = true;
+      }
+
+    if (termserrors){alert('Please agree to the terms to submit your application.')}
     dispatch( {type:'ADD_STUDENT_TERMS', payload: newStudentTerms})
   }
 
 
   return (
     <div>
+      {/* <p>terms is equal to: {JSON.stringify(studentterms)}</p> */}
       <h2>{heading}</h2>
 
       <p>Living Room Tutors (LRT) is supporting communities in their efforts to mitigate the immediate 

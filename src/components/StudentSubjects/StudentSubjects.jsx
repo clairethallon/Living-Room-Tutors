@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -54,19 +55,26 @@ function StudentSubjects(props) {
       newOtherInfo: newOtherInfo,
       newDetailedNeeds: newDetailedNeeds,
     }
+
+    if (newStudentSubjects.newPrimarySubject == null ||
+        newStudentSubjects.newSecondarySubject == null ||
+        newStudentSubjects.newTertiarySubject == null ||
+        newStudentSubjects.newDetailedNeeds == "" || 
+        newStudentSubjects.newDetailedNeeds == null)
+    {alert('Please complete all required fields.')}
+
     dispatch( {type:'ADD_NEW_STUDENT_SUBJECTS', payload: newStudentSubjects})
   }
 
 
   return (
     <div>
+      <p>details equals: {JSON.stringify(newDetailedNeeds)}</p>
       <h2>{heading}</h2>
 
       <div>
-      <label for="studentSubjects">In what subjects does the student need the most support? (1st Choice)</label>
-
-        <select name="gradeLevel" onChange={(event)=>changePrimarySubject(event)} title="Student's Current Grade Level">
-        <option value="select one">Select One</option>
+      <Form.Select aria-label="studentSubjects" onChange={(event)=>changePrimarySubject(event)}>
+      <option>In what subjects does the student need the most support? (1st Choice)</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>
@@ -109,14 +117,12 @@ function StudentSubjects(props) {
           <option value="SAT Prep">SAT Prep</option>
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
-        </select>
+          </Form.Select>
         </div>
 
         <div>
-        <label for="studentSubjects">In what subjects does the student need the most support? (2nd Choice)</label>
-
-        <select name="gradeLevel" onChange={(event)=>changeSecondarySubject(event)} title="Student's Current Grade Level">
-        <option value="select one">Select One</option>
+        <Form.Select aria-label="studentSubjects secondary" onChange={(event)=>changeSecondarySubject(event)}>
+        <option>In what subjects does the student need the most support?</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>
@@ -159,14 +165,12 @@ function StudentSubjects(props) {
           <option value="SAT Prep">SAT Prep</option>
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
-        </select>
+          </Form.Select>
         </div>
 
         <div>
-        <label for="studentSubjects">In what subjects does the student need the most support? (3rd Choice)</label>
-
-        <select name="gradeLevel" onChange={(event)=>changeTertiarySubject(event)} title="Student's Current Grade Level">
-        <option value="select one">Select One</option>
+        <Form.Select aria-label="studentSubjects tertiary" onChange={(event)=>changeTertiarySubject(event)}>
+        <option>In what subjects does the student need the most support? (3rd Choice)</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>
@@ -209,7 +213,7 @@ function StudentSubjects(props) {
           <option value="SAT Prep">SAT Prep</option>
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
-        </select>
+          </Form.Select>
         </div>
 
       <div>

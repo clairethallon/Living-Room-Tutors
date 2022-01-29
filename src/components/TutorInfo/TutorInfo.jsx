@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 
 
 
@@ -22,6 +23,8 @@ function TutorInfo(props) {
   const [sheHerPronoun, setsheHerPronoun] = useState( false );
   const [heHimPronoun, setheHimPronoun] = useState( false );
   const [theyThemPronoun, settheyThemPronoun] = useState( false );
+  const [IsChecked, setIsChecked] = useState( true );
+  const [otherPronoun, setOtherPronoun] = useState( );
    // ******** PRONOUN CHECK BOXES **************
 
   const[newTutorPhone, setNewTutorPhone]= useState();
@@ -47,18 +50,29 @@ function TutorInfo(props) {
     // ******** PRONOUN CHECK BOXES **************
     const changesheHerPronoun = () => {
       setsheHerPronoun(!sheHerPronoun);
-      console.log('she/her statues:', sheHerPronoun)
+      console.log('she/her status:', sheHerPronoun)
     }
 
     const changeheHimPronoun = () => {
       setheHimPronoun(!heHimPronoun);
-      console.log('he/him statues:', heHimPronoun)
+      console.log('he/him status:', heHimPronoun)
     }
 
     const changetheyThemPronoun = () => {
       settheyThemPronoun(!theyThemPronoun);
-      console.log('he/him statues:', theyThemPronoun)
+      console.log('he/him status:', theyThemPronoun)
     }
+
+    const changeIsChecked = () => {
+      setIsChecked(!IsChecked);
+      console.log('is other checked?', IsChecked)
+    }
+
+    const changeOtherPronoun = () => {
+      console.log('Other is:', otherPronoun)
+      setOtherPronoun(event.target.value)
+    }
+
     // ******** END END END END END**************
 
     const changeTutorPhone= ()=>{
@@ -86,12 +100,16 @@ function TutorInfo(props) {
         sheHerPronoun: sheHerPronoun,
         heHimPronoun: heHimPronoun,
         theyThemPronoun: theyThemPronoun,
+        otherPronoun: otherPronoun,
         phone: newTutorPhone,
         grade: newGrade,
         school: newTutorSchool,
       }
       let pronounerrors = false;
-      if( (newTutorInfo.sheHerPronoun == false ) && ( newTutorInfo.heHimPronoun == false ) && (newTutorInfo.theyThemPronoun == false ) ){
+      if( (newTutorInfo.sheHerPronoun == false ) && 
+          ( newTutorInfo.heHimPronoun == false ) && 
+          (newTutorInfo.theyThemPronoun == false ) && 
+          (newTutorInfo.otherPronoun == '' || newTutorInfo.otherPronoun == null)){
         pronounerrors = true;
       }
       if (newTutorInfo.firstName == '' || newTutorInfo.firstName== null ||
@@ -121,8 +139,8 @@ function TutorInfo(props) {
       </div>
 
       <div>
-      <p>What are your preferred pronouns?</p>
-        <p>{JSON.stringify(sheHerPronoun)}</p>
+      <p>What are your pronouns?</p>
+        {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
         <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
           <label htmlFor="She/Her">She/Her</label>
@@ -135,6 +153,13 @@ function TutorInfo(props) {
           <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
           <label htmlFor="They/Them">They/Them</label>
         </div>
+
+        <div>
+          <input type="checkbox" id="OtherPronoun" name="OtherPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
+          <label htmlFor="Other Pronouns">Other</label>
+          <input type="text" placeholder="Tutor Phone Number" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
+        </div>
+
       </div>
       
 
@@ -142,21 +167,19 @@ function TutorInfo(props) {
       <input type="text" placeholder="Tutor Phone Number" onChange={(event)=>changeTutorPhone(event)}></input>
 
       <div>
-      <label htmlFor="gradeLevel">What is your current grade level?</label>
-        <select name="tutorGradeLevel" onChange={(event)=>changeTutorGrade(event)} title="Tutor's Current Grade Level">
-        <option value="Select One">Select One</option>
+      <Form.Select aria-label="gradeLevel" onChange={(event)=>changeTutorGrade(event)}>
+        <option>What is your current grade level?</option>
           <option value="Freshman">Freshman</option>
           <option value="Sophomore">Sophomore</option>
           <option value="Junior">Junior</option>
           <option value="Senior">Senior</option>
           <option value="College">I'm in College</option>
-        </select>
+          </Form.Select>
         </div>
 
         <div>
-        <label htmlFor="tutorSchool">Where do you go to school?</label>
-        <select name="tutorSchool" onChange={(event)=>changeTutorSchool(event)} title="Tutor's Current School">
-        <option value="Select One">Select One</option>
+        <Form.Select aria-label="Tutor's Current School" onChange={(event)=>changeTutorSchool(event)}>
+        <option>Where do you go to school?</option>
           <option value="Mayo High School">Mayo High School</option>
           <option value="John Marshall High School">John Marshall High School</option>
           <option value="Century High School">Century High School</option>
@@ -166,7 +189,7 @@ function TutorInfo(props) {
           <option value="Stewertville High School">Stewertville High School</option>
           <option value="College">I'm in College</option>
           <option value="Other">Other</option>
-        </select>
+          </Form.Select>
         </div>
 
         <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
