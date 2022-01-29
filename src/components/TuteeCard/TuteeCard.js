@@ -16,19 +16,17 @@ function TuteeCard(props) {
           <Accordion.Header>
             {/* <Row> */}
             <Col xs="3">
-              <p>
-                {props.tutee.student_first_name} {props.tutee.student_last_name}
-              </p>
+              {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
             </Col>
-            <Col xs="2">{props.tutee.submission_timestamp}</Col>
-            <Col xs="2">{props.tutee.grade_level}</Col>
+            <Col xs="2">{props.tutee.tutee_submission_timestamp}</Col>
+            <Col xs="2">{props.tutee.tutee_grade}</Col>
             <Col xs="2" className="flaggedSubjectLanguage">
               <SubjectFlag />
               <LanguageFlag />
             </Col>
             <Col className="cardButtons" xs="2">
-              <ActivateDeactivateButton />
-              <MatchPageButton />
+              <ActivateDeactivateButton active={props.tutee} />
+              <MatchPageButton tuteeId={props.tutee.id} />
               {/* <--conditionally render the MatchButton to only show up when the tutee is activated. */}
             </Col>
             {/* </Row> */}
