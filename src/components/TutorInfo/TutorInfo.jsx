@@ -21,11 +21,11 @@ function TutorInfo(props) {
   const[newTutorEmail, setNewEmail]= useState();
 
   // ******** PRONOUN CHECK BOXES **************
-  const [sheHerPronoun, setsheHerPronoun] = useState('');
-  const [heHimPronoun, setheHimPronoun] = useState('');
-  const [theyThemPronoun, settheyThemPronoun] = useState('');
-  const [IsChecked, setIsChecked] = useState( false);
-  const [CustomPronoun, setCustomPronoun] = useState( );
+  const [Pronouns, setPronouns] = useState('');
+  // const [heHimPronoun, setheHimPronoun] = useState('');
+  // const [theyThemPronoun, settheyThemPronoun] = useState('');
+  // const [IsChecked, setIsChecked] = useState( false);
+  // const [CustomPronoun, setCustomPronoun] = useState( );
    // ******** PRONOUN CHECK BOXES **************
 
   const[newTutorPhone, setNewTutorPhone]= useState();
@@ -51,42 +51,46 @@ function TutorInfo(props) {
 
     // ******** PRONOUN CHECK BOXES **************
 
-    const changesheHerPronoun = () => {
-      if (sheHerPronoun == ""){
-        setsheHerPronoun('She/Her')
-        console.log('she/her equals', sheHerPronoun )
-      }
-      else {setsheHerPronoun("")
-      console.log('she/her equals', sheHerPronoun )}
+    const changePronouns= ()=>{
+      console.log('in new tutor email');
+      setPronouns (event.target.value);
     }
+    // const changesheHerPronoun = () => {
+    //   if (sheHerPronoun == ""){
+    //     setsheHerPronoun('She/Her')
+    //     console.log('she/her equals', sheHerPronoun )
+    //   }
+    //   else {setsheHerPronoun("")
+    //   console.log('she/her equals', sheHerPronoun )}
+    // }
 
-    const changeheHimPronoun = () => {
-      if (heHimPronoun == ""){
-        setheHimPronoun('He/Him')
-        console.log('he/Him equals', heHimPronoun )
-      }
-      else {setheHimPronoun("")
-      console.log('he/him equals', heHimPronoun )}
-    }
+    // const changeheHimPronoun = () => {
+    //   if (heHimPronoun == ""){
+    //     setheHimPronoun('He/Him')
+    //     console.log('he/Him equals', heHimPronoun )
+    //   }
+    //   else {setheHimPronoun("")
+    //   console.log('he/him equals', heHimPronoun )}
+    // }
 
-    const changetheyThemPronoun = () => {
-      if (theyThemPronoun == ""){
-        settheyThemPronoun('They/Them')
-        console.log('they/them equals', theyThemPronoun )
-      }
-      else {settheyThemPronoun("")
-      console.log('they/them equals', theyThemPronoun )}
-    }
+    // const changetheyThemPronoun = () => {
+    //   if (theyThemPronoun == ""){
+    //     settheyThemPronoun('They/Them')
+    //     console.log('they/them equals', theyThemPronoun )
+    //   }
+    //   else {settheyThemPronoun("")
+    //   console.log('they/them equals', theyThemPronoun )}
+    // }
 
-    const changeIsChecked = () => {
-      setIsChecked(!IsChecked);
-      console.log('is Custom checked?', IsChecked)
-    }
+    // const changeIsChecked = () => {
+    //   setIsChecked(!IsChecked);
+    //   console.log('is Custom checked?', IsChecked)
+    // }
 
-    const changeCustomPronoun = () => {
-      console.log('Custom is:', CustomPronoun)
-      setCustomPronoun(event.target.value)
-    }
+    // const changeCustomPronoun = () => {
+    //   console.log('Custom is:', CustomPronoun)
+    //   setCustomPronoun(event.target.value)
+    // }
 
     // ******** END END END END END**************
 
@@ -128,28 +132,22 @@ function TutorInfo(props) {
         firstName: newTutorFirstName,
         lastName: newTutorLastName,
         email: newTutorEmail,
-        sheHerPronoun: sheHerPronoun,
-        heHimPronoun: heHimPronoun,
-        theyThemPronoun: theyThemPronoun,
-        CustomPronoun: CustomPronoun,
+        // sheHerPronoun: sheHerPronoun,
+        // heHimPronoun: heHimPronoun,
+        // theyThemPronoun: theyThemPronoun,
+        // CustomPronoun: CustomPronoun,
+        pronouns: Pronouns,
         phone: newTutorPhone,
         grade: newGrade,
         school: newTutorSchool,
       }
 
-      let pronounerrors = false;
-      if( (newTutorInfo.sheHerPronoun == false ) && 
-          ( newTutorInfo.heHimPronoun == false ) && 
-          (newTutorInfo.theyThemPronoun == false ) && 
-          (newTutorInfo.CustomPronoun == '' || newTutorInfo.CustomPronoun == null)){
-        pronounerrors = true;
-      }
       if (newTutorInfo.firstName == '' || newTutorInfo.firstName== null ||
       newTutorInfo.lastName == '' || newTutorInfo.lastName == null ||
       newTutorInfo.email== '' || newTutorInfo.email== null ||
       newTutorInfo.phone== '' || newTutorInfo.phone== null ||
       newTutorInfo.grade== '' || newTutorInfo.grade== null ||
-      newTutorInfo.school== '' || newTutorInfo.school== null || pronounerrors ){alert('problem!')}
+      newTutorInfo.school== '' || newTutorInfo.school== null ){alert('problem!')}
 
       else{dispatch( {type:'ADD_NEW_TUTOR_INFO', payload: newTutorInfo})}
     }
@@ -176,7 +174,8 @@ function TutorInfo(props) {
 
       <div>
       <p>What are your pronouns?</p>
-        <p>{JSON.stringify(sheHerPronoun)}</p>
+      <input type="text" placeholder="Pronouns" onChange={(event)=>changePronouns(event)}></input>
+        {/* <p>{JSON.stringify(sheHerPronoun)}</p>
         <p>{JSON.stringify(heHimPronoun)}</p>
         <p>{JSON.stringify(theyThemPronoun)}</p>
         <p>{JSON.stringify(CustomPronoun)}</p>
@@ -198,7 +197,7 @@ function TutorInfo(props) {
           <input type="checkbox" id="CustomPronoun" name="CustomPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
           <label htmlFor="Custom Pronouns">Custom</label>
           <input type="text" placeholder="Tutor Phone Number" disabled={!IsChecked} onChange={(event)=>changeCustomPronoun()}></input>
-        </div>
+        </div> */}
 
       </div>
       

@@ -21,11 +21,11 @@ function TutorInfo(props) {
   const[newEmail, setNewEmail]= useState();
 
   // ******** PRONOUN CHECK BOXES **************
-  const [sheHerPronoun, setsheHerPronoun] = useState( false );
-  const [heHimPronoun, setheHimPronoun] = useState( false );
-  const [theyThemPronoun, settheyThemPronoun] = useState( false );
-  const [IsChecked, setIsChecked] = useState( true );
-  const [otherPronoun, setOtherPronoun] = useState();
+  const [Pronouns, setPronouns] = useState( false );
+  // const [heHimPronoun, setheHimPronoun] = useState( false );
+  // const [theyThemPronoun, settheyThemPronoun] = useState( false );
+  // const [IsChecked, setIsChecked] = useState( true );
+  // const [otherPronoun, setOtherPronoun] = useState();
    // ******** PRONOUN CHECK BOXES **************
 
   const[newPhone, setNewPhone]= useState();
@@ -71,30 +71,30 @@ function TutorInfo(props) {
     }
     
     // ******** PRONOUN CHECK BOXES **************
-    const changesheHerPronoun = () => {
-      setsheHerPronoun(!sheHerPronoun);
-      console.log('she/her statues:', sheHerPronoun)
+    const changePronouns = () => {
+      setPronouns(event.target.value);
+      console.log('pronoun', Pronouns)
     }
 
-    const changeheHimPronoun = () => {
-      setheHimPronoun(!heHimPronoun);
-      console.log('he/him statues:', heHimPronoun)
-    }
+    // const changeheHimPronoun = () => {
+    //   setheHimPronoun(!heHimPronoun);
+    //   console.log('he/him statues:', heHimPronoun)
+    // }
 
-    const changetheyThemPronoun = () => {
-      settheyThemPronoun(!theyThemPronoun);
-      console.log('he/him statues:', theyThemPronoun)
-    }
+    // const changetheyThemPronoun = () => {
+    //   settheyThemPronoun(!theyThemPronoun);
+    //   console.log('he/him statues:', theyThemPronoun)
+    // }
 
-    const changeIsChecked = () => {
-      setIsChecked(!IsChecked);
-      console.log('is other checked?', IsChecked)
-    }
+    // const changeIsChecked = () => {
+    //   setIsChecked(!IsChecked);
+    //   console.log('is other checked?', IsChecked)
+    // }
 
-    const changeOtherPronoun = () => {
-      console.log('Other is:', otherPronoun)
-      setOtherPronoun(event.target.value)
-    }
+    // const changeOtherPronoun = () => {
+    //   console.log('Other is:', otherPronoun)
+    //   setOtherPronoun(event.target.value)
+    // }
 
     // ******** END END END END END**************
     
@@ -175,10 +175,11 @@ function TutorInfo(props) {
         lastName: newLastName,
         parentEmail: newParentEmail,
         email: newEmail,
-        sheHerPronoun: sheHerPronoun,
-        heHimPronoun: heHimPronoun,
-        theyThemPronoun: theyThemPronoun,
-        otherPronoun: otherPronoun,
+        Pronouns: Pronouns,
+        // sheHerPronoun: sheHerPronoun,
+        // heHimPronoun: heHimPronoun,
+        // theyThemPronoun: theyThemPronoun,
+        // otherPronoun: otherPronoun,
         phone: newPhone,
         school: newSchool,
         grade: newGrade,
@@ -242,8 +243,12 @@ function TutorInfo(props) {
 
       <div>
       <p>What are the Student's pronouns?</p>
+      <div>
+        <input type="text" placeholder="Pronouns" onChange={(event)=>changePronouns(event)}></input>
+      </div>
+
         {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
-        <div>
+        {/* <div>
           <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
           <label for="She/Her">She/Her</label>
         </div> 
@@ -259,7 +264,7 @@ function TutorInfo(props) {
           <input type="checkbox" id="OtherPronoun" name="OtherPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
           <label htmlFor="Other Pronouns">Other</label>
           <input type="text" placeholder="What are your Pronouns" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
-        </div>
+        </div> */}
       </div>
 
       <div>
