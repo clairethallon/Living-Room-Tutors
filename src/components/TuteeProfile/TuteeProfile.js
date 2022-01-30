@@ -14,6 +14,7 @@ function TuteeProfile(props) {
 
   useEffect(() => {
     languageFinder(languages);
+
   }, []);
 
   const languages = [
@@ -26,7 +27,6 @@ function TuteeProfile(props) {
     { name: "Vietnamese ", status: props.tutee.tutee_language_vietnamese },
     { name: "Spanish ", status: props.tutee.tutee_language_spanish },
   ];
-
 
   const languageFinder = (languages) => {
     console.log(languages);
