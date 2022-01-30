@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
 import Header from '../Header/Header';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the

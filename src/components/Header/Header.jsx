@@ -14,7 +14,7 @@ function Header(props) {
   return (
     <div>
       <div>
-        <img  style={{'max-width': '100px'}} src={Logo}/>
+        <img  style={{'maxWidth': '100px'}} src={Logo}/>
       </div>
 
       <div>

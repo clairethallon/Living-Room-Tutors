@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import Header from '../Header/Header';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TutorInfo with the name for the new component.
+
 function TutorInfo(props) {
 
   const dispatch = useDispatch();
@@ -19,15 +18,7 @@ function TutorInfo(props) {
   const[newLastName, setNewLastName]= useState();
   const[newParentEmail, setNewParentEmail]= useState();
   const[newEmail, setNewEmail]= useState();
-
-  // ******** PRONOUN CHECK BOXES **************
   const [Pronouns, setPronouns] = useState( false );
-  // const [heHimPronoun, setheHimPronoun] = useState( false );
-  // const [theyThemPronoun, settheyThemPronoun] = useState( false );
-  // const [IsChecked, setIsChecked] = useState( true );
-  // const [otherPronoun, setOtherPronoun] = useState();
-   // ******** PRONOUN CHECK BOXES **************
-
   const[newPhone, setNewPhone]= useState();
   const[newSchool, setNewSchool]= useState();
   const[newGrade, setNewGrade]= useState();
@@ -46,19 +37,19 @@ function TutorInfo(props) {
   // ******** LANGUAGE CHECK BOXES **************
 
     const changeSubmitter= ()=>{
-    console.log('in new submitter');
-    setSubmitter(event.target.value);
-}
+      console.log('in new submitter');
+      setSubmitter(event.target.value);
+    }
   
     const changefirstName= ()=>{
-        console.log('in new name');
-        setNewFirstName(event.target.value);
+      console.log('in new name');
+      setNewFirstName(event.target.value);
     }
 
     const changelastName= ()=>{
       console.log('in new name');
       setNewLastName(event.target.value);
-  }
+    }
 
     const changeParentEmail= ()=>{
       console.log('in new parent email');
@@ -75,29 +66,6 @@ function TutorInfo(props) {
       setPronouns(event.target.value);
       console.log('pronoun', Pronouns)
     }
-
-    // const changeheHimPronoun = () => {
-    //   setheHimPronoun(!heHimPronoun);
-    //   console.log('he/him statues:', heHimPronoun)
-    // }
-
-    // const changetheyThemPronoun = () => {
-    //   settheyThemPronoun(!theyThemPronoun);
-    //   console.log('he/him statues:', theyThemPronoun)
-    // }
-
-    // const changeIsChecked = () => {
-    //   setIsChecked(!IsChecked);
-    //   console.log('is other checked?', IsChecked)
-    // }
-
-    // const changeOtherPronoun = () => {
-    //   console.log('Other is:', otherPronoun)
-    //   setOtherPronoun(event.target.value)
-    // }
-
-    // ******** END END END END END**************
-    
 
     const changePhone= ()=>{
       console.log('in new phone');
@@ -168,7 +136,7 @@ function TutorInfo(props) {
    
 
     const AddNewTutorInfo =()=>{
-      //package up new info in object
+      //package up new student info in object
       const newStudentInfo = {
         submitter: newSubmitter,
         firstName: newFirstName,
@@ -176,10 +144,6 @@ function TutorInfo(props) {
         parentEmail: newParentEmail,
         email: newEmail,
         Pronouns: Pronouns,
-        // sheHerPronoun: sheHerPronoun,
-        // heHimPronoun: heHimPronoun,
-        // theyThemPronoun: theyThemPronoun,
-        // otherPronoun: otherPronoun,
         phone: newPhone,
         school: newSchool,
         grade: newGrade,
@@ -194,22 +158,17 @@ function TutorInfo(props) {
         otherLanguage: otherLanguage,
       }
 
-      let pronounerrors = false;
-      if( (newStudentInfo.sheHerPronoun == false ) && 
-          ( newStudentInfo.heHimPronoun == false ) && 
-          (newStudentInfo.theyThemPronoun == false ) && 
-          (newStudentInfo.otherPronoun == '' || newStudentInfo.otherPronoun == null)){
-            pronounerrors = true;
-          }
-
+      // checks that all input feild have student info added!
       if (newStudentInfo.submitter== '' || newStudentInfo.submitter== null ||
       newStudentInfo.firstName == '' || newStudentInfo.firstName== null ||
       newStudentInfo.lastName == '' || newStudentInfo.lastName == null ||
       newStudentInfo.email== '' || newStudentInfo.email== null ||
       newStudentInfo.phone== '' || newStudentInfo.phone== null ||
       newStudentInfo.school== '' || newStudentInfo.school== null ||
-      newStudentInfo.grade== '' || newStudentInfo.grade== null ||
-      pronounerrors || languageErrors ){alert('Please complete all required fields.')}
+      newStudentInfo.grade== '' || newStudentInfo.grade== null)
+      {alert('Please complete all required fields.')}
+
+      // send it all to a reducer
       dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newStudentInfo})
     }
 
@@ -221,63 +180,62 @@ function TutorInfo(props) {
       <h2>{heading}</h2>
 
       <div>
-        <p>Are you a Student or a parent/guardian/teacher registering on behalf of a student?</p>
+        <p>Please indicate if you are you a student registering yourself or are a parent/guardian/teacher registering on behalf of a student:</p>
         <input type="radio" id="student" name="studentOrParent" value="Student" onChange={(event)=>changeSubmitter(event)}/>
           <label for="Student">I am a student</label>
           <input type="radio" id="parentGuardian" name="studentOrParent" value="ParentOrGuardian" onChange={(event)=>changeSubmitter(event)}/>
           <label for="ParentOrGuardian">I am a Parent or Guardian registering a Student</label>
       </div>
 
-      <div>
-      <input type="text" placeholder="Parent/Guardian's Email" onChange={(event)=>changeParentEmail(event)}></input>
-      </div>
+      <>
+        <h3>If you are a Parent/Guardian registering a Student, please enter your email:</h3>
+        <FloatingLabel controlID="GuardianEmail" label="Parent/Guardian's Email" className="GuardianEmail" onChange={(event)=>changeParentEmail(event)}>
+          <Form.Control type="GuardianEmail" placeholder="GuardianEmail"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-        <input type="text" placeholder="Student First Name" onChange={(event)=>changefirstName(event)}></input>
-        <input type="text" placeholder="Student Last Name" onChange={(event)=>changelastName(event)}></input>
-      </div>
+      <>
+        <h3>What is the Student's name? (First and Last)</h3>
+        <FloatingLabel controlID="StudentFirstName" label="Student's First Name" className="StudentFirstName" onChange={(event)=>changefirstName(event)}>
+          <Form.Control type="StudentFirstName" placeholder="Student First Name"/>
+        </FloatingLabel>
+        <FloatingLabel controlID="StudentLastName" label="Student's Last Name" className="StudentLastName" onChange={(event)=>changelastName(event)}>
+          <Form.Control type="StudentLastName" placeholder="Student Last Name"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-        <input type="text" placeholder="Student Email" onChange={(event)=>changeEmail(event)}></input>
-      </div>
+      <>
+      <h3>What is your email address?</h3>
+      <p>Please confirm the email address you enter is correct. Email is our primary way of communicating with our tutors and tutees, so it is crucial that the email address that you provide is correct.</p>
+        <FloatingLabel controlID="StudentEmail" label="Student's Email" className="StudentEmail" onChange={(event)=>changeEmail(event)}>
+          <Form.Control type="StudentEmail" placeholder="Student Email"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-      <p>What are the Student's pronouns?</p>
-      <div>
-        <input type="text" placeholder="Pronouns" onChange={(event)=>changePronouns(event)}></input>
-      </div>
+      <>
+      <h3>What are the Student's pronouns?</h3>
+        <FloatingLabel controlID="Pronouns" label="Student's Pronouns Ex:She/Her" className="Pronouns" onChange={(event)=>changePronouns(event)}>
+          <Form.Control type="Pronouns" placeholder="Pronouns"/>
+        </FloatingLabel>
+      </>
 
-        {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
-        {/* <div>
-          <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
-          <label for="She/Her">She/Her</label>
-        </div> 
-        <div>
-          <input type="checkbox" id="He/Him" name="He/Him" onChange={(event)=>changeheHimPronoun()}/>
-          <label for="He/Him">He/Him</label>
-        </div>
-        <div>
-          <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
-          <label for="They/Them">They/Them</label>
-        </div>
-        <div>
-          <input type="checkbox" id="OtherPronoun" name="OtherPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
-          <label htmlFor="Other Pronouns">Other</label>
-          <input type="text" placeholder="What are your Pronouns" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
-        </div> */}
-      </div>
+      <>
+      <h3>What is your phone number?</h3>
+        <FloatingLabel controlID="StudentPhone" label="Student's Phone Number" className="StudentPhone" onChange={(event)=>changePhone(event)}>
+          <Form.Control type="StudentPhone" placeholder="Student's Phone Number"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-      <input type="text" placeholder="Student Phone Number" onChange={(event)=>changePhone(event)}></input>
-      </div>
+      <>
+      <h3>What school does the student attend?</h3>
+        <FloatingLabel controlID="StudentSchool" label="Student's School" className="StudentSchool" onChange={(event)=>changeSchool(event)}>
+          <Form.Control type="StudentSchool" placeholder="Student's School"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-      <input type="text" placeholder="Student School" onChange={(event)=>changeSchool(event)}></input>
-      </div>
-
-
-      <div>
-      <Form.Select aria-label="gradeLevel" onChange={(event)=>changeGrade(event)}>
+      <>
+      <FloatingLabel controlId="gradeLevel" label="Student's Current Grade Level" onChange={(event)=>changeGrade(event)}>
+        <Form.Select aria-label="gradeLevel">
           <option>Select Student's Current Grade Level:</option>
           <option value="Pre-K">Pre-K</option>
           <option value="Kindergarten">Kindergarten</option>
@@ -293,13 +251,12 @@ function TutorInfo(props) {
           <option value="10th Grade">10th Grade</option>
           <option value="11th Grade">11th Grade</option>
           <option value="12th Grade">12th Grade</option>
-          </Form.Select>
-        </div>
-
+        </Form.Select>
+      </FloatingLabel>
+      </>
 
         <div>
           <p>Is the student an English language learner? If so, what is their preferred language?</p>
-          {/* <p>{JSON.stringify(Spanish)}</p> */}
           
           <div>
             <input type="checkbox" id="Spanish" name="Spanish" onChange={(event)=>changeSpanish()}/>
@@ -342,10 +299,17 @@ function TutorInfo(props) {
           </div>
 
           <div>
-          <input type="checkbox" id="OtherLanguage" name="OtherLanguage" onChange={(e) => changeIsLangChecked(event.target.checked)}/>
-          <label htmlFor="Other Pronouns">Other</label>
-          <input type="text" placeholder="Other Language" disabled={IsLangChecked} onChange={(event)=>changeotherLangauge(event)}></input>
-        </div>
+            <input type="checkbox" id="OtherLanguage" name="OtherLanguage" onChange={(e) => changeIsLangChecked(event.target.checked)}/>
+            <label htmlFor="Other Pronouns">Other</label>
+            <>
+              <fieldset disabled={IsLangChecked}>
+                <FloatingLabel controlID="OtherLanguage" label="Other Language" className="OtherLanguage" onChange={(event)=>changeotherLangauge(event)}>
+                  <Form.Control type="OtherLanguage" placeholder="Other Language"/>
+                </FloatingLabel>
+              </fieldset>
+            </>
+
+          </div>
 
       </div>
 
