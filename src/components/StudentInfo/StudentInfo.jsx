@@ -19,15 +19,7 @@ function TutorInfo(props) {
   const[newLastName, setNewLastName]= useState();
   const[newParentEmail, setNewParentEmail]= useState();
   const[newEmail, setNewEmail]= useState();
-
-  // ******** PRONOUN CHECK BOXES **************
   const [Pronouns, setPronouns] = useState( false );
-  // const [heHimPronoun, setheHimPronoun] = useState( false );
-  // const [theyThemPronoun, settheyThemPronoun] = useState( false );
-  // const [IsChecked, setIsChecked] = useState( true );
-  // const [otherPronoun, setOtherPronoun] = useState();
-   // ******** PRONOUN CHECK BOXES **************
-
   const[newPhone, setNewPhone]= useState();
   const[newSchool, setNewSchool]= useState();
   const[newGrade, setNewGrade]= useState();
@@ -46,19 +38,19 @@ function TutorInfo(props) {
   // ******** LANGUAGE CHECK BOXES **************
 
     const changeSubmitter= ()=>{
-    console.log('in new submitter');
-    setSubmitter(event.target.value);
-}
+      console.log('in new submitter');
+      setSubmitter(event.target.value);
+    }
   
     const changefirstName= ()=>{
-        console.log('in new name');
-        setNewFirstName(event.target.value);
+      console.log('in new name');
+      setNewFirstName(event.target.value);
     }
 
     const changelastName= ()=>{
       console.log('in new name');
       setNewLastName(event.target.value);
-  }
+    }
 
     const changeParentEmail= ()=>{
       console.log('in new parent email');
@@ -75,29 +67,6 @@ function TutorInfo(props) {
       setPronouns(event.target.value);
       console.log('pronoun', Pronouns)
     }
-
-    // const changeheHimPronoun = () => {
-    //   setheHimPronoun(!heHimPronoun);
-    //   console.log('he/him statues:', heHimPronoun)
-    // }
-
-    // const changetheyThemPronoun = () => {
-    //   settheyThemPronoun(!theyThemPronoun);
-    //   console.log('he/him statues:', theyThemPronoun)
-    // }
-
-    // const changeIsChecked = () => {
-    //   setIsChecked(!IsChecked);
-    //   console.log('is other checked?', IsChecked)
-    // }
-
-    // const changeOtherPronoun = () => {
-    //   console.log('Other is:', otherPronoun)
-    //   setOtherPronoun(event.target.value)
-    // }
-
-    // ******** END END END END END**************
-    
 
     const changePhone= ()=>{
       console.log('in new phone');
@@ -168,7 +137,7 @@ function TutorInfo(props) {
    
 
     const AddNewTutorInfo =()=>{
-      //package up new info in object
+      //package up new student info in object
       const newStudentInfo = {
         submitter: newSubmitter,
         firstName: newFirstName,
@@ -176,10 +145,6 @@ function TutorInfo(props) {
         parentEmail: newParentEmail,
         email: newEmail,
         Pronouns: Pronouns,
-        // sheHerPronoun: sheHerPronoun,
-        // heHimPronoun: heHimPronoun,
-        // theyThemPronoun: theyThemPronoun,
-        // otherPronoun: otherPronoun,
         phone: newPhone,
         school: newSchool,
         grade: newGrade,
@@ -194,22 +159,17 @@ function TutorInfo(props) {
         otherLanguage: otherLanguage,
       }
 
-      let pronounerrors = false;
-      if( (newStudentInfo.sheHerPronoun == false ) && 
-          ( newStudentInfo.heHimPronoun == false ) && 
-          (newStudentInfo.theyThemPronoun == false ) && 
-          (newStudentInfo.otherPronoun == '' || newStudentInfo.otherPronoun == null)){
-            pronounerrors = true;
-          }
-
+      // checks that all input feild have student info added!
       if (newStudentInfo.submitter== '' || newStudentInfo.submitter== null ||
       newStudentInfo.firstName == '' || newStudentInfo.firstName== null ||
       newStudentInfo.lastName == '' || newStudentInfo.lastName == null ||
       newStudentInfo.email== '' || newStudentInfo.email== null ||
       newStudentInfo.phone== '' || newStudentInfo.phone== null ||
       newStudentInfo.school== '' || newStudentInfo.school== null ||
-      newStudentInfo.grade== '' || newStudentInfo.grade== null ||
-      pronounerrors || languageErrors ){alert('Please complete all required fields.')}
+      newStudentInfo.grade== '' || newStudentInfo.grade== null)
+      {alert('Please complete all required fields.')}
+
+      // send it all to a reducer
       dispatch( {type:'ADD_NEW_STUDENT_INFO', payload: newStudentInfo})
     }
 

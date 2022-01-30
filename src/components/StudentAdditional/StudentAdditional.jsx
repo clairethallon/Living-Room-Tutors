@@ -3,15 +3,15 @@ import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
 import Header from '../Header/Header';
+import { Form } from 'react-bootstrap';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name StudentAdditional with the name for the new component.
+
 function StudentAdditional(props) {
 
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Student Additional Info');
+  const [heading, setHeading] = useState('Additional Student Information');
 
   const[newAdditionalInfo, setNewAdditionalInfo]= useState();
 
@@ -38,10 +38,12 @@ function StudentAdditional(props) {
       <div className= 'maincard'>
       <h2>{heading}</h2>
 
-      <div>
+      <>
         <h3>Is there anything else you want us to know about the student?</h3>
-        <input type="text" placeholder="AdditionalInfo" onChange={(event)=>changeAdditionalInfo(event)}></input>
-      </div>
+        <FloatingLabel controlId="AdditionalInfo" label="Additional Info" className="AdditionalInfo" onChange={(event)=>changeAdditionalInfo(event)}>
+          <Form.Control as="textarea" placeholder="Additional Info" style={{height: '100px'}}/>
+        </FloatingLabel>
+      </>
 
       <Link to="/StudentTerms"><Button onClick={AddNewStudentAdditional}>Save and Continue</Button></Link>
       </div>
