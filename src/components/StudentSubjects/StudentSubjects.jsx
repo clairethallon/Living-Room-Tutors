@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import Header from '../Header/Header';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name StudentSubjects with the name for the new component.
+
 function StudentSubjects(props) {
   
   const dispatch = useDispatch();
@@ -109,16 +108,15 @@ function StudentSubjects(props) {
 
   return (
     <div>
-
-      <Header/>
-
       <div className= 'maincard'>
-      <p>details equals: {JSON.stringify(newDetailedNeeds)}</p>
-      <h2>{heading}</h2>
+        <Header/>
 
-      <div>
-      <Form.Select aria-label="studentSubjects" onChange={(event)=>changePrimarySubject(event)}>
-      <option>In what subjects does the student need the most support? (1st Choice)</option>
+        <h2>{heading}</h2>
+
+      <>
+      <FloatingLabel controlId="primarySubject" label="Student's 1st Choice" onChange={(event)=>changePrimarySubject(event)}>
+        <Form.Select aria-label="Student's 1st Choice">
+        <option>In what subjects does the student need the most support? (1st Choice)</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>
@@ -161,16 +159,24 @@ function StudentSubjects(props) {
           <option value="SAT Prep">SAT Prep</option>
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
-          </Form.Select>
+        </Form.Select>
+      </FloatingLabel>
+        { changeOtherField? 
+          <>
+            <FloatingLabel controlID="OtherSchool" label="Other Subject" className="OtherSubject" onChange={(event)=>changeOtherPrimarySubject(event)}>
+              <Form.Control type="OtherSubject" placeholder="OtherSubject"/>
+            </FloatingLabel> 
+          </>
+          : 
+          <> </>
+        }
+      </>
 
-          { changeOtherField? <input type="text" placeholder="Other School" onChange={(event)=>changeOtherPrimarySubject(event)}></input> : <> </>
-          }
 
-        </div>
-
-        <div>
-        <Form.Select aria-label="studentSubjects secondary" onChange={(event)=>changeSecondarySubject(event)}>
-        <option>In what subjects does the student need the most support?</option>
+      <>
+      <FloatingLabel controlId="secondarySubject" label="Student's 2nd Choice" onChange={(event)=>changeSecondarySubject(event)}>
+        <Form.Select aria-label="Student's 2nd Choice">
+          <option>In what additional subject does the student need support? (2nd Choice)</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>
@@ -213,16 +219,24 @@ function StudentSubjects(props) {
           <option value="SAT Prep">SAT Prep</option>
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
-          </Form.Select>
+        </Form.Select>
+      </FloatingLabel>
+        { changeOtherSecondaryField? 
+          <>
+            <FloatingLabel controlID="OtherSecondarySchool" label="Other Subject (2nd Choice)" className="OtherSecondarySchool" onChange={(event)=>changeOtherSecondarySubject(event)}>
+              <Form.Control type="OtherSecondarySchool" placeholder="Other Subject (2nd Choice)"/>
+            </FloatingLabel> 
+          </>
+          : 
+          <> </>
+        }
+      </>
 
-          { changeOtherSecondaryField? <input type="text" placeholder="Other School" onChange={(event)=>changeOtherSecondarySubject(event)}></input> : <> </>
-          }
 
-        </div>
-
-        <div>
-        <Form.Select aria-label="studentSubjects tertiary" onChange={(event)=>changeTertiarySubject(event)}>
-        <option>In what subjects does the student need the most support? (3rd Choice)</option>
+     <>
+      <FloatingLabel controlId="tertiarySubject" label="Student's 3rd Choice" onChange={(event)=>changeTertiarySubject(event)}>
+        <Form.Select aria-label="Student's 3rd Choice">
+          <option>In what additional subject does the student need support? (3rd Choice)</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>
@@ -265,22 +279,33 @@ function StudentSubjects(props) {
           <option value="SAT Prep">SAT Prep</option>
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
-          </Form.Select>
+        </Form.Select>
+      </FloatingLabel>
+        { changeOtherTertiaryField? 
+          <>
+            <FloatingLabel controlID="OtherTertiarySchool" label="Other Subject (3rd Choice)" className="OtherTertiarySchool" onChange={(event)=>changeOtherTertiarySubject(event)}>
+              <Form.Control type="OtherTertiarySchool" placeholder="Other Subject (3rd Choice)"/>
+            </FloatingLabel> 
+          </>
+          : 
+          <> </>
+        }
+      </>
+        
+        <>
+          <h3>If you stated "other" for any of your choices, please describe what support is needed:</h3>
+            <FloatingLabel controlID="OtherInfo" label="Support Needed" className="OtherInfo" onChange={(event)=>changeOtherInfo(event)}>
+              <Form.Control type="OtherInfo" placeholder="Support Needed"/>
+            </FloatingLabel>
+        </>
 
-          { changeOtherTertiaryField? <input type="text" placeholder="Other School" onChange={(event)=>changeOtherTertiarySubject(event)}></input> : <> </>
-          }
-        </div>
-
-      <div>
-        <h3>If you stated "other" for any one of your choices, please describe what support is needed:</h3>
-        <input type="text" placeholder="OtherInfo" onChange={(event)=>changeOtherInfo(event)}></input>
-        </div>
-
-        <div>
-        <h3>Please describe your needs in detail regarding the subject(s) you selected above:</h3>
-        <p>The more detailed you are, the better we can find a tutor to fit your needs! For example: (AP Macroeconomics) I need help understanding Fiscal Policy; (K-5 math) I need help with understanding long division.</p>
-        <input type="text" placeholder="Details of tutoring needs" onChange={(event)=>changeDetailedNeeds(event)}></input>
-        </div>
+        <>
+          <h3>Please describe your needs in detail regarding the subject(s) you selected above:</h3>
+          <p>The more detailed you are, the better we can find a tutor to fit your needs! For example: (AP Macroeconomics) I need help understanding Fiscal Policy; (K-5 math) I need help with understanding long division.</p>
+            <FloatingLabel controlId="DetailedNeeds" label="Details of tutoring needs" className="DetailedNeeds" onChange={(event)=>changeDetailedNeeds(event)}>
+              <Form.Control as="textarea" placeholder="Details of tutoring needs" style={{height: '100px'}}/>
+            </FloatingLabel>
+        </>
 
         <Link to="/StudentAdditional" ><Button onClick={AddNewStudentSubjects}>Save and Continue</Button></Link>
         </div>
