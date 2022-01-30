@@ -46,34 +46,10 @@ function TutorInfo(props) {
       setNewEmail(event.target.value);
     }
 
-    // ******** PRONOUN CHECK BOXES **************
-
     const changePronouns= ()=>{
       console.log('in new tutor email');
       setPronouns (event.target.value);
     }
-   
-
-    // const changetheyThemPronoun = () => {
-    //   if (theyThemPronoun == ""){
-    //     settheyThemPronoun('They/Them')
-    //     console.log('they/them equals', theyThemPronoun )
-    //   }
-    //   else {settheyThemPronoun("")
-    //   console.log('they/them equals', theyThemPronoun )}
-    // }
-
-    // const changeIsChecked = () => {
-    //   setIsChecked(!IsChecked);
-    //   console.log('is Custom checked?', IsChecked)
-    // }
-
-    // const changeCustomPronoun = () => {
-    //   console.log('Custom is:', CustomPronoun)
-    //   setCustomPronoun(event.target.value)
-    // }
-
-    // ******** END END END END END**************
 
     const changeTutorPhone= ()=>{
       console.log('in new tutor phone');
@@ -85,14 +61,11 @@ function TutorInfo(props) {
       setNewGrade(event.target.value);
     }
 
+    // ***** tutor school select and other input *****
     const changeTutorSchool= ()=>{ 
       console.log('in new tutor school');
-      console.log('event', event.target.value);
-
-      if(event.target.value == 'Other')
-      {setOtherField(true)}
-      else{setOtherField(false)}
-
+        if(event.target.value == 'Other') {setOtherField(true)}
+        else{setOtherField(false)}
       setNewTutorSchool(event.target.value) 
     }
 
@@ -104,16 +77,10 @@ function TutorInfo(props) {
 
     const AddNewTutorInfo =()=>{
       //package up new info in object
-
-
       const newTutorInfo = {
         firstName: newTutorFirstName,
         lastName: newTutorLastName,
         email: newTutorEmail,
-        // sheHerPronoun: sheHerPronoun,
-        // heHimPronoun: heHimPronoun,
-        // theyThemPronoun: theyThemPronoun,
-        // CustomPronoun: CustomPronoun,
         pronouns: Pronouns,
         phone: newTutorPhone,
         grade: newGrade,
@@ -133,13 +100,11 @@ function TutorInfo(props) {
 
   return (
     <div>
-      
       <Header/>
 
       <div className= 'maincard'>
       <h2>{heading}</h2>
 
-{/* label controls the defaul seen */}
       <>
         <h3>What is your name? (First and Last)</h3>
         <FloatingLabel controlID="FirstName" label="First Name" className="formInput" onChange={(event)=>changeTutorFirstName(event)}>
@@ -172,20 +137,23 @@ function TutorInfo(props) {
         </FloatingLabel>
       </>
 
-      <div>
-      <Form.Select aria-label="gradeLevel" onChange={(event)=>changeTutorGrade(event)}>
-        <option>What is your current grade level?</option>
+      <>
+      <FloatingLabel controlId="gradeLevel" label="Current Grade Level" onChange={(event)=>changeTutorGrade(event)}>
+        <Form.Select aria-label="gradeLevel">
+          <option>What is your current grade level?</option>
           <option value="Freshman">Freshman</option>
           <option value="Sophomore">Sophomore</option>
           <option value="Junior">Junior</option>
           <option value="Senior">Senior</option>
           <option value="College">I'm in College</option>
-          </Form.Select>
-        </div>
+        </Form.Select>
+      </FloatingLabel>
+      </>
 
-        <div>
-        <Form.Select aria-label="Tutor's Current School" onChange={(event)=>changeTutorSchool(event)}>
-        <option>Where do you go to school?</option>
+      <>
+      <FloatingLabel controlId="Tutor's Current School" label="Current School" onChange={(event)=>changeTutorSchool(event)}>
+        <Form.Select aria-label="Tutor's Current School">
+          <option>Where do you go to school?</option>
           <option value="Mayo High School">Mayo High School</option>
           <option value="John Marshall High School">John Marshall High School</option>
           <option value="Century High School">Century High School</option>
@@ -195,17 +163,19 @@ function TutorInfo(props) {
           <option value="Stewertville High School">Stewertville High School</option>
           <option value="College">I'm in College</option>
           <option value="Other">Other</option>
-          </Form.Select>
+        </Form.Select>
+      </FloatingLabel>
 
-          { changeOtherField? 
-          <>
+      { changeOtherField? 
+        <>
           <FloatingLabel controlID="OtherSchool" label="School Name" className="OtherSchool" onChange={(event)=>changeOtherSchool(event)}>
             <Form.Control type="OtherSchool" placeholder="OtherSchool"/>
           </FloatingLabel> 
         </>
-         : <> </>
-          }
-        </div>
+        : 
+        <> </>
+      }
+        </>
 
         <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
         </div> 
