@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import Header from '../Header/Header';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+// import Form from 'react-bootstrap/Form';
+
 
 
 
@@ -135,50 +138,39 @@ function TutorInfo(props) {
 
       <div className= 'maincard'>
       <h2>{heading}</h2>
-      <div>
-        <h3>What is your name? (First and Last)</h3>
-        <input type="text" placeholder="Tutor First Name" onChange={(event)=>changeTutorFirstName(event)}></input>
-        <input type="text" placeholder="Tutor Last Name" onChange={(event)=>changeTutorLastName(event)}></input>
-      </div>
 
-      <div>
+{/* label controls the defaul seen */}
+      <>
+        <h3>What is your name? (First and Last)</h3>
+        <FloatingLabel controlID="FirstName" label="First Name" className="formInput" onChange={(event)=>changeTutorFirstName(event)}>
+          <Form.Control type="FirstName" placeholder="First Name"/>
+        </FloatingLabel>
+        <FloatingLabel controlID="LastName" label="Last Name" className="formInput" onChange={(event)=>changeTutorLastName(event)}>
+          <Form.Control type="LastName" placeholder="Last Name"/>
+        </FloatingLabel>
+      </>
+
+      <>
       <h3>What is your email address?</h3>
       <p>Please confirm the email address you enter is correct. Email is our primary way of communicating with our tutors and tutees, so it is crucial that the email address that you provide is correct.</p>
-      <input type="text" placeholder="Tutor Email" onChange={(event)=>changeTutorEmail(event)}></input>
-      </div>
+        <FloatingLabel controlID="Email" label="Email" className="Email" onChange={(event)=>changeTutorEmail(event)}>
+          <Form.Control type="Email" placeholder="Email"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-      <p>What are your pronouns?</p>
-      <input type="text" placeholder="Pronouns" onChange={(event)=>changePronouns(event)}></input>
-        {/* <p>{JSON.stringify(sheHerPronoun)}</p>
-        <p>{JSON.stringify(heHimPronoun)}</p>
-        <p>{JSON.stringify(theyThemPronoun)}</p>
-        <p>{JSON.stringify(CustomPronoun)}</p>
-  
-        <div>
-          <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
-          <label htmlFor="She/Her">She/Her</label>
-        </div> 
-        <div>
-          <input type="checkbox" id="He/Him" name="He/Him" onChange={(event)=>changeheHimPronoun()}/>
-          <label htmlFor="He/Him">He/Him</label>
-        </div>
-        <div>
-          <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
-          <label htmlFor="They/Them">They/Them</label>
-        </div>
-
-        <div>
-          <input type="checkbox" id="CustomPronoun" name="CustomPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
-          <label htmlFor="Custom Pronouns">Custom</label>
-          <input type="text" placeholder="Tutor Phone Number" disabled={!IsChecked} onChange={(event)=>changeCustomPronoun()}></input>
-        </div> */}
-
-      </div>
+      <>
+      <h3>What are your pronouns?</h3>
+        <FloatingLabel controlID="Pronouns" label="Pronouns Ex:She/Her" className="Pronouns" onChange={(event)=>changePronouns(event)}>
+          <Form.Control type="Pronouns" placeholder="Pronouns"/>
+        </FloatingLabel>
+      </>
       
-
+      <>
       <h3>What is your phone number?</h3>
-      <input type="text" placeholder="Tutor Phone Number" onChange={(event)=>changeTutorPhone(event)}></input>
+        <FloatingLabel controlID="Phone" label="Phone Number" className="Phone" onChange={(event)=>changeTutorPhone(event)}>
+          <Form.Control type="Phone" placeholder="Phone"/>
+        </FloatingLabel>
+      </>
 
       <div>
       <Form.Select aria-label="gradeLevel" onChange={(event)=>changeTutorGrade(event)}>
@@ -205,7 +197,13 @@ function TutorInfo(props) {
           <option value="Other">Other</option>
           </Form.Select>
 
-          { changeOtherField? <input type="text" placeholder="Other School" onChange={(event)=>changeOtherSchool(event)}></input> : <> </>
+          { changeOtherField? 
+          <>
+          <FloatingLabel controlID="OtherSchool" label="School Name" className="OtherSchool" onChange={(event)=>changeOtherSchool(event)}>
+          <Form.Control type="OtherSchool" placeholder="OtherSchool"/>
+          </FloatingLabel> 
+        </>
+         : <> </>
           }
         </div>
 
