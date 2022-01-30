@@ -65,6 +65,8 @@ tutors.email AS tutor_email,
       subjects_tutors."sci_physics" AS tutor_sci_physics,
       subjects_tutors."sci_comp_sci" AS tutor_sci_comp_sci,
       subjects_tutors."lang_chinese" AS tutor_lang_chinese,
+      subjects_tutors."lang_spanish" AS tutor_lang_spanish,
+      subjects_tutors."lang_french" AS tutor_lang_french,
       subjects_tutors."lang_german" AS tutor_lang_german,
           subjects_tutors."hist_world" AS tutor_hist_world,
           subjects_tutors."hist_us" AS tutor_hist_us,
@@ -159,6 +161,8 @@ tutors.email AS tutor_email,
       subjects_tutors."sci_physics" AS tutor_sci_physics,
       subjects_tutors."sci_comp_sci" AS tutor_sci_comp_sci,
       subjects_tutors."lang_chinese" AS tutor_lang_chinese,
+      subjects_tutors."lang_spanish" AS tutor_lang_spanish,
+      subjects_tutors."lang_french" AS tutor_lang_french,
       subjects_tutors."lang_german" AS tutor_lang_german,
           subjects_tutors."hist_world" AS tutor_hist_world,
           subjects_tutors."hist_us" AS tutor_hist_us,
@@ -206,6 +210,19 @@ tutors.email AS tutor_email,
       res.sendStatus(500);
     });
 });
+
+router.put('/changeStatus/', (req, res) => {
+  console.log('in /changeStatus', req.body.id);
+  const queryString = `UPDATE "tutors" SET active_tutor = NOT active_tutor WHERE id=${req.body.id};`;
+  pool
+    .query(queryString)
+    .then(() =>
+      res.sendStatus(200))
+    .catch((err) => {
+      console.log('changeStatus failed: ', err);
+      res.sendStatus(500);
+    });
+});
 /**
  * POST route template
  */
@@ -240,11 +257,13 @@ module.exports = router;
 //   console.log("Mentoring Grade ID:", result.rows[0].id); //ID IS HERE!
 //   const mentoringGradeId = result.rows[0].id;
 //   // //SECOND QUERY MAKES TUTOR SUBJECT INSERT
-//   const insertTutorSubjectsQuery = `INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_Social_Studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep", "other")
-//         VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42);`;
+//   const insertTutorSubjectsQuery = `INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_Social_Studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french","lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep", "other")
+//         VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44);`;
 //   //add in RETURNING
 //         pool
 //     .query(insertTutorSubjectsQuery, [
+//       req.body. ,
+//       req.body. ,
 //       req.body. ,
 //       req.body. ,
 //       req.body. ,

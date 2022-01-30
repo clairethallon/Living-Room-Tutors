@@ -15,7 +15,7 @@ function DeactivatedTutors(props) {
 
   return (
     <div>
-      <h1>Deactivated Tutees</h1>
+      <h1>Deactivated Tutors</h1>
       {/* number will be replaced with an actual count from the db */}
       <p>3 count of pending tutees</p>
       <DeactivatedTutorsTable />

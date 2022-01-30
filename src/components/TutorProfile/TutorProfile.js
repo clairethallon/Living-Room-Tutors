@@ -51,6 +51,8 @@ function TutorProfile(props) {
     { name: "Physics ", status: props.tutor.tutor_sci_physics },
     { name: "Computer Science ", status: props.tutor.tutor_sci_comp_sci },
     { name: "Chinese ", status: props.tutor.tutor_lang_chinese },
+    { name: "Spanish ", status: props.tutor.tutor_lang_spanish },
+    { name: "French ", status: props.tutor.tutor_lang_french },
     { name: "German ", status: props.tutor.tutor_lang_german },
     { name: "World History ", status: props.tutor.tutor_hist_world },
     { name: "U.S. History ", status: props.tutor.tutor_hist_us },

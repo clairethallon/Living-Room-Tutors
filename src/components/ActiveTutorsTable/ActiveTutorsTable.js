@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table, Card, Col, Row } from "react-bootstrap";
-import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeactivateButton";
+import TutorActivateDeactivateButton from "../TutorActivateDeactivateButton/TutorActivateDeactivateButton";
 import MatchPageButton from "../MatchPageButton/MatchPageButton";
 import TutorCard from "../TutorCard/TutorCard";
 
@@ -24,7 +24,7 @@ function ActiveTutorsTable(props) {
 
   return (
     <div>
-      {JSON.stringify(activeTutors)}
+      {/* {JSON.stringify(activeTutors)} */}
 
       <div>
         <Row className="cardHead">

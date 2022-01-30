@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Accordion, Row, Col } from "react-bootstrap";
-import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeactivateButton";
+import TutorActivateDeactivateButton from "../TutorActivateDeactivateButton/TutorActivateDeactivateButton";
 import MatchPageButton from "../MatchPageButton/MatchPageButton";
 import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
@@ -24,7 +24,7 @@ function TutorCard(props) {
               <LanguageFlag />
             </Col>
             <Col className="cardButtons" xs="2">
-              <ActivateDeactivateButton active={props.tutor} />
+              <TutorActivateDeactivateButton active={props.tutor} />
               {/* <--conditionally render the MatchButton to only show up when the Tutor is activated. */}
             </Col>
             {/* </Row> */}
