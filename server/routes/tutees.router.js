@@ -122,6 +122,19 @@ Subject3.subject AS subject_3
     });
 });
 
+router.put('/changeStatus/', (req, res) => {
+  console.log('in /changeStatus', req.body.id);
+  const queryString = `UPDATE "tutees" SET active_tutee = NOT active_tutee WHERE id=${req.body.id};`;
+  pool
+    .query(queryString)
+    .then(() =>
+      res.sendStatus(200))
+    .catch((err) => {
+      console.log('changeStatus failed: ', err);
+      res.sendStatus(500);
+    });
+});
+
 /**
  * POST route template
  */

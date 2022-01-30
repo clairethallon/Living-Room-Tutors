@@ -4,8 +4,14 @@ import { Button } from "react-bootstrap";
 
 function TuteeActivateDeactivateButton(props) {
 
+  const dispatch = useDispatch();
+
+
   const deactiveTutee = () => {
     console.log(props.active.id);
+    dispatch({ type: 'CHANGE_TUTEE_STATUS', payload: props.active.id });
+
+
   }
 
   return (
