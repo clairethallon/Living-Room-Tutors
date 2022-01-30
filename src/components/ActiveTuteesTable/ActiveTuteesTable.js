@@ -18,7 +18,7 @@ function ActiveTuteesTable(props) {
 
   return (
     <div>
-      {JSON.stringify(activeTutees)}
+      {/* {JSON.stringify(activeTutees)} */}
       <div>
         <Row className="cardHead">
           <Col xs="3" className="cardHeadCol">

@@ -90,7 +90,7 @@ CREATE TABLE "mentoring_grade" (
 
 
 
-
+CREATE TABLE "subjects_tutors" (
 	"id" serial NOT NULL,
 	"K5_Math" BOOLEAN NOT NULL,
 	"K5_Reading" BOOLEAN NOT NULL,
@@ -238,13 +238,13 @@ INSERT INTO "subjects_tutees" ("subject") VALUES
 ('act_prep'),	 
 ('other');
 
---DUMMY DATA INSERTS FOR JINGLIN LI
+--MOCK DATA INSERTS FOR TUTOR
 
 INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
 VALUES ( false, false, false, false, false, false, false, false);
 
-INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_Social_Studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep")
-	VALUES ( true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true );
+INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_social_studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french","lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep")
+	VALUES ( true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true );
 
 INSERT INTO "mentoring_grade" ( "prek_kindergarten", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th" )
 VALUES ( true, true, true, true, true, true, true, false, false, false, false, false, false );
@@ -255,3 +255,14 @@ INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone"
 --LANGUAGE_TUTOR.ID GOES HERE, 
 --SUBJECTS.ID GOES HERE, 
 NULL, '1/9/2022 15:15:01', false );
+
+--MOCK DATA INSERTS FOR TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( true, false, false, true, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Emilis', 'Terrell', 'she/her', 'student', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','Pre-K/Kindergarten', 'Central High School', 
+--LANGUAGE TABLE ID GOES HERE,
+7, 9, 1, NULL, NULL, NULL, 
+'1/9/2022 15:15:01', true, false );

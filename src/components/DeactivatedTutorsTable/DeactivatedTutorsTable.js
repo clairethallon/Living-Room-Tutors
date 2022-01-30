@@ -25,7 +25,7 @@ function DeactivatedTutorsTable(props) {
 
   return (
     <div>
-      {JSON.stringify(deactiveTutors)}
+      {/* {JSON.stringify(deactiveTutors)} */}
 
       <div>
         <Row className="cardHead">

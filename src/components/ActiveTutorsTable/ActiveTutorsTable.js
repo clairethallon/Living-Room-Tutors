@@ -24,7 +24,7 @@ function ActiveTutorsTable(props) {
 
   return (
     <div>
-      {JSON.stringify(activeTutors)}
+      {/* {JSON.stringify(activeTutors)} */}
 
       <div>
         <Row className="cardHead">

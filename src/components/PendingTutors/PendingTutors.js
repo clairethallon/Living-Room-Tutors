@@ -13,7 +13,7 @@ function PendingTutors(props) {
 
   return (
     <div>
-      <h1>Tutees Pending Matches</h1>
+      <h1>Tutors Pending Matches</h1>
       {/* number will be replaced with an actual count from the db */}
       <p>3 count of pending tutees</p>
       <ActiveTutorsTable />
