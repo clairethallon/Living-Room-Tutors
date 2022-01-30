@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import Header from '../Header/Header';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TutorInfo with the name for the new component.
+
 function TutorInfo(props) {
 
   const dispatch = useDispatch();
@@ -181,63 +180,62 @@ function TutorInfo(props) {
       <h2>{heading}</h2>
 
       <div>
-        <p>Are you a Student or a parent/guardian/teacher registering on behalf of a student?</p>
+        <p>Please indicate if you are you a student registering yourself or are a parent/guardian/teacher registering on behalf of a student:</p>
         <input type="radio" id="student" name="studentOrParent" value="Student" onChange={(event)=>changeSubmitter(event)}/>
           <label for="Student">I am a student</label>
           <input type="radio" id="parentGuardian" name="studentOrParent" value="ParentOrGuardian" onChange={(event)=>changeSubmitter(event)}/>
           <label for="ParentOrGuardian">I am a Parent or Guardian registering a Student</label>
       </div>
 
-      <div>
-      <input type="text" placeholder="Parent/Guardian's Email" onChange={(event)=>changeParentEmail(event)}></input>
-      </div>
+      <>
+        <h3>If you are a Parent/Guardian registering a Student, please enter your email:</h3>
+        <FloatingLabel controlID="GuardianEmail" label="Parent/Guardian's Email" className="GuardianEmail" onChange={(event)=>changeParentEmail(event)}>
+          <Form.Control type="GuardianEmail" placeholder="GuardianEmail"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-        <input type="text" placeholder="Student First Name" onChange={(event)=>changefirstName(event)}></input>
-        <input type="text" placeholder="Student Last Name" onChange={(event)=>changelastName(event)}></input>
-      </div>
+      <>
+        <h3>What is the Student's name? (First and Last)</h3>
+        <FloatingLabel controlID="StudentFirstName" label="Student's First Name" className="StudentFirstName" onChange={(event)=>changefirstName(event)}>
+          <Form.Control type="StudentFirstName" placeholder="Student First Name"/>
+        </FloatingLabel>
+        <FloatingLabel controlID="StudentLastName" label="Student's Last Name" className="StudentLastName" onChange={(event)=>changelastName(event)}>
+          <Form.Control type="StudentLastName" placeholder="Student Last Name"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-        <input type="text" placeholder="Student Email" onChange={(event)=>changeEmail(event)}></input>
-      </div>
+      <>
+      <h3>What is your email address?</h3>
+      <p>Please confirm the email address you enter is correct. Email is our primary way of communicating with our tutors and tutees, so it is crucial that the email address that you provide is correct.</p>
+        <FloatingLabel controlID="StudentEmail" label="Student's Email" className="StudentEmail" onChange={(event)=>changeEmail(event)}>
+          <Form.Control type="StudentEmail" placeholder="Student Email"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-      <p>What are the Student's pronouns?</p>
-      <div>
-        <input type="text" placeholder="Pronouns" onChange={(event)=>changePronouns(event)}></input>
-      </div>
+      <>
+      <h3>What are the Student's pronouns?</h3>
+        <FloatingLabel controlID="Pronouns" label="Student's Pronouns Ex:She/Her" className="Pronouns" onChange={(event)=>changePronouns(event)}>
+          <Form.Control type="Pronouns" placeholder="Pronouns"/>
+        </FloatingLabel>
+      </>
 
-        {/* <p>{JSON.stringify(sheHerPronoun)}</p> */}
-        {/* <div>
-          <input type="checkbox" id="She/Her" name="She/Her" onChange={(event)=>changesheHerPronoun()}/>
-          <label for="She/Her">She/Her</label>
-        </div> 
-        <div>
-          <input type="checkbox" id="He/Him" name="He/Him" onChange={(event)=>changeheHimPronoun()}/>
-          <label for="He/Him">He/Him</label>
-        </div>
-        <div>
-          <input type="checkbox" id="They/Them" name="They/Them" onChange={(event)=>changetheyThemPronoun()}/>
-          <label for="They/Them">They/Them</label>
-        </div>
-        <div>
-          <input type="checkbox" id="OtherPronoun" name="OtherPronoun" onChange={(e) => changeIsChecked(event.target.checked)}/>
-          <label htmlFor="Other Pronouns">Other</label>
-          <input type="text" placeholder="What are your Pronouns" disabled={IsChecked} onChange={(event)=>changeOtherPronoun()}></input>
-        </div> */}
-      </div>
+      <>
+      <h3>What is your phone number?</h3>
+        <FloatingLabel controlID="StudentPhone" label="Student's Phone Number" className="StudentPhone" onChange={(event)=>changePhone(event)}>
+          <Form.Control type="StudentPhone" placeholder="Student's Phone Number"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-      <input type="text" placeholder="Student Phone Number" onChange={(event)=>changePhone(event)}></input>
-      </div>
+      <>
+      <h3>What school does the student attend?</h3>
+        <FloatingLabel controlID="StudentSchool" label="Student's School" className="StudentSchool" onChange={(event)=>changeSchool(event)}>
+          <Form.Control type="StudentSchool" placeholder="Student's School"/>
+        </FloatingLabel>
+      </>
 
-      <div>
-      <input type="text" placeholder="Student School" onChange={(event)=>changeSchool(event)}></input>
-      </div>
-
-
-      <div>
-      <Form.Select aria-label="gradeLevel" onChange={(event)=>changeGrade(event)}>
+      <>
+      <FloatingLabel controlId="gradeLevel" label="Student's Current Grade Level" onChange={(event)=>changeGrade(event)}>
+        <Form.Select aria-label="gradeLevel">
           <option>Select Student's Current Grade Level:</option>
           <option value="Pre-K">Pre-K</option>
           <option value="Kindergarten">Kindergarten</option>
@@ -253,13 +251,12 @@ function TutorInfo(props) {
           <option value="10th Grade">10th Grade</option>
           <option value="11th Grade">11th Grade</option>
           <option value="12th Grade">12th Grade</option>
-          </Form.Select>
-        </div>
-
+        </Form.Select>
+      </FloatingLabel>
+      </>
 
         <div>
           <p>Is the student an English language learner? If so, what is their preferred language?</p>
-          {/* <p>{JSON.stringify(Spanish)}</p> */}
           
           <div>
             <input type="checkbox" id="Spanish" name="Spanish" onChange={(event)=>changeSpanish()}/>
@@ -302,10 +299,17 @@ function TutorInfo(props) {
           </div>
 
           <div>
-          <input type="checkbox" id="OtherLanguage" name="OtherLanguage" onChange={(e) => changeIsLangChecked(event.target.checked)}/>
-          <label htmlFor="Other Pronouns">Other</label>
-          <input type="text" placeholder="Other Language" disabled={IsLangChecked} onChange={(event)=>changeotherLangauge(event)}></input>
-        </div>
+            <input type="checkbox" id="OtherLanguage" name="OtherLanguage" onChange={(e) => changeIsLangChecked(event.target.checked)}/>
+            <label htmlFor="Other Pronouns">Other</label>
+            <>
+              <fieldset disabled={IsLangChecked}>
+                <FloatingLabel controlID="OtherLanguage" label="Other Language" className="OtherLanguage" onChange={(event)=>changeotherLangauge(event)}>
+                  <Form.Control type="OtherLanguage" placeholder="Other Language"/>
+                </FloatingLabel>
+              </fieldset>
+            </>
+
+          </div>
 
       </div>
 
