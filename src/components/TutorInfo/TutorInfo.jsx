@@ -200,7 +200,7 @@ function TutorInfo(props) {
           { changeOtherField? 
           <>
           <FloatingLabel controlID="OtherSchool" label="School Name" className="OtherSchool" onChange={(event)=>changeOtherSchool(event)}>
-          <Form.Control type="OtherSchool" placeholder="OtherSchool"/>
+            <Form.Control type="OtherSchool" placeholder="OtherSchool"/>
           </FloatingLabel> 
         </>
          : <> </>
