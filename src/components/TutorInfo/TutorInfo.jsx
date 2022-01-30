@@ -19,18 +19,12 @@ function TutorInfo(props) {
   const[newTutorFirstName, setNewTutorFirstName]= useState();
   const[newTutorLastName, setNewTutorLastName]= useState();
   const[newTutorEmail, setNewEmail]= useState();
-
-  // ******** PRONOUN CHECK BOXES **************
   const [Pronouns, setPronouns] = useState('');
-  // const [heHimPronoun, setheHimPronoun] = useState('');
-  // const [theyThemPronoun, settheyThemPronoun] = useState('');
-  // const [IsChecked, setIsChecked] = useState( false);
-  // const [CustomPronoun, setCustomPronoun] = useState( );
-   // ******** PRONOUN CHECK BOXES **************
-
   const[newTutorPhone, setNewTutorPhone]= useState();
   const[newGrade, setNewGrade]= useState();
+
   const[newTutorSchool, setNewTutorSchool]= useState();
+  const[changeOtherField, setOtherField]= useState(false);
   
 
 
@@ -55,23 +49,7 @@ function TutorInfo(props) {
       console.log('in new tutor email');
       setPronouns (event.target.value);
     }
-    // const changesheHerPronoun = () => {
-    //   if (sheHerPronoun == ""){
-    //     setsheHerPronoun('She/Her')
-    //     console.log('she/her equals', sheHerPronoun )
-    //   }
-    //   else {setsheHerPronoun("")
-    //   console.log('she/her equals', sheHerPronoun )}
-    // }
-
-    // const changeheHimPronoun = () => {
-    //   if (heHimPronoun == ""){
-    //     setheHimPronoun('He/Him')
-    //     console.log('he/Him equals', heHimPronoun )
-    //   }
-    //   else {setheHimPronoun("")
-    //   console.log('he/him equals', heHimPronoun )}
-    // }
+   
 
     // const changetheyThemPronoun = () => {
     //   if (theyThemPronoun == ""){
@@ -103,9 +81,6 @@ function TutorInfo(props) {
       console.log('in new tutor grade');
       setNewGrade(event.target.value);
     }
-
-    
-    const[changeOtherField, setOtherField]= useState(false);
 
     const changeTutorSchool= ()=>{ 
       console.log('in new tutor school');

@@ -15,26 +15,65 @@ function StudentSubjects(props) {
   const [heading, setHeading] = useState('Student Subjects');
 
   const[newPrimarySubject, setNewPrimarySubject]= useState();
+  const[changeOtherField, setOtherPrimaryField]= useState(false);
+  
   const[newSecondarySubject, setNewSecondarySubject]= useState();
+  const[changeOtherSecondaryField, setOtherSecondaryField]= useState(false);
+
   const[newTertiarySubject, setNewTertiarySubject]= useState();
+  const[changeOtherTertiaryField, setOtherTertiaryField]= useState(false);
+  
   const[newOtherInfo, setNewOtherInfo]= useState();
   const[newDetailedNeeds, setNewDetailedNeeds]= useState();
 
-
+// ************ Primary Subject Change ************
   const changePrimarySubject= ()=>{
     console.log('in new primary');
+
+    if(event.target.value == 'Other')
+    {setOtherPrimaryField(true)}
+    else{setOtherPrimaryField(false)}
+
     setNewPrimarySubject(event.target.value);
   }
 
+  const changeOtherPrimarySubject= ()=>{
+    console.log('in other school');
+    setNewPrimarySubject(event.target.value);
+  }
+
+// ************ Secondary Subject Change ************
   const changeSecondarySubject= ()=>{
     console.log('in new secondary');
+
+    if(event.target.value == 'Other')
+    {setOtherSecondaryField(true)}
+    else{setOtherSecondaryField(false)}
+
     setNewSecondarySubject(event.target.value);
   }
 
+  const changeOtherSecondarySubject= ()=>{
+    console.log('in other school');
+    setNewSecondarySubject(event.target.value);
+  }
+
+  // ************ Tertiary Subject Change ************
   const changeTertiarySubject= ()=>{
     console.log('in new tertiary');
+
+    if(event.target.value == 'Other')
+    {setOtherTertiaryField(true)}
+    else{setOtherTertiaryField(false)}
+
     setNewTertiarySubject(event.target.value);
   }
+
+  const changeOtherTertiarySubject= ()=>{
+    console.log('in other school');
+    setNewTertiarySubject(event.target.value);
+  }
+  
 
   const changeOtherInfo= ()=>{
     console.log('in new other info');
@@ -123,6 +162,10 @@ function StudentSubjects(props) {
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
           </Form.Select>
+
+          { changeOtherField? <input type="text" placeholder="Other School" onChange={(event)=>changeOtherPrimarySubject(event)}></input> : <> </>
+          }
+
         </div>
 
         <div>
@@ -171,6 +214,10 @@ function StudentSubjects(props) {
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
           </Form.Select>
+
+          { changeOtherSecondaryField? <input type="text" placeholder="Other School" onChange={(event)=>changeOtherSecondarySubject(event)}></input> : <> </>
+          }
+
         </div>
 
         <div>
@@ -219,6 +266,9 @@ function StudentSubjects(props) {
           <option value="ACT Prep">ACT Prep</option>
           <option value="Other">Other</option>
           </Form.Select>
+
+          { changeOtherTertiaryField? <input type="text" placeholder="Other School" onChange={(event)=>changeOtherTertiarySubject(event)}></input> : <> </>
+          }
         </div>
 
       <div>
