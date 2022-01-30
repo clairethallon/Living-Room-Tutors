@@ -210,6 +210,19 @@ tutors.email AS tutor_email,
       res.sendStatus(500);
     });
 });
+
+router.put('/changeStatus/', (req, res) => {
+  console.log('in /changeStatus', req.body.id);
+  const queryString = `UPDATE "tutors" SET active_tutor = NOT active_tutor WHERE id=${req.body.id};`;
+  pool
+    .query(queryString)
+    .then(() =>
+      res.sendStatus(200))
+    .catch((err) => {
+      console.log('changeStatus failed: ', err);
+      res.sendStatus(500);
+    });
+});
 /**
  * POST route template
  */

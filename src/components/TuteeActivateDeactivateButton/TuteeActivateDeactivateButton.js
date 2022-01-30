@@ -10,15 +10,10 @@ function TuteeActivateDeactivateButton(props) {
   const deactiveTutee = () => {
     console.log(props.active.id);
     dispatch({ type: 'CHANGE_TUTEE_STATUS', payload: props.active.id });
-
-
   }
 
   return (
     <div>
-      <div>{JSON.stringify(props)}</div>
-      <div>{JSON.stringify(props.active)}</div>
-
       {props.active.active_tutee ? <Button onClick={deactiveTutee}>deactivate</Button> : <Button onClick={deactiveTutee}>activate</Button>}
     </div>
   );

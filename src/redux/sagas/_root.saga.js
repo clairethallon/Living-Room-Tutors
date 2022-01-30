@@ -11,6 +11,7 @@ import activetuteesSaga from "./active_tutees.saga";
 import deactivetuteesSaga from "./deactive_tutees.saga";
 import matchesSaga from "./matches.saga";
 import statusTuteesSaga from "./change_tutee_active_status.saga";
+import statusTutorsSaga from "./change_tutor_active_status.saga";
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -31,6 +32,7 @@ export default function* rootSaga() {
     deactivetutorsSaga(),
     activetuteesSaga(),
     deactivetuteesSaga(),
-    statusTuteesSaga()
+    statusTuteesSaga(),
+    statusTutorsSaga()
   ]);
 }

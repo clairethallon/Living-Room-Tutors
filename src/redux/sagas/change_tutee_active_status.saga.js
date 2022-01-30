@@ -7,9 +7,11 @@ function* changeTuteeActiveStatus(action) {
   let objectToSend = {
     id: action.payload
   }
-  console.log(objectToSend); try {
+  console.log(objectToSend);
+  try {
     const response = yield axios.put(`/api/tutees/changeStatus`, objectToSend);
-    yield put({ type: "FETCH_ACTIVE_TUTEES", payload: response.data });
+    yield put({ type: "FETCH_ACTIVE_TUTEES" });
+    yield put({ type: "FETCH_DEACTIVE_TUTEES" });
   } catch (error) {
     alert("no");
     console.log("fetch active tutees error", error);
