@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 
-function ActivateDeactivateButton(props) {
+function TutorActivateDeactivateButton(props) {
   return (
     <div>
       <div>{JSON.stringify(props)}</div>
@@ -11,4 +11,4 @@ function ActivateDeactivateButton(props) {
   );
 }
 
-export default ActivateDeactivateButton;
+export default TutorActivateDeactivateButton;

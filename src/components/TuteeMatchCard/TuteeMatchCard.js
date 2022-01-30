@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Accordion, Row, Col } from "react-bootstrap";
-import ActivateDeactivateButton from "../ActivateDeactivateButton/ActivateDeactivateButton";
+import TuteeActivateDeactivateButton from "../TuteeActivateDeactivateButton/TuteeActivateDeactivateButton";
 import MatchPageButton from "../MatchPageButton/MatchPageButton";
 import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
