@@ -135,6 +135,81 @@ ORDER BY match_timestamp ASC;`;
     });
 });
 
+// matches A group
+router.get("/groupA", (req, res) => {
+  console.log("in tutors.router/get");
+  const query = `SELECT * FROM tutors
+  JOIN subjects_tutors ON tutors.subjects_id = subjects_tutors.id
+  JOIN "language" ON tutors.language_tutor_id = "language".id
+  JOIN mentoring_grade ON tutors.mentoring_grade_id = mentoring_grade.id
+  WHERE tutors.active_tutor = true and tutors.matched = false 
+  and subjects_tutors."${req.body.subject1}" = true 
+  and subjects_tutors."${req.body.subject2}" = true 
+  and subjects_tutors."${req.body.subject3}" = true 
+  and "language"."${req.body.language}" = true
+  and mentoring_grade."${req.body.grade}" = true
+  ORDER BY tutor_last_name ASC; `;
+  pool
+    .query(query)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((err) => {
+      console.log("ERROR: Get test", err);
+      res.sendStatus(500);
+    });
+});
+
+// tutor B group
+router.get("/groupB", (req, res) => {
+  console.log("in tutors.router/get");
+  const query = `SELECT * FROM tutors
+  JOIN subjects_tutors ON tutors.subjects_id = subjects_tutors.id
+  JOIN "language" ON tutors.language_tutor_id = "language".id
+  JOIN mentoring_grade ON tutors.mentoring_grade_id = mentoring_grade.id
+  WHERE tutors.active_tutor = true and tutors.matched = false 
+  and subjects_tutors."${req.body.subject1}" = true 
+  and subjects_tutors."${req.body.subject2}" = true 
+  and subjects_tutors."${req.body.subject3}" = false 
+  and "language"."${req.body.language}" = true
+  and mentoring_grade."${req.body.grade}" = true
+  ORDER BY tutor_last_name ASC; `;
+  pool
+    .query(query)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((err) => {
+      console.log("ERROR: Get test", err);
+      res.sendStatus(500);
+    });
+});
+
+
+// tutor C group
+router.get("/groupC", (req, res) => {
+  console.log("in tutors.router/get");
+  const query = `SELECT * FROM tutors
+  JOIN subjects_tutors ON tutors.subjects_id = subjects_tutors.id
+  JOIN "language" ON tutors.language_tutor_id = "language".id
+  JOIN mentoring_grade ON tutors.mentoring_grade_id = mentoring_grade.id
+  WHERE tutors.active_tutor = true and tutors.matched = false 
+  and subjects_tutors."${req.body.subject1}" = true 
+  and subjects_tutors."${req.body.subject2}" = false 
+  and subjects_tutors."${req.body.subject3}" = false 
+  and "language"."${req.body.language}" = true
+  and mentoring_grade."${req.body.grade}" = true
+  ORDER BY tutor_last_name ASC; `;
+  pool
+    .query(query)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((err) => {
+      console.log("ERROR: Get test", err);
+      res.sendStatus(500);
+    });
+});
 /**
  * POST route template
  */
