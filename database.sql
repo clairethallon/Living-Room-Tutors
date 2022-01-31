@@ -249,12 +249,12 @@ INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "
 INSERT INTO "mentoring_grade" ( "prek_kindergarten", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th" )
 VALUES ( true, true, true, true, true, true, true, false, false, false, false, false, false );
 
-INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone", "email", "grade_level", "school", "mentoring_grade_id", "language_tutor_id", "subjects_id", "misc_info", "submission_timestamp", "matched"  ) VALUES
+INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone", "email", "grade_level", "school", "mentoring_grade_id", "language_tutor_id", "subjects_id", "misc_info", "submission_timestamp", "active_tutor", "matched"  ) VALUES
 ('Jinglin', 'Li', 'she/her', '5075174954', 'tutee.lrtmatching@gmail.com', 'In College', 'UMN Twin Cities', 
 --MENTORING_GRADE.ID GOES HERE, 
 --LANGUAGE_TUTOR.ID GOES HERE, 
 --SUBJECTS.ID GOES HERE, 
-NULL, '1/9/2022 15:15:01', false );
+NULL, '1/9/2022 15:15:01', true, false );
 
 --MOCK DATA INSERTS FOR TUTEE
 
