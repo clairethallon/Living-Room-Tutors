@@ -74,11 +74,18 @@ function RecordsCard(props) {
                 return <p>{language}</p>;
               })}
             </p>
-            <p>1st subject choice: </p>
-            <p>2st subject choice:</p>
-            <p>3st subject choice: K-5 Math other subject (if applicable): </p>
-            <p>Detail description regarding help needed: </p>
-            <p>Addition information:</p>
+            <p>1st subject choice: {props.match.subject_1}</p>
+            <p>2st subject choice: {props.match.subject_2}</p>
+            <p>3st subject choice: {props.match.subject_3}</p>
+            <p>
+              other subject (if applicable): {props.match.tutee_subject_other}
+            </p>
+            <p>
+              Detail description regarding help needed:{" "}
+              {props.match.tutee_subject_details}
+            </p>
+            <p>Addition information: {props.match.tutee_misc_info}</p>
+            <hr></hr>
             <h2>Tutor Information:</h2>
             <h3>
               {props.match.tutor_first_name} {props.match.tutor_last_name} (
