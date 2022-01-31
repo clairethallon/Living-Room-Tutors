@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import { useSelector } from "react-redux";
 import "../AdminNavBar/AdminNavBar.css";
-import Logo from "../../images/Logo.png";
+import LRTHeader from "../../images/LRTHeader.png";
 
 function AdminNavBar() {
   const user = useSelector((store) => store.user);
@@ -11,7 +11,7 @@ function AdminNavBar() {
   return (
     <div className="AdminNav">
       <Link to="/admin">
-        <img src={Logo} className="navLogo" />
+        <img src={LRTHeader} className="LRTHeader" />
       </Link>
 
       {/* If no user is logged in, show these links */}
