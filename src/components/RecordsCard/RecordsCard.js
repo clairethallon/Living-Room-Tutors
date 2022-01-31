@@ -186,7 +186,7 @@ function RecordsCard(props) {
 
   return (
     <div>
-      <Accordion className="mb-3" defaultActiveKey="1">
+      <Accordion className="mb-3 accordionCard" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             {/* <Row> */}
@@ -201,7 +201,6 @@ function RecordsCard(props) {
             {/* </Row> */}
           </Accordion.Header>
           <Accordion.Body>
-            {JSON.stringify(props.match)}
             <h2>Tutee Information:</h2>
             <h3>
               {props.match.tutee_firstname} {props.match.tutee_lastname} (

@@ -240,3 +240,8 @@ td:last-child {
 h2 {
   text-transform: capitalize;
 }
+
+.accordion-item {
+  border: 1px solid rgba(255, 255, 255, 0) !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
