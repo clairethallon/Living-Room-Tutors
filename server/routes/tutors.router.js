@@ -308,8 +308,8 @@ RETURNING "id";`;
               console.log("MentoringGradeID", mentoringGradeId);
               console.log("LanguageTutorID:", languageTutorId);
               const insertTutorQuery = `
-                INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone", "email", "grade_level", "school", "mentoring_grade_id", "language_tutor_id", "subjects_id", "misc_info", "submission_timestamp", "matched"  )
-                VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);`;
+                INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone", "email", "grade_level", "school", "mentoring_grade_id", "language_tutor_id", "subjects_id", "misc_info", "submission_timestamp", "active_tutor", "matched"  )
+                VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);`;
               pool
                 .query(insertTutorQuery, [
                   "Miriam",
@@ -324,9 +324,10 @@ RETURNING "id";`;
                   subjectTutorId,
                   "Holy crap this post route is working!",
                   "01-29-22",
+                  "true",
                   "false",
                 ])
-                .then((results) => {
+                .then((result) => {
                   res.sendStatus(201);
                 })
                 .catch((err) => {
