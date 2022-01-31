@@ -1,13 +1,42 @@
-import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { Accordion, Row, Col } from "react-bootstrap";
 import TuteeActivateDeactivateButton from "../TuteeActivateDeactivateButton/TuteeActivateDeactivateButton";
 import MatchPageButton from "../MatchPageButton/MatchPageButton";
 import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
-import RecordsTable from "../RecordsTable/RecordsTable";
 
 function RecordsCard(props) {
+  const [tuteeLanguages, setTuteeLanguages] = useState([]);
+
+  useEffect(() => {
+    languageFinder(languages);
+  }, []);
+
+  const languages = [
+    { name: "Arabic ", status: props.match.tutee_language_arabic },
+    { name: "Chinese ", status: props.match.tutee_language_chinese },
+    { name: "French ", status: props.match.tutee_language_french },
+    { name: "Hmong ", status: props.match.tutee_language_hmong },
+    { name: "Somali ", status: props.match.tutee_language_somali },
+    { name: "Tagalog ", status: props.match.tutee_language_tagalog },
+    { name: "Vietnamese ", status: props.match.tutee_language_vietnamese },
+    { name: "Spanish ", status: props.match.tutee_language_spanish },
+  ];
+
+  const languageFinder = (languages) => {
+    console.log(languages);
+    let currentLanguages = [];
+    for (let i = 0; i < languages.length; i++) {
+      if (languages[i].status === true) {
+        currentLanguages.push(languages[i].name);
+      }
+    }
+    console.log("CURRENT LANGUAGES", currentLanguages);
+    setTuteeLanguages(currentLanguages);
+    return currentLanguages;
+  };
+
   return (
     <div>
       <Accordion className="mb-3" defaultActiveKey="1">
@@ -31,12 +60,20 @@ function RecordsCard(props) {
               {props.match.tutee_firstname} {props.match.tutee_lastname} (
               {props.match.tutee_pronouns})
             </h3>
-            <p>Parent/Guardian's email (if applicable): </p>
-            <p>Student's email:</p>
-            <p>tutee.lrtmatching@gmail.com Phone number:</p>
-            <p>Grade Level:</p>
-            <p>School attending:</p>
-            <p>Language preference (if not English): </p>
+            <p>
+              Parent/Guardian's email (if applicable):{" "}
+              {props.match.email_guardian}
+            </p>
+            <p>Student's email: {props.match.email_student}</p>
+            <p>Phone number: {props.match.tutee_phone}</p>
+            <p>Grade Level: {props.match.tutee_grade}</p>
+            <p>School attending: {props.match.tutee_school}</p>
+            <p>
+              Language preference (if not English):{" "}
+              {tuteeLanguages.map((language) => {
+                return <p>{language}</p>;
+              })}
+            </p>
             <p>1st subject choice: </p>
             <p>2st subject choice:</p>
             <p>3st subject choice: K-5 Math other subject (if applicable): </p>
