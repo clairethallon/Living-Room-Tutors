@@ -96,7 +96,7 @@ CREATE TABLE "subjects_tutors" (
 	"K5_Reading" BOOLEAN NOT NULL,
 	"K5_English_Writing" BOOLEAN NOT NULL,
 	"K5_Science" BOOLEAN NOT NULL,
-	"K5_Social_Studies" BOOLEAN NOT NULL,
+	"K5_social_studies" BOOLEAN NOT NULL,
 	"6th_to_8th_language_arts" BOOLEAN NOT NULL,
 	"6th_to_8th_science" BOOLEAN NOT NULL,
 	"6th_to_8th_social_studies" BOOLEAN NOT NULL,
