@@ -34,11 +34,23 @@ function* fetchGroupCMatches(action) {
     console.log("fetchGroupCMatches error", error);
   }
 }
+function* setTutee(action) {
+  console.log('in setTuteeSaga', action.payload);
+  try {
+    console.log('in setTuteeSaga');
+    yield put({ type: "SET_SELECTED_TUTEE", payload: action.payload });
+  } catch (error) {
+    alert("no");
+    console.log("setTuteeSaga error", error);
+  }
+}
 
 function* matchSearchSaga(action) {
   yield takeLatest("FETCH_POSSIBLE_MATCHES", fetchGroupAMatches);
   yield takeLatest("FETCH_POSSIBLE_MATCHES", fetchGroupBMatches);
   yield takeLatest("FETCH_POSSIBLE_MATCHES", fetchGroupCMatches);
+  yield takeLatest("FETCH_POSSIBLE_MATCHES", setTutee);
+
 }
 
 export default matchSearchSaga;

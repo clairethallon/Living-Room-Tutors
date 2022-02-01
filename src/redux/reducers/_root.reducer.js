@@ -14,6 +14,7 @@ import deactiveTutees from "./deactive_tutees.reducer"
 import groupAmatches from "./group_A_matches.reducer";
 import groupBmatches from "./group_B_matches.reducer";
 import groupCmatches from "./group_C_matches.reducer";
+import selected_tutee from "./selected_tutee.reducer";
 
 
 // rootReducer is the primary reducer for our entire project
@@ -37,7 +38,8 @@ const rootReducer = combineReducers({
   deactiveTutees,
   groupAmatches,
   groupBmatches,
-  groupCmatches
+  groupCmatches,
+  selected_tutee
 });
 
 export default rootReducer;
