@@ -195,7 +195,6 @@ ALTER TABLE "matches" ADD CONSTRAINT "matches_fk1" FOREIGN KEY ("tutee_id") REFE
 
 SET TIMEZONE = 'America/Chicago';
 
-
 INSERT INTO "subjects_tutees" ("subject") VALUES
 ('K5_Math'),		 
 ('K5_Reading'),	 

@@ -75,6 +75,7 @@ function StudentTerms(props) {
     APHonorsEnglishLanguage: tutorSubjects.APHonorsEnglishLanguage,
     APHonorsMacroeconomics: tutorSubjects.APHonorsMacroeconomics,
     APHonorsMicroeconomics: tutorSubjects.APHonorsMicroeconomics,
+    APHonorsPsychology: tutorSubjects.APHonorsPsychology,
     APHonorsUSHistory: tutorSubjects.APHonorsUSHistory,
     APHonorsGovernmentPolitics: tutorSubjects.APHonorsGovernmentPolitics,
     APHonorsHumanGeography: tutorSubjects.APHonorsHumanGeography,
