@@ -14,10 +14,20 @@ function TutorMatchCard(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState("Functional Component");
+  const groupAmatches = useSelector((store) => store.groupAmatches);
+  const groupBmatches = useSelector((store) => store.groupBmatches);
+  const groupCmatches = useSelector((store) => store.groupCmatches);
+  const groupDmatches = useSelector((store) => store.groupDmatches);
+  const selected_tutee = useSelector((store) => store.selected_tutee);
 
   return (
     <div>
-      {JSON.stringify(props)}
+      {/* <p>GROUP A {JSON.stringify(groupAmatches)}</p>
+      <p>GROUP B {JSON.stringify(groupBmatches)}</p>
+      <p>GROUP C {JSON.stringify(groupCmatches)}</p>
+      <p>GROUP D {JSON.stringify(groupDmatches)}</p> */}
+      {/* {JSON.stringify(props)}
+      {JSON.stringify(selected_tutee)} */}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -25,19 +35,20 @@ function TutorMatchCard(props) {
             <Col xs="2">
               {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
             </Col>
-            <Col xs="2">{props.tutor.tutor_submission_timestamp}</Col>
-            <Col xs="3">{props.tutor.subject}</Col>
+            <Col xs="2">{props.tutor.submission_timestamp}</Col>
+            <Col xs="3">{selected_tutee.subject_1}</Col>
             <Col xs="1" className="flaggedSubjectLanguage">
               <SubjectFlag />
               <LanguageFlag />
             </Col>
-            <Col xs="1"></Col>
+            <Col xs="2"></Col>
             <Col>
               <CompleteMatchButton />
             </Col>
             {/* </Row> */}
           </Accordion.Header>
           <Accordion.Body>
+            {/* {JSON.stringify(props.tutor)} */}
             <TutorProfile tutor={props.tutor} />
           </Accordion.Body>
         </Accordion.Item>

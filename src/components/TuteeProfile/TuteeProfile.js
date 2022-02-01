@@ -105,7 +105,6 @@ function TuteeProfile(props) {
 
   return (
     <div>
-      {JSON.stringify(props)}
       <h2>
         {props.tutee.tutee_firstname} {props.tutee.tutee_lastname} (
         {props.tutee.tutee_pronouns})
