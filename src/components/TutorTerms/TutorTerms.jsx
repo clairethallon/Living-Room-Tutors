@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Header from "../Header/Header";
+import TutorModal from "../TutorModal/TutorModal";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -160,6 +161,11 @@ function StudentTerms(props) {
           <Button onClick={sendNewTutor}>Submit</Button>
         </Link>
       </div>
+
+    <div>
+      <TutorModal/>
+    </div>
+
     </div>
   );
 }
