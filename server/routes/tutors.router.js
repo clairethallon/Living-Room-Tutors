@@ -370,20 +370,3 @@ RETURNING "id";`;
 });
 
 module.exports = router;
-
-// router.post("/", rejectUnauthenticated, (req, res) => {
-//   // POST route code here
-//   console.log("POST match route hit");
-//   let queryString =
-//     "INSERT INTO matches ( initiator_id, approver_id, confirmed ) VALUES ( $1, $2, $3 )";
-//   let values = [req.body.approver, req.body.initiator, "FALSE"];
-//   pool
-//     .query(queryString, values)
-//     .then((results) => {
-//       res.sendStatus(201);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.sendStatus(500);
-//     });
-// });

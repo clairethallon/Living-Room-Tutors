@@ -63,6 +63,7 @@ function StudentTerms(props) {
     if (termserrors) {
       alert("Please agree to the terms to submit your application.");
     }
+
     dispatch({ type: "ADD_NEW_STUDENT", payload: newStudentObject });
   };
 
