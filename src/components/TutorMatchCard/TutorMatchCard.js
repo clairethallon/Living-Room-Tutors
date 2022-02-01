@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Accordion, Row, Col } from "react-bootstrap";
-import TutorActivateDeactivateButton from "../TutorActivateDeactivateButton/TutorActivateDeactivateButton";
 import CompleteMatchButton from "../CompleteMatchButton/CompleteMatchButton";
 import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
@@ -36,7 +35,7 @@ function TutorMatchCard(props) {
             {/* </Row> */}
           </Accordion.Header>
           <Accordion.Body>
-            <TutorProfile />
+            <TutorProfile tutor={props.tutor} />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
