@@ -32,6 +32,7 @@ import TutorInfo from "../TutorInfo/TutorInfo";
 import TutorSubjects from "../TutorSubjects/TutorSubjects";
 import TutorAdditional from "../TutorAdditional/TutorAdditional";
 import TutorTerms from "../TutorTerms/TutorTerms";
+import TutorModal from "../TutorModal/TutorModal";
 
 import "./App.css";
 import TuteesPage from "../TuteesPage/TuteesPage";
@@ -89,6 +90,10 @@ function App() {
 
           <Route exact path="/TutorAdditional">
             <TutorAdditional />
+          </Route>
+
+          <Route exact path="/TutorModal">
+            <TutorModal/>
           </Route>
 
           <Route exact path="/TutorInfo">
