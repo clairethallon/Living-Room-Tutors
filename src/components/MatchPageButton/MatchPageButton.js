@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
@@ -12,13 +12,19 @@ function MatchPageButton(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState("Functional Component");
 
+  const dispatch = useDispatch();
+
   const navigateToMatchPage = () => {
-    history.push(`/match`);
+    dispatch({ type: 'FETCH_POSSIBLE_MATCHES', payload: props.tutee });
+    // history.push(`/match`);
+
   };
 
   return (
     <div>
-      <Button onClick={navigateToMatchPage}>Match</Button>
+      {/* {JSON.stringify(props)} */}
+      {props.tutee.active_tutee ?
+        <Button onClick={navigateToMatchPage}>Match</Button> : <span></span>}
     </div>
   );
 }

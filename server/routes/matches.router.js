@@ -146,7 +146,6 @@ router.get("/groupA", (req, res) => {
   and subjects_tutors."${req.query.subject1}" = true 
   and subjects_tutors."${req.query.subject2}" = true 
   and subjects_tutors."${req.query.subject3}" = true 
-  and "language"."${req.query.language}" = true
   and mentoring_grade."${req.query.grade}" = true
   ORDER BY tutor_last_name ASC; `;
   pool
@@ -162,7 +161,7 @@ router.get("/groupA", (req, res) => {
 
 // match search group B
 router.get("/groupB", (req, res) => {
-  console.log("in tutors.router/get");
+  console.log("in tutors.router/get", req.query);
   const query = `SELECT * FROM tutors
   JOIN subjects_tutors ON tutors.subjects_id = subjects_tutors.id
   JOIN "language" ON tutors.language_tutor_id = "language".id
@@ -171,7 +170,6 @@ router.get("/groupB", (req, res) => {
   and subjects_tutors."${req.query.subject1}" = true 
   and subjects_tutors."${req.query.subject2}" = true 
   and subjects_tutors."${req.query.subject3}" = false 
-  and "language"."${req.query.language}" = true
   and mentoring_grade."${req.query.grade}" = true
   ORDER BY tutor_last_name ASC; `;
   pool
@@ -197,7 +195,6 @@ router.get("/groupC", (req, res) => {
   and subjects_tutors."${req.query.subject1}" = true 
   and subjects_tutors."${req.query.subject2}" = false 
   and subjects_tutors."${req.query.subject3}" = false 
-  and "language"."${req.query.language}" = true
   and mentoring_grade."${req.query.grade}" = true
   ORDER BY tutor_last_name ASC; `;
   pool
