@@ -10,7 +10,7 @@
   top: 0;
   height: 100vh;
   /* margin: 0 0 30px; */
-  background-color: #43545744;
+  background-color: #1aa4c2;
   overflow: hidden;
   padding: 15px;
   width: 300px;
@@ -38,6 +38,7 @@
   height: 70%;
 }
 
-.navLogo {
-  width: 250px;
+.LRTHeader {
+  width: 200px;
+  margin-top: 30px;
 }

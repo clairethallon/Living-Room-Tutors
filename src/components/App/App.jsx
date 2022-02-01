@@ -36,7 +36,7 @@ import TutorTerms from "../TutorTerms/TutorTerms";
 import "./App.css";
 import TuteesPage from "../TuteesPage/TuteesPage";
 import TutorsPage from "../TutorsPage/TutorsPage";
-import RecordsPage from "../RecordsPage /RecordsPage";
+import RecordsPage from "../RecordsPage/RecordsPage";
 import MatchPage from "../MatchPage/MatchPage";
 
 function App() {

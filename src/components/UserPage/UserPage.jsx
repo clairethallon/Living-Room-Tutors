@@ -9,13 +9,13 @@ function UserPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_TUTORS' });
-    dispatch({ type: 'FETCH_TUTEES' });
-    dispatch({ type: 'FETCH_MATCHES' });
-    dispatch({ type: 'FETCH_ACTIVE_TUTORS' });
-    dispatch({ type: 'FETCH_DEACTIVE_TUTORS' });
-    dispatch({ type: 'FETCH_ACTIVE_TUTEES' });
-    dispatch({ type: 'FETCH_DEACTIVE_TUTEES' });
+    dispatch({ type: "FETCH_TUTORS" });
+    dispatch({ type: "FETCH_TUTEES" });
+    dispatch({ type: "FETCH_MATCHES" });
+    dispatch({ type: "FETCH_ACTIVE_TUTORS" });
+    dispatch({ type: "FETCH_DEACTIVE_TUTORS" });
+    dispatch({ type: "FETCH_ACTIVE_TUTEES" });
+    dispatch({ type: "FETCH_DEACTIVE_TUTEES" });
   }, []);
 
   const tutors = useSelector((store) => store.tutors);
@@ -26,12 +26,11 @@ function UserPage() {
   const activeTutees = useSelector((store) => store.activeTutees);
   const deactiveTutees = useSelector((store) => store.deactiveTutees);
 
-
   const user = useSelector((store) => store.user);
 
   return (
     <div className="container">
-      <h2>Welcome, {user.username}!</h2>
+      <h2>Welcome, {user.first_name}!</h2>
       <p>Your ID is: {user.id}</p>
 
       {/* CHANGES MADE BELOW BY CLT TO TEST THE REDUCERS */}
@@ -41,9 +40,7 @@ function UserPage() {
       <p>active tutees: {JSON.stringify(activeTutees)}</p>
       <p>deactive tutees: {JSON.stringify(deactiveTutees)}</p>
 
-
       <p>matches {JSON.stringify(matches)}</p>
-
 
       <LogOutButton className="btn" />
     </div>

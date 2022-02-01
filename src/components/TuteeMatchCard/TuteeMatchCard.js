@@ -31,7 +31,7 @@ function TuteeMatchCard(props) {
             {/* </Row> */}
           </Accordion.Header>
           <Accordion.Body>
-            <TuteeProfile />
+            {/* <TuteeProfile tutee={props.tutee} /> */}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>

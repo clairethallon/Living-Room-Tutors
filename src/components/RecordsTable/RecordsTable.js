@@ -1,18 +1,41 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { Table, Card, Col, Row } from "react-bootstrap";
+import RecordsCard from "../RecordsCard/RecordsCard";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name MatchRecordsTable  with the name for the new component.
 function RecordsTable(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [heading, setHeading] = useState("Functional Component");
+  const dispatch = useDispatch();
+
+  const matches = useSelector((store) => store.matches);
+
+  useEffect(() => {
+    dispatch({
+      type: "FETCH_MATCHES",
+    });
+  }, []);
 
   return (
     <div>
-      <h2>{heading}</h2>
+      <div>
+        <Row className="cardHead">
+          <Col xs="3" className="cardHeadCol">
+            <p>Tutor Name</p>
+          </Col>
+          <Col xs="3" className="cardHeadCol">
+            <p>Tutee Name</p>
+          </Col>
+          <Col xs="3" className="cardHeadCol">
+            <p>Matched Date</p>
+          </Col>
+
+          <Col xs="1"></Col>
+        </Row>
+      </div>
+      <div>
+        {matches.map((match) => {
+          return <RecordsCard match={match} />;
+        })}
+      </div>
     </div>
   );
 }

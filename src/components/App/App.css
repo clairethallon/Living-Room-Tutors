@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "PublicaSans-Bold";
+  src: local("PublicaSans-Bold"),
+    url("../../fonts/PublicaSans-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "PublicaSans-Light";
+  src: local("PublicaSans-Light"),
+    url("../../fonts/PublicaSans-Light.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "PublicaSans-Medium";
+  src: local("PublicaSans-Medium"),
+    url("../../fonts/PublicaSans-Medium.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "ZPublicaSans";
+  src: local("ZPublicaSans"),
+    url("../../fonts/ZPublicaSans.otf") format("truetype");
+}
+
 html,
 body,
 #react-root {
@@ -22,64 +46,6 @@ Container
   padding: 20px;
 }
 
-/* --------------------------------------------------------------------------------
-Button
--------------------------------------------------------------------------------- */
-
-/* .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-color: #014041;
-  border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
-  font-size: 1.1rem;
-  outline: 0;
-  cursor: pointer;
-}
-
-.btn_sizeMin {
-  min-height: 50px;
-  min-width: 100px;
-}
-
-.btn_sizeSm {
-  padding: 10px 15px;
-  font-size: 0.8rem;
-}
-
-.btn_sizeFull {
-  display: block;
-  width: 100%;
-}
-
-.btn:hover {
-  background-color: #008183;
-  text-decoration: none;
-} */
-
-/* This line makes the "Register" and "Login" buttons look like links */
-/* .btn_asLink {
-  padding: 0;
-  border-width: 0;
-  border-bottom: 1px solid #444;
-  border-radius: 0;
-  background: none;
-  font: inherit;
-  color: #444;
-}
-
-.btn_asLink:hover {
-  background-color: transparent;
-  border-color: #008183;
-  color: #008183;
-} */
-
-/* --------------------------------------------------------------------------------
-Alert
--------------------------------------------------------------------------------- */
-
 .alert {
   box-sizing: border-box;
   padding: 15px 10px;
@@ -90,10 +56,6 @@ Alert
   color: #e01616;
   font-size: 0.8rem;
 }
-
-/* --------------------------------------------------------------------------------
-Form Treatment
--------------------------------------------------------------------------------- */
 
 .formPanel {
   box-sizing: border-box;
@@ -117,58 +79,6 @@ input {
   min-height: 100vh;
   padding-top: 40px;
 }
-
-/* --------------------------------------------------------------------------------
-tables
--------------------------------------------------------------------------------- */
-
-/* thead {
-  background-color: rgb(127, 142, 145);
-  border-radius: 40px !important ;
-}
-
-thead th {
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-thead th:first-child {
-  border-radius: 10px 0 0 10px;
-}
-thead th:last-child {
-  border-radius: 0 10px 10px 0;
-}
-
-tbody tr {
-  border: 1px solid black;
-  border-radius: 50px !important;
-  padding: 20px !important;
-}
-
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 20px;
-}
-
-td {
-  border: solid 1px #000;
-  border-style: solid none;
-  padding: 10px;
-}
-td:first-child {
-  border-left-style: solid;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-td:last-child {
-  border-right-style: solid;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-}
-*/
 
 .cardHead {
   background-color: rgb(162, 161, 161);
@@ -237,6 +147,47 @@ td:last-child {
   display: flex;
 }
 
+.accordion-item {
+  border: 1px solid rgba(255, 255, 255, 0) !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+h1 {
+  font-family: ZPublicaSans;
+}
+
 h2 {
+  font-family: ZPublicaSans;
+
   text-transform: capitalize;
+}
+
+p {
+  font-family: ZPublicaSans;
+}
+
+h3 {
+  font-family: ZPublicaSans;
+}
+
+.logoutNameAndIcon {
+  color: white;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.logoutNameAndIcon p {
+  margin-bottom: 0px;
+}
+
+.signOutIcon {
+  font-size: 40px;
+}
+
+.signOutName {
+  font-size: 27px;
+  margin-right: 8px;
+  margin-top: 5px;
+  font-family: PublicaSans-Light;
 }
