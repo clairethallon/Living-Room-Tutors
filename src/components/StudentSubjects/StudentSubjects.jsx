@@ -11,7 +11,6 @@ function StudentSubjects(props) {
   
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Student Subjects');
 
   const[newPrimarySubject, setNewPrimarySubject]= useState();
   const[changeOtherField, setOtherPrimaryField]= useState(false);
@@ -111,12 +110,10 @@ function StudentSubjects(props) {
       <div className= 'maincard'>
         <Header/>
 
-        <h2>{heading}</h2>
-
       <>
       <FloatingLabel controlId="primarySubject" label="Student's 1st Choice" onChange={(event)=>changePrimarySubject(event)}>
         <Form.Select aria-label="Student's 1st Choice">
-        <option>In what subjects does the student need the most support? (1st Choice)</option>
+        <option>In what subject does the student need the most support? (1st Choice)</option>
           <option value="K-5 Math">K-5 Math</option>
           <option value="K-5 Reading">K-5 Reading</option>
           <option value="K-5 English/Writing">K-5 English/Writing</option>

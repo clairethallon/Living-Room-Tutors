@@ -31,9 +31,9 @@ function StudentAdditional(props) {
   
   return (
     <div>
-      <Header/>
+      
       <div className= 'maincard'>
-        <h2>{heading}</h2>
+      <Header/>
 
         <>
         <h3>Is there any additional information you would like to provide?</h3>

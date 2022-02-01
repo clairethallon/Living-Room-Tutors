@@ -7,7 +7,6 @@ import Header from "../Header/Header";
 function TutorSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState("Tutor Terms");
 
   // ******** GRADE CHECK BOXES **************
   const [PreK, setPreK] = useState(false);
@@ -38,8 +37,7 @@ function TutorSubjects(props) {
   const [MathLinearAlgebra, setMathLinearAlgebra] = useState(false);
   const [MathGeometry, setMathGeometry] = useState(false);
   const [MathAlgebraII, setMathAlgebraII] = useState(false);
-  const [MathPrecalculusTrigonometry, setMathPrecalculusTrigonometry] =
-    useState(false);
+  const [MathPrecalculusTrigonometry, setMathPrecalculusTrigonometry] = useState(false);
   const [BiologyLifeSciences, setBiologyLifeSciences] = useState(false);
   const [ScienceChemistry, setScienceChemistry] = useState(false);
   const [SciencePhysics, setSciencePhysics] = useState(false);
@@ -62,6 +60,7 @@ function TutorSubjects(props) {
   const [APHonorsEnglishLanguage, setAPHonorsEnglishLanguage] = useState(false);
   const [APHonorsMacroeconomics, setAPHonorsMacroeconomics] = useState(false);
   const [APHonorsMicroeconomics, setAPHonorsMicroeconomics] = useState(false);
+  const [APHonorsPsychology, setAPHonorsPsychology] = useState(false);
   const [APHonorsUSHistory, setAPHonorsUSHistory] = useState(false);
   const [APHonorsGovernmentPolitics, setAPHonorsGovernmentPolitics] =
     useState(false);
@@ -321,6 +320,11 @@ function TutorSubjects(props) {
     console.log("APHonorsMicroeconomics", APHonorsMicroeconomics);
   };
 
+  const changeAPHonorsPsychology = () => {
+    setAPHonorsPsychology(!APHonorsPsychology);
+    console.log("APHonorsPsychology", APHonorsPsychology)
+  }
+
   const changeAPHonorsUSHistory = () => {
     setAPHonorsUSHistory(!APHonorsUSHistory);
     console.log("APHonorsUSHistory", APHonorsUSHistory);
@@ -450,6 +454,7 @@ function TutorSubjects(props) {
       APHonorsEnglishLanguage: APHonorsEnglishLanguage,
       APHonorsMacroeconomics: APHonorsMacroeconomics,
       APHonorsMicroeconomics: APHonorsMicroeconomics,
+      APHonorsPsychology: APHonorsPsychology,
       APHonorsUSHistory: APHonorsUSHistory,
       APHonorsGovernmentPolitics: APHonorsGovernmentPolitics,
       APHonorsHumanGeography: APHonorsHumanGeography,
@@ -523,6 +528,7 @@ function TutorSubjects(props) {
       newTutorSubjects.APHonorsEnglishLanguage == false &&
       newTutorSubjects.APHonorsMacroeconomics == false &&
       newTutorSubjects.APHonorsMicroeconomics == false &&
+      newTutorSubjects.APHonorsPsychology == false &&
       newTutorSubjects.APHonorsUSHistory == false &&
       newTutorSubjects.APHonorsGovernmentPolitics == false &&
       newTutorSubjects.APHonorsHumanGeography == false &&
@@ -543,10 +549,9 @@ function TutorSubjects(props) {
 
   return (
     <div>
-      <h2>{heading}</h2>
+       <Header/>
 
       <h3>What grade levels are you comfortable tutoring/mentoring?</h3>
-      {/* <p>{JSON.stringify(PreK)}</p> */}
 
       <div>
         <input

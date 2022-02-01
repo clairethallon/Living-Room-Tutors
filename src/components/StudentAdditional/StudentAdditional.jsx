@@ -11,7 +11,6 @@ function StudentAdditional(props) {
 
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Additional Student Information');
 
   const[newAdditionalInfo, setNewAdditionalInfo]= useState();
 
@@ -36,10 +35,9 @@ function StudentAdditional(props) {
      <Header/>
 
       <div className= 'maincard'>
-      <h2>{heading}</h2>
 
       <>
-        <h3>Is there anything else you want us to know about the student?</h3>
+        <h3>Is there anything else you want us to know about the Student?</h3>
         <FloatingLabel controlId="AdditionalInfo" label="Additional Info" className="AdditionalInfo" onChange={(event)=>changeAdditionalInfo(event)}>
           <Form.Control as="textarea" placeholder="Additional Info" style={{height: '100px'}}/>
         </FloatingLabel>

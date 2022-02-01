@@ -17,7 +17,6 @@ function StudentTerms(props) {
   const tutorSubjects = useSelector(
     (store) => store.newtutor.newtutorSubjectReducer
   );
-  const [heading, setHeading] = useState("Tutor Terms");
 
   const [tutorTerms, setTutorTerms] = useState(false);
 
@@ -114,9 +113,8 @@ function StudentTerms(props) {
 
   return (
     <div>
-      <Header />
+          <Header/>
       <div className="maincard">
-        <h2>{heading}</h2>
 
         <p>
           Living Room Tutors (LRT) is supporting communities in their efforts to
