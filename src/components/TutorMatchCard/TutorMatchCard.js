@@ -17,18 +17,21 @@ function TutorMatchCard(props) {
 
   return (
     <div>
+      {JSON.stringify(props)}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             {/* <Row> */}
-            <Col xs="3">Tutor Name</Col>
-            <Col xs="2">01.25.2022</Col>
-            <Col xs="2">12th Grade</Col>
-            <Col xs="3">AP/Honors English Literature and Composition</Col>
+            <Col xs="2">
+              {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
+            </Col>
+            <Col xs="2">{props.tutor.tutor_submission_timestamp}</Col>
+            <Col xs="3">{props.tutor.subject}</Col>
             <Col xs="1" className="flaggedSubjectLanguage">
               <SubjectFlag />
               <LanguageFlag />
             </Col>
+            <Col xs="1"></Col>
             <Col>
               <CompleteMatchButton />
             </Col>

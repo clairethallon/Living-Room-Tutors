@@ -25,16 +25,19 @@ function MatchTable(props) {
     <div>
       <div>
         <Row className="cardHead">
-          <Col xs="3" className="cardHeadCol">
+          <Col xs="2" className="cardHeadCol">
             <p>Name</p>
           </Col>
-          <Col xs="3" className="cardHeadCol">
+          <Col xs="2" className="cardHeadCol">
             <p>Submission Date</p>
           </Col>
           <Col xs="3" className="cardHeadCol">
+            <p>Subject</p>
+          </Col>
+          <Col xs="2" className="cardHeadCol">
             <p>Flagged</p>
           </Col>
-          <Col xs="3" className="cardHeadCol">
+          <Col xs="2" className="cardHeadCol">
             <p>Action</p>
           </Col>
           <Col xs="1"></Col>
