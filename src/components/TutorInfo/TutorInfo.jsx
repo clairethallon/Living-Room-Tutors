@@ -16,9 +16,6 @@ function TutorInfo(props) {
   const store = useSelector((store) => store);
   const newtutorInfo = useSelector((store) => store.newtutorInfo);
 
-
-  const [heading, setHeading] = useState('Tutor Info');
-
   const[newTutorFirstName, setNewTutorFirstName]= useState();
   const[newTutorLastName, setNewTutorLastName]= useState();
   const[newTutorEmail, setNewEmail]= useState();
@@ -100,11 +97,10 @@ function TutorInfo(props) {
 
   return (
     <div>
-      <Header/>
 
       <div className= 'maincard'>
-      <h2>{heading}</h2>
 
+      <Header/>
       <>
         <h3>What is your name? (First and Last)</h3>
         <FloatingLabel controlID="FirstName" label="First Name" className="formInput" onChange={(event)=>changeTutorFirstName(event)}>

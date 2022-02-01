@@ -26,6 +26,7 @@ import StudentAdditional from "../StudentAdditional/StudentAdditional";
 import StudentInfo from "../StudentInfo/StudentInfo";
 import StudentSubjects from "../StudentSubjects/StudentSubjects";
 import StudentTerms from "../StudentTerms/StudentTerms";
+import StudentModal from "../StudentModal/StudentModal";
 
 import TutorInfo from "../TutorInfo/TutorInfo";
 import TutorSubjects from "../TutorSubjects/TutorSubjects";
@@ -72,6 +73,10 @@ function App() {
 
           <Route exact path="/StudentInfo">
             <StudentInfo />
+          </Route>
+
+          <Route exact path="/StudentModal">
+            <StudentModal />
           </Route>
 
           <Route exact path="/StudentSubjects">

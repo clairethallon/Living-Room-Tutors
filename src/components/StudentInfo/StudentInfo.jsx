@@ -11,14 +11,13 @@ function TutorInfo(props) {
 
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Student Info');
 
   const[newSubmitter, setSubmitter]= useState();
   const[newFirstName, setNewFirstName]= useState();
   const[newLastName, setNewLastName]= useState();
   const[newParentEmail, setNewParentEmail]= useState();
   const[newEmail, setNewEmail]= useState();
-  const [Pronouns, setPronouns] = useState( false );
+  const[Pronouns, setPronouns] = useState( false );
   const[newPhone, setNewPhone]= useState();
   const[newSchool, setNewSchool]= useState();
   const[newGrade, setNewGrade]= useState();
@@ -177,7 +176,6 @@ function TutorInfo(props) {
     <div>
       <Header/>
       <div className= 'maincard'>
-      <h2>{heading}</h2>
 
       <div>
         <p>Please indicate if you are you a student registering yourself or are a parent/guardian/teacher registering on behalf of a student:</p>
@@ -205,7 +203,7 @@ function TutorInfo(props) {
       </>
 
       <>
-      <h3>What is your email address?</h3>
+      <h3>What is the Student's email address?</h3>
       <p>Please confirm the email address you enter is correct. Email is our primary way of communicating with our tutors and tutees, so it is crucial that the email address that you provide is correct.</p>
         <FloatingLabel controlID="StudentEmail" label="Student's Email" className="StudentEmail" onChange={(event)=>changeEmail(event)}>
           <Form.Control type="StudentEmail" placeholder="Student Email"/>
@@ -220,14 +218,14 @@ function TutorInfo(props) {
       </>
 
       <>
-      <h3>What is your phone number?</h3>
+      <h3>What is the best phone number to contact the Student or Guardian?</h3>
         <FloatingLabel controlID="StudentPhone" label="Student's Phone Number" className="StudentPhone" onChange={(event)=>changePhone(event)}>
           <Form.Control type="StudentPhone" placeholder="Student's Phone Number"/>
         </FloatingLabel>
       </>
 
       <>
-      <h3>What school does the student attend?</h3>
+      <h3>What school does the Student attend?</h3>
         <FloatingLabel controlID="StudentSchool" label="Student's School" className="StudentSchool" onChange={(event)=>changeSchool(event)}>
           <Form.Control type="StudentSchool" placeholder="Student's School"/>
         </FloatingLabel>
@@ -237,8 +235,7 @@ function TutorInfo(props) {
       <FloatingLabel controlId="gradeLevel" label="Student's Current Grade Level" onChange={(event)=>changeGrade(event)}>
         <Form.Select aria-label="gradeLevel">
           <option>Select Student's Current Grade Level:</option>
-          <option value="Pre-K">Pre-K</option>
-          <option value="Kindergarten">Kindergarten</option>
+          <option value="Pre-K/Kindergarten">Pre-K/Kindergarten</option>
           <option value="1st Grade">1st Grade</option>
           <option value="2nd Grade">2nd Grade</option>
           <option value="3rd Grade">3rd Grade</option>

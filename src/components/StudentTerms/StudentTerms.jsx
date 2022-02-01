@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import Button from 'react-bootstrap/Button';
-import Header from '../Header/Header';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
+
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -12,8 +11,6 @@ function StudentTerms(props) {
   
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Student Terms');
-
   
   const[studentterms, setStudentTerms]= useState( false );
 
@@ -42,7 +39,6 @@ function StudentTerms(props) {
     <div>
       <Header/>
       <div className= 'maincard'>
-      <h2>{heading}</h2>
 
       <p>Living Room Tutors (LRT) is supporting communities in their efforts to mitigate the immediate 
         impact of school closures by facilitating the connections between volunteer student mentors/ tutors 
@@ -71,6 +67,7 @@ function StudentTerms(props) {
 
         <Link to="/StudentInfo" ><Button onClick={AddStudentTerms}>Submit</Button></Link>
         </div>
+
     </div>
   );
 }
