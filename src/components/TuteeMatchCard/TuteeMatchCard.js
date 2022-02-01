@@ -7,12 +7,8 @@ import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TuteeProfile from "../TuteeProfile/TuteeProfile";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TuteeCard with the name for the new component.
 function TuteeMatchCard(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  const selectedTutee = useSelector((store) => store.selected_tutee);
 
   return (
     <div>
@@ -31,7 +27,7 @@ function TuteeMatchCard(props) {
             {/* </Row> */}
           </Accordion.Header>
           <Accordion.Body>
-            {/* <TuteeProfile tutee={props.tutee} /> */}
+            <TuteeProfile tutee={selectedTutee} />
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
