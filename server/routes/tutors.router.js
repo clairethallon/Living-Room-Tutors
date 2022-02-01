@@ -211,15 +211,14 @@ tutors.email AS tutor_email,
     });
 });
 
-router.put('/changeStatus/', (req, res) => {
-  console.log('in /changeStatus', req.body.id);
+router.put("/changeStatus/", (req, res) => {
+  console.log("in /changeStatus", req.body.id);
   const queryString = `UPDATE "tutors" SET active_tutor = NOT active_tutor WHERE id=${req.body.id};`;
   pool
     .query(queryString)
-    .then(() =>
-      res.sendStatus(200))
+    .then(() => res.sendStatus(200))
     .catch((err) => {
-      console.log('changeStatus failed: ', err);
+      console.log("changeStatus failed: ", err);
       res.sendStatus(500);
     });
 });
@@ -234,115 +233,113 @@ VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
 RETURNING "id";`;
   pool
     .query(insertMentoringGradeQuery, [
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
-      "false",
+      req.body.PreK,
+      req.body.FirstGrade,
+      req.body.SecondGrade,
+      req.body.ThirdGrade,
+      req.body.FourthGrade,
+      req.body.FifthGrade,
+      req.body.SixthGrade,
+      req.body.SeventhGrade,
+      req.body.EighthGrade,
+      req.body.NinthGrade,
+      req.body.TenthGrade,
+      req.body.EleventhGrade,
+      req.body.TwelfthGrade,
     ])
     .then((result) => {
       const mentoringGradeId = result.rows[0].id;
       console.log("MentoringGradeID:", result.rows[0].id);
       //SECOND QUERY MAKES TUTOR SUBJECT INSERT
-      const insertTutorSubjectsQuery = `INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_Social_Studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french", "lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep", "other")
+      const insertTutorSubjectsQuery = `INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_Science", "K5_social_studies", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french", "lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep", "other")
         VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42)
         RETURNING "id";`;
       pool
         .query(insertTutorSubjectsQuery, [
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
-          "false",
+          req.body.K5Math,
+          req.body.K5Reading,
+          req.body.K5EnglishWriting,
+          req.body.K5Science,
+          req.body.K5SocialStudies,
+          req.body.SixToEightLanguageArts,
+          req.body.SixToEightScience,
+          req.body.SixToEightSocialStudies,
+          req.body.MathPreAlgebra,
+          req.body.MathLinearAlgebra,
+          req.body.MathAlgebraII,
+          req.body.MathGeometry,
+          req.body.MathPrecalculusTrigonometry,
+          req.body.BiologyLifeSciences,
+          req.body.ScienceChemistry,
+          req.body.SciencePhysics,
+          req.body.ComputerScience,
+          req.body.LanguageChinese,
+          req.body.LanguageSpanish,
+          req.body.LanguageFrench,
+          req.body.LanguageGerman,
+          req.body.WorldHistory,
+          req.body.USHistory,
+          req.body.APHonorsBiology,
+          req.body.APHonorsChemistry,
+          req.body.APHonorsPhysics,
+          req.body.APHonorsCalculusAB,
+          req.body.APHonorsCalculusBC,
+          req.body.APHonorsStatistics,
+          req.body.APHonorsComputerScience,
+          req.body.APHonorsEnglishLiterature,
+          req.body.APHonorsEnglishLanguage,
+          req.body.APHonorsMacroeconomics,
+          req.body.APHonorsMicroeconomics,
+          req.body.APHonorsPsychology,
+          req.body.APHonorsUSHistory,
+          req.body.APHonorsGovernmentPolitics,
+          req.body.APHonorsHumanGeography,
+          req.body.SATSubjectTests,
+          req.body.SATPrep,
+          req.body.ACTPrep,
+          req.body.Other,
         ])
         .then((result) => {
           const subjectTutorId = result.rows[0].id;
           console.log("SubjectTutorID:", subjectTutorId);
-          console.log("MentoringGradeID", mentoringGradeId);
           const insertTutorLanguageQuery = `
             INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
             VALUES  ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING "id";`;
           pool
             .query(insertTutorLanguageQuery, [
-              "false",
-              "false",
-              "false",
-              "false",
-              "false",
-              "false",
-              "false",
-              "false",
+              req.body.Spanish,
+              req.body.Somali,
+              req.body.Arabic,
+              req.body.Chinese,
+              req.body.Tagalog,
+              req.body.French,
+              req.body.Vietnamese,
+              req.body.Hmong,
             ])
             .then((result) => {
               const languageTutorId = result.rows[0].id;
-              console.log("SubjectTutorID:", subjectTutorId);
-              console.log("MentoringGradeID", mentoringGradeId);
               console.log("LanguageTutorID:", languageTutorId);
+              const submissionTimestamp = new Date(Date.now()).toISOString();
               const insertTutorQuery = `
                 INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone", "email", "grade_level", "school", "mentoring_grade_id", "language_tutor_id", "subjects_id", "misc_info", "submission_timestamp", "active_tutor", "matched"  )
-                VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);`;
+                VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14 );`;
               pool
                 .query(insertTutorQuery, [
-                  "Miriam",
-                  "McNamara",
-                  "she/her",
-                  "828-423-2307",
-                  "stars4mimi@gmail.com",
-                  "I'm in College",
-                  "Prime Digital Academy",
+                  req.body.firstName,
+                  req.body.lastName,
+                  req.body.pronouns,
+                  req.body.phone,
+                  req.body.email,
+                  req.body.grade,
+                  req.body.school,
                   mentoringGradeId,
                   languageTutorId,
                   subjectTutorId,
-                  "Holy crap this post route is working!",
-                  "01-29-22",
-                  "true",
-                  "false",
+                  req.body.miscInfo,
+                  submissionTimestamp,
+                  true,
+                  false,
                 ])
                 .then((result) => {
                   res.sendStatus(201);
@@ -389,136 +386,4 @@ module.exports = router;
 //       console.log(err);
 //       res.sendStatus(500);
 //     });
-// });
-
-// //FIRST QUERY MAKES MENTORING GRADE INSERT
-// const insertMentoringGradeQuery = `
-// INSERT INTO "mentoring_grade" ( "prek_kindergarten", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th" )
-// VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
-// RETURNING "id";`;
-// pool
-// .query(insertMentoringGradeQuery, [
-//   req.body.PreK,
-//   req.body.FirstGrade,
-//   req.body.SecondGrade,
-//   req.body.ThirdGrade,
-//   req.body.FourthGrade,
-//   req.body.FifthGrade,
-//   req.body.SixthGrade,
-//   req.body.SeventhGrade,
-//   req.body.EighthGrade,
-//   req.body.NinthGrade,
-//   req.body.TenthGrade,
-//   req.body.EleventhGrade,
-//   req.body.TwelfthGrade,
-// ])
-// .then((result) => {
-//   console.log("Mentoring Grade ID:", result.rows[0].id); //ID IS HERE!
-//   const mentoringGradeId = result.rows[0].id;
-//   // //SECOND QUERY MAKES TUTOR SUBJECT INSERT
-//   const insertTutorSubjectsQuery = `INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_Social_Studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french","lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep", "other")
-//         VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44);`;
-//   //add in RETURNING
-//         pool
-//     .query(insertTutorSubjectsQuery, [
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body. ,
-//       req.body.
-//     ])
-//     .then((result) => {
-//       console.log("Subjects Tutors ID:", result.rows[0].id); //ID IS HERE!
-//   const subjectsTutorsId = result.rows[0].id;
-//       // //THIRD QUERY ADDS TUTOR LANGUAGE INSERT
-//       const insertTutorLanguageQuery = `
-//                 INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
-//                 VALUES  ($1, $2, $3, $4, $5, $6, $7, $8);`;
-//                 //RETURNING ID
-//       pool.query(insertTutorLanguageQuery, [
-//         req.body.Spanish,
-//         req.body.Somali,
-//         req.body.Arabic,
-//         req.body.Chinese,
-//         req.body.Tagalog,
-//         req.body.French,
-//         req.body.Vietnamese,
-//         req.body.Hmong
-//       ]);
-//     })
-//     .then((result) => {
-//       console.log("Language Tutors ID:", result.rows[0].id); //ID IS HERE!
-//       const languageTutorsId = result.rows[0].id;
-//           // //FOURTH QUERY ADDS TUTOR INSERT
-//           const insertTutorQuery = `
-//                     INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone", "email", "grade_level", "school", "mentoring_grade_id", "language_tutor_id", "subjects_id", "misc_info", "submission_timestamp", "matched"  )
-//                     VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);`;
-//           pool.query(insertTutorLanguageQuery, [
-//             req.body.firstName,
-//             req.body.lastName,
-//             req.body.pronouns, //this isn't translating yet from reducer, set of booleans/input field
-//             req.body.phone,
-//             req.body.email,
-//             req.body.grade,
-//             req.body.school,
-//             mentoringGradeId,
-//             languageTutorsId,
-//             subjectsTutorsId,
-//             req.body.miscInfo, //need to see how this comes through in the post object
-//             req.body.submissionTimestamp, //not sure how this is set up yet
-//             false //not sure if this is how to set this up
-//           ]);
-//         })
-//         .then((result) => {
-//       //Now that all are done, send back success!
-//       res.sendStatus(201);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.sendStatus(500);
-//     });
-//   // Catch for first query
-// })
-// .catch((err) => {
-//   console.log(err);
-//   res.sendStatus(500);
 // });
