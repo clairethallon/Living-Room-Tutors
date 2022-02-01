@@ -1,8 +1,8 @@
-const groupCmatchesReducer = (state = [], action) => {
+const groupDmatchesReducer = (state = [], action) => {
   switch (action.type) {
-    case "SET_GROUP_C_MATCHES":
+    case "SET_GROUP_D_MATCHES":
       return action.payload;
-    case "UNSET_GROUP_C_MATCHES":
+    case "UNSET_GROUP_D_MATCHES":
       return {};
     default:
       return state;
@@ -11,4 +11,4 @@ const groupCmatchesReducer = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.user
-export default groupCmatchesReducer;
+export default groupDmatchesReducer;

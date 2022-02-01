@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
-
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TuteeProfile with the name for the new component.
@@ -13,7 +12,6 @@ function TutorProfile(props) {
   const [tutorLanguages, setTutorLanguages] = useState([]);
   const [tutorSubjects, setTutorSubjects] = useState([]);
   const [mentorChosenGrade, setMentorChosenGrade] = useState([]);
-
 
   useEffect(() => {
     languageFinder(languages);
@@ -35,17 +33,32 @@ function TutorProfile(props) {
   const subjects = [
     { name: "K-5 Math ", status: props.tutor.tutor_K5_Math },
     { name: "K-5 Reading ", status: props.tutor.tutor_K5_Reading },
-    { name: "K-5 English/Writing ", status: props.tutor.tutor_K5_English_Writing },
+    {
+      name: "K-5 English/Writing ",
+      status: props.tutor.tutor_K5_English_Writing,
+    },
     { name: "K-5 Social Studies ", status: props.tutor.tutor_K5_Science },
     { name: "K-5 Science ", status: props.tutor.tutor_K5_social_studies },
-    { name: "6-8th Language Arts ", status: props.tutor.tutor_6th_to_8th_language_arts },
+    {
+      name: "6-8th Language Arts ",
+      status: props.tutor.tutor_6th_to_8th_language_arts,
+    },
     { name: "6-8th Science ", status: props.tutor.tutor_6th_to_8th_science },
-    { name: "6-8th Social Studies ", status: props.tutor.tutor_6th_to_8th_social_studies },
+    {
+      name: "6-8th Social Studies ",
+      status: props.tutor.tutor_6th_to_8th_social_studies,
+    },
     { name: "Pre-Algebra ", status: props.tutor.tutor_math_pre_algebra },
-    { name: "Algebra I/ Linear Algebra ", status: props.tutor.tutor_math_alg1_linear_alg },
+    {
+      name: "Algebra I/ Linear Algebra ",
+      status: props.tutor.tutor_math_alg1_linear_alg,
+    },
     { name: "Algebra II ", status: props.tutor.tutor_math_alg2 },
     { name: "Geometry ", status: props.tutor.tutor_math_geom },
-    { name: "Precalculus/Trigonometry ", status: props.tutor.tutor_math_precalc_trig },
+    {
+      name: "Precalculus/Trigonometry ",
+      status: props.tutor.tutor_math_precalc_trig,
+    },
     { name: "Biology/Life Sciences ", status: props.tutor.tutor_sci_bio_life },
     { name: "Chemistry ", status: props.tutor.tutor_sci_chem },
     { name: "Physics ", status: props.tutor.tutor_sci_physics },
@@ -62,23 +75,49 @@ function TutorProfile(props) {
     { name: "AP/Honors Calculus AB ", status: props.tutor.tutor_ap_calc_AB },
     { name: "AP/Honors Calculus BC ", status: props.tutor.tutor_ap_calc_BC },
     { name: "AP/Honors Statistics ", status: props.tutor.tutor_ap_stats },
-    { name: "AP/Honors Computer Science ", status: props.tutor.tutor_ap_comp_sci },
-    { name: "AP/Honors English Literature and Composition ", status: props.tutor.tutor_ap_english_lit_comp },
-    { name: "AP/Honors Language and Composition ", status: props.tutor.tutor_ap_lang_comp },
-    { name: "AP/Honors Macroeconomics ", status: props.tutor.tutor_ap_macro_econ },
-    { name: "AP/Honors Microeconomics ", status: props.tutor.tutor_ap_micro_econ },
+    {
+      name: "AP/Honors Computer Science ",
+      status: props.tutor.tutor_ap_comp_sci,
+    },
+    {
+      name: "AP/Honors English Literature and Composition ",
+      status: props.tutor.tutor_ap_english_lit_comp,
+    },
+    {
+      name: "AP/Honors Language and Composition ",
+      status: props.tutor.tutor_ap_lang_comp,
+    },
+    {
+      name: "AP/Honors Macroeconomics ",
+      status: props.tutor.tutor_ap_macro_econ,
+    },
+    {
+      name: "AP/Honors Microeconomics ",
+      status: props.tutor.tutor_ap_micro_econ,
+    },
     { name: "AP/Honors Psychology ", status: props.tutor.tutor_ap_psyc },
-    { name: "AP/Honors United States History ", status: props.tutor.tutor_ap_hist_us },
-    { name: "AP/Honors Government and Politics (US) ", status: props.tutor.tutor_ap_gov_politics_us },
-    { name: "AP/Honors Human Geography ", status: props.tutor.tutor_ap_human_geog },
+    {
+      name: "AP/Honors United States History ",
+      status: props.tutor.tutor_ap_hist_us,
+    },
+    {
+      name: "AP/Honors Government and Politics (US) ",
+      status: props.tutor.tutor_ap_gov_politics_us,
+    },
+    {
+      name: "AP/Honors Human Geography ",
+      status: props.tutor.tutor_ap_human_geog,
+    },
     { name: "SAT Subject Tests ", status: props.tutor.tutor_sat_subject_tests },
     { name: "SAT Prep ", status: props.tutor.tutor_sat_prep },
     { name: "ACT Prep ", status: props.tutor.tutor_act_prep },
-
   ];
 
   const grades = [
-    { name: "Pre-K/Kindergarten", status: props.tutor.mentor_prek_kindergarten },
+    {
+      name: "Pre-K/Kindergarten",
+      status: props.tutor.mentor_prek_kindergarten,
+    },
     { name: "1st Grade", status: props.tutor.mentor_grade_1 },
     { name: "2nd Grade", status: props.tutor.mentor_grade_2 },
     { name: "3rd Grade", status: props.tutor.mentor_grade_3 },
@@ -90,8 +129,8 @@ function TutorProfile(props) {
     { name: "9th Grade", status: props.tutor.mentor_grade_9 },
     { name: "10th Grade", status: props.tutor.mentor_grade_10 },
     { name: "11th Grade", status: props.tutor.mentor_grade_11 },
-    { name: "12th Grade", status: props.tutor.mentor_grade_12 }
-  ]
+    { name: "12th Grade", status: props.tutor.mentor_grade_12 },
+  ];
 
   const languageFinder = (languages) => {
     console.log(languages);
@@ -101,7 +140,7 @@ function TutorProfile(props) {
         currentLanguages.push(languages[i].name);
       }
     }
-    console.log('CURRENT LANGUAGES', currentLanguages);
+    console.log("CURRENT LANGUAGES", currentLanguages);
     setTutorLanguages(currentLanguages);
     return currentLanguages;
   };
@@ -114,37 +153,55 @@ function TutorProfile(props) {
         mentor_subjects.push(subjects[i].name);
       }
     }
-    console.log('MENTORING_SUBJECTS', mentor_subjects);
+    console.log("MENTORING_SUBJECTS", mentor_subjects);
     setTutorSubjects(mentor_subjects);
     return mentor_subjects;
   };
 
-
   const gradeFinder = (grades) => {
     console.log(grades);
-    let chosenGrade = []
+    let chosenGrade = [];
     for (let i = 0; i < grades.length; i++) {
       if (grades[i].status === true) {
         chosenGrade.push(grades[i].name);
       }
     }
-    console.log('MENTOR GRADE', chosenGrade);
+    console.log("MENTOR GRADE", chosenGrade);
     setMentorChosenGrade(chosenGrade);
     return chosenGrade;
-  }
+  };
 
   return (
     <div>
       {/* <p>{JSON.stringify(props)}</p> */}
       <h2>first name last name (pronouns){props.tutor.tutor_first_name}</h2>
-      <p>Tutor's email: {props.tutor.tutor_email}</p>
-      <p>Phone number: {props.tutor.tutor_phone}</p>
+      <p>
+        Tutor's email:
+        {props.tutor.tutor_email}
+      </p>
+      <p>
+        Phone number:
+        {props.tutor.tutor_phone}
+      </p>
       <p>Grade Level: {props.tutor.tutor_grade}</p>
       <p>School attending: {props.tutor.tutor_school}</p>
-      <p>Grades comfortable tutoring: {mentorChosenGrade.map((grade) => { return <p>{grade}</p> })} </p>
-      <p>Subjects comfortable tutoring: {tutorSubjects.map((subject) => { return <p>{subject}</p> })}</p>
-      <p>Languages comfortable tutoring in: {tutorLanguages.map((language) => { return <p>{language}</p> })}
-
+      <p>
+        Grades comfortable tutoring:{" "}
+        {mentorChosenGrade.map((grade) => {
+          return <p>{grade}</p>;
+        })}{" "}
+      </p>
+      <p>
+        Subjects comfortable tutoring:{" "}
+        {tutorSubjects.map((subject) => {
+          return <p>{subject}</p>;
+        })}
+      </p>
+      <p>
+        Languages comfortable tutoring in:{" "}
+        {tutorLanguages.map((language) => {
+          return <p>{language}</p>;
+        })}
       </p>
       <p>Additional information:</p>
     </div>
