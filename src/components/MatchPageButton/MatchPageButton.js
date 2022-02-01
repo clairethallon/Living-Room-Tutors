@@ -16,8 +16,7 @@ function MatchPageButton(props) {
 
   const navigateToMatchPage = () => {
     dispatch({ type: 'FETCH_POSSIBLE_MATCHES', payload: props.tutee });
-    // history.push(`/match`);
-
+    history.push(`/match`);
   };
 
   return (
