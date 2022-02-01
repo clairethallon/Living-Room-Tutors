@@ -10,7 +10,7 @@ import TuteeProfile from "../TuteeProfile/TuteeProfile";
 function TuteeCard(props) {
   return (
     <div>
-      {JSON.stringify(props)}
+      {/* {JSON.stringify(props)} */}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -26,7 +26,7 @@ function TuteeCard(props) {
             </Col>
             <Col className="cardButtons" xs="2">
               <TuteeActivateDeactivateButton active={props.tutee} />
-              <MatchPageButton tuteeId={props.tutee.id} />
+              <MatchPageButton tutee={props.tutee} />
               {/* <--conditionally render the MatchButton to only show up when the tutee is activated. */}
             </Col>
             {/* </Row> */}

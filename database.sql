@@ -262,7 +262,7 @@ INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "F
 VALUES ( true, false, false, true, false, false, false, false);
 
 INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
-('Emilis', 'Terrell', 'she/her', 'student', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','Pre-K/Kindergarten', 'Central High School', 
+('Emilis', 'Terrell', 'she/her', 'student', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','prek_kindergarten', 'Central High School', 
 --LANGUAGE TABLE ID GOES HERE,
 7, 9, 1, NULL, NULL, NULL, 
 '1/9/2022 15:15:01', true, false );
