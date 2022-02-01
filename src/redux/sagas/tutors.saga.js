@@ -14,7 +14,7 @@ function* fetchTutors() {
 }
 
 function* postNewTutor(action) {
-  //this function adds a new tutor to the tutor database, along with entries for them in
+  //this function adds a new tutor to the tutor table, along with entries for them in
   //language, subject_tutor, and mentoring_grade
   try {
     const response = yield axios.post("/api/tutors", action.payload);

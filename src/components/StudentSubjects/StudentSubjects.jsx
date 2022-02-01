@@ -125,66 +125,52 @@ function StudentSubjects(props) {
                 In what subject does the student need the most support? (1st
                 Choice)
               </option>
-              <option value="K5_Math">K-5 Math</option>
-              <option value="K5_Reading">K-5 Reading</option>
-              <option value="K5_English_Writing">K-5 English/Writing</option>
-              <option value="K5_social_studies">K-5 Social Studies</option>
-              <option value="K5_Science">K-5 Science</option>
-              <option value="6th_to_8th_language_arts">
-                6-8th Language Arts
-              </option>
-              <option value="6th_to_8th_science">6-8th Science</option>
-              <option value="6th_to_8th_social_studies">
-                6-8th Social Studies
-              </option>
-              <option value="math_pre_algebra">Math: Pre-Algebra</option>
-              <option value="math_alg1_linear_alg">
-                Math: Algebra I/Linear Algebra
-              </option>
-              <option value="math_alg2">Math: Algebra II</option>
-              <option value="math_geom">Math: Geometry</option>
-              <option value="math_precalc_trig">
-                Math: Precalculus/Trigonometry
-              </option>
-              <option value="sci_bio_life">
-                Science: Biology/Life Sciences
-              </option>
-              <option value="sci_chem">Science: Chemistry</option>
-              <option value="sci_physics">Science: Physics</option>
-              <option value="sci_comp_sci">Science: Computer Science</option>
-              <option value="lang_chinese">Language: Chinese </option>
-              <option value="lang_spanish">Language: Spanish</option>
-              <option value="lang_french">Language: French</option>
-              <option value="lang_german">Language: German</option>
-              <option value="hist_world">History: World History</option>
-              <option value="hist_us">History: U.S. History</option>
-              <option value="ap_bio">AP Honors Biology</option>
-              <option value="ap_chem">AP Honors Chemistry</option>
-              <option value="ap_physics">AP Honors Physics</option>
-              <option value="ap_calc_AB">AP Honors Calculus AB</option>
-              <option value="ap_calc_BC">AP Honors Calculus BC</option>
-              <option value="ap_stats">AP Honors Statistics</option>
-              <option value="ap_comp_sci">AP Honors Computer Science</option>
-              <option value="ap_english_lit_comp">
+              <option value="1">K-5 Math</option>
+              <option value="2">K-5 Reading</option>
+              <option value="3">K-5 English/Writing</option>
+              <option value="5">K-5 Social Studies</option>
+              <option value="4">K-5 Science</option>
+              <option value="6">6-8th Language Arts</option>
+              <option value="7">6-8th Science</option>
+              <option value="8">6-8th Social Studies</option>
+              <option value="9">Math: Pre-Algebra</option>
+              <option value="10">Math: Algebra I/Linear Algebra</option>
+              <option value="11">Math: Algebra II</option>
+              <option value="12">Math: Geometry</option>
+              <option value="13">Math: Precalculus/Trigonometry</option>
+              <option value="14">Science: Biology/Life Sciences</option>
+              <option value="15">Science: Chemistry</option>
+              <option value="16">Science: Physics</option>
+              <option value="17">Science: Computer Science</option>
+              <option value="18">Language: Chinese </option>
+              <option value="20">Language: Spanish</option>
+              <option value="21">Language: French</option>
+              <option value="19">Language: German</option>
+              <option value="22">History: World History</option>
+              <option value="23">History: U.S. History</option>
+              <option value="24">AP Honors Biology</option>
+              <option value="25">AP Honors Chemistry</option>
+              <option value="26">AP Honors Physics</option>
+              <option value="27">AP Honors Calculus AB</option>
+              <option value="28">AP Honors Calculus BC</option>
+              <option value="29">AP Honors Statistics</option>
+              <option value="30">AP Honors Computer Science</option>
+              <option value="31">
                 AP Honors English Literature and Composition
               </option>
-              <option value="ap_lang_comp">
+              <option value="32">
                 AP Honors English Language and Composition
               </option>
-              <option value="ap_macro_econ">AP Honors Macroeconomics</option>
-              <option value="ap_micro_econ">AP Honors Microeconomics</option>
-              <option value="ap_psyc">AP Honors Psychology</option>
-              <option value="ap_hist_us">
-                AP Honors United States History
-              </option>
-              <option value="ap_gov_politics_us">
-                AP Honors Government and Politics
-              </option>
-              <option value="ap_human_geog">AP Honors Human Geography</option>
-              <option value="sat_subject_tests">SAT Subject Tests</option>
-              <option value="sat_prep">SAT Prep</option>
-              <option value="act_prep">ACT Prep</option>
-              <option value="other">Other</option>
+              <option value="33">AP Honors Macroeconomics</option>
+              <option value="34">AP Honors Microeconomics</option>
+              <option value="35">AP Honors Psychology</option>
+              <option value="36">AP Honors United States History</option>
+              <option value="37">AP Honors Government and Politics</option>
+              <option value="38">AP Honors Human Geography</option>
+              <option value="39">SAT Subject Tests</option>
+              <option value="40">SAT Prep</option>
+              <option value="41">ACT Prep</option>
+              <option value="42">Other</option>
             </Form.Select>
           </FloatingLabel>
           {changeOtherField ? (
@@ -214,66 +200,52 @@ function StudentSubjects(props) {
                 In what additional subject does the student need support? (2nd
                 Choice)
               </option>
-              <option value="K5_Math">K-5 Math</option>
-              <option value="K5_Reading">K-5 Reading</option>
-              <option value="K5_English_Writing">K-5 English/Writing</option>
-              <option value="K5_social_studies">K-5 Social Studies</option>
-              <option value="K5_Science">K-5 Science</option>
-              <option value="6th_to_8th_language_arts">
-                6-8th Language Arts
-              </option>
-              <option value="6th_to_8th_science">6-8th Science</option>
-              <option value="6th_to_8th_social_studies">
-                6-8th Social Studies
-              </option>
-              <option value="math_pre_algebra">Math: Pre-Algebra</option>
-              <option value="math_alg1_linear_alg">
-                Math: Algebra I/Linear Algebra
-              </option>
-              <option value="math_alg2">Math: Algebra II</option>
-              <option value="math_geom">Math: Geometry</option>
-              <option value="math_precalc_trig">
-                Math: Precalculus/Trigonometry
-              </option>
-              <option value="sci_bio_life">
-                Science: Biology/Life Sciences
-              </option>
-              <option value="sci_chem">Science: Chemistry</option>
-              <option value="sci_physics">Science: Physics</option>
-              <option value="sci_comp_sci">Science: Computer Science</option>
-              <option value="lang_chinese">Language: Chinese </option>
-              <option value="lang_spanish">Language: Spanish</option>
-              <option value="lang_french">Language: French</option>
-              <option value="lang_german">Language: German</option>
-              <option value="hist_world">History: World History</option>
-              <option value="hist_us">History: U.S. History</option>
-              <option value="ap_bio">AP Honors Biology</option>
-              <option value="ap_chem">AP Honors Chemistry</option>
-              <option value="ap_physics">AP Honors Physics</option>
-              <option value="ap_calc_AB">AP Honors Calculus AB</option>
-              <option value="ap_calc_BC">AP Honors Calculus BC</option>
-              <option value="ap_stats">AP Honors Statistics</option>
-              <option value="ap_comp_sci">AP Honors Computer Science</option>
-              <option value="ap_english_lit_comp">
+              <option value="1">K-5 Math</option>
+              <option value="2">K-5 Reading</option>
+              <option value="3">K-5 English/Writing</option>
+              <option value="5">K-5 Social Studies</option>
+              <option value="4">K-5 Science</option>
+              <option value="6">6-8th Language Arts</option>
+              <option value="7">6-8th Science</option>
+              <option value="8">6-8th Social Studies</option>
+              <option value="9">Math: Pre-Algebra</option>
+              <option value="10">Math: Algebra I/Linear Algebra</option>
+              <option value="11">Math: Algebra II</option>
+              <option value="12">Math: Geometry</option>
+              <option value="13">Math: Precalculus/Trigonometry</option>
+              <option value="14">Science: Biology/Life Sciences</option>
+              <option value="15">Science: Chemistry</option>
+              <option value="16">Science: Physics</option>
+              <option value="17">Science: Computer Science</option>
+              <option value="18">Language: Chinese </option>
+              <option value="20">Language: Spanish</option>
+              <option value="21">Language: French</option>
+              <option value="19">Language: German</option>
+              <option value="22">History: World History</option>
+              <option value="23">History: U.S. History</option>
+              <option value="24">AP Honors Biology</option>
+              <option value="25">AP Honors Chemistry</option>
+              <option value="26">AP Honors Physics</option>
+              <option value="27">AP Honors Calculus AB</option>
+              <option value="28">AP Honors Calculus BC</option>
+              <option value="29">AP Honors Statistics</option>
+              <option value="30">AP Honors Computer Science</option>
+              <option value="31">
                 AP Honors English Literature and Composition
               </option>
-              <option value="ap_lang_comp">
+              <option value="32">
                 AP Honors English Language and Composition
               </option>
-              <option value="ap_macro_econ">AP Honors Macroeconomics</option>
-              <option value="ap_micro_econ">AP Honors Microeconomics</option>
-              <option value="ap_psyc">AP Honors Psychology</option>
-              <option value="ap_hist_us">
-                AP Honors United States History
-              </option>
-              <option value="ap_gov_politics_us">
-                AP Honors Government and Politics
-              </option>
-              <option value="ap_human_geog">AP Honors Human Geography</option>
-              <option value="sat_subject_tests">SAT Subject Tests</option>
-              <option value="sat_prep">SAT Prep</option>
-              <option value="act_prep">ACT Prep</option>
-              <option value="other">Other</option>
+              <option value="33">AP Honors Macroeconomics</option>
+              <option value="34">AP Honors Microeconomics</option>
+              <option value="35">AP Honors Psychology</option>
+              <option value="36">AP Honors United States History</option>
+              <option value="37">AP Honors Government and Politics</option>
+              <option value="38">AP Honors Human Geography</option>
+              <option value="39">SAT Subject Tests</option>
+              <option value="40">SAT Prep</option>
+              <option value="41">ACT Prep</option>
+              <option value="42">Other</option>
             </Form.Select>
           </FloatingLabel>
           {changeOtherSecondaryField ? (
@@ -306,66 +278,52 @@ function StudentSubjects(props) {
                 In what additional subject does the student need support? (3rd
                 Choice)
               </option>
-              <option value="K5_Math">K-5 Math</option>
-              <option value="K5_Reading">K-5 Reading</option>
-              <option value="K5_English_Writing">K-5 English/Writing</option>
-              <option value="K5_social_studies">K-5 Social Studies</option>
-              <option value="K5_Science">K-5 Science</option>
-              <option value="6th_to_8th_language_arts">
-                6-8th Language Arts
-              </option>
-              <option value="6th_to_8th_science">6-8th Science</option>
-              <option value="6th_to_8th_social_studies">
-                6-8th Social Studies
-              </option>
-              <option value="math_pre_algebra">Math: Pre-Algebra</option>
-              <option value="math_alg1_linear_alg">
-                Math: Algebra I/Linear Algebra
-              </option>
-              <option value="math_alg2">Math: Algebra II</option>
-              <option value="math_geom">Math: Geometry</option>
-              <option value="math_precalc_trig">
-                Math: Precalculus/Trigonometry
-              </option>
-              <option value="sci_bio_life">
-                Science: Biology/Life Sciences
-              </option>
-              <option value="sci_chem">Science: Chemistry</option>
-              <option value="sci_physics">Science: Physics</option>
-              <option value="sci_comp_sci">Science: Computer Science</option>
-              <option value="lang_chinese">Language: Chinese </option>
-              <option value="lang_spanish">Language: Spanish</option>
-              <option value="lang_french">Language: French</option>
-              <option value="lang_german">Language: German</option>
-              <option value="hist_world">History: World History</option>
-              <option value="hist_us">History: U.S. History</option>
-              <option value="ap_bio">AP Honors Biology</option>
-              <option value="ap_chem">AP Honors Chemistry</option>
-              <option value="ap_physics">AP Honors Physics</option>
-              <option value="ap_calc_AB">AP Honors Calculus AB</option>
-              <option value="ap_calc_BC">AP Honors Calculus BC</option>
-              <option value="ap_stats">AP Honors Statistics</option>
-              <option value="ap_comp_sci">AP Honors Computer Science</option>
-              <option value="ap_english_lit_comp">
+              <option value="1">K-5 Math</option>
+              <option value="2">K-5 Reading</option>
+              <option value="3">K-5 English/Writing</option>
+              <option value="5">K-5 Social Studies</option>
+              <option value="4">K-5 Science</option>
+              <option value="6">6-8th Language Arts</option>
+              <option value="7">6-8th Science</option>
+              <option value="8">6-8th Social Studies</option>
+              <option value="9">Math: Pre-Algebra</option>
+              <option value="10">Math: Algebra I/Linear Algebra</option>
+              <option value="11">Math: Algebra II</option>
+              <option value="12">Math: Geometry</option>
+              <option value="13">Math: Precalculus/Trigonometry</option>
+              <option value="14">Science: Biology/Life Sciences</option>
+              <option value="15">Science: Chemistry</option>
+              <option value="16">Science: Physics</option>
+              <option value="17">Science: Computer Science</option>
+              <option value="18">Language: Chinese </option>
+              <option value="20">Language: Spanish</option>
+              <option value="21">Language: French</option>
+              <option value="19">Language: German</option>
+              <option value="22">History: World History</option>
+              <option value="23">History: U.S. History</option>
+              <option value="24">AP Honors Biology</option>
+              <option value="25">AP Honors Chemistry</option>
+              <option value="26">AP Honors Physics</option>
+              <option value="27">AP Honors Calculus AB</option>
+              <option value="28">AP Honors Calculus BC</option>
+              <option value="29">AP Honors Statistics</option>
+              <option value="30">AP Honors Computer Science</option>
+              <option value="31">
                 AP Honors English Literature and Composition
               </option>
-              <option value="ap_lang_comp">
+              <option value="32">
                 AP Honors English Language and Composition
               </option>
-              <option value="ap_macro_econ">AP Honors Macroeconomics</option>
-              <option value="ap_micro_econ">AP Honors Microeconomics</option>
-              <option value="ap_psyc">AP Honors Psychology</option>
-              <option value="ap_hist_us">
-                AP Honors United States History
-              </option>
-              <option value="ap_gov_politics_us">
-                AP Honors Government and Politics
-              </option>
-              <option value="ap_human_geog">AP Honors Human Geography</option>
-              <option value="sat_subject_tests">SAT Subject Tests</option>
-              <option value="sat_prep">SAT Prep</option>
-              <option value="act_prep">ACT Prep</option>
-              <option value="other">Other</option>
+              <option value="33">AP Honors Macroeconomics</option>
+              <option value="34">AP Honors Microeconomics</option>
+              <option value="35">AP Honors Psychology</option>
+              <option value="36">AP Honors United States History</option>
+              <option value="37">AP Honors Government and Politics</option>
+              <option value="38">AP Honors Human Geography</option>
+              <option value="39">SAT Subject Tests</option>
+              <option value="40">SAT Prep</option>
+              <option value="41">ACT Prep</option>
+              <option value="42">Other</option>
             </Form.Select>
           </FloatingLabel>
           {changeOtherTertiaryField ? (
