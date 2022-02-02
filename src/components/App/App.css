@@ -280,3 +280,23 @@ h3 {
   display: flex;
   align-items: baseline;
 }
+
+/* .subjectContainer {
+  display: flex;
+} */
+
+.subjectPillFlagged {
+  background-color: #bdebde;
+  padding: 8px 20px;
+  width: fit-content;
+  border-radius: 30px;
+  /* margin-right: 10px; */
+  /* margin-left: 10px; */
+}
+
+.subjectPill {
+  background-color: #eaeaea;
+  padding: 8px 20px;
+  width: fit-content;
+  border-radius: 30px;
+}
