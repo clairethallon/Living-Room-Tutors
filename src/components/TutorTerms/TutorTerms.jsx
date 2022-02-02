@@ -12,19 +12,40 @@ function StudentTerms(props) {
   const dispatch = useDispatch();
 
   const tutorInfo = useSelector((store) => store.newtutor.newtutorInfoReducer);
+
   const tutorAdditional = useSelector(
     (store) => store.newtutor.newtutorAdditionalReducer
   );
+
   const tutorSubjects = useSelector(
     (store) => store.newtutor.newtutorSubjectReducer
   );
 
   const [tutorTerms, setTutorTerms] = useState(false);
+  const [ClikcableButton, setClikcableButton] = useState(false);
 
   const changeTutorTerms = () => {
+    console.log('in tutor terms')
+
+    if (event.target.value) {
+      setClikcableButton(true);
+    } else {
+      setClikcableButton(false);
+    }
+
     setTutorTerms(!tutorTerms);
-    console.log("in terms", tutorTerms);
   };
+
+  // const changeClickableButton= () => {
+  //   console.log("in new primary");
+  //   if (event.target.value == "Other") {
+  //     setClickableButton(true);
+  //   } else {
+  //     setClickableButton(false);
+  //   }
+
+  //   setNewPrimarySubject(event.target.value);
+  // };
 
   //package up all collected info into object
   const newTutorObject = {
@@ -101,17 +122,16 @@ function StudentTerms(props) {
     miscInfo: tutorAdditional.tutorAdditionalInfo,
   };
 
-  const sendNewTutor = () => {
-    let termserrors = false;
-    if (tutorTerms == false) {
-      termserrors = true;
-    }
-
-    if (termserrors) {
-      alert("Please agree to the terms to submit your application.");
-    }
-    dispatch({ type: "SEND_NEW_TUTOR", payload: newTutorObject });
-  };
+  // const sendNewTutor = () => {
+  //   let termserrors = false;
+  //   if (tutorTerms == false) {
+  //     termserrors = true;
+  //   }
+  //   if (termserrors) {
+  //     alert("Please agree to the terms to submit your application.");
+  //   }
+  //   dispatch({ type: "SEND_NEW_TUTOR", payload: newTutorObject });
+  // };
 
   return (
     <div>
@@ -144,29 +164,35 @@ function StudentTerms(props) {
           however caused, as a result of the student participation.
         </p>
 
-        <div>
-          <input
+        <input
             type="checkbox"
             id="Tutor Terms"
             name="Tutor Terms"
-            onChange={(event) => changeTutorTerms()}
+            onClick={(event) => changeTutorTerms()}
           />
           <label for="Tutor Terms">I understand</label>
+
+        <div>
+        {ClikcableButton?
+        (<>
+          <TutorModal newTutorObject={newTutorObject}/>
+          </>):(<> 
+          <p>Please Agree to continue.</p></>)   
+        }
+          
         </div>
-        <p>{JSON.stringify(tutorInfo)}</p>
+
+        {/* <p>{JSON.stringify(tutorInfo)}</p>
         <p>{JSON.stringify(tutorAdditional)}</p>
         <p>{JSON.stringify(tutorSubjects)}</p>
-        <p>newTutorObject: {JSON.stringify(newTutorObject)}</p>
+        <p>newTutorObject: {JSON.stringify(newTutorObject)}</p> */}
 
-        <Link to="/TutorInfo">
+        {/* <Link to="/TutorInfo">
           <Button onClick={sendNewTutor}>Submit</Button>
-        </Link>
+        </Link> */}
       </div>
 
-    <div>
-      <TutorModal/>
-    </div>
-
+  
     </div>
   );
 }
