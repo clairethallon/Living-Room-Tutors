@@ -8,9 +8,15 @@ import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TuteeProfile from "../TuteeProfile/TuteeProfile";
 
 function TuteeCard(props) {
+  const subject1 = props.tutee.subject_1;
+  const subject2 = props.tutee.subject_2;
+  const subject3 = props.tutee.subject_3;
+
+  const specialSubjects = useSelector((store) => store.specialSubjects);
+
   return (
     <div>
-      {JSON.stringify(props.tutee)}
+      {JSON.stringify(props.tutee.subject_2)}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -21,8 +27,17 @@ function TuteeCard(props) {
             <Col xs="2">{props.tutee.tutee_submission_timestamp}</Col>
             <Col xs="2">{props.tutee.tutee_grade}</Col>
             <Col xs="2" className="flaggedSubjectLanguage">
-              <SubjectFlag />
-              <LanguageFlag />
+              {specialSubjects.map((subject) => {
+                if (
+                  subject1 === subject ||
+                  subject2 === subject ||
+                  subject3 === subject
+                ) {
+                  return <SubjectFlag />;
+                }
+              })}
+              {/* <SubjectFlag />
+              <LanguageFlag /> */}
             </Col>
             <Col className="cardButtons" xs="2">
               <TuteeActivateDeactivateButton active={props.tutee} />
