@@ -10,7 +10,7 @@ import TuteeProfile from "../TuteeProfile/TuteeProfile";
 function TuteeCard(props) {
   return (
     <div>
-      {/* {JSON.stringify(props)} */}
+      {JSON.stringify(props.tutee)}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
