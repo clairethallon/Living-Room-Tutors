@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "../TuteeProfile/TuteeProfile.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function TuteeProfile(props) {
+  const emailIcon = <FontAwesomeIcon icon={faEnvelope} />;
+  const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
+
   const store = useSelector((store) => store);
   const [tuteeLanguages, setTuteeLanguages] = useState([]);
   const [subject1, setSubject1] = useState("");
@@ -105,30 +110,58 @@ function TuteeProfile(props) {
 
   return (
     <div>
-      <h2>
-        {props.tutee.tutee_firstname} {props.tutee.tutee_lastname} (
-        {props.tutee.tutee_pronouns})
-      </h2>
-      <p>
-        Parent/Guardian's email (if applicable): {props.tutee.email_guardian}
-      </p>
-      <p>Student's email: {props.tutee.email_student}</p>
-      <p>Phone number: {props.tutee.tutee_phone}</p>
-      <p>Grade Level: {props.tutee.grade_level}</p>
-      <p>School attending: {props.tutee.school}</p>
+      {/* {JSON.stringify(props.tutee)} */}
 
-      <p>
-        Language preference (if not English):{" "}
-        {tuteeLanguages.map((language) => {
-          return <p>{language}</p>;
-        })}
-      </p>
-      <p>1st subject choice: {subject1}</p>
-      <p>2st subject choice: {subject2}</p>
-      <p>3st subject choice: {subject3}</p>
-      <p>other subject (if applicable): </p>
-      <p>Detail description regarding help needed:</p>
-      <p>Addition information:</p>
+      <div className="profileTitle">
+        <h2 className="profileFirstLastName">
+          {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
+        </h2>
+        <p>({props.tutee.tutee_pronouns})</p>
+      </div>
+      <div className="profileSectionOne">
+        <p className="profileQuestion">
+          {emailIcon} Parent/Guardian's Email:
+          <span className="profileAnswer"> {props.tutee.email_guardian}</span>
+        </p>
+        <p className="profileQuestion">
+          {emailIcon} Student's email:
+          <span className="profileAnswer">{props.tutee.email_student}</span>
+        </p>
+        <p className="profileQuestion">
+          {phoneIcon} Phone number:{" "}
+          <span className="profileAnswer">{props.tutee.tutee_phone}</span>
+        </p>
+      </div>
+      <div className="profileSectionTwo">
+        <p className="profileQuestion">
+          Grade Level:
+          <span className="profileAnswer"> {props.tutee.tutee_grade}</span>
+        </p>
+        <p className="profileQuestion">
+          School attending:{" "}
+          <span className="profileAnswer">{props.tutee.tutee_school}</span>
+        </p>
+        <div>
+          <p className="profileQuestion">Language preference:</p>
+          <div className="languagePillContainer">
+            {tuteeLanguages.map((language) => {
+              return <div className="languagePill">{language}</div>;
+            })}
+          </div>
+        </div>
+      </div>
+      <div className="profileSectionThree">
+        <p>Subjects needed help with:</p>
+        <p>1st subject choice: {subject1}</p>
+        <p>2st subject choice: {subject2}</p>
+        <p>3st subject choice: {subject3}</p>
+        <p>other subject (if applicable): </p>
+        <p>
+          Detail description regarding help needed: "
+          {props.tutee.tutee_misc_info}"
+        </p>
+        <p>Addition information:</p>
+      </div>
     </div>
   );
 }
