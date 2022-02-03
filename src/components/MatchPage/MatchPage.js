@@ -22,6 +22,7 @@ function MatchPage(props) {
       <h1>Tutee & Tutor Match</h1>
       <div className="tuteeInfoSubjectsAndLanguages">
         <h2>Tutee Information:</h2>
+
         <div className="subjectAndLanguage">
           <p>
             <span className="flag subjectFlag">{flagIcon}</span>subjects
@@ -31,11 +32,9 @@ function MatchPage(props) {
           </p>
         </div>
       </div>
+      <TuteeMatchCard />
       <h3>Select Tutor to Complete Match</h3>
       <TutorMatchTable />
-      {/* <TutorMatchCard />
-      <TutorMatchCard />
-      <TutorMatchCard /> */}
     </div>
   );
 }

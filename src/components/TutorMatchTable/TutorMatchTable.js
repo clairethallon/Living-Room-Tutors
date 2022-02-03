@@ -15,6 +15,11 @@ function MatchTable(props) {
 
   const activeTutors = useSelector((store) => store.activeTutors);
 
+  const groupAmatches = useSelector((store) => store.groupAmatches);
+  const groupBmatches = useSelector((store) => store.groupBmatches);
+  const groupCmatches = useSelector((store) => store.groupCmatches);
+  const groupDmatches = useSelector((store) => store.groupDmatches);
+
   useEffect(() => {
     dispatch({
       type: "FETCH_ACTIVE_TUTORS",
@@ -34,18 +39,38 @@ function MatchTable(props) {
           <Col xs="3" className="cardHeadCol">
             <p>Subject</p>
           </Col>
-          <Col xs="2" className="cardHeadCol">
+          <Col xs="3" className="cardHeadCol">
             <p>Flagged</p>
           </Col>
-          <Col xs="2" className="cardHeadCol">
+          <Col xs="1" className="cardHeadCol">
             <p>Action</p>
           </Col>
-          <Col xs="1"></Col>
+          <Col xs="2"></Col>
         </Row>
       </div>
-      <div>
+      {/* <div>
         {activeTutors.map((tutor) => {
           return <TutorMatchCard tutor={tutor} />;
+        })}
+      </div> */}
+      <div>
+        {groupAmatches.map((groupATutor) => {
+          return <TutorMatchCard tutor={groupATutor} />;
+        })}
+      </div>
+      <div>
+        {groupBmatches.map((groupBTutor) => {
+          return <TutorMatchCard tutor={groupBTutor} />;
+        })}
+      </div>
+      <div>
+        {groupCmatches.map((groupCTutor) => {
+          return <TutorMatchCard tutor={groupCTutor} />;
+        })}
+      </div>
+      <div>
+        {groupDmatches.map((groupDTutor) => {
+          return <TutorMatchCard tutor={groupDTutor} />;
         })}
       </div>
     </div>
