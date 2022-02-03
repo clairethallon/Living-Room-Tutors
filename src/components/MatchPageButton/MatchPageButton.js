@@ -15,15 +15,18 @@ function MatchPageButton(props) {
   const dispatch = useDispatch();
 
   const navigateToMatchPage = () => {
-    dispatch({ type: 'FETCH_POSSIBLE_MATCHES', payload: props.tutee });
+    dispatch({ type: "FETCH_POSSIBLE_MATCHES", payload: props.tutee });
     history.push(`/match`);
   };
 
   return (
     <div>
       {/* {JSON.stringify(props)} */}
-      {props.tutee.active_tutee ?
-        <Button onClick={navigateToMatchPage}>Match</Button> : <span></span>}
+      {props.tutee.active_tutee ? (
+        <Button onClick={navigateToMatchPage}>Match</Button>
+      ) : (
+          <span></span>
+        )}
     </div>
   );
 }

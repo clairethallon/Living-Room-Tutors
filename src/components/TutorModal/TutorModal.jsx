@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 
 
 
-function StudentModal(props) {
+function TutorModal(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
   
@@ -16,7 +16,7 @@ function StudentModal(props) {
 
   const handleShow = () => {
     console.log("closing modal")
-    dispatch({ type: "ADD_NEW_STUDENT", payload: props.newStudentObject });
+    dispatch({ type: "SEND_NEW_TUTOR", payload: props.newTutorObject }); 
     setShow (true);}
 
   return (
@@ -35,13 +35,13 @@ function StudentModal(props) {
         </Modal.Body>
 
         <Modal.Footer>
-          <Link to="/StudentInfo"><Button variant="primary" onClick={handleClose}>Submit</Button></Link>
+          <Link to="/TutorInfo"><Button variant="primary" onClick={handleClose}>Submit</Button></Link>
         </Modal.Footer>
   
       </Modal>
       </>
     </div>
-  );
+  ); 
 }
 
-export default StudentModal;
+export default TutorModal;

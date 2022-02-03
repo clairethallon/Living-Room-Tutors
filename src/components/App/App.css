@@ -191,3 +191,15 @@ h3 {
   margin-top: 5px;
   font-family: PublicaSans-Light;
 }
+
+.formInput {
+  width: 40% !important;
+}
+
+.selectInput {
+  width: 50% !important;
+}
+
+.textInput {
+  width: 40% !important;
+}

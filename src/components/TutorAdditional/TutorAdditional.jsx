@@ -37,7 +37,7 @@ function StudentAdditional(props) {
 
         <>
         <h3>Is there any additional information you would like to provide?</h3>
-        <FloatingLabel controlId="AdditionalInfo" label="Additional Info" className="AdditionalInfo" onChange={(event)=>changeTutorAdditionalInfo(event)}>
+        <FloatingLabel controlId="AdditionalInfo" label="Additional Info" className="textInput" onChange={(event)=>changeTutorAdditionalInfo(event)}>
           <Form.Control as="textarea" placeholder="Additional Info" style={{height: '100px'}}/>
         </FloatingLabel>
         </>
