@@ -32,20 +32,8 @@ function StudentTerms(props) {
     } else {
       setClikcableButton(false);
     }
-
     setTutorTerms(!tutorTerms);
   };
-
-  // const changeClickableButton= () => {
-  //   console.log("in new primary");
-  //   if (event.target.value == "Other") {
-  //     setClickableButton(true);
-  //   } else {
-  //     setClickableButton(false);
-  //   }
-
-  //   setNewPrimarySubject(event.target.value);
-  // };
 
   //package up all collected info into object
   const newTutorObject = {
@@ -182,17 +170,7 @@ function StudentTerms(props) {
           
         </div>
 
-        {/* <p>{JSON.stringify(tutorInfo)}</p>
-        <p>{JSON.stringify(tutorAdditional)}</p>
-        <p>{JSON.stringify(tutorSubjects)}</p>
-        <p>newTutorObject: {JSON.stringify(newTutorObject)}</p> */}
-
-        {/* <Link to="/TutorInfo">
-          <Button onClick={sendNewTutor}>Submit</Button>
-        </Link> */}
       </div>
-
-  
     </div>
   );
 }

@@ -3,26 +3,38 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Header from "../Header/Header";
+import StudentModal from "../StudentModal/StudentModal";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name StudentTerms with the name for the new component.
 function StudentTerms(props) {
   const dispatch = useDispatch();
+
   const studentInfo = useSelector(
     (store) => store.newStudent.newstudentInfoReducer
   );
+
   const studentAdditional = useSelector(
     (store) => store.newStudent.newstudentAdditionalReducer
   );
+  
   const studentSubjects = useSelector(
     (store) => store.newStudent.newstudentSubjectReducer
   );
 
   const [studentterms, setStudentTerms] = useState(false);
+  const [ClikcableButton, setClikcableButton] = useState(false);
 
   const changeStudentTerms = () => {
-    console.log("in terms");
+    console.log('in tutor terms')
+
+    if (event.target.value) {
+      setClikcableButton(true);
+    } else {
+      setClikcableButton(false);
+    }
+
     setStudentTerms(!studentterms);
   };
 
@@ -54,17 +66,17 @@ function StudentTerms(props) {
     miscInfo: studentAdditional.newAdditionalInfo,
   };
 
-  const sendNewStudent = () => {
-    let termserrors = false;
-    if (studentterms == false) {
-      termserrors = true;
-    }
+  // const sendNewStudent = () => {
+  //   let termserrors = false;
+  //   if (studentterms == false) {
+  //     termserrors = true;
+  //   }
 
-    if (termserrors) {
-      alert("Please agree to the terms to submit your application.");
-    }
-    dispatch({ type: "ADD_NEW_STUDENT", payload: newStudentObject });
-  };
+  //   if (termserrors) {
+  //     alert("Please agree to the terms to submit your application.");
+  //   }
+  //   dispatch({ type: "ADD_NEW_STUDENT", payload: newStudentObject });
+  // };
 
   return (
     <div>
@@ -111,9 +123,19 @@ function StudentTerms(props) {
         </div>
         {/* <p>{JSON.stringify(studentterms)}</p> */}
 
-        <Link to="/StudentInfo">
+        {/* <Link to="/StudentInfo">
           <Button onClick={sendNewStudent}>Submit</Button>
-        </Link>
+        </Link> */}
+
+        <div>
+        {ClikcableButton?
+        (<>
+          <StudentModal newStudentObject={newStudentObject}/>
+          </>):(<> 
+          <p>Please Agree to continue.</p></>)   
+        }
+          
+        </div>
       </div>
     </div>
   );

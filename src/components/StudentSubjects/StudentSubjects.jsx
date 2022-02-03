@@ -118,6 +118,7 @@ function StudentSubjects(props) {
           <FloatingLabel
             controlId="primarySubject"
             label="Student's 1st Choice"
+            className="selectInput"
             onChange={(event) => changePrimarySubject(event)}
           >
             <Form.Select aria-label="Student's 1st Choice">
@@ -207,6 +208,7 @@ function StudentSubjects(props) {
           <FloatingLabel
             controlId="secondarySubject"
             label="Student's 2nd Choice"
+            className="selectInput"
             onChange={(event) => changeSecondarySubject(event)}
           >
             <Form.Select aria-label="Student's 2nd Choice">
@@ -299,6 +301,7 @@ function StudentSubjects(props) {
           <FloatingLabel
             controlId="tertiarySubject"
             label="Student's 3rd Choice"
+            className="selectInput"
             onChange={(event) => changeTertiarySubject(event)}
           >
             <Form.Select aria-label="Student's 3rd Choice">
@@ -395,10 +398,13 @@ function StudentSubjects(props) {
           <FloatingLabel
             controlID="OtherInfo"
             label="Support Needed"
-            className="OtherInfo"
+            className="textInput"
             onChange={(event) => changeOtherInfo(event)}
           >
-            <Form.Control type="OtherInfo" placeholder="Support Needed" />
+            <Form.Control  
+              as="textarea"
+              placeholder="Support Needed"
+              style={{ height: "100px" }}  />
           </FloatingLabel>
         </>
 
@@ -416,7 +422,7 @@ function StudentSubjects(props) {
           <FloatingLabel
             controlId="DetailedNeeds"
             label="Details of tutoring needs"
-            className="DetailedNeeds"
+            className="textInput"
             onChange={(event) => changeDetailedNeeds(event)}
           >
             <Form.Control

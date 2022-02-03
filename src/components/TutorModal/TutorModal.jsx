@@ -12,26 +12,12 @@ function TutorModal(props) {
   
   const [show, setShow] = useState(false);
   
-  const handleClose = () => {
+  const handleClose = () => {setShow (false);}
+
+  const handleShow = () => {
     console.log("closing modal")
-    dispatch({ type: "SEND_NEW_TUTOR", payload: props.newTutorObject });  
-    setShow (false);
-  }
-
-  const handleShow = () => setShow (true);
-
-  // const sendNewTutor = () => {
-  //   console.log('in send new tutor')
-  //   let termserrors = false;
-  //   if (tutorTerms == false) {
-  //     termserrors = true;
-  //   }
-
-  //   if (termserrors) {
-  //     alert("Please agree to the terms to submit your application.");
-  //   }
-  //   dispatch({ type: "SEND_NEW_TUTOR", payload: newTutorObject });
-  // };
+    dispatch({ type: "SEND_NEW_TUTOR", payload: props.newTutorObject }); 
+    setShow (true);}
 
   return (
     <div>
@@ -55,7 +41,7 @@ function TutorModal(props) {
       </Modal>
       </>
     </div>
-  );
+  ); 
 }
 
 export default TutorModal;

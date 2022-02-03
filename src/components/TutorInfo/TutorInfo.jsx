@@ -114,27 +114,27 @@ function TutorInfo(props) {
       <>
       <h3>What is your email address?</h3>
       <p>Please confirm the email address you enter is correct. Email is our primary way of communicating with our tutors and tutees, so it is crucial that the email address that you provide is correct.</p>
-        <FloatingLabel controlID="Email" label="Email" className="Email" onChange={(event)=>changeTutorEmail(event)}>
+        <FloatingLabel controlID="Email" label="Email" className="formInput" onChange={(event)=>changeTutorEmail(event)}>
           <Form.Control type="Email" placeholder="Email"/>
         </FloatingLabel>
       </>
 
       <>
       <h3>What are your pronouns?</h3>
-        <FloatingLabel controlID="Pronouns" label="Pronouns Ex:She/Her" className="Pronouns" onChange={(event)=>changePronouns(event)}>
+        <FloatingLabel controlID="Pronouns" label="Pronouns Ex:She/Her" className="formInput" onChange={(event)=>changePronouns(event)}>
           <Form.Control type="Pronouns" placeholder="Pronouns"/>
         </FloatingLabel>
       </>
       
       <>
       <h3>What is your phone number?</h3>
-        <FloatingLabel controlID="Phone" label="Phone Number" className="Phone" onChange={(event)=>changeTutorPhone(event)}>
+        <FloatingLabel controlID="Phone" label="Phone Number" className="formInput" onChange={(event)=>changeTutorPhone(event)}>
           <Form.Control type="Phone" placeholder="Phone"/>
         </FloatingLabel>
       </>
 
       <>
-      <FloatingLabel controlId="gradeLevel" label="Current Grade Level" onChange={(event)=>changeTutorGrade(event)}>
+      <FloatingLabel controlId="gradeLevel" label="Current Grade Level" className="selectInput" onChange={(event)=>changeTutorGrade(event)}>
         <Form.Select aria-label="gradeLevel">
           <option>What is your current grade level?</option>
           <option value="Freshman">Freshman</option>
@@ -147,7 +147,7 @@ function TutorInfo(props) {
       </>
 
       <>
-      <FloatingLabel controlId="Tutor's Current School" label="Current School" onChange={(event)=>changeTutorSchool(event)}>
+      <FloatingLabel controlId="Tutor's Current School" label="Current School" className="selectInput" onChange={(event)=>changeTutorSchool(event)}>
         <Form.Select aria-label="Tutor's Current School">
           <option>Where do you go to school?</option>
           <option value="Mayo High School">Mayo High School</option>
@@ -164,7 +164,7 @@ function TutorInfo(props) {
 
       { changeOtherField? 
         <>
-          <FloatingLabel controlID="OtherSchool" label="School Name" className="OtherSchool" onChange={(event)=>changeOtherSchool(event)}>
+          <FloatingLabel controlID="OtherSchool" label="School Name" className="formInput" onChange={(event)=>changeOtherSchool(event)}>
             <Form.Control type="OtherSchool" placeholder="OtherSchool"/>
           </FloatingLabel> 
         </>

@@ -215,7 +215,7 @@ function TutorInfo(props) {
           <FloatingLabel
             controlID="GuardianEmail"
             label="Parent/Guardian's Email"
-            className="GuardianEmail"
+            className="formInput"
             onChange={(event) => changeParentEmail(event)}
           >
             <Form.Control type="GuardianEmail" placeholder="GuardianEmail" />
@@ -227,7 +227,7 @@ function TutorInfo(props) {
           <FloatingLabel
             controlID="StudentFirstName"
             label="Student's First Name"
-            className="StudentFirstName"
+            className="formInput"
             onChange={(event) => changefirstName(event)}
           >
             <Form.Control
@@ -238,7 +238,7 @@ function TutorInfo(props) {
           <FloatingLabel
             controlID="StudentLastName"
             label="Student's Last Name"
-            className="StudentLastName"
+            className="formInput"
             onChange={(event) => changelastName(event)}
           >
             <Form.Control
@@ -258,7 +258,7 @@ function TutorInfo(props) {
           <FloatingLabel
             controlID="StudentEmail"
             label="Student's Email"
-            className="StudentEmail"
+            className="formInput"
             onChange={(event) => changeEmail(event)}
           >
             <Form.Control type="StudentEmail" placeholder="Student Email" />
@@ -270,7 +270,7 @@ function TutorInfo(props) {
           <FloatingLabel
             controlID="Pronouns"
             label="Student's Pronouns Ex:She/Her"
-            className="Pronouns"
+            className="formInput"
             onChange={(event) => changePronouns(event)}
           >
             <Form.Control type="Pronouns" placeholder="Pronouns" />
@@ -284,7 +284,7 @@ function TutorInfo(props) {
           <FloatingLabel
             controlID="StudentPhone"
             label="Student's Phone Number"
-            className="StudentPhone"
+            className="formInput"
             onChange={(event) => changePhone(event)}
           >
             <Form.Control
@@ -299,7 +299,7 @@ function TutorInfo(props) {
           <FloatingLabel
             controlID="StudentSchool"
             label="Student's School"
-            className="StudentSchool"
+            className="formInput"
             onChange={(event) => changeSchool(event)}
           >
             <Form.Control type="StudentSchool" placeholder="Student's School" />
@@ -311,6 +311,7 @@ function TutorInfo(props) {
             controlId="gradeLevel"
             label="Student's Current Grade Level"
             onChange={(event) => changeGrade(event)}
+            className="selectInput"
           >
             <Form.Select aria-label="gradeLevel">
               <option>Select Student's Current Grade Level:</option>
@@ -430,7 +431,7 @@ function TutorInfo(props) {
                 <FloatingLabel
                   controlID="OtherLanguage"
                   label="Other Language"
-                  className="OtherLanguage"
+                  className="formInput"
                   onChange={(event) => changeotherLangauge(event)}
                 >
                   <Form.Control
