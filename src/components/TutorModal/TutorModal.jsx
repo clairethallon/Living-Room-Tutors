@@ -5,44 +5,43 @@ import Button from "react-bootstrap/Button";
 import Modal from 'react-bootstrap/Modal';
 
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TutorModal with the name for the new component.
+
 function TutorModal(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  const dispatch = useDispatch();
   const store = useSelector((store) => store);
   
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow (false);
-  const handleShow = () => setShow (true);
+  
+  const handleClose = () => {setShow (false);}
+
+  const handleShow = () => {
+    console.log("closing modal")
+    dispatch({ type: "SEND_NEW_TUTOR", payload: props.newTutorObject }); 
+    setShow (true);}
 
   return (
     <div>
-     
-      <p>Modal Content below...</p>
 
       <>
-      <Button varient="primary" onClick={handleShow}> Launch Demo </Button>
+      <Button varient="primary" onClick={handleShow}> Submit + Modal </Button>
         <Modal show ={show} onHide={handleClose}>
 
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Thank you for your application!</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <p>oh man I hope this works.</p>
+          <p>Your submitted application will be reviewed by one of our members you will be contacted via email regarding your eligibility.</p>
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>Close</Button>
-          <Button variant="primary" onClick={handleClose}>Save changes</Button>
+          <Link to="/TutorInfo"><Button variant="primary" onClick={handleClose}>Submit</Button></Link>
         </Modal.Footer>
   
       </Modal>
       </>
     </div>
-  );
+  ); 
 }
 
 export default TutorModal;
