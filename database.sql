@@ -193,8 +193,6 @@ ALTER TABLE "tutors" ADD CONSTRAINT "tutors_fk2" FOREIGN KEY ("language_tutor_id
 ALTER TABLE "matches" ADD CONSTRAINT "matches_fk0" FOREIGN KEY ("tutor_id") REFERENCES "tutors"("id");
 ALTER TABLE "matches" ADD CONSTRAINT "matches_fk1" FOREIGN KEY ("tutee_id") REFERENCES "tutees"("id");
 
-SET TIMEZONE = 'America/Chicago';
-
 INSERT INTO "subjects_tutees" ("subject") VALUES
 ('K5_Math'),		 
 ('K5_Reading'),	 
