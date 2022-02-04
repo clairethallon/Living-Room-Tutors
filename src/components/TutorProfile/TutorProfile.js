@@ -173,8 +173,14 @@ function TutorProfile(props) {
 
   return (
     <div>
-      {/* <p>{JSON.stringify(props)}</p> */}
-      <h2>first name last name (pronouns){props.tutor.tutor_first_name}</h2>
+      <p>{JSON.stringify(props)}</p>
+      <div className="profileTitle">
+        <h2 className="profileFirstLastName">
+          {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
+        </h2>
+        <p> ({props.tutor.tutor_pronouns})</p>
+      </div>
+
       <p>
         Tutor's email:
         {props.tutor.tutor_email}
