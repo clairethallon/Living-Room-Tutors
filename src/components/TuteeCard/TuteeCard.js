@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Accordion, Row, Col } from "react-bootstrap";
 import TuteeActivateDeactivateButton from "../TuteeActivateDeactivateButton/TuteeActivateDeactivateButton";
@@ -8,6 +8,34 @@ import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TuteeProfile from "../TuteeProfile/TuteeProfile";
 
 function TuteeCard(props) {
+  useEffect(() => {
+    makePrettyTime(props.tutee.tutee_submission_timestamp);
+  }, []);
+
+  const [prettyTime, setPrettyTime] = useState({
+    year: "",
+    month: "",
+    day: "",
+  });
+
+  const makePrettyTime = (timestamp) => {
+    let newTime = {
+      year: "",
+      month: "",
+      day: "",
+    };
+    for (let i = 0; i < timestamp.length; i++) {
+      if (i < 4) {
+        newTime.year += timestamp[i];
+      } else if (i > 4 && i < 7) {
+        newTime.month += timestamp[i];
+      } else if (i > 7 && i < 10) {
+        newTime.day += timestamp[i];
+      }
+      setPrettyTime(newTime);
+    }
+  };
+
   return (
     <div>
       {/* {JSON.stringify(props)} */}
@@ -18,7 +46,9 @@ function TuteeCard(props) {
             <Col xs="3">
               {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
             </Col>
-            <Col xs="2">{props.tutee.tutee_submission_timestamp}</Col>
+            <Col xs="2">
+              {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+            </Col>
             <Col xs="2">{props.tutee.tutee_grade}</Col>
             <Col xs="2" className="flaggedSubjectLanguage">
               <SubjectFlag />
