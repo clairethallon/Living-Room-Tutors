@@ -1,16 +1,29 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { Button, Modal } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name MatchButton with the name for the new component.
 function CompleteMatchButton(props) {
+
+  const dispatch = useDispatch();
+
+  const selectedTutee = useSelector((store) => store.selected_tutee);
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const postMatch = () => {
+    console.log('in postMatch', props.tutor, selectedTutee);
+    dispatch({ type: 'SEND_NEW_MATCH', tutor: props.tutor, tutee: selectedTutee });
+
+    handleClose();
+  }
 
   return (
     <>
@@ -30,7 +43,7 @@ function CompleteMatchButton(props) {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={postMatch}>
             Confirm Match
           </Button>
         </Modal.Footer>

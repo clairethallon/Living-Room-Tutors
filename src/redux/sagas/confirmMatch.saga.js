@@ -1,0 +1,36 @@
+import axios from "axios";
+import { put, takeLatest } from "redux-saga/effects";
+
+function* postNewMatch(action) {
+  console.log('inpostNewMatch', action)
+  const objectToSend = {
+    tutor_id: action.tutor.id,
+    tutee_id: action.tutee.id
+  }
+  try {
+    const response = yield axios.post("/api/matches", objectToSend);
+    yield put({ type: 'UPDATE_MATCHED_STATUS' });
+  } catch (err) {
+    alert("no");
+    console.log("error posting new match:", err);
+  }
+}
+
+function* updateMatchedStatus(action) {
+  console.log('updateMatchedStatus', action)
+  // try {
+  //   const response = yield axios.post("/api/matches", objectToSend);
+  //   yield put(console.log('yield'));
+  // } catch (err) {
+  //   alert("no");
+  //   console.log("error posting new match:", err);
+  // }
+}
+
+function* confirmMatchSaga() {
+  yield takeLatest("SEND_NEW_MATCH", postNewMatch);
+  yield takeLatest("UPDATE_MATCHED_STATUS", updateMatchedStatus);
+
+}
+
+export default confirmMatchSaga;

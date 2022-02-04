@@ -543,8 +543,21 @@ tutors.email AS tutor_email,
 /**
  * POST route template
  */
-router.post("/", (req, res) => {
-  // POST route code here
+router.post('/', (req, res) => {
+  console.log(('matches.router/post'), req.body);
+  const submissionTimestamp = new Date(Date.now()).toISOString();
+  const queryString = `INSERT INTO "matches" ("tutor_id", "tutee_id", "match_timestamp", "emails_sent")
+  VALUES ($1, $2, $3, $4)
+  RETURNING "id";`;
+
+  let values = [req.body.tutor_id, req.body.tutee_id, submissionTimestamp, true];
+  pool.query(queryString, values).then((results) => {
+    res.sendStatus(201);
+  }).catch((error) => {
+    console.log(error);
+    res.sendStatus(500);
+  })
 });
+
 
 module.exports = router;

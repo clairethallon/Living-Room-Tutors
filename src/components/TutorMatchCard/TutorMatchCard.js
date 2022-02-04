@@ -22,12 +22,6 @@ function TutorMatchCard(props) {
 
   return (
     <div>
-      {/* <p>GROUP A {JSON.stringify(groupAmatches)}</p>
-      <p>GROUP B {JSON.stringify(groupBmatches)}</p>
-      <p>GROUP C {JSON.stringify(groupCmatches)}</p>
-      <p>GROUP D {JSON.stringify(groupDmatches)}</p> */}
-      {/* {JSON.stringify(props)}
-      {JSON.stringify(selected_tutee)} */}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -43,7 +37,7 @@ function TutorMatchCard(props) {
             </Col>
             <Col xs="2"></Col>
             <Col>
-              <CompleteMatchButton />
+              <CompleteMatchButton tutor={props.tutor} />
             </Col>
             {/* </Row> */}
           </Accordion.Header>
