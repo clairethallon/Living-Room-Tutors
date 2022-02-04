@@ -9,7 +9,8 @@ const nodemailer = require("nodemailer");
  * POST route template
  */
 router.post("/", cors(), async (req, res) => {
-  let { email } = req.body.emailStudent;
+  console.log(req.body);
+  let { email } = req.body;
   const transport = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: process.env.MAIL_PORT,
@@ -21,7 +22,7 @@ router.post("/", cors(), async (req, res) => {
 
   await transport.sendMail({
     from: process.env.MAIL_FROM,
-    to: `${email}`,
+    to: "test@test.com",
     subject: "test email",
     html: `<div className="email">
       <h2>Thank you so much for contacting Living Room Tutors!</h2>
