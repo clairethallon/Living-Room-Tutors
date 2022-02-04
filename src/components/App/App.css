@@ -314,3 +314,15 @@ h3 {
   margin-bottom: 10px;
   font-family: Lato-Regular;
 }
+
+.formInput {
+  width: 40% !important;
+}
+
+.selectInput {
+  width: 50% !important;
+}
+
+.textInput {
+  width: 40% !important;
+}

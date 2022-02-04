@@ -25,8 +25,8 @@ function MatchPageButton(props) {
       {props.tutee.active_tutee ? (
         <Button onClick={navigateToMatchPage}>Match</Button>
       ) : (
-        <span></span>
-      )}
+          <span></span>
+        )}
     </div>
   );
 }

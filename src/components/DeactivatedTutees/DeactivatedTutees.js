@@ -8,13 +8,17 @@ function DeactivatedTutees(props) {
 
   useEffect(() => {
     dispatch({ type: "FETCH_DEACTIVE_TUTEES" });
+
   }, []);
+
+  const deactiveTutees = useSelector((store) => store.deactiveTutees);
+
 
   return (
     <div>
       <h1>Deactivated Tutees</h1>
       {/* number will be replaced with an actual count from the db */}
-      <p>3 count of pending tutees</p>
+      <p> {deactiveTutees.length} deactivated tutee(s)</p>
       <DeactivatedTuteesTable />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ActiveTuteesTable from "../ActiveTuteesTable/ActiveTuteesTable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,13 +8,16 @@ function PendingTutees(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState("Functional Component");
 
+
   const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+  
+  const activeTutees = useSelector((store) => store.activeTutees);
 
   return (
     <div>
       <div className="tuteeInfoSubjectsAndLanguages">
         <h1>Tutees Pending Matches</h1>
-        {/* number will be replaced with an actual count from the db */}
+
 
         <div className="subjectAndLanguage">
           <p>
@@ -25,8 +28,8 @@ function PendingTutees(props) {
           </p>
         </div>
       </div>
-      <p>3 count of pending tutees</p>
-
+        {/* number will be replaced with an actual count from the db */}
+      <p>{activeTutees.length} pending tutee(s)</p>
       <ActiveTuteesTable />
     </div>
   );
