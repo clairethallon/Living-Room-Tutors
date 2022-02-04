@@ -9,9 +9,27 @@ import TuteeProfile from "../TuteeProfile/TuteeProfile";
 
 function TuteeCard(props) {
 
+  const subject1 = props.tutee.subject_1;
+  const subject2 = props.tutee.subject_2;
+  const subject3 = props.tutee.subject_3;
+
+  const specialSubjects = useSelector((store) => store.specialSubjects);
+
+  const languages = [
+    props.tutee.tutee_language_arabic,
+    props.tutee.tutee_language_chinese,
+    props.tutee.tutee_language_french,
+    props.tutee.tutee_language_hmong,
+    props.tutee.tutee_language_somali,
+    props.tutee.tutee_language_tagalog,
+    props.tutee.tutee_language_tagalog,
+    props.tutee.tutee_language_vietnamese,
+    props.tutee.tutee_language_spanish,
+  ];
+
+
   return (
     <div>
-      {/* {JSON.stringify(props)} */}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -24,8 +42,20 @@ function TuteeCard(props) {
               <Col xs="2">Pre-K/Kindergarten</Col> :
               <Col xs="2">{props.tutee.tutee_grade}</Col>}
             <Col xs="2" className="flaggedSubjectLanguage">
-              <SubjectFlag />
-              <LanguageFlag />
+              {specialSubjects.map((subject) => {
+                if (
+                  subject1 === subject ||
+                  subject2 === subject ||
+                  subject3 === subject
+                ) {
+                  return <SubjectFlag />;
+                }
+              })}
+              {languages.map((language) => {
+                if (language === true) {
+                  return <LanguageFlag />;
+                }
+              })}
             </Col>
             <Col className="cardButtons" xs="2">
               <TuteeActivateDeactivateButton active={props.tutee} />

@@ -22,6 +22,50 @@
     url("../../fonts/ZPublicaSans.otf") format("truetype");
 }
 
+@font-face {
+  font-family: "Lato-Thin";
+  src: local("Lato-Thin"), url("../../fonts/Lato-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato-ThinItalic";
+  src: local("Lato-ThinItalic"),
+    url("../../fonts/Lato-ThinItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato-Light";
+  src: local("Lato-Light"), url("../../fonts/Lato-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato-LightItalic";
+  src: local("Lato-LightItalic"),
+    url("../../fonts/Lato-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato-Regular";
+  src: local("Lato-Regular"),
+    url("../../fonts/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato-Italic";
+  src: local("Lato-Italic"),
+    url("../../fonts/Lato-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato-Bold";
+  src: local("Lato-Bold"), url("../../fonts/Lato-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato-Black";
+  src: local("Lato-Black"), url("../../fonts/Lato-Black.ttf") format("truetype");
+}
+
 html,
 body,
 #react-root {
@@ -115,11 +159,11 @@ input {
 }
 
 .subjectFlag {
-  color: #fe7e6d;
+  color: #45c6a2;
 }
 
 .languageFlag {
-  color: #2f3a8f;
+  color: #093e48;
 }
 
 .activationButton {
@@ -153,21 +197,19 @@ input {
 }
 
 h1 {
-  font-family: ZPublicaSans;
+  font-family: Lato-Regular;
 }
 
 h2 {
-  font-family: ZPublicaSans;
-
-  text-transform: capitalize;
+  font-family: Lato-Regular;
 }
 
 p {
-  font-family: ZPublicaSans;
+  font-family: Lato-Regular;
 }
 
 h3 {
-  font-family: ZPublicaSans;
+  font-family: Lato-Regular;
 }
 
 .logoutNameAndIcon {
@@ -188,8 +230,89 @@ h3 {
 .signOutName {
   font-size: 27px;
   margin-right: 8px;
-  margin-top: 5px;
-  font-family: PublicaSans-Light;
+
+  font-family: Lato-Regular;
+}
+
+.profileAnswer {
+  font-family: Lato-Regular;
+}
+
+.profileQuestion {
+  font-family: Lato-Black;
+  font-size: 18px;
+}
+
+.profileFirstLastName {
+  font-family: Lato-Black;
+  font-size: 24px;
+}
+
+/* .profileSectionOne {
+  background-color: #c8edf8;
+  padding: 20px;
+}
+
+.profileSectionTwo {
+  background-color: #18a4c38e;
+  padding: 20px;
+}
+
+.profileSectionThree {
+  background-color: #6ece9892;
+  padding: 20px;
+} */
+
+.languagePill {
+  background-color: #c8edf8;
+  padding: 8px 20px;
+  width: fit-content;
+  border-radius: 30px;
+  margin-right: 10px;
+}
+
+.languagePillContainer {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.profileTitle {
+  display: flex;
+  align-items: baseline;
+}
+
+/* .subjectContainer {
+  display: flex;
+} */
+
+.subjectPillFlagged {
+  background-color: #bdebde;
+  padding: 8px 20px;
+  width: fit-content;
+  border-radius: 30px;
+  /* margin-right: 10px; */
+  /* margin-left: 10px; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.subjectPill {
+  background-color: #eaeaeadd;
+  padding: 8px 20px;
+  width: fit-content;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.gradesPill {
+  background-color: #eaeaeadd;
+  padding: 8px 20px;
+  width: fit-content;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: Lato-Regular;
 }
 
 .formInput {
