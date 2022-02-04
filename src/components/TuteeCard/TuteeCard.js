@@ -14,9 +14,21 @@ function TuteeCard(props) {
 
   const specialSubjects = useSelector((store) => store.specialSubjects);
 
+  const languages = [
+    props.tutee.tutee_language_arabic,
+    props.tutee.tutee_language_chinese,
+    props.tutee.tutee_language_french,
+    props.tutee.tutee_language_hmong,
+    props.tutee.tutee_language_somali,
+    props.tutee.tutee_language_tagalog,
+    props.tutee.tutee_language_tagalog,
+    props.tutee.tutee_language_vietnamese,
+    props.tutee.tutee_language_spanish,
+  ];
+
   return (
     <div>
-      {JSON.stringify(props.tutee.subject_2)}
+      {JSON.stringify(languages)}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -34,6 +46,11 @@ function TuteeCard(props) {
                   subject3 === subject
                 ) {
                   return <SubjectFlag />;
+                }
+              })}
+              {languages.map((language) => {
+                if (language === true) {
+                  return <LanguageFlag />;
                 }
               })}
               {/* <SubjectFlag />
