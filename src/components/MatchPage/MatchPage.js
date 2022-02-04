@@ -6,6 +6,7 @@ import { faFlag } from "@fortawesome/free-solid-svg-icons";
 import TuteeMatchCard from "../TuteeMatchCard/TuteeMatchCard";
 import TutorMatchCard from "../TutorMatchCard/TutorMatchCard";
 import TutorMatchTable from "../TutorMatchTable/TutorMatchTable";
+import { Form } from "react-bootstrap";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -15,6 +16,13 @@ function MatchPage(props) {
   // a default value of 'Functional Component'
 
   const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+
+  const dispatch = useDispatch();
+
+  const changeLang = (event) => {
+    dispatch({ type: "SET_LANGUAGE_FILTER", payload: event.target.value });
+    console.log(event.target.value);
+  }
 
   return (
     <div className="adminPageContainer">
@@ -34,6 +42,22 @@ function MatchPage(props) {
       </div>
       <TuteeMatchCard />
       <h3>Select Tutor to Complete Match</h3>
+      <Form.Select
+        aria-label="Default select example"
+        onChange={(event) => changeLang(event)}
+      >
+        <option>Filter by Language</option>
+        <option value="Arabic">Arabic</option>
+        <option value="Chinese">Chinese</option>
+        <option value="French">French</option>
+        <option value="Hmong">Hmong</option>
+        <option value="Somali">Somali</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Tagalog">Tagalog</option>
+        <option value="Vietnamese">Vietnamese</option>
+        <option value="Other">Other</option>
+
+      </Form.Select>
       <TutorMatchTable />
     </div>
   );

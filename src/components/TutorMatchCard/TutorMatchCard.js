@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Accordion, Row, Col } from "react-bootstrap";
 import CompleteMatchButton from "../CompleteMatchButton/CompleteMatchButton";
@@ -14,14 +14,22 @@ function TutorMatchCard(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState("Functional Component");
-  const groupAmatches = useSelector((store) => store.groupAmatches);
-  const groupBmatches = useSelector((store) => store.groupBmatches);
-  const groupCmatches = useSelector((store) => store.groupCmatches);
-  const groupDmatches = useSelector((store) => store.groupDmatches);
+
+  const languageFilter = useSelector((store) => store.languageFilter);
   const selected_tutee = useSelector((store) => store.selected_tutee);
+
+  useEffect(() => {
+    console.log('in useEffect');
+    languageCheck();
+  }, []);
+
+  const languageCheck = () => {
+    console.log('in lang check', languageFilter);
+  }
 
   return (
     <div>
+
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>

@@ -13,11 +13,13 @@ function DeactivatedTutors(props) {
     dispatch({ type: "FETCH_DEACTIVE_TUTORS" });
   }, []);
 
+
+
   return (
     <div>
       <h1>Deactivated Tutors</h1>
       {/* number will be replaced with an actual count from the db */}
-      <p>3 count of pending tutees</p>
+      <p> deactivated tutor(s)</p>
       <DeactivatedTutorsTable />
     </div>
   );

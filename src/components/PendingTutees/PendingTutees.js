@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ActiveTuteesTable from "../ActiveTuteesTable/ActiveTuteesTable";
 
@@ -11,11 +11,20 @@ function PendingTutees(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState("Functional Component");
 
+  const activeTutees = useSelector((store) => store.activeTutees);
+
+  useEffect(() => {
+    setpendingTutees(activeTutees.length);
+  }, []);
+
+  const [pendingTuteesCount, setpendingTutees] = useState(0);
+
+
   return (
     <div>
       <h1>Tutees Pending Matches</h1>
       {/* number will be replaced with an actual count from the db */}
-      <p>3 count of pending tutees</p>
+      <p>{pendingTuteesCount} pending tutee(s)</p>
       <ActiveTuteesTable />
     </div>
   );
