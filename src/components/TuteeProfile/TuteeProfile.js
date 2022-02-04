@@ -140,6 +140,7 @@ function TuteeProfile(props) {
           School attending:{" "}
           <span className="profileAnswer">{props.tutee.tutee_school}</span>
         </p>
+
         <div>
           <p className="profileQuestion">Language preference:</p>
           <div className="languagePillContainer">

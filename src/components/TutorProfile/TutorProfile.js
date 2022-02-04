@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TuteeProfile with the name for the new component.
 function TutorProfile(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  const emailIcon = <FontAwesomeIcon icon={faEnvelope} />;
+  const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
+
   const store = useSelector((store) => store);
   const [tutorLanguages, setTutorLanguages] = useState([]);
   const [tutorSubjects, setTutorSubjects] = useState([]);
@@ -181,35 +181,62 @@ function TutorProfile(props) {
         <p> ({props.tutor.tutor_pronouns})</p>
       </div>
 
-      <p>
-        Tutor's email:
-        {props.tutor.tutor_email}
+      <p className="profileQuestion">
+        {emailIcon} Tutor's email:
+        <span className="profileAnswer"> {props.tutor.tutor_email}</span>
       </p>
-      <p>
-        Phone number:
-        {props.tutor.tutor_phone}
+
+      <p className="profileQuestion">
+        {phoneIcon} Phone number:
+        <span className="profileAnswer">{props.tutor.tutor_phone}</span>
       </p>
-      <p>Grade Level: {props.tutor.tutor_grade}</p>
-      <p>School attending: {props.tutor.tutor_school}</p>
-      <p>
+
+      <p className="profileQuestion">
+        Grade Level:
+        <span className="profileAnswer"> {props.tutor.tutor_grade}</span>
+      </p>
+
+      <p className="profileQuestion">
+        School attending:{" "}
+        <span className="profileAnswer"> {props.tutor.tutor_school}</span>
+      </p>
+
+      <p className="profileQuestion">
         Grades comfortable tutoring:{" "}
         {mentorChosenGrade.map((grade) => {
           return <p>{grade}</p>;
         })}{" "}
       </p>
-      <p>
+
+      <p className="profileQuestion">
         Subjects comfortable tutoring:{" "}
         {tutorSubjects.map((subject) => {
           return <p>{subject}</p>;
         })}
       </p>
-      <p>
-        Languages comfortable tutoring in:{" "}
-        {tutorLanguages.map((language) => {
-          return <p>{language}</p>;
-        })}
+
+      <div>
+        <p className="profileQuestion">
+          Languages comfortable tutoring in:{" "}
+          {tutorLanguages.map((language) => {
+            return <p>{language}</p>;
+          })}
+        </p>
+      </div>
+
+      <div>
+        <p className="profileQuestion">Languages comfortable tutoring in:</p>
+        <div className="languagePillContainer">
+          {tutorLanguages.map((language) => {
+            return <div className="languagePill">{language}</div>;
+          })}
+        </div>
+      </div>
+
+      <p className="profileQuestion">
+        Additional information:{" "}
+        <span className="profileAnswer">{props.tutor.tutor_miscinfo}</span>
       </p>
-      <p>Additional information:</p>
     </div>
   );
 }
