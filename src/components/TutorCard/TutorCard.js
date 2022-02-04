@@ -23,8 +23,8 @@ function TutorCard(props) {
     props.tutor.tutor_language_vietnamese,
     props.tutor.tutor_language_spanish,
   ];
-  
-   const [prettyTime, setPrettyTime] = useState({
+
+  const [prettyTime, setPrettyTime] = useState({
     year: "",
     month: "",
     day: "",
@@ -46,10 +46,11 @@ function TutorCard(props) {
       }
       setPrettyTime(newTime);
     }
+  };
 
   useEffect(() => {
     subjectFinder(subjects);
-    makePrettyTime(props.tutor.tutor_submission_timestamp)
+    makePrettyTime(props.tutor.tutor_submission_timestamp);
   }, []);
 
   const subjects = [
@@ -81,7 +82,10 @@ function TutorCard(props) {
       name: "Precalculus/Trigonometry ",
       status: props.tutor.tutor_math_precalc_trig,
     },
-    { name: "Biology/Life Sciences ", status: props.tutor.tutor_sci_bio_life },
+    {
+      name: "Biology/Life Sciences ",
+      status: props.tutor.tutor_sci_bio_life,
+    },
     { name: "Chemistry ", status: props.tutor.tutor_sci_chem },
     { name: "Physics ", status: props.tutor.tutor_sci_physics },
     { name: "Computer Science ", status: props.tutor.tutor_sci_comp_sci },
@@ -130,7 +134,10 @@ function TutorCard(props) {
       name: "AP/Honors Human Geography ",
       status: props.tutor.tutor_ap_human_geog,
     },
-    { name: "SAT Subject Tests ", status: props.tutor.tutor_sat_subject_tests },
+    {
+      name: "SAT Subject Tests ",
+      status: props.tutor.tutor_sat_subject_tests,
+    },
     { name: "SAT Prep ", status: props.tutor.tutor_sat_prep },
     { name: "ACT Prep ", status: props.tutor.tutor_act_prep },
   ];
