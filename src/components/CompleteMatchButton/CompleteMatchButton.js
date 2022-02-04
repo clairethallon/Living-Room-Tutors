@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 // Basic functional component structure for React with default state
@@ -43,9 +44,11 @@ function CompleteMatchButton(props) {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={postMatch}>
-            Confirm Match
+          <Link to="/records">
+            <Button variant="primary" onClick={postMatch}>
+              Confirm Match
           </Button>
+          </Link>
         </Modal.Footer>
       </Modal>
     </>

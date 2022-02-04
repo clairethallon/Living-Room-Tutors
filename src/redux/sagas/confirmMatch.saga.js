@@ -9,7 +9,7 @@ function* postNewMatch(action) {
   }
   try {
     const response = yield axios.post("/api/matches", objectToSend);
-    yield put({ type: 'UPDATE_MATCHED_STATUS' });
+    yield put({ type: 'UPDATE_MATCHED_STATUS', objectToSend });
   } catch (err) {
     alert("no");
     console.log("error posting new match:", err);
@@ -18,13 +18,17 @@ function* postNewMatch(action) {
 
 function* updateMatchedStatus(action) {
   console.log('updateMatchedStatus', action)
-  // try {
-  //   const response = yield axios.post("/api/matches", objectToSend);
-  //   yield put(console.log('yield'));
-  // } catch (err) {
-  //   alert("no");
-  //   console.log("error posting new match:", err);
-  // }
+  let objectToSend = {
+    tutor_id: action.objectToSend.tutor_id,
+    tutee_id: action.objectToSend.tutee_id
+  }
+  try {
+    const response = yield axios.put("/api/matches/matchStatus", objectToSend);
+    yield put({ type: 'FETCH_MATCHES' });
+  } catch (err) {
+    alert("no");
+    console.log("error posting new match:", err);
+  }
 }
 
 function* confirmMatchSaga() {

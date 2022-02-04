@@ -559,5 +559,31 @@ router.post('/', (req, res) => {
   })
 });
 
+router.put("/matchStatus/", (req, res) => {
+  console.log("in /MatchStatus - tutor", req.body);
+  const queryString = `UPDATE "tutors" SET matched = true WHERE id=${req.body.tutor_id};`;
+  pool
+    .query(queryString)
+    .then((result) => {
+      console.log("in /MatchStatus - tutee", req.body.tutee_id);
+      const queryString = `UPDATE "tutees" SET matched = true WHERE id=${req.body.tutee_id};`;
+      pool
+        .query(queryString)
+        .then((result) => {
+          res.sendStatus(201);
+        })
+        .catch((err) => {
+          console.log("error posting to subject_tutor", err);
+          res.sendStatus(500);
+        });
+
+    }).catch((err) => {
+      console.log("changeStatus failed: ", err);
+      res.sendStatus(500);
+    }).catch((err) => {
+      console.log("error posting to subject_tutor", err);
+      res.sendStatus(500);
+    });
+});
 
 module.exports = router;
