@@ -28,7 +28,6 @@ function TuteeCard(props) {
 
   return (
     <div>
-      {JSON.stringify(languages)}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>

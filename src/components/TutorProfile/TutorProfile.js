@@ -173,7 +173,6 @@ function TutorProfile(props) {
 
   return (
     <div>
-      <p>{JSON.stringify(props)}</p>
       <div className="profileTitle">
         <h2 className="profileFirstLastName">
           {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
