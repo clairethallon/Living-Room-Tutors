@@ -204,24 +204,48 @@ function TutorProfile(props) {
       <p className="profileQuestion">
         Grades comfortable tutoring:{" "}
         {mentorChosenGrade.map((grade) => {
-          return <p>{grade}</p>;
+          return <div className="gradesPill">{grade}</div>;
         })}{" "}
       </p>
 
-      <p className="profileQuestion">
-        Subjects comfortable tutoring:{" "}
-        {tutorSubjects.map((subject) => {
-          return <p>{subject}</p>;
-        })}
-      </p>
-
       <div>
-        <p className="profileQuestion">
-          Languages comfortable tutoring in:{" "}
-          {tutorLanguages.map((language) => {
-            return <p>{language}</p>;
-          })}
-        </p>
+        <p className="profileQuestion">Subjects comfortable tutoring: </p>
+        {tutorSubjects.map((subject) => {
+          if (
+            subject === "Precalculus/Trigonometry " ||
+            subject === "Chemistry " ||
+            subject === "Physics " ||
+            subject === "Computer Science " ||
+            subject === "Chinese " ||
+            subject === "Spanish " ||
+            subject === "French " ||
+            subject === "German " ||
+            subject === "World History " ||
+            subject === "U.S. History " ||
+            subject === "AP/Honors Biology " ||
+            subject === "AP/Honors Chemistry " ||
+            subject === "AP/Honors Physics " ||
+            subject === "AP/Honors Calculus AB " ||
+            subject === "AP/Honors Calculus BC " ||
+            subject === "AP/Honors Statistics " ||
+            subject === "AP/Honors Computer Science " ||
+            subject === "AP/Honors English Literature and Composition " ||
+            subject === "AP/Honors Language and Composition " ||
+            subject === "AP/Honors Macroeconomics " ||
+            subject === "AP/Honors Microeconomics " ||
+            subject === "AP/Honors Psychology " ||
+            subject === "AP/Honors United States History " ||
+            subject === "AP/Honors Government and Politics (US) " ||
+            subject === "AP/Honors Human Geography " ||
+            subject === "SAT Subject Tests " ||
+            subject === "SAT Prep " ||
+            subject === "ACT Prep "
+          ) {
+            return <div className="subjectPillFlagged">{subject}</div>;
+          } else {
+            return <div className="subjectPill">{subject}</div>;
+          }
+        })}
       </div>
 
       <div>

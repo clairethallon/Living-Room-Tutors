@@ -292,11 +292,25 @@ h3 {
   border-radius: 30px;
   /* margin-right: 10px; */
   /* margin-left: 10px; */
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .subjectPill {
-  background-color: #eaeaea;
+  background-color: #eaeaeadd;
   padding: 8px 20px;
   width: fit-content;
   border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.gradesPill {
+  background-color: #eaeaeadd;
+  padding: 8px 20px;
+  width: fit-content;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: Lato-Regular;
 }

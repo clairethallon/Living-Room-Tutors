@@ -53,8 +53,6 @@ function TuteeCard(props) {
                   return <LanguageFlag />;
                 }
               })}
-              {/* <SubjectFlag />
-              <LanguageFlag /> */}
             </Col>
             <Col className="cardButtons" xs="2">
               <TuteeActivateDeactivateButton active={props.tutee} />
