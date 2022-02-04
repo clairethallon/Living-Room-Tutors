@@ -93,7 +93,7 @@ function TutorMatchCard(props) {
 
   return (
     <div>
-      {languageFilter === [] || languageFilter === null || languageFilter == 'View All' ||
+      {languageFilter.length == 0 || languageFilter == 'View All' ||
         languageFilter === 'Chinese' && props.tutor.tutor_language_chinese === true ||
         languageFilter === 'Arabic' && props.tutor.tutor_language_arabic === true ||
         languageFilter === 'French' && props.tutor.tutor_language_french === true ||
