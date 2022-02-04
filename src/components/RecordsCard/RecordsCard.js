@@ -11,12 +11,18 @@ function RecordsCard(props) {
   const [tutorLanguages, setTutorLanguages] = useState([]);
   const [mentorChosenGrade, setMentorChosenGrade] = useState([]);
   const [tutorSubjects, setTutorSubjects] = useState([]);
+  const [prettyTime, setPrettyTime] = useState({
+    year: "",
+    month: "",
+    day: "",
+  });
 
   useEffect(() => {
     tuteeLanguageFinder(languages);
     tutorLanguageFinder(languages);
     gradeFinder(grades);
     subjectFinder(subjects);
+    makePrettyTime(props.match.match_timestamp);
   }, []);
 
   const languages = [
@@ -184,6 +190,24 @@ function RecordsCard(props) {
     return mentor_subjects;
   };
 
+  const makePrettyTime = (timestamp) => {
+    let newTime = {
+      year: "",
+      month: "",
+      day: "",
+    };
+    for (let i = 0; i < timestamp.length; i++) {
+      if (i < 4) {
+        newTime.year += timestamp[i];
+      } else if (i > 4 && i < 7) {
+        newTime.month += timestamp[i];
+      } else if (i > 7 && i < 10) {
+        newTime.day += timestamp[i];
+      }
+      setPrettyTime(newTime);
+    }
+  };
+
   return (
     <div>
       <Accordion className="mb-3 accordionCard" defaultActiveKey="1">
@@ -196,7 +220,9 @@ function RecordsCard(props) {
             <Col xs="3">
               {props.match.tutee_firstname} {props.match.tutee_lastname}
             </Col>
-            <Col xs="3">{props.match.match_timestamp}</Col>
+            <Col xs="3">
+              {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+            </Col>
             <Col className="cardButtons" xs="2"></Col>
             {/* </Row> */}
           </Accordion.Header>
