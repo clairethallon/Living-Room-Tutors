@@ -18,6 +18,12 @@ function* postNewStudent(action) {
   //language table
   try {
     const response = yield axios.post("/api/tutees", action.payload);
+    try {
+      const response2 = yield axios.post("/api/mail", action.payload);
+    } catch (err) {
+      alert("no");
+      console.log("error posting new student email:", err);
+    }
   } catch (err) {
     alert("no");
     console.log("error posting new student:", err);
