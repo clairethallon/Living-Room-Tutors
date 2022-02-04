@@ -9,21 +9,17 @@ function PendingTutors(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
 
-  useEffect(() => {
-    setPendingTutorCount(activeTutors.length);
-  }, []);
 
   const [heading, setHeading] = useState("Functional Component");
   const activeTutors = useSelector((store) => store.activeTutors);
 
-  const [PendingTutorCount, setPendingTutorCount] = useState(0);
 
 
   return (
     <div>
       <h1>Tutors Pending Matches</h1>
       {/* number will be replaced with an actual count from the db */}
-      <p>{PendingTutorCount} pending tutor(s)</p>
+      <p>{activeTutors.length} pending tutor(s)</p>
       <ActiveTutorsTable />
     </div>
   );

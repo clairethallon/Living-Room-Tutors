@@ -13,18 +13,12 @@ function PendingTutees(props) {
 
   const activeTutees = useSelector((store) => store.activeTutees);
 
-  useEffect(() => {
-    setpendingTutees(activeTutees.length);
-  }, []);
-
-  const [pendingTuteesCount, setpendingTutees] = useState(0);
-
 
   return (
     <div>
       <h1>Tutees Pending Matches</h1>
       {/* number will be replaced with an actual count from the db */}
-      <p>{pendingTuteesCount} pending tutee(s)</p>
+      <p>{activeTutees.length} pending tutee(s)</p>
       <ActiveTuteesTable />
     </div>
   );

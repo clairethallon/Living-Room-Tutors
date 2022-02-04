@@ -18,43 +18,52 @@ function TutorMatchCard(props) {
   const languageFilter = useSelector((store) => store.languageFilter);
   const selected_tutee = useSelector((store) => store.selected_tutee);
 
-  useEffect(() => {
-    console.log('in useEffect');
-    languageCheck();
-  }, []);
-
   const languageCheck = () => {
-    console.log('in lang check', languageFilter);
+    console.log('in lang check', languageFilter, props.tutor);
+    if (languageFilter === 'Spanish') {
+      console.log('SPANISHHH')
+    }
   }
 
   return (
     <div>
-
-      <Accordion className="mb-3" defaultActiveKey="1">
-        <Accordion.Item eventKey="0">
-          <Accordion.Header>
-            {/* <Row> */}
-            <Col xs="2">
-              {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
-            </Col>
-            <Col xs="2">{props.tutor.submission_timestamp}</Col>
-            <Col xs="3">{selected_tutee.subject_1}</Col>
-            <Col xs="1" className="flaggedSubjectLanguage">
-              <SubjectFlag />
-              <LanguageFlag />
-            </Col>
-            <Col xs="2"></Col>
-            <Col>
-              <CompleteMatchButton tutor={props.tutor} />
-            </Col>
-            {/* </Row> */}
-          </Accordion.Header>
-          <Accordion.Body>
-            {/* {JSON.stringify(props.tutor)} */}
-            <TutorProfile tutor={props.tutor} />
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+      {languageFilter === [] || languageFilter === null || languageFilter == 'View All' ||
+        languageFilter === 'Chinese' && props.tutor.tutor_language_chinese === true ||
+        languageFilter === 'Arabic' && props.tutor.tutor_language_arabic === true ||
+        languageFilter === 'French' && props.tutor.tutor_language_french === true ||
+        languageFilter === 'Hmong' && props.tutor.tutor_language_hmong === true ||
+        languageFilter === 'Other' && props.tutor.tutor_language_other === true ||
+        languageFilter === 'Somali' && props.tutor.tutor_language_somali === true ||
+        languageFilter === 'Spanish' && props.tutor.tutor_language_spanish === true ||
+        languageFilter === 'Tagalog' && props.tutor.tutor_language_tagalog === true ||
+        languageFilter === 'Vietnamese' && props.tutor.tutor_language_vietnamese === true
+        ?
+        <Accordion className="mb-3" defaultActiveKey="1">
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>
+              {/* <Row> */}
+              <Col xs="2">
+                {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
+              </Col>
+              <Col xs="2">{props.tutor.submission_timestamp}</Col>
+              <Col xs="3">{selected_tutee.subject_1}</Col>
+              <Col xs="1" className="flaggedSubjectLanguage">
+                <SubjectFlag />
+                <LanguageFlag />
+              </Col>
+              <Col xs="2"></Col>
+              <Col>
+                <CompleteMatchButton tutor={props.tutor} />
+              </Col>
+              {/* </Row> */}
+            </Accordion.Header>
+            <Accordion.Body>
+              {/* {JSON.stringify(props.tutor)} */}
+              <TutorProfile tutor={props.tutor} />
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+        : <span></span>}
     </div>
   );
 }

@@ -42,11 +42,13 @@ function MatchPage(props) {
       </div>
       <TuteeMatchCard />
       <h3>Select Tutor to Complete Match</h3>
+      <p>Filter Tutors by Language</p>
+
       <Form.Select
         aria-label="Default select example"
         onChange={(event) => changeLang(event)}
       >
-        <option>Filter by Language</option>
+        <option>View All</option>
         <option value="Arabic">Arabic</option>
         <option value="Chinese">Chinese</option>
         <option value="French">French</option>
@@ -56,6 +58,7 @@ function MatchPage(props) {
         <option value="Tagalog">Tagalog</option>
         <option value="Vietnamese">Vietnamese</option>
         <option value="Other">Other</option>
+
 
       </Form.Select>
       <TutorMatchTable />

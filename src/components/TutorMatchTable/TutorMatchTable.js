@@ -13,18 +13,12 @@ function MatchTable(props) {
   const [heading, setHeading] = useState("Functional Component");
   const dispatch = useDispatch();
 
-  const activeTutors = useSelector((store) => store.activeTutors);
-
   const groupAmatches = useSelector((store) => store.groupAmatches);
   const groupBmatches = useSelector((store) => store.groupBmatches);
   const groupCmatches = useSelector((store) => store.groupCmatches);
   const groupDmatches = useSelector((store) => store.groupDmatches);
 
-  useEffect(() => {
-    dispatch({
-      type: "FETCH_ACTIVE_TUTORS",
-    });
-  }, []);
+
 
   return (
     <div>

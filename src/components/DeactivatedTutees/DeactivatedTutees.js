@@ -11,12 +11,14 @@ function DeactivatedTutees(props) {
 
   }, []);
 
+  const deactiveTutees = useSelector((store) => store.deactiveTutees);
+
 
   return (
     <div>
       <h1>Deactivated Tutees</h1>
       {/* number will be replaced with an actual count from the db */}
-      <p> _ deactivated tutee(s)</p>
+      <p> {deactiveTutees.length} deactivated tutee(s)</p>
       <DeactivatedTuteesTable />
     </div>
   );
