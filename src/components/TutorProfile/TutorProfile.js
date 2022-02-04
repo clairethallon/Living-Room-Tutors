@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TuteeProfile with the name for the new component.
 function TutorProfile(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  const emailIcon = <FontAwesomeIcon icon={faEnvelope} />;
+  const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
+
   const store = useSelector((store) => store);
   const [tutorLanguages, setTutorLanguages] = useState([]);
   const [tutorSubjects, setTutorSubjects] = useState([]);
@@ -173,37 +173,93 @@ function TutorProfile(props) {
 
   return (
     <div>
-      {/* <p>{JSON.stringify(props)}</p> */}
-      <h2>first name last name (pronouns){props.tutor.tutor_first_name}</h2>
-      <p>
-        Tutor's email:
-        {props.tutor.tutor_email}
+      <div className="profileTitle">
+        <h2 className="profileFirstLastName">
+          {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
+        </h2>
+        <p> ({props.tutor.tutor_pronouns})</p>
+      </div>
+
+      <p className="profileQuestion">
+        {emailIcon} Tutor's email:
+        <span className="profileAnswer"> {props.tutor.tutor_email}</span>
       </p>
-      <p>
-        Phone number:
-        {props.tutor.tutor_phone}
+
+      <p className="profileQuestion">
+        {phoneIcon} Phone number:
+        <span className="profileAnswer">{props.tutor.tutor_phone}</span>
       </p>
-      <p>Grade Level: {props.tutor.tutor_grade}</p>
-      <p>School attending: {props.tutor.tutor_school}</p>
-      <p>
+
+      <p className="profileQuestion">
+        Grade Level:
+        <span className="profileAnswer"> {props.tutor.tutor_grade}</span>
+      </p>
+
+      <p className="profileQuestion">
+        School attending:{" "}
+        <span className="profileAnswer"> {props.tutor.tutor_school}</span>
+      </p>
+
+      <p className="profileQuestion">
         Grades comfortable tutoring:{" "}
         {mentorChosenGrade.map((grade) => {
-          return <p>{grade}</p>;
+          return <div className="gradesPill">{grade}</div>;
         })}{" "}
       </p>
-      <p>
-        Subjects comfortable tutoring:{" "}
+
+      <div>
+        <p className="profileQuestion">Subjects comfortable tutoring: </p>
         {tutorSubjects.map((subject) => {
-          return <p>{subject}</p>;
+          if (
+            subject === "Precalculus/Trigonometry " ||
+            subject === "Chemistry " ||
+            subject === "Physics " ||
+            subject === "Computer Science " ||
+            subject === "Chinese " ||
+            subject === "Spanish " ||
+            subject === "French " ||
+            subject === "German " ||
+            subject === "World History " ||
+            subject === "U.S. History " ||
+            subject === "AP/Honors Biology " ||
+            subject === "AP/Honors Chemistry " ||
+            subject === "AP/Honors Physics " ||
+            subject === "AP/Honors Calculus AB " ||
+            subject === "AP/Honors Calculus BC " ||
+            subject === "AP/Honors Statistics " ||
+            subject === "AP/Honors Computer Science " ||
+            subject === "AP/Honors English Literature and Composition " ||
+            subject === "AP/Honors Language and Composition " ||
+            subject === "AP/Honors Macroeconomics " ||
+            subject === "AP/Honors Microeconomics " ||
+            subject === "AP/Honors Psychology " ||
+            subject === "AP/Honors United States History " ||
+            subject === "AP/Honors Government and Politics (US) " ||
+            subject === "AP/Honors Human Geography " ||
+            subject === "SAT Subject Tests " ||
+            subject === "SAT Prep " ||
+            subject === "ACT Prep "
+          ) {
+            return <div className="subjectPillFlagged">{subject}</div>;
+          } else {
+            return <div className="subjectPill">{subject}</div>;
+          }
         })}
+      </div>
+
+      <div>
+        <p className="profileQuestion">Languages comfortable tutoring in:</p>
+        <div className="languagePillContainer">
+          {tutorLanguages.map((language) => {
+            return <div className="languagePill">{language}</div>;
+          })}
+        </div>
+      </div>
+
+      <p className="profileQuestion">
+        Additional information:{" "}
+        <span className="profileAnswer">{props.tutor.tutor_miscinfo}</span>
       </p>
-      <p>
-        Languages comfortable tutoring in:{" "}
-        {tutorLanguages.map((language) => {
-          return <p>{language}</p>;
-        })}
-      </p>
-      <p>Additional information:</p>
     </div>
   );
 }

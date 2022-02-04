@@ -18,7 +18,6 @@ function DeactivatedTuteesTable(props) {
 
   return (
     <div>
-      {JSON.stringify(deactiveTutees)}
       <div>
         <Row className="cardHead">
           <Col xs="3" className="cardHeadCol">

@@ -543,8 +543,47 @@ tutors.email AS tutor_email,
 /**
  * POST route template
  */
-router.post("/", (req, res) => {
-  // POST route code here
+router.post('/', (req, res) => {
+  console.log(('matches.router/post'), req.body);
+  const submissionTimestamp = new Date(Date.now()).toISOString();
+  const queryString = `INSERT INTO "matches" ("tutor_id", "tutee_id", "match_timestamp", "emails_sent")
+  VALUES ($1, $2, $3, $4)
+  RETURNING "id";`;
+
+  let values = [req.body.tutor_id, req.body.tutee_id, submissionTimestamp, true];
+  pool.query(queryString, values).then((results) => {
+    res.sendStatus(201);
+  }).catch((error) => {
+    console.log(error);
+    res.sendStatus(500);
+  })
+});
+
+router.put("/matchStatus/", (req, res) => {
+  console.log("in /MatchStatus - tutor", req.body);
+  const queryString = `UPDATE "tutors" SET matched = true WHERE id=${req.body.tutor_id};`;
+  pool
+    .query(queryString)
+    .then((result) => {
+      console.log("in /MatchStatus - tutee", req.body.tutee_id);
+      const queryString = `UPDATE "tutees" SET matched = true WHERE id=${req.body.tutee_id};`;
+      pool
+        .query(queryString)
+        .then((result) => {
+          res.sendStatus(201);
+        })
+        .catch((err) => {
+          console.log("error posting to subject_tutor", err);
+          res.sendStatus(500);
+        });
+
+    }).catch((err) => {
+      console.log("changeStatus failed: ", err);
+      res.sendStatus(500);
+    }).catch((err) => {
+      console.log("error posting to subject_tutor", err);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;

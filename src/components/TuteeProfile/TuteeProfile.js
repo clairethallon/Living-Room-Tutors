@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import "../TuteeProfile/TuteeProfile.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function TuteeProfile(props) {
+  const emailIcon = <FontAwesomeIcon icon={faEnvelope} />;
+  const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
+
   const store = useSelector((store) => store);
   const [tuteeLanguages, setTuteeLanguages] = useState([]);
   const [subject1, setSubject1] = useState("");
@@ -105,30 +109,165 @@ function TuteeProfile(props) {
 
   return (
     <div>
-      <h2>
-        {props.tutee.tutee_firstname} {props.tutee.tutee_lastname} (
-        {props.tutee.tutee_pronouns})
-      </h2>
-      <p>
-        Parent/Guardian's email (if applicable): {props.tutee.email_guardian}
-      </p>
-      <p>Student's email: {props.tutee.email_student}</p>
-      <p>Phone number: {props.tutee.tutee_phone}</p>
-      <p>Grade Level: {props.tutee.grade_level}</p>
-      <p>School attending: {props.tutee.school}</p>
+      {/* {JSON.stringify(props.tutee)} */}
 
-      <p>
-        Language preference (if not English):{" "}
-        {tuteeLanguages.map((language) => {
-          return <p>{language}</p>;
-        })}
-      </p>
-      <p>1st subject choice: {subject1}</p>
-      <p>2st subject choice: {subject2}</p>
-      <p>3st subject choice: {subject3}</p>
-      <p>other subject (if applicable): </p>
-      <p>Detail description regarding help needed:</p>
-      <p>Addition information:</p>
+      <div className="profileTitle">
+        <h2 className="profileFirstLastName">
+          {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
+        </h2>
+        <p>({props.tutee.tutee_pronouns})</p>
+      </div>
+      <div className="profileSectionOne">
+        <p className="profileQuestion">
+          {emailIcon} Parent/Guardian's Email:
+          <span className="profileAnswer"> {props.tutee.email_guardian}</span>
+        </p>
+        <p className="profileQuestion">
+          {emailIcon} Student's email:
+          <span className="profileAnswer">{props.tutee.email_student}</span>
+        </p>
+        <p className="profileQuestion">
+          {phoneIcon} Phone number:{" "}
+          <span className="profileAnswer">{props.tutee.tutee_phone}</span>
+        </p>
+      </div>
+      <div className="profileSectionTwo">
+        <p className="profileQuestion">
+          Grade Level:
+          <span className="profileAnswer"> {props.tutee.tutee_grade}</span>
+        </p>
+        <p className="profileQuestion">
+          School attending:{" "}
+          <span className="profileAnswer">{props.tutee.tutee_school}</span>
+        </p>
+
+        <div>
+          <p className="profileQuestion">Language preference:</p>
+          <div className="languagePillContainer">
+            {tuteeLanguages.map((language) => {
+              return <div className="languagePill">{language}</div>;
+            })}
+          </div>
+        </div>
+      </div>
+      {/* this section is the ternary operator for the first choice subject pill */}
+      <div className="profileSectionThree">
+        <div className="subjectContainer">
+          <p className="profileQuestion">1st subject choice:</p>
+          {subject1 === "Precalculus/Trigonometry " ||
+          subject1 === "Chemistry " ||
+          subject1 === "Physics " ||
+          subject1 === "Computer Science " ||
+          subject1 === "Chinese " ||
+          subject1 === "Spanish " ||
+          subject1 === "French " ||
+          subject1 === "German " ||
+          subject1 === "World History " ||
+          subject1 === "U.S. History " ||
+          subject1 === "AP/Honors Biology " ||
+          subject1 === "AP/Honors Chemistry " ||
+          subject1 === "AP/Honors Physics " ||
+          subject1 === "AP/Honors Calculus AB " ||
+          subject1 === "AP/Honors Calculus BC " ||
+          subject1 === "AP/Honors Statistics " ||
+          subject1 === "AP/Honors Computer Science " ||
+          subject1 === "AP/Honors English Literature and Composition " ||
+          subject1 === "AP/Honors Language and Composition " ||
+          subject1 === "AP/Honors Macroeconomics " ||
+          subject1 === "AP/Honors Microeconomics " ||
+          subject1 === "AP/Honors Psychology " ||
+          subject1 === "AP/Honors United States History " ||
+          subject1 === "AP/Honors Government and Politics (US) " ||
+          subject1 === "AP/Honors Human Geography " ||
+          subject1 === "SAT Subject Tests " ||
+          subject1 === "SAT Prep " ||
+          subject1 === "ACT Prep " ? (
+            <div className="subjectPillFlagged">{subject1}</div>
+          ) : (
+            <div className="subjectPill">{subject1}</div>
+          )}
+        </div>
+
+        {/* this section is the ternary operator for the second choice subject pill */}
+        <div className="subjectContainer">
+          <p className="profileQuestion">2nd subject choice:</p>
+          {subject2 === "Precalculus/Trigonometry " ||
+          subject2 === "Chemistry " ||
+          subject2 === "Physics " ||
+          subject2 === "Computer Science " ||
+          subject2 === "Chinese " ||
+          subject2 === "Spanish " ||
+          subject2 === "French " ||
+          subject2 === "German " ||
+          subject2 === "World History " ||
+          subject2 === "U.S. History " ||
+          subject2 === "AP/Honors Biology " ||
+          subject2 === "AP/Honors Chemistry " ||
+          subject2 === "AP/Honors Physics " ||
+          subject2 === "AP/Honors Calculus AB " ||
+          subject2 === "AP/Honors Calculus BC " ||
+          subject2 === "AP/Honors Statistics " ||
+          subject2 === "AP/Honors Computer Science " ||
+          subject2 === "AP/Honors English Literature and Composition " ||
+          subject2 === "AP/Honors Language and Composition " ||
+          subject2 === "AP/Honors Macroeconomics " ||
+          subject2 === "AP/Honors Microeconomics " ||
+          subject2 === "AP/Honors Psychology " ||
+          subject2 === "AP/Honors United States History " ||
+          subject2 === "AP/Honors Government and Politics (US) " ||
+          subject2 === "AP/Honors Human Geography " ||
+          subject2 === "SAT Subject Tests " ||
+          subject2 === "SAT Prep " ||
+          subject2 === "ACT Prep " ? (
+            <div className="subjectPillFlagged">{subject2}</div>
+          ) : (
+            <div className="subjectPill">{subject2}</div>
+          )}
+        </div>
+
+        {/* this section is the ternary operator for the third choice subject pill */}
+        <div className="subjectContainer">
+          <p className="profileQuestion">3nd subject choice:</p>
+          {subject3 === "Precalculus/Trigonometry " ||
+          subject3 === "Chemistry " ||
+          subject3 === "Physics " ||
+          subject3 === "Computer Science " ||
+          subject3 === "Chinese " ||
+          subject3 === "Spanish " ||
+          subject3 === "French " ||
+          subject3 === "German " ||
+          subject3 === "World History " ||
+          subject3 === "U.S. History " ||
+          subject3 === "AP/Honors Biology " ||
+          subject3 === "AP/Honors Chemistry " ||
+          subject3 === "AP/Honors Physics " ||
+          subject3 === "AP/Honors Calculus AB " ||
+          subject3 === "AP/Honors Calculus BC " ||
+          subject3 === "AP/Honors Statistics " ||
+          subject3 === "AP/Honors Computer Science " ||
+          subject3 === "AP/Honors English Literature and Composition " ||
+          subject3 === "AP/Honors Language and Composition " ||
+          subject3 === "AP/Honors Macroeconomics " ||
+          subject3 === "AP/Honors Microeconomics " ||
+          subject3 === "AP/Honors Psychology " ||
+          subject3 === "AP/Honors United States History " ||
+          subject3 === "AP/Honors Government and Politics (US) " ||
+          subject3 === "AP/Honors Human Geography " ||
+          subject3 === "SAT Subject Tests " ||
+          subject3 === "SAT Prep " ||
+          subject3 === "ACT Prep " ? (
+            <div className="subjectPillFlagged">{subject3}</div>
+          ) : (
+            <div className="subjectPill">{subject3}</div>
+          )}
+        </div>
+
+        <p className="profileQuestion">
+          Detail description regarding help needed:{" "}
+          <span className="profileAnswer">"{props.tutee.tutee_misc_info}"</span>
+        </p>
+        <p className="profileQuestion">Addition information:</p>
+      </div>
     </div>
   );
 }
