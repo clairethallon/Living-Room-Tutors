@@ -23,7 +23,7 @@ function StudentModal(props) {
     <div>
 
       <>
-      <Button varient="primary" onClick={handleShow}> Submit + Modal </Button>
+      <Button varient="primary" onClick={handleShow}> Submit </Button>
         <Modal show ={show} onHide={handleClose}>
 
         <Modal.Header closeButton>
@@ -35,7 +35,7 @@ function StudentModal(props) {
         </Modal.Body>
 
         <Modal.Footer>
-          <Link to="/StudentInfo"><Button variant="primary" onClick={handleClose}>Submit</Button></Link>
+          <Link to="/StudentInfo"><Button variant="primary" onClick={handleClose}>Home</Button></Link>
         </Modal.Footer>
   
       </Modal>

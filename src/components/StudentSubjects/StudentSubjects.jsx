@@ -19,7 +19,6 @@ function StudentSubjects(props) {
   const [newTertiarySubject, setNewTertiarySubject] = useState();
   const [changeOtherTertiaryField, setOtherTertiaryField] = useState(false);
 
-  const [newOtherInfo, setNewOtherInfo] = useState();
   const [newDetailedNeeds, setNewDetailedNeeds] = useState();
 
   // ************ Primary Subject Change ************
@@ -76,11 +75,6 @@ function StudentSubjects(props) {
     setNewTertiarySubject(event.target.value);
   };
 
-  const changeOtherInfo = () => {
-    console.log("in new other info");
-    setNewOtherInfo(event.target.value);
-  };
-
   const changeDetailedNeeds = () => {
     console.log("in new detailed needs");
     setNewDetailedNeeds(event.target.value);
@@ -92,7 +86,6 @@ function StudentSubjects(props) {
       newPrimarySubject: newPrimarySubject,
       newSecondarySubject: newSecondarySubject,
       newTertiarySubject: newTertiarySubject,
-      newOtherInfo: newOtherInfo,
       newDetailedNeeds: newDetailedNeeds,
     };
 
@@ -171,7 +164,6 @@ function StudentSubjects(props) {
               <option value="39">SAT Subject Tests</option>
               <option value="40">SAT Prep</option>
               <option value="41">ACT Prep</option>
-              <option value="42">Other</option>
             </Form.Select>
           </FloatingLabel>
           {changeOtherField ? (
@@ -247,7 +239,6 @@ function StudentSubjects(props) {
               <option value="39">SAT Subject Tests</option>
               <option value="40">SAT Prep</option>
               <option value="41">ACT Prep</option>
-              <option value="42">Other</option>
             </Form.Select>
           </FloatingLabel>
           {changeOtherSecondaryField ? (
@@ -326,7 +317,6 @@ function StudentSubjects(props) {
               <option value="39">SAT Subject Tests</option>
               <option value="40">SAT Prep</option>
               <option value="41">ACT Prep</option>
-              <option value="42">Other</option>
             </Form.Select>
           </FloatingLabel>
           {changeOtherTertiaryField ? (
@@ -346,24 +336,6 @@ function StudentSubjects(props) {
           ) : (
             <> </>
           )}
-        </>
-
-        <>
-          <h3>
-            If you stated "other" for any of your choices, please describe what
-            support is needed:
-          </h3>
-          <FloatingLabel
-            controlID="OtherInfo"
-            label="Support Needed"
-            className="textInput"
-            onChange={(event) => changeOtherInfo(event)}
-          >
-            <Form.Control  
-              as="textarea"
-              placeholder="Support Needed"
-              style={{ height: "100px" }}  />
-          </FloatingLabel>
         </>
 
         <>
