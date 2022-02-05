@@ -10,6 +10,9 @@ function TutorInfo(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)}
+
   const [newSubmitter, setSubmitter] = useState();
   const [newFirstName, setNewFirstName] = useState();
   const [newLastName, setNewLastName] = useState();
@@ -445,7 +448,7 @@ function TutorInfo(props) {
         </div>
 
         <Link to="/StudentSubjects">
-          <Button onClick={AddNewTutorInfo}>Save and Continue</Button>
+          <Button onClick={AddNewTutorInfo, scrollToTop}>Save and Continue</Button>
         </Link>
       </div>
     </div>

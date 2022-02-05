@@ -10,6 +10,9 @@ function StudentSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)}
+
   const [newPrimarySubject, setNewPrimarySubject] = useState();
   const [changeOtherField, setOtherPrimaryField] = useState(false);
 
@@ -364,7 +367,7 @@ function StudentSubjects(props) {
         </>
 
         <Link to="/StudentAdditional">
-          <Button onClick={AddNewStudentSubjects}>Save and Continue</Button>
+          <Button onClick={AddNewStudentSubjects, scrollToTop}>Save and Continue</Button>
         </Link>
       </div>
     </div>

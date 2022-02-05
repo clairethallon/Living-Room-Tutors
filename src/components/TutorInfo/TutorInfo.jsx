@@ -16,6 +16,9 @@ function TutorInfo(props) {
   const store = useSelector((store) => store);
   const newtutorInfo = useSelector((store) => store.newtutorInfo);
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)}
+
   const[newTutorFirstName, setNewTutorFirstName]= useState();
   const[newTutorLastName, setNewTutorLastName]= useState();
   const[newTutorEmail, setNewEmail]= useState();
@@ -173,7 +176,7 @@ function TutorInfo(props) {
       }
         </>
 
-        <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
+        <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo, scrollToTop}>Save and Continue</Button></Link>
         </div> 
     </div>
   );

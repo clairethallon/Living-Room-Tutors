@@ -8,6 +8,10 @@ function TutorSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+}
+
   // ******** GRADE CHECK BOXES **************
   const [PreK, setPreK] = useState(false);
   const [FirstGrade, setFirstGrade] = useState(false);
@@ -397,7 +401,7 @@ function TutorSubjects(props) {
     console.log("Hmong", Hmong);
   };
 
-  // ******** LANGUAGE CHECK BOXES **************
+  // ******** END LANGUAGE CHECK BOXES **************
 
   const AddNewTutorSubjects = () => {
     //package up new info in object
@@ -543,6 +547,7 @@ function TutorSubjects(props) {
 
   return (
     <div>
+
        <Header/>
 
       <h3>What grade levels are you comfortable tutoring/mentoring?</h3>
@@ -1203,7 +1208,7 @@ function TutorSubjects(props) {
       </div>
 
       <Link to="/TutorAdditional">
-        <Button onClick={AddNewTutorSubjects}>Add A New Tutor Info</Button>
+        <Button onClick={AddNewTutorSubjects, scrollToTop}>Add A New Tutor Info</Button>
       </Link>
     </div>
   );
