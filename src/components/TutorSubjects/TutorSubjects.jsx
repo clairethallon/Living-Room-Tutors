@@ -354,10 +354,6 @@ function TutorSubjects(props) {
     console.log("ACTPrep", ACTPrep);
   };
 
-  const changeOther = () => {
-    setOther(!Other);
-    console.log("Other", Other);
-  };
   // **************** TUTOR SUBJECTS *******************
 
   // ******** LANGUAGE CHECK BOXES **************
@@ -461,7 +457,6 @@ function TutorSubjects(props) {
       SATSubjectTests: SATSubjectTests,
       SATPrep: SATPrep,
       ACTPrep: ACTPrep,
-      Other: Other,
 
       Spanish: Spanish,
       Somali: Somali,
@@ -534,8 +529,7 @@ function TutorSubjects(props) {
       newTutorSubjects.APHonorsHumanGeography == false &&
       newTutorSubjects.SATSubjectTests == false &&
       newTutorSubjects.SATPrep == false &&
-      newTutorSubjects.ACTPrep == false &&
-      newTutorSubjects.Other == false
+      newTutorSubjects.ACTPrep == false
     ) {
       subjectErrors = true;
     }
@@ -1118,16 +1112,6 @@ function TutorSubjects(props) {
           onChange={(event) => changeACTPrep()}
         />
         <label htmlFor="ACT Prep">ACT Prep</label>
-      </div>
-
-      <div>
-        <input
-          type="checkbox"
-          id="Other"
-          name="Other"
-          onChange={(event) => changeOther()}
-        />
-        <label htmlFor="Other">Other</label>
       </div>
 
       <div>
