@@ -21,9 +21,16 @@ function TutorMatchCard(props) {
   const [subject1, setSubject1] = useState("");
   const [subject2, setSubject2] = useState("");
   const [subject3, setSubject3] = useState("");
+  const [prettyTime, setPrettyTime] = useState({
+    year: "",
+    month: "",
+    day: "",
+  });
 
   useEffect(() => {
     subjectFinder(subjects);
+    makePrettyTime(props.tutor.submission_timestamp);
+
   }, []);
 
   const subjects = [
@@ -91,6 +98,26 @@ function TutorMatchCard(props) {
     }
   };
 
+
+  const makePrettyTime = (timestamp) => {
+    console.log(timestamp)
+    let newTime = {
+      year: "",
+      month: "",
+      day: "",
+    };
+    for (let i = 0; i < timestamp.length; i++) {
+      if (i < 4) {
+        newTime.year += timestamp[i];
+      } else if (i > 4 && i < 7) {
+        newTime.month += timestamp[i];
+      } else if (i > 7 && i < 10) {
+        newTime.day += timestamp[i];
+      }
+      setPrettyTime(newTime);
+    }
+  };
+
   return (
     <div>
       {languageFilter.length == 0 || languageFilter == 'View All' ||
@@ -111,7 +138,7 @@ function TutorMatchCard(props) {
               <Col xs="2">
                 {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
               </Col>
-              <Col xs="2">{props.tutor.submission_timestamp}</Col>
+              <Col xs="2">{prettyTime.month}.{prettyTime.day}.{prettyTime.year}</Col>
               {props.group === 'A' ?
                 <Col xs="3">{subject1}<br></br> {subject2}<br></br>{subject3}</Col> :
                 props.group === 'B' ?
