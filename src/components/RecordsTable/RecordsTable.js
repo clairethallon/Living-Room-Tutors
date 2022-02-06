@@ -33,7 +33,7 @@ function RecordsTable(props) {
       </div>
       <div>
         {matches.map((match) => {
-          return <RecordsCard match={match} />;
+          return <RecordsCard match={match} year={props.year} />;
         })}
       </div>
     </div>
