@@ -112,7 +112,14 @@ function TutorMatchCard(props) {
                 {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
               </Col>
               <Col xs="2">{props.tutor.submission_timestamp}</Col>
-              <Col xs="3">{subject1}</Col>
+              {props.group === 'A' ?
+                <Col xs="3">{subject1}<br></br> {subject2}<br></br>{subject3}</Col> :
+                props.group === 'B' ?
+                  <Col xs="3">{subject1}<br></br> {subject2}</Col> :
+                  props.group === 'C' ?
+                    <Col xs="3">{subject1}<br></br>{subject3}</Col> :
+                    <Col xs="3">{subject1}</Col>
+              }
               <Col xs="1" className="flaggedSubjectLanguage">
                 <SubjectFlag />
                 <LanguageFlag />
@@ -129,8 +136,9 @@ function TutorMatchCard(props) {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-        : <span></span>}
-    </div>
+        : <span></span>
+      }
+    </div >
   );
 }
 

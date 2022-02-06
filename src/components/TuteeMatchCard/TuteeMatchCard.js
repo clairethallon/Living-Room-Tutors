@@ -95,7 +95,7 @@ function TuteeMatchCard(props) {
               {selectedTutee.tutee_firstname} {selectedTutee.tutee_lastname}
             </Col>
             <Col xs="2">{selectedTutee.tutee_submission_timestamp}</Col>
-            <Col xs="3">{subject1}</Col>
+            <Col xs="3">{subject1}<br></br>{subject2}<br></br>{subject3}</Col>
 
             <Col xs="2" className="flaggedSubjectLanguage">
               <SubjectFlag />

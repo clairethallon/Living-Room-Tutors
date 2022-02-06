@@ -49,22 +49,22 @@ function MatchTable(props) {
       </div> */}
       <div>
         {groupAmatches.map((groupATutor) => {
-          return <TutorMatchCard tutor={groupATutor} />;
+          return <TutorMatchCard tutor={groupATutor} group={'A'} />;
         })}
       </div>
       <div>
         {groupBmatches.map((groupBTutor) => {
-          return <TutorMatchCard tutor={groupBTutor} />;
+          return <TutorMatchCard tutor={groupBTutor} group={'B'} />;
         })}
       </div>
       <div>
         {groupCmatches.map((groupCTutor) => {
-          return <TutorMatchCard tutor={groupCTutor} />;
+          return <TutorMatchCard tutor={groupCTutor} group={'C'} />;
         })}
       </div>
       <div>
         {groupDmatches.map((groupDTutor) => {
-          return <TutorMatchCard tutor={groupDTutor} />;
+          return <TutorMatchCard tutor={groupDTutor} group={'D'} />;
         })}
       </div>
     </div>
