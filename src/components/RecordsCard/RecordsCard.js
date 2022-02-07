@@ -210,85 +210,90 @@ function RecordsCard(props) {
 
   return (
     <div>
-      <Accordion className="mb-3 accordionCard" defaultActiveKey="1">
-        <Accordion.Item eventKey="0">
-          <Accordion.Header>
-            {/* <Row> */}
-            <Col xs="3">
-              {props.match.tutor_first_name} {props.match.tutor_last_name}
-            </Col>
-            <Col xs="3">
-              {props.match.tutee_firstname} {props.match.tutee_lastname}
-            </Col>
-            <Col xs="3">
-              {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
-            </Col>
-            <Col className="cardButtons" xs="2"></Col>
-            {/* </Row> */}
-          </Accordion.Header>
-          <Accordion.Body>
-            <h2>Tutee Information:</h2>
-            <h3>
-              {props.match.tutee_firstname} {props.match.tutee_lastname} (
+      {props.year == "all" || !props.year || props.year == prettyTime.year ?
+        <Accordion className="mb-3 accordionCard" defaultActiveKey="1">
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>
+              {/* <Row> */}
+              <Col xs="3">
+                {props.match.tutor_first_name} {props.match.tutor_last_name}
+              </Col>
+              <Col xs="3">
+                {props.match.tutee_firstname} {props.match.tutee_lastname}
+              </Col>
+              <Col xs="3">
+                {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+              </Col>
+              <Col className="cardButtons" xs="2"></Col>
+              {/* </Row> */}
+            </Accordion.Header>
+            <Accordion.Body>
+              <h2>Tutee Information:</h2>
+              <h3>
+                {props.match.tutee_firstname} {props.match.tutee_lastname} (
               {props.match.tutee_pronouns})
             </h3>
-            <p>
-              Parent/Guardian's email (if applicable):{" "}
-              {props.match.email_guardian}
-            </p>
-            <p>Student's email: {props.match.email_student}</p>
-            <p>Phone number: {props.match.tutee_phone}</p>
-            <p>Grade Level: {props.match.tutee_grade}</p>
-            <p>School attending: {props.match.tutee_school}</p>
-            <p>
-              Language preference (if not English):{" "}
-              {tuteeLanguages.map((language) => {
-                return <p>{language}</p>;
-              })}
-            </p>
-            <p>1st subject choice: {props.match.subject_1}</p>
-            <p>2st subject choice: {props.match.subject_2}</p>
-            <p>3st subject choice: {props.match.subject_3}</p>
-            <p>
-              other subject (if applicable): {props.match.tutee_subject_other}
-            </p>
-            <p>
-              Detail description regarding help needed:{" "}
-              {props.match.tutee_subject_details}
-            </p>
-            <p>Addition information: {props.match.tutee_misc_info}</p>
-            <hr></hr>
-            <h2>Tutor Information:</h2>
-            <h3>
-              {props.match.tutor_first_name} {props.match.tutor_last_name} (
+              <p>
+                Parent/Guardian's email (if applicable):{" "}
+                {props.match.email_guardian}
+              </p>
+              <p>Student's email: {props.match.email_student}</p>
+              <p>Phone number: {props.match.tutee_phone}</p>
+              {props.match.tutee_grade === "prek_kindergarten" ?
+                <p className="profileAnswer">Grade Level: Pre-K / Kindergarten</p> :
+                <p className="profileAnswer"> Grade Level: {props.match.tutee_grade}</p>}
+
+              <p>School attending: {props.match.tutee_school}</p>
+              <p>
+                Language preference (if not English):{" "}
+                {tuteeLanguages.map((language) => {
+                  return <p>{language}</p>;
+                })}
+              </p>
+              <p>1st subject choice: {props.match.subject_1}</p>
+              <p>2st subject choice: {props.match.subject_2}</p>
+              <p>3st subject choice: {props.match.subject_3}</p>
+              <p>
+                other subject (if applicable): {props.match.tutee_subject_other}
+              </p>
+              <p>
+                Detail description regarding help needed:{" "}
+                {props.match.tutee_subject_details}
+              </p>
+              <p>Addition information: {props.match.tutee_misc_info}</p>
+              <hr></hr>
+              <h2>Tutor Information:</h2>
+              <h3>
+                {props.match.tutor_first_name} {props.match.tutor_last_name} (
               {props.match.tutor_pronouns})
             </h3>
-            <p>Tutor's email: {props.match.tutor_email}</p>
-            <p>Phone number: {props.match.tutor_phone}</p>
-            <p>Grade Level: {props.match.tutor_grade}</p>
-            <p>School attending: {props.match.tutor_school}</p>
-            <p>
-              Grades comfortable tutoring:
+              <p>Tutor's email: {props.match.tutor_email}</p>
+              <p>Phone number: {props.match.tutor_phone}</p>
+              <p>Grade Level: {props.match.tutor_grade}</p>
+              <p>School attending: {props.match.tutor_school}</p>
+              <p>
+                Grades comfortable tutoring:
               {mentorChosenGrade.map((grade) => {
                 return <p>{grade}</p>;
               })}
-            </p>
-            <p>
-              Subjects comfortable tutoring:{" "}
-              {tutorSubjects.map((subject) => {
-                return <p>{subject}</p>;
-              })}
-            </p>
-            <p>
-              Languages comfortable tutoring in:{" "}
-              {tutorLanguages.map((language) => {
-                return <p>{language}</p>;
-              })}
-            </p>
-            <p>Additional information:{props.match.tutor_miscinfo}</p>
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+              </p>
+              <p>
+                Subjects comfortable tutoring:{" "}
+                {tutorSubjects.map((subject) => {
+                  return <p>{subject}</p>;
+                })}
+              </p>
+              <p>
+                Languages comfortable tutoring in:{" "}
+                {tutorLanguages.map((language) => {
+                  return <p>{language}</p>;
+                })}
+              </p>
+              <p>Additional information:{props.match.tutor_miscinfo}</p>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+        : <span></span>}
     </div>
   );
 }
