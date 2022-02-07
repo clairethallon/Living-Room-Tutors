@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone, faFlag } from "@fortawesome/free-solid-svg-icons";
 
 function TutorProfile(props) {
   const emailIcon = <FontAwesomeIcon icon={faEnvelope} />;
   const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
+  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
 
   const store = useSelector((store) => store);
   const [tutorLanguages, setTutorLanguages] = useState([]);
@@ -240,7 +241,11 @@ function TutorProfile(props) {
             subject === "SAT Prep " ||
             subject === "ACT Prep "
           ) {
-            return <div className="subjectPillFlagged">{subject}</div>;
+            return (
+              <div className="subjectPillFlagged">
+                <span className="subjectFlag">{flagIcon}</span> {subject}
+              </div>
+            );
           } else {
             return <div className="subjectPill">{subject}</div>;
           }
@@ -251,7 +256,11 @@ function TutorProfile(props) {
         <p className="profileQuestion">Languages comfortable tutoring in:</p>
         <div className="languagePillContainer">
           {tutorLanguages.map((language) => {
-            return <div className="languagePill">{language}</div>;
+            return (
+              <div className="languagePill">
+                <span className="languageFlag">{flagIcon}</span> {language}
+              </div>
+            );
           })}
         </div>
       </div>

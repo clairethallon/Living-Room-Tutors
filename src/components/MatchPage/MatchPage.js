@@ -22,7 +22,7 @@ function MatchPage(props) {
   const changeLang = (event) => {
     dispatch({ type: "SET_LANGUAGE_FILTER", payload: event.target.value });
     console.log(event.target.value);
-  }
+  };
 
   return (
     <div className="adminPageContainer">
@@ -42,9 +42,11 @@ function MatchPage(props) {
       </div>
       <TuteeMatchCard />
       <h3>Select Tutor to Complete Match</h3>
-      <p>Filter Tutors by Language</p>
+      <label htmlFor="languageFilter">Filter Tutors by Language</label>
 
       <Form.Select
+        id="languageFilter"
+        className="languageFilterDropdown"
         aria-label="Default select example"
         onChange={(event) => changeLang(event)}
       >
@@ -58,8 +60,6 @@ function MatchPage(props) {
         <option value="Tagalog">Tagalog</option>
         <option value="Vietnamese">Vietnamese</option>
         <option value="Other">Other</option>
-
-
       </Form.Select>
       <TutorMatchTable />
     </div>

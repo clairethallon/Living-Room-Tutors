@@ -23,10 +23,15 @@ function MatchPageButton(props) {
     <div>
       {/* {JSON.stringify(props)} */}
       {props.tutee.active_tutee ? (
-        <Button onClick={navigateToMatchPage}>Match</Button>
+        <Button
+          className="primaryButton matchButton"
+          onClick={navigateToMatchPage}
+        >
+          Match
+        </Button>
       ) : (
-          <span></span>
-        )}
+        <span></span>
+      )}
     </div>
   );
 }

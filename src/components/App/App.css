@@ -125,7 +125,7 @@ input {
 }
 
 .cardHead {
-  background-color: rgb(162, 161, 161);
+  background-color: #f9f9f9;
   display: flex;
   padding: 15px;
   border-radius: 8px;
@@ -248,23 +248,8 @@ h3 {
   font-size: 24px;
 }
 
-/* .profileSectionOne {
-  background-color: #c8edf8;
-  padding: 20px;
-}
-
-.profileSectionTwo {
-  background-color: #18a4c38e;
-  padding: 20px;
-}
-
-.profileSectionThree {
-  background-color: #6ece9892;
-  padding: 20px;
-} */
-
 .languagePill {
-  background-color: #c8edf8;
+  background-color: #c8edf8a4;
   padding: 8px 20px;
   width: fit-content;
   border-radius: 30px;
@@ -286,7 +271,7 @@ h3 {
 } */
 
 .subjectPillFlagged {
-  background-color: #bdebde;
+  background-color: #bdebde83;
   padding: 8px 20px;
   width: fit-content;
   border-radius: 30px;
@@ -325,4 +310,71 @@ h3 {
 
 .textInput {
   width: 40% !important;
+}
+
+.quote {
+  font-family: Lato-Italic;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #1895ae;
+  background-color: #1aa3c22a;
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+
+.secondaryButton {
+  background-color: white;
+  color: #1895ae;
+  border: 1px solid #1895ae;
+  text-transform: capitalize;
+}
+
+.secondaryButton:hover {
+  background-color: #e6f6fa;
+  border: 1px solid #1895ae;
+  color: #1895ae;
+}
+
+.secondaryButton:focus {
+  background-color: #dff4fa;
+  border: 1px solid #1895ae;
+  color: #1895ae;
+  outline: none;
+}
+
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.primaryButton {
+  background-color: #1aa5c2;
+  border: 1px solid #1aa5c2 !important;
+  text-transform: capitalize;
+}
+
+.primaryButton:hover {
+  background-color: #1895ae;
+  color: white;
+  border: 1px solid #1895ae !important;
+}
+
+.primaryButton:focus {
+  background-color: #1895ae;
+  border: 1px solid #1895ae;
+  color: white;
+  outline: none;
+}
+
+.matchButton {
+  margin-left: 15px;
+}
+
+.tableHeads {
+  font-family: Lato-Black;
+}
+
+.languageFilterDropdown {
+  width: 25%;
 }
