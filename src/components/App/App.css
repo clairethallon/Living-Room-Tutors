@@ -374,3 +374,7 @@ h3 {
 .tableHeads {
   font-family: Lato-Black;
 }
+
+.languageFilterDropdown {
+  width: 25%;
+}
