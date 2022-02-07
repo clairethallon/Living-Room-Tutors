@@ -386,10 +386,15 @@ function RecordsCard(props) {
 
               <p className="profileQuestion">
                 Detail description regarding help needed:{" "}
-                {props.match.tutee_subject_details}
+                <span className="profileAnswer quote">
+                  "{props.match.tutee_subject_details}"
+                </span>
               </p>
               <p className="profileQuestion">
-                Addition information: {props.match.tutee_misc_info}
+                Additional information:
+                <span className="profileAnswer quote">
+                  "{props.match.tutee_misc_info}"
+                </span>
               </p>
               <hr></hr>
               <h2>Tutor Information:</h2>

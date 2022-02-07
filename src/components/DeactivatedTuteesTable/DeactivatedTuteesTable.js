@@ -21,19 +21,19 @@ function DeactivatedTuteesTable(props) {
       <div>
         <Row className="cardHead">
           <Col xs="3" className="cardHeadCol">
-            <p>Name</p>
+            <p className="tableHeads">Name</p>
           </Col>
           <Col xs="2" className="cardHeadCol">
-            <p>Submission Date</p>
+            <p className="tableHeads">Submission Date</p>
           </Col>
           <Col xs="2" className="cardHeadCol">
-            <p>Grade</p>
+            <p className="tableHeads">Grade</p>
           </Col>
           <Col xs="2" className="cardHeadCol">
-            <p>Flagged</p>
+            <p className="tableHeads">Flagged</p>
           </Col>
           <Col xs="2" className="cardHeadCol">
-            <p>Action</p>
+            <p className="tableHeads">Action</p>
           </Col>
           <Col xs="1"></Col>
         </Row>
