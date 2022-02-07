@@ -26,6 +26,8 @@ function RecordsCard(props) {
   const [subject2, setSubject2] = useState("");
   const [subject3, setSubject3] = useState("");
 
+  const specialSubjects = useSelector((store) => store.specialSubjects);
+
   useEffect(() => {
     tuteeLanguageFinder(languages);
     tutorLanguageFinder(languages);
@@ -159,10 +161,10 @@ function RecordsCard(props) {
       if (subjects[i].dbname == props.match.subject_1) {
         setSubject1(subjects[i].name);
       }
-      if (subjects[i].dbname == props.match.subject_1) {
+      if (subjects[i].dbname == props.match.subject_2) {
         setSubject2(subjects[i].name);
       }
-      if (subjects[i].dbname == props.match.subject_1) {
+      if (subjects[i].dbname == props.match.subject_3) {
         setSubject3(subjects[i].name);
       }
     }
@@ -299,11 +301,10 @@ function RecordsCard(props) {
                 subject1 === "SAT Prep " ||
                 subject1 === "ACT Prep " ? (
                   <div className="subjectPillFlagged">
-                    <span className="subjectFlag">{flagIcon}</span>{" "}
-                    {props.match.subject_1}
+                    <span className="subjectFlag">{flagIcon}</span> {subject1}
                   </div>
                 ) : (
-                  <div className="subjectPill">{props.match.subject_1}</div>
+                  <div className="subjectPill">{subject1}</div>
                 )}
               </div>
 
@@ -338,17 +339,51 @@ function RecordsCard(props) {
                 subject2 === "SAT Prep " ||
                 subject2 === "ACT Prep " ? (
                   <div className="subjectPillFlagged">
-                    <span className="subjectFlag">{flagIcon}</span>{" "}
-                    {props.match.subject_2}
+                    <span className="subjectFlag">{flagIcon}</span> {subject2}
                   </div>
                 ) : (
-                  <div className="subjectPill">{props.match.subject_2}</div>
+                  <div className="subjectPill">{subject2}</div>
                 )}
               </div>
 
-              <p className="profileQuestion">
-                3st subject choice: {props.match.subject_3}
-              </p>
+              <div className="subjectContainer">
+                <p className="profileQuestion">3nd subject choice:</p>
+                {subject3 === "Precalculus/Trigonometry " ||
+                subject3 === "Chemistry " ||
+                subject3 === "Physics " ||
+                subject3 === "Computer Science " ||
+                subject3 === "Chinese " ||
+                subject3 === "Spanish " ||
+                subject3 === "French " ||
+                subject3 === "German " ||
+                subject3 === "World History " ||
+                subject3 === "U.S. History " ||
+                subject3 === "AP/Honors Biology " ||
+                subject3 === "AP/Honors Chemistry " ||
+                subject3 === "AP/Honors Physics " ||
+                subject3 === "AP/Honors Calculus AB " ||
+                subject3 === "AP/Honors Calculus BC " ||
+                subject3 === "AP/Honors Statistics " ||
+                subject3 === "AP/Honors Computer Science " ||
+                subject3 === "AP/Honors English Literature and Composition " ||
+                subject3 === "AP/Honors Language and Composition " ||
+                subject3 === "AP/Honors Macroeconomics " ||
+                subject3 === "AP/Honors Microeconomics " ||
+                subject3 === "AP/Honors Psychology " ||
+                subject3 === "AP/Honors United States History " ||
+                subject3 === "AP/Honors Government and Politics (US) " ||
+                subject3 === "AP/Honors Human Geography " ||
+                subject3 === "SAT Subject Tests " ||
+                subject3 === "SAT Prep " ||
+                subject3 === "ACT Prep " ? (
+                  <div className="subjectPillFlagged">
+                    <span className="subjectFlag">{flagIcon}</span> {subject3}
+                  </div>
+                ) : (
+                  <div className="subjectPill">{subject3}</div>
+                )}
+              </div>
+
               <p className="profileQuestion">
                 Detail description regarding help needed:{" "}
                 {props.match.tutee_subject_details}
