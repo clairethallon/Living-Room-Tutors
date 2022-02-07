@@ -317,28 +317,28 @@ h3 {
 }
 
 .accordion-button:not(.collapsed) {
-  color: #008dac;
+  color: #1895ae;
   background-color: #1aa3c22a;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
 
 .secondaryButton {
   background-color: white;
-  color: #1487a1;
-  border: 1px solid #1487a1;
+  color: #1895ae;
+  border: 1px solid #1895ae;
   text-transform: capitalize;
 }
 
 .secondaryButton:hover {
   background-color: #e6f6fa;
-  border: 1px solid #1487a1;
-  color: #1487a1;
+  border: 1px solid #1895ae;
+  color: #1895ae;
 }
 
 .secondaryButton:focus {
   background-color: #dff4fa;
-  border: 1px solid #1487a1;
-  color: #1487a1;
+  border: 1px solid #1895ae;
+  color: #1895ae;
   outline: none;
 }
 
@@ -349,19 +349,20 @@ h3 {
 }
 
 .primaryButton {
-  background-color: #1487a1;
-  border: 1px solid #1487a1 !important;
+  background-color: #1aa5c2;
+  border: 1px solid #1aa5c2 !important;
+  text-transform: capitalize;
 }
 
 .primaryButton:hover {
-  background-color: #0f6e83;
+  background-color: #1895ae;
   color: white;
-  border: 1px solid #0f6e83 !important;
+  border: 1px solid #1895ae !important;
 }
 
 .primaryButton:focus {
-  background-color: #aee3f2;
-  border: 1px solid #1487a1;
+  background-color: #1895ae;
+  border: 1px solid #1895ae;
   color: white;
   outline: none;
 }

@@ -17,7 +17,7 @@ function TuteeActivateDeactivateButton(props) {
           deactivate
         </Button>
       ) : (
-        <Button className="secondaryButton" onClick={deactiveTutee}>
+        <Button className="primaryButton" onClick={deactiveTutee}>
           activate
         </Button>
       )}
