@@ -21,7 +21,8 @@ function* postNewStudent(action) {
     try {
       const response2 = yield axios.post(
         "/api/mail",
-        action.payload.emailStudent
+        //send as params object instead?
+        { email: action.payload.emailStudent }
       );
     } catch (err) {
       alert("no");

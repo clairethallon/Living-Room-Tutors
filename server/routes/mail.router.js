@@ -9,27 +9,36 @@ const nodemailer = require("nodemailer");
  * POST route template
  */
 router.post("/", cors(), async (req, res) => {
-  console.log(req.body);
-  let { email } = req.body;
-  const transport = nodemailer.createTransport({
-    host: process.env.MAIL_HOST,
-    port: process.env.MAIL_PORT,
+  console.log("email post route hit");
+  console.log(req.body.email);
+  let email = req.body.email;
+  let testAccount = await nodemailer.createTestAccount();
+
+  let transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false, // true for 465, false for other ports
     auth: {
-      user: process.env.MAIL_USER,
-      pass: process.env.MAIL_PASS,
+      user: testAccount.user, // generated ethereal user
+      pass: testAccount.pass, // generated ethereal password
     },
   });
 
-  await transport.sendMail({
-    from: process.env.MAIL_FROM,
-    to: "test@test.com",
-    subject: "test email",
-    html: `<div className="email">
+  let info = await transporter
+    .sendMail({
+      from: "Me <me@test.com>",
+      to: `${email}`,
+      subject: "test email",
+      text: "Thank you so much for contacting Living Room Tutors! This is a test. Thanks again, Living Room Tutors.",
+      html: `<div className="email" >
       <h2>Thank you so much for contacting Living Room Tutors!</h2>
-      <p>An admin is reviewing your submission. You should hear back from us shortly.</p>
+      <p>This is a test.</p>
       <p>Thanks again, Living Room Tutors</p>
     </div>`,
-  });
+    })
+    .catch(console.error);
+  console.log("Message sent: %s", info.messageId);
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 });
 
 module.exports = router;
