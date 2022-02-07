@@ -18,6 +18,14 @@ function* postNewTutor(action) {
   //language, subject_tutor, and mentoring_grade
   try {
     const response = yield axios.post("/api/tutors", action.payload);
+    try {
+      const response2 = yield axios.post("/api/mail", {
+        email: action.payload.email,
+      });
+    } catch (err) {
+      alert("no");
+      console.log("error posting new tutor email:", err);
+    }
   } catch (err) {
     alert("no");
     console.log("error posting new tutor:", err);
