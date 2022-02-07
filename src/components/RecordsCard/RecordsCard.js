@@ -239,7 +239,10 @@ function RecordsCard(props) {
               </p>
               <p>Student's email: {props.match.email_student}</p>
               <p>Phone number: {props.match.tutee_phone}</p>
-              <p>Grade Level: {props.match.tutee_grade}</p>
+              {props.match.tutee_grade === "prek_kindergarten" ?
+                <p className="profileAnswer">Grade Level: Pre-K / Kindergarten</p> :
+                <p className="profileAnswer"> Grade Level: {props.match.tutee_grade}</p>}
+
               <p>School attending: {props.match.tutee_school}</p>
               <p>
                 Language preference (if not English):{" "}

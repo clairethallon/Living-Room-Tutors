@@ -124,17 +124,19 @@ function TuteeProfile(props) {
         </p>
         <p className="profileQuestion">
           {emailIcon} Student's email:
-          <span className="profileAnswer">{props.tutee.email_student}</span>
+          <span className="profileAnswer"> {props.tutee.email_student}</span>
         </p>
         <p className="profileQuestion">
           {phoneIcon} Phone number:{" "}
-          <span className="profileAnswer">{props.tutee.tutee_phone}</span>
+          <span className="profileAnswer"> {props.tutee.tutee_phone}</span>
         </p>
       </div>
       <div className="profileSectionTwo">
         <p className="profileQuestion">
           Grade Level:
-          <span className="profileAnswer"> {props.tutee.tutee_grade}</span>
+          {props.tutee.tutee_grade === "prek_kindergarten" ?
+            <span className="profileAnswer"> Pre-K/Kindergarten</span> :
+            <span className="profileAnswer"> {props.tutee.tutee_grade}</span>}
         </p>
         <p className="profileQuestion">
           School attending:{" "}
@@ -155,111 +157,111 @@ function TuteeProfile(props) {
         <div className="subjectContainer">
           <p className="profileQuestion">1st subject choice:</p>
           {subject1 === "Precalculus/Trigonometry " ||
-          subject1 === "Chemistry " ||
-          subject1 === "Physics " ||
-          subject1 === "Computer Science " ||
-          subject1 === "Chinese " ||
-          subject1 === "Spanish " ||
-          subject1 === "French " ||
-          subject1 === "German " ||
-          subject1 === "World History " ||
-          subject1 === "U.S. History " ||
-          subject1 === "AP/Honors Biology " ||
-          subject1 === "AP/Honors Chemistry " ||
-          subject1 === "AP/Honors Physics " ||
-          subject1 === "AP/Honors Calculus AB " ||
-          subject1 === "AP/Honors Calculus BC " ||
-          subject1 === "AP/Honors Statistics " ||
-          subject1 === "AP/Honors Computer Science " ||
-          subject1 === "AP/Honors English Literature and Composition " ||
-          subject1 === "AP/Honors Language and Composition " ||
-          subject1 === "AP/Honors Macroeconomics " ||
-          subject1 === "AP/Honors Microeconomics " ||
-          subject1 === "AP/Honors Psychology " ||
-          subject1 === "AP/Honors United States History " ||
-          subject1 === "AP/Honors Government and Politics (US) " ||
-          subject1 === "AP/Honors Human Geography " ||
-          subject1 === "SAT Subject Tests " ||
-          subject1 === "SAT Prep " ||
-          subject1 === "ACT Prep " ? (
-            <div className="subjectPillFlagged">{subject1}</div>
-          ) : (
-            <div className="subjectPill">{subject1}</div>
-          )}
+            subject1 === "Chemistry " ||
+            subject1 === "Physics " ||
+            subject1 === "Computer Science " ||
+            subject1 === "Chinese " ||
+            subject1 === "Spanish " ||
+            subject1 === "French " ||
+            subject1 === "German " ||
+            subject1 === "World History " ||
+            subject1 === "U.S. History " ||
+            subject1 === "AP/Honors Biology " ||
+            subject1 === "AP/Honors Chemistry " ||
+            subject1 === "AP/Honors Physics " ||
+            subject1 === "AP/Honors Calculus AB " ||
+            subject1 === "AP/Honors Calculus BC " ||
+            subject1 === "AP/Honors Statistics " ||
+            subject1 === "AP/Honors Computer Science " ||
+            subject1 === "AP/Honors English Literature and Composition " ||
+            subject1 === "AP/Honors Language and Composition " ||
+            subject1 === "AP/Honors Macroeconomics " ||
+            subject1 === "AP/Honors Microeconomics " ||
+            subject1 === "AP/Honors Psychology " ||
+            subject1 === "AP/Honors United States History " ||
+            subject1 === "AP/Honors Government and Politics (US) " ||
+            subject1 === "AP/Honors Human Geography " ||
+            subject1 === "SAT Subject Tests " ||
+            subject1 === "SAT Prep " ||
+            subject1 === "ACT Prep " ? (
+              <div className="subjectPillFlagged">{subject1}</div>
+            ) : (
+              <div className="subjectPill">{subject1}</div>
+            )}
         </div>
 
         {/* this section is the ternary operator for the second choice subject pill */}
         <div className="subjectContainer">
           <p className="profileQuestion">2nd subject choice:</p>
           {subject2 === "Precalculus/Trigonometry " ||
-          subject2 === "Chemistry " ||
-          subject2 === "Physics " ||
-          subject2 === "Computer Science " ||
-          subject2 === "Chinese " ||
-          subject2 === "Spanish " ||
-          subject2 === "French " ||
-          subject2 === "German " ||
-          subject2 === "World History " ||
-          subject2 === "U.S. History " ||
-          subject2 === "AP/Honors Biology " ||
-          subject2 === "AP/Honors Chemistry " ||
-          subject2 === "AP/Honors Physics " ||
-          subject2 === "AP/Honors Calculus AB " ||
-          subject2 === "AP/Honors Calculus BC " ||
-          subject2 === "AP/Honors Statistics " ||
-          subject2 === "AP/Honors Computer Science " ||
-          subject2 === "AP/Honors English Literature and Composition " ||
-          subject2 === "AP/Honors Language and Composition " ||
-          subject2 === "AP/Honors Macroeconomics " ||
-          subject2 === "AP/Honors Microeconomics " ||
-          subject2 === "AP/Honors Psychology " ||
-          subject2 === "AP/Honors United States History " ||
-          subject2 === "AP/Honors Government and Politics (US) " ||
-          subject2 === "AP/Honors Human Geography " ||
-          subject2 === "SAT Subject Tests " ||
-          subject2 === "SAT Prep " ||
-          subject2 === "ACT Prep " ? (
-            <div className="subjectPillFlagged">{subject2}</div>
-          ) : (
-            <div className="subjectPill">{subject2}</div>
-          )}
+            subject2 === "Chemistry " ||
+            subject2 === "Physics " ||
+            subject2 === "Computer Science " ||
+            subject2 === "Chinese " ||
+            subject2 === "Spanish " ||
+            subject2 === "French " ||
+            subject2 === "German " ||
+            subject2 === "World History " ||
+            subject2 === "U.S. History " ||
+            subject2 === "AP/Honors Biology " ||
+            subject2 === "AP/Honors Chemistry " ||
+            subject2 === "AP/Honors Physics " ||
+            subject2 === "AP/Honors Calculus AB " ||
+            subject2 === "AP/Honors Calculus BC " ||
+            subject2 === "AP/Honors Statistics " ||
+            subject2 === "AP/Honors Computer Science " ||
+            subject2 === "AP/Honors English Literature and Composition " ||
+            subject2 === "AP/Honors Language and Composition " ||
+            subject2 === "AP/Honors Macroeconomics " ||
+            subject2 === "AP/Honors Microeconomics " ||
+            subject2 === "AP/Honors Psychology " ||
+            subject2 === "AP/Honors United States History " ||
+            subject2 === "AP/Honors Government and Politics (US) " ||
+            subject2 === "AP/Honors Human Geography " ||
+            subject2 === "SAT Subject Tests " ||
+            subject2 === "SAT Prep " ||
+            subject2 === "ACT Prep " ? (
+              <div className="subjectPillFlagged">{subject2}</div>
+            ) : (
+              <div className="subjectPill">{subject2}</div>
+            )}
         </div>
 
         {/* this section is the ternary operator for the third choice subject pill */}
         <div className="subjectContainer">
           <p className="profileQuestion">3nd subject choice:</p>
           {subject3 === "Precalculus/Trigonometry " ||
-          subject3 === "Chemistry " ||
-          subject3 === "Physics " ||
-          subject3 === "Computer Science " ||
-          subject3 === "Chinese " ||
-          subject3 === "Spanish " ||
-          subject3 === "French " ||
-          subject3 === "German " ||
-          subject3 === "World History " ||
-          subject3 === "U.S. History " ||
-          subject3 === "AP/Honors Biology " ||
-          subject3 === "AP/Honors Chemistry " ||
-          subject3 === "AP/Honors Physics " ||
-          subject3 === "AP/Honors Calculus AB " ||
-          subject3 === "AP/Honors Calculus BC " ||
-          subject3 === "AP/Honors Statistics " ||
-          subject3 === "AP/Honors Computer Science " ||
-          subject3 === "AP/Honors English Literature and Composition " ||
-          subject3 === "AP/Honors Language and Composition " ||
-          subject3 === "AP/Honors Macroeconomics " ||
-          subject3 === "AP/Honors Microeconomics " ||
-          subject3 === "AP/Honors Psychology " ||
-          subject3 === "AP/Honors United States History " ||
-          subject3 === "AP/Honors Government and Politics (US) " ||
-          subject3 === "AP/Honors Human Geography " ||
-          subject3 === "SAT Subject Tests " ||
-          subject3 === "SAT Prep " ||
-          subject3 === "ACT Prep " ? (
-            <div className="subjectPillFlagged">{subject3}</div>
-          ) : (
-            <div className="subjectPill">{subject3}</div>
-          )}
+            subject3 === "Chemistry " ||
+            subject3 === "Physics " ||
+            subject3 === "Computer Science " ||
+            subject3 === "Chinese " ||
+            subject3 === "Spanish " ||
+            subject3 === "French " ||
+            subject3 === "German " ||
+            subject3 === "World History " ||
+            subject3 === "U.S. History " ||
+            subject3 === "AP/Honors Biology " ||
+            subject3 === "AP/Honors Chemistry " ||
+            subject3 === "AP/Honors Physics " ||
+            subject3 === "AP/Honors Calculus AB " ||
+            subject3 === "AP/Honors Calculus BC " ||
+            subject3 === "AP/Honors Statistics " ||
+            subject3 === "AP/Honors Computer Science " ||
+            subject3 === "AP/Honors English Literature and Composition " ||
+            subject3 === "AP/Honors Language and Composition " ||
+            subject3 === "AP/Honors Macroeconomics " ||
+            subject3 === "AP/Honors Microeconomics " ||
+            subject3 === "AP/Honors Psychology " ||
+            subject3 === "AP/Honors United States History " ||
+            subject3 === "AP/Honors Government and Politics (US) " ||
+            subject3 === "AP/Honors Human Geography " ||
+            subject3 === "SAT Subject Tests " ||
+            subject3 === "SAT Prep " ||
+            subject3 === "ACT Prep " ? (
+              <div className="subjectPillFlagged">{subject3}</div>
+            ) : (
+              <div className="subjectPill">{subject3}</div>
+            )}
         </div>
 
         <p className="profileQuestion">
