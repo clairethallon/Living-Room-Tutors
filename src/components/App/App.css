@@ -264,7 +264,7 @@ h3 {
 } */
 
 .languagePill {
-  background-color: #c8edf8;
+  background-color: #c8edf8a4;
   padding: 8px 20px;
   width: fit-content;
   border-radius: 30px;
@@ -286,7 +286,7 @@ h3 {
 } */
 
 .subjectPillFlagged {
-  background-color: #bdebde;
+  background-color: #bdebde83;
   padding: 8px 20px;
   width: fit-content;
   border-radius: 30px;

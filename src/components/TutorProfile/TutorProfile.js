@@ -243,7 +243,7 @@ function TutorProfile(props) {
           ) {
             return (
               <div className="subjectPillFlagged">
-                {flagIcon} {subject}
+                <span className="subjectFlag">{flagIcon}</span> {subject}
               </div>
             );
           } else {
@@ -256,7 +256,11 @@ function TutorProfile(props) {
         <p className="profileQuestion">Languages comfortable tutoring in:</p>
         <div className="languagePillContainer">
           {tutorLanguages.map((language) => {
-            return <div className="languagePill">{language}</div>;
+            return (
+              <div className="languagePill">
+                <span className="languageFlag">{flagIcon}</span> {language}
+              </div>
+            );
           })}
         </div>
       </div>
