@@ -12,21 +12,20 @@ router.post("/", cors(), async (req, res) => {
   console.log("email post route hit");
   console.log(req.body.email);
   let email = req.body.email;
-  let testAccount = await nodemailer.createTestAccount();
 
   let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
+    host: "smtp.mailtrap.io",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
+      user: "202a8468949e33",
+      pass: "39db06ed4c2ca5",
     },
   });
 
   let info = await transporter
     .sendMail({
-      from: "Miriam <miriammcnamara@icloud.com>",
+      from: "miriammcnamara@icloud.com",
       to: `${email}`,
       subject: "test email",
       text: "Thank you so much for contacting Living Room Tutors! This is a test. Thanks again, Living Room Tutors.",
