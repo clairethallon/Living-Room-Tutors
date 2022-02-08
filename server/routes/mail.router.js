@@ -14,12 +14,12 @@ router.post("/", cors(), async (req, res) => {
   let email = req.body.email;
 
   let transporter = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
+    host: "smtp.gmail.com",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "202a8468949e33",
-      pass: "39db06ed4c2ca5",
+      user: "stars4mimi@gmail.com",
+      pass: "fatfarley",
     },
   });
 
@@ -36,8 +36,7 @@ router.post("/", cors(), async (req, res) => {
     </div>`,
     })
     .catch(console.error);
-  console.log("Message sent: %s", info.messageId);
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  // console.log("Message sent: %s", info.messageId);
 });
 
 module.exports = router;
