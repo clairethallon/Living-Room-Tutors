@@ -26,7 +26,7 @@ router.post("/", cors(), async (req, res) => {
 
   let info = await transporter
     .sendMail({
-      from: "Living Room Tutors <team@livingroomtutors.com>",
+      from: "Miriam <miriammcnamara@icloud.com>",
       to: `${email}`,
       subject: "test email",
       text: "Thank you so much for contacting Living Room Tutors! This is a test. Thanks again, Living Room Tutors.",
