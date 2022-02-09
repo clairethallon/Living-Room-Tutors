@@ -87,11 +87,11 @@
   background-size: cover;
 }
 
-.tutorNavbarLink--active div {
+.tutorNavbarLink--active .tutorIcon {
   background-image: url("../../images/tutorIconBlue.svg");
 }
 
-.recordsNavbarLink--active div {
+.recordsNavbarLink--active .recordsIcon {
   background-image: url("../../images/recordsIconBlue.svg");
 }
 
@@ -110,6 +110,11 @@
 .navbarlink--active .topNavDiv {
   /* background-color: white; */
   border-radius: 0px 0px 100px 0px !important;
+}
+
+.navbarlink--active .bottomNavDiv {
+  /* background-color: white; */
+  border-radius: 0px 50px 0px 0px;
 }
 
 .navbarlink--active:hover {

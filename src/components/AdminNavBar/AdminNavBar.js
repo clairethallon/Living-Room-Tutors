@@ -54,8 +54,14 @@ function AdminNavBar() {
               className="AdminNavLink"
               to="/tutors"
             >
-              <div className="tutorIcon"></div>
-              Tutors
+              <div className="topNavDiv"> </div>
+              <div className="middleDivBackground">
+                <div className="middleNavDiv">
+                  <div className="tutorIcon"></div>
+                  Tutors
+                </div>
+              </div>
+              <div className="bottomNavDiv"></div>
             </NavLink>
 
             <NavLink
@@ -63,8 +69,14 @@ function AdminNavBar() {
               className="AdminNavLink"
               to="/records"
             >
-              <div className="recordsIcon"></div>
-              Records
+              <div className="topNavDiv"> </div>
+              <div className="middleDivBackground">
+                <div className="middleNavDiv">
+                  <div className="recordsIcon"></div>
+                  Records
+                </div>
+              </div>
+              <div className="bottomNavDiv"></div>
             </NavLink>
           </div>
           <div className="logoutButton">
