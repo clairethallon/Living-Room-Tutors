@@ -293,6 +293,7 @@ h3 {
   /* margin-left: 10px; */
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .subjectPill {
@@ -302,6 +303,7 @@ h3 {
   border-radius: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .gradesPill {
@@ -312,6 +314,7 @@ h3 {
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: Lato-Regular;
+  margin-right: 10px;
 }
 
 .formInput {
@@ -507,4 +510,18 @@ h3 {
 .tutorSubjectGradePreferenceSection {
   margin-bottom: 25px;
   margin-left: 20px;
+}
+
+.gradesPillContainer {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.subjectPillContainer {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
