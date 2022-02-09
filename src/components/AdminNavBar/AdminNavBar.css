@@ -19,6 +19,7 @@
 .AdminNavLink {
   font-size: 32px;
   margin-top: 10px;
+  display: flex;
 }
 
 .AdminNavLinks {
@@ -41,4 +42,45 @@
 .LRTHeader {
   width: 200px;
   margin-top: 30px;
+}
+
+.tuteeIcon {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  background-image: url("../../images/tuteeIconWhite.svg");
+  background-size: cover;
+}
+
+.tutorIcon {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  background-image: url("../../images/tutorIconWhite.svg");
+  background-size: cover;
+}
+
+.recordsIcon {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  background-image: url("../../images/recordsIconWhite.svg");
+  background-size: cover;
+}
+
+.tuteeNavbarLink--active .tuteeIcon {
+  background-image: url("../../images/tuteeIconBlue.svg");
+  background-size: cover;
+}
+
+.tutorNavbarLink--active div {
+  background-image: url("../../images/tutorIconBlue.svg");
+}
+
+.recordsNavbarLink--active div {
+  background-image: url("../../images/recordsIconBlue.svg");
+}
+
+.navbarlink--active {
+  background-color: white;
 }

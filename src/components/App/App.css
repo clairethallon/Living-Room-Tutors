@@ -66,6 +66,11 @@
   src: local("Lato-Black"), url("../../fonts/Lato-Black.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "tuteeIcon";
+  src: local("tuteeIcon"), url("../../images/tuteeIcon.tif") format("tuteeIcon");
+}
+
 html,
 body,
 #react-root {
