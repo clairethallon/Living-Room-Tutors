@@ -403,3 +403,8 @@ h3 {
   padding: 0.5rem 1rem;
   color: #1aa5c2;
 }
+
+.calenderIcon {
+  height: 18px;
+  margin-bottom: 5px;
+}

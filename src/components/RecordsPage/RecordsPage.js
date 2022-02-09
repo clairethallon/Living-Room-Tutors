@@ -6,6 +6,7 @@ import { Form } from "react-bootstrap";
 import "../RecordsPage/RecordsPage.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import calenderIcon from "../../images/calenderIcon.svg";
 
 function RecordsPage(props) {
   const [yearSelected, setYearSelected] = useState("");
@@ -21,7 +22,10 @@ function RecordsPage(props) {
     <div className="adminPageContainer">
       <AdminNavBar />
       <h2>Matched Tutors & Tutees</h2>
-      <label htmlFor="yearFilter">{calendar} Filter Matches by Year</label>
+      <label htmlFor="yearFilter">
+        <img className="calenderIcon" src={calenderIcon} /> Filter Matches by
+        Year
+      </label>
 
       <Form.Select
         id="yearFilter"

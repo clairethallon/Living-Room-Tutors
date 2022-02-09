@@ -287,7 +287,6 @@ function RecordsCard(props) {
 
   return (
     <div>
-      {JSON.stringify(props.match.subject_1)}
       {props.year == "all" || !props.year || props.year == prettyTime.year ? (
         <Accordion className="mb-3 accordionCard" defaultActiveKey="1">
           <Accordion.Item eventKey="0">
