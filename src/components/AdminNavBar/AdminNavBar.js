@@ -16,9 +16,11 @@ function AdminNavBar() {
 
   return (
     <div className="AdminNav">
-      <Link to="/admin">
-        <img src={LRTHeader} className="LRTHeader" />
-      </Link>
+      <div className="LRTHeaderContainer">
+        <Link to="/admin">
+          <img src={LRTHeader} className="LRTHeader" />
+        </Link>
+      </div>
 
       {/* If no user is logged in, show these links */}
       {user.id === null && (
@@ -37,8 +39,14 @@ function AdminNavBar() {
               className="AdminNavLink"
               to="/admin"
             >
-              <div className="tuteeIcon"></div>
-              Tutees
+              <div className="topNavDiv"></div>
+              <div className="middleDivBackground">
+                <div className="middleNavDiv">
+                  <div className="tuteeIcon"></div>
+                  Tutees
+                </div>
+              </div>
+              <div className="bottomNavDiv"></div>
             </NavLink>
 
             <NavLink
