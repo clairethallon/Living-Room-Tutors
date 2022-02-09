@@ -328,6 +328,7 @@ h3 {
 
 .quote {
   font-family: Lato-Italic;
+  font-size: 20px;
 }
 
 .accordion-button:not(.collapsed) {
@@ -407,4 +408,58 @@ h3 {
 .calenderIcon {
   height: 18px;
   margin-bottom: 5px;
+}
+
+.tuteeInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tuteeInfoBackground {
+  height: 20px;
+  width: 375px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tuteeSubject {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tuteeSubjectBackground {
+  height: 20px;
+  width: 355px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tuteeGeneralInfoRecordsSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.tuteeAdditionalInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tuteeAdditionalInfoBackground {
+  height: 20px;
+  width: 325px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tuteeSubjectRecordsSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.tuteeAdditionalInfoRecordsSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
 }
