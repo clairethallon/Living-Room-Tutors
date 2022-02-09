@@ -383,3 +383,14 @@ h3 {
 .languageFilterDropdown {
   width: 25%;
 }
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #1aa5c2;
+}
+.nav-link:hover {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #1aa5c2;
+}
