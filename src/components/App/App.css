@@ -222,6 +222,15 @@ h3 {
   font-size: 40px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 0px 20px;
+  transition: 0.3s;
+}
+
+.logoutNameAndIcon:hover {
+  background-color: #1898b5;
+  transition: 0.3s;
 }
 
 .logoutNameAndIcon p {
