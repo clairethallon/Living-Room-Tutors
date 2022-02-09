@@ -463,3 +463,48 @@ h3 {
   margin-bottom: 25px;
   margin-left: 20px;
 }
+
+.tutorTuteeBorder {
+  border-left: 1px solid rgba(0, 0, 0, 0.116);
+}
+
+.tutorGeneralInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tutorAdditionalInfoBackground {
+  height: 20px;
+  width: 255px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tutorGeneralInfoSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.tutorSubjectGradePreferenceBackground {
+  height: 20px;
+  width: 390px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tutorSubjectGradePreference {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tutorAdditionalInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tutorSubjectGradePreferenceSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
