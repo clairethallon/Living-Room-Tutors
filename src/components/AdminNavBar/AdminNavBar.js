@@ -36,7 +36,7 @@ function AdminNavBar() {
           <div className="AdminNavLinks">
             <NavLink
               activeClassName="tuteeNavbarLink--active navbarlink--active"
-              className="AdminNavLink"
+              className="AdminNavLink tuteeNavLink"
               to="/admin"
             >
               <div className="topNavDiv"></div>
@@ -51,7 +51,7 @@ function AdminNavBar() {
 
             <NavLink
               activeClassName="tutorNavbarLink--active navbarlink--active"
-              className="AdminNavLink"
+              className="AdminNavLink tutorNavLink"
               to="/tutors"
             >
               <div className="topNavDiv"> </div>

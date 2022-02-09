@@ -43,13 +43,15 @@
 
 .logoutButton {
   display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .adminNavContents {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 70%;
+  height: 85%;
 }
 
 .LRTHeader {
@@ -126,18 +128,18 @@
   color: white;
   display: flex;
   padding: 15px;
-  padding-left: 30px;
+  padding-left: 35px;
   border-radius: 50px;
 }
 
 .topNavDiv {
-  height: 50px;
+  height: 20px;
   border-radius: 0px 0px 50px 0px;
   background-color: #1aa4c2;
 }
 
 .bottomNavDiv {
-  height: 50px;
+  height: 20px;
   border-radius: 0px 50px 0px 0px;
   background-color: #1aa4c2;
 }
@@ -145,3 +147,12 @@
 .middleDivBackground {
   background-color: #1aa4c2;
 }
+
+/* .tuteeNavLink {
+  position: absolute !important;
+}
+
+.tutorNavLink {
+  position: absolute;
+  top: 310px;
+} */
