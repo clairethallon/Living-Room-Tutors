@@ -20,6 +20,13 @@
   font-size: 32px;
   margin-top: 10px;
   display: flex;
+  font-family: Lato-Regular;
+  text-decoration: none;
+  color: white;
+}
+
+.AdminNavLink:hover {
+  color: white;
 }
 
 .AdminNavLinks {
@@ -83,4 +90,9 @@
 
 .navbarlink--active {
   background-color: white;
+  color: #1aa4c2;
+}
+
+.navbarlink--active:hover {
+  color: #1aa4c2;
 }
