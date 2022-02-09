@@ -66,8 +66,7 @@ function CompleteMatchButton(props) {
               Dear {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}, <br></br><br></br>
 
           Great News! You have been matched! We are honored to have you join the LRT family as an official Living Room Tutor.<br></br><br></br>
-          After careful consideration of your application, we feel that your best match is {selectedTutee.tutee_firstname} {selectedTutee.tutee_lastname}.
-           {selectedTutee.tutee_firstname} is in {selectedTutee.tutee_grade} grade and attends {selectedTutee.tutee_school}. Below, you will find {selectedTutee.tutee_firstname}'s contact information.
+          After careful consideration of your application, we feel that your best match is <b>{selectedTutee.tutee_firstname} {selectedTutee.tutee_lastname}</b>. {selectedTutee.tutee_firstname} is in {selectedTutee.tutee_grade === 'prek_kindergarten' ? 'Pre-K/Kindergarten' : selectedTutee.tutee_grade + ' grade'} and attends {selectedTutee.tutee_school}. Below, you will find {selectedTutee.tutee_firstname}'s contact information.
            <br></br><br></br>
           We will also be reaching out to {selectedTutee.tutee_firstname} with the news, and we will CC you in that email. From there, you may start communication and determine a meeting time with your tutee.
           <br></br><br></br>
@@ -92,23 +91,26 @@ function CompleteMatchButton(props) {
 
               <b>To: {selectedTutee.email_student}</b><br></br>
               <b>Cc: {props.tutor.tutor_email}</b><br></br><br></br>
+              Dear {selectedTutee.tutee_firstname},
 
-              Dear ______,
-
-Congratulations! You have been matched! After careful consideration of your application, we feel your best match is ___. ------ is in ___ grade and attends ________. ----- is cc'd in this email and will be reaching out to you to schedule a meeting. We will also include -----’s contact information below.
-
-We recommend using Zoom to conduct the tutoring sessions, however, there are other online conferencing platforms such as Google Meet, or Skype. Please note that Zoom operates best with the Chrome Browser. Please consider either installing Chrome or the Zoom application if you have not done so. We will also attach resources below in case you need assistance joining the meeting. If you ever have any questions or concerns, do not hesitate to reach out. Email us at livingroomtutor@gmail.com.
-
+Congratulations! You have been matched! After careful consideration of your application, we feel your best match is {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}.
+<br></br><br></br>
+              {props.tutor.tutor_first_name} is in {props.tutor.tutor_grade} grade and attends ________. ----- is cc'd in this email and will be reaching out to you to schedule a meeting. We will also include -----’s contact information below.
+<br></br><br></br>
+We recommend using Zoom to conduct the tutoring sessions, however, there are other online conferencing platforms such as Google Meet, or Skype. Please note that Zoom operates best with the Chrome Browser. Please consider either installing Chrome or the Zoom application if you have not done so. We will also attach resources below in case you need assistance joining the meeting.
+<br></br><br></br>
+If you ever have any questions or concerns, do not hesitate to reach out. Email us at livingroomtutor@gmail.com.
 Our team here at LRT understands the difficulty of finding a tutor tailored just for you. Your personalized tutor, --------, is going to be a wonderful resource for you.
-
+<br></br><br></br>
 Note: If your tutor does not reach out after 5 business days upon receiving this email, please contact us.
-
+<br></br><br></br>
 There will be an LRT guide document attached below. Please review the document thoroughly.
-
+<br></br><br></br>
 Our team at LRT wishes you and -------- the best!
 Thank you for using our service.
-
+<br></br><br></br>
 Sincerely,
+<br></br><br></br>
 Living Room Tutors Team
 
 
