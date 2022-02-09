@@ -305,7 +305,9 @@ function RecordsCard(props) {
               {/* </Row> */}
             </Accordion.Header>
             <Accordion.Body>
-              <h2>Tutee Information:</h2>
+              <div class="tuteeInfoBackground"> </div>
+              <h2 className="tuteeInfo">Tutee General Information:</h2>
+
               <div className="profileTitle">
                 <h2 className="profileFirstLastName">
                   {props.match.tutee_firstname} {props.match.tutee_lastname}

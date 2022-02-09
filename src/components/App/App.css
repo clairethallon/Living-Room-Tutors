@@ -408,3 +408,16 @@ h3 {
   height: 18px;
   margin-bottom: 5px;
 }
+
+.tuteeInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tuteeInfoBackground {
+  height: 20px;
+  width: 380px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
