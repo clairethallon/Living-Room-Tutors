@@ -317,49 +317,55 @@ function RecordsCard(props) {
                       </h2>
                       <p>({props.match.tutee_pronouns})</p>
                     </div>
-                    <p className="profileQuestion">
-                      {emailIcon} Parent/Guardian's email (if applicable):{" "}
-                      <span className="profileAnswer">
+                    <div>
+                      <p className="profileQuestion">
+                        {emailIcon} Parent/Guardian's email (if applicable):{" "}
+                      </p>
+                      <p className="profileAnswer">
                         {props.match.email_guardian}
-                      </span>
-                    </p>
-                    <p className="profileQuestion">
-                      {emailIcon} Student's email:
-                      <span className="profileAnswer">
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="profileQuestion">
+                        {emailIcon} Student's email:
+                      </p>
+                      <p className="profileAnswer">
                         {" "}
                         {props.match.email_student}
-                      </span>
-                    </p>
-                    <p className="profileQuestion">
-                      {" "}
-                      {phoneIcon} Phone number:
-                      <span className="profileAnswer">
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="profileQuestion">
+                        {" "}
+                        {phoneIcon} Phone number:
+                      </p>
+                      <p className="profileAnswer">
                         {" "}
                         {props.match.tutee_phone}
-                      </span>
-                    </p>
-                    <p className="profileQuestion">
-                      Grade Level:
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="profileQuestion">Grade Level:</p>
                       {props.match.tutee_grade === "prek_kindergarten" ? (
-                        <span className="profileAnswer">
-                          {" "}
-                          Pre-K/Kindergarten
-                        </span>
+                        <p className="profileAnswer"> Pre-K/Kindergarten</p>
                       ) : (
-                        <span className="profileAnswer">
+                        <p className="profileAnswer">
                           {" "}
                           {props.match.tutee_grade}
-                        </span>
+                        </p>
                       )}
-                    </p>
+                    </div>
 
-                    <p className="profileQuestion">
-                      School attending:{" "}
-                      <span className="profileAnswer">
+                    <div>
+                      <p className="profileQuestion">School attending: </p>
+                      <p className="profileAnswer">
                         {" "}
                         {props.match.tutee_school}
-                      </span>
-                    </p>
+                      </p>
+                    </div>
 
                     <div>
                       <p className="profileQuestion">Language preference:</p>
@@ -534,18 +540,40 @@ function RecordsCard(props) {
                         </h2>
                         <p>({props.match.tutor_pronouns})</p>
                       </div>
-                      <p className="profileQuestion">
-                        {emailIcon} Tutor's email: {props.match.tutor_email}
-                      </p>
-                      <p className="profileQuestion">
-                        {phoneIcon} Phone number: {props.match.tutor_phone}
-                      </p>
-                      <p className="profileQuestion">
-                        Grade Level: {props.match.tutor_grade}
-                      </p>
-                      <p className="profileQuestion">
-                        School attending: {props.match.tutor_school}
-                      </p>
+
+                      <div>
+                        <p className="profileQuestion">
+                          {emailIcon} Tutor's email:{" "}
+                        </p>
+                        <p className="profileAnswer">
+                          {props.match.tutor_email}
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="profileQuestion">
+                          {phoneIcon} Phone number:{" "}
+                        </p>
+                        <p className="profileAnswer">
+                          {props.match.tutor_phone}
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="profileQuestion">Grade Level:</p>
+                        <p className="profileAnswer">
+                          {props.match.tutor_grade}
+                        </p>
+                      </div>
+
+                      <div>
+                        <p className="profileQuestion">School attending:</p>
+                        <p className="profileAnswer">
+                          {" "}
+                          {props.match.tutor_school}
+                        </p>
+                      </div>
+
                       <div>
                         <p className="profileQuestion">
                           Languages comfortable tutoring in:
