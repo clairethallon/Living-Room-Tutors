@@ -52,11 +52,11 @@ mentoring_grade.prek_kindergarten,
 "10th" AS mentor_grade_10,
 "11th" AS mentor_grade_11,
 "12th" AS mentor_grade_12,
-subjects_tutors."K5_Math" AS tutor_K5_Math,
-subjects_tutors."K5_Reading" AS tutor_K5_Reading,
-subjects_tutors."K5_English_Writing" AS tutor_K5_English_Writing,
-subjects_tutors."K5_Science" AS tutor_K5_Science,
-subjects_tutors."K5_social_studies" AS tutor_K5_social_studies,
+subjects_tutors."K5_Math" AS tutor_k5_math,
+subjects_tutors."K5_Reading" AS tutor_k5_reading,
+subjects_tutors."K5_English_Writing" AS tutor_k5_english_writing,
+subjects_tutors."K5_Science" AS tutor_k5_science,
+subjects_tutors."K5_social_studies" AS tutor_k5_social_studies,
 subjects_tutors."6th_to_8th_language_arts" AS tutor_6th_to_8th_language_arts,
 subjects_tutors."6th_to_8th_science" AS tutor_6th_to_8th_science,
 subjects_tutors."6th_to_8th_social_studies" AS tutor_6th_to_8th_social_studies,
@@ -163,11 +163,11 @@ tutors.email AS tutor_email,
    "10th" AS mentor_grade_10,
    "11th" AS mentor_grade_11,
    "12th" AS mentor_grade_12,
-   subjects_tutors."K5_Math" AS tutor_K5_Math,
-      subjects_tutors."K5_Reading" AS tutor_K5_Reading,
-      subjects_tutors."K5_English_Writing" AS tutor_K5_English_Writing,
-      subjects_tutors."K5_Science" AS tutor_K5_Science,
-      subjects_tutors."K5_social_studies" AS tutor_K5_social_studies,
+   subjects_tutors."K5_Math" AS tutor_k5_math,
+      subjects_tutors."K5_Reading" AS tutor_k5_reading,
+      subjects_tutors."K5_English_Writing" AS tutor_k5_english_writing,
+      subjects_tutors."K5_Science" AS tutor_k5_science,
+      subjects_tutors."K5_social_studies" AS tutor_k5_social_studies,
       subjects_tutors."6th_to_8th_language_arts" AS tutor_6th_to_8th_language_arts,
       subjects_tutors."6th_to_8th_science" AS tutor_6th_to_8th_science,
       subjects_tutors."6th_to_8th_social_studies" AS tutor_6th_to_8th_social_studies,
@@ -264,11 +264,11 @@ tutors.email AS tutor_email,
    "10th" AS mentor_grade_10,
    "11th" AS mentor_grade_11,
    "12th" AS mentor_grade_12,
-   subjects_tutors."K5_Math" AS tutor_K5_Math,
-      subjects_tutors."K5_Reading" AS tutor_K5_Reading,
-      subjects_tutors."K5_English_Writing" AS tutor_K5_English_Writing,
-      subjects_tutors."K5_Science" AS tutor_K5_Science,
-      subjects_tutors."K5_social_studies" AS tutor_K5_social_studies,
+   subjects_tutors."K5_Math" AS tutor_k5_math,
+      subjects_tutors."K5_Reading" AS tutor_k5_reading,
+      subjects_tutors."K5_English_Writing" AS tutor_k5_english_writing,
+      subjects_tutors."K5_Science" AS tutor_k5_science,
+      subjects_tutors."K5_social_studies" AS tutor_k5_social_studies,
       subjects_tutors."6th_to_8th_language_arts" AS tutor_6th_to_8th_language_arts,
       subjects_tutors."6th_to_8th_science" AS tutor_6th_to_8th_science,
       subjects_tutors."6th_to_8th_social_studies" AS tutor_6th_to_8th_social_studies,
@@ -366,11 +366,11 @@ tutors.email AS tutor_email,
    "10th" AS mentor_grade_10,
    "11th" AS mentor_grade_11,
    "12th" AS mentor_grade_12,
-   subjects_tutors."K5_Math" AS tutor_K5_Math,
-      subjects_tutors."K5_Reading" AS tutor_K5_Reading,
-      subjects_tutors."K5_English_Writing" AS tutor_K5_English_Writing,
-      subjects_tutors."K5_Science" AS tutor_K5_Science,
-      subjects_tutors."K5_social_studies" AS tutor_K5_social_studies,
+   subjects_tutors."K5_Math" AS tutor_k5_math,
+      subjects_tutors."K5_Reading" AS tutor_k5_reading,
+      subjects_tutors."K5_English_Writing" AS tutor_k5_english_writing,
+      subjects_tutors."K5_Science" AS tutor_k5_science,
+      subjects_tutors."K5_social_studies" AS tutor_k5_social_studies,
       subjects_tutors."6th_to_8th_language_arts" AS tutor_6th_to_8th_language_arts,
       subjects_tutors."6th_to_8th_science" AS tutor_6th_to_8th_science,
       subjects_tutors."6th_to_8th_social_studies" AS tutor_6th_to_8th_social_studies,
@@ -467,11 +467,11 @@ tutors.email AS tutor_email,
    "10th" AS mentor_grade_10,
    "11th" AS mentor_grade_11,
    "12th" AS mentor_grade_12,
-   subjects_tutors."K5_Math" AS tutor_K5_Math,
-      subjects_tutors."K5_Reading" AS tutor_K5_Reading,
-      subjects_tutors."K5_English_Writing" AS tutor_K5_English_Writing,
-      subjects_tutors."K5_Science" AS tutor_K5_Science,
-      subjects_tutors."K5_social_studies" AS tutor_K5_social_studies,
+   subjects_tutors."K5_Math" AS tutor_k5_math,
+      subjects_tutors."K5_Reading" AS tutor_k5_reading,
+      subjects_tutors."K5_English_Writing" AS tutor_k5_english_writing,
+      subjects_tutors."K5_Science" AS tutor_k5_science,
+      subjects_tutors."K5_social_studies" AS tutor_k5_social_studies,
       subjects_tutors."6th_to_8th_language_arts" AS tutor_6th_to_8th_language_arts,
       subjects_tutors."6th_to_8th_science" AS tutor_6th_to_8th_science,
       subjects_tutors."6th_to_8th_social_studies" AS tutor_6th_to_8th_social_studies,
@@ -543,20 +543,28 @@ tutors.email AS tutor_email,
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-  console.log(('matches.router/post'), req.body);
+router.post("/", (req, res) => {
+  console.log("matches.router/post", req.body);
   const submissionTimestamp = new Date(Date.now()).toISOString();
   const queryString = `INSERT INTO "matches" ("tutor_id", "tutee_id", "match_timestamp", "emails_sent")
   VALUES ($1, $2, $3, $4)
   RETURNING "id";`;
 
-  let values = [req.body.tutor_id, req.body.tutee_id, submissionTimestamp, true];
-  pool.query(queryString, values).then((results) => {
-    res.sendStatus(201);
-  }).catch((error) => {
-    console.log(error);
-    res.sendStatus(500);
-  })
+  let values = [
+    req.body.tutor_id,
+    req.body.tutee_id,
+    submissionTimestamp,
+    true,
+  ];
+  pool
+    .query(queryString, values)
+    .then((results) => {
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+    });
 });
 
 router.put("/matchStatus/", (req, res) => {
@@ -576,11 +584,12 @@ router.put("/matchStatus/", (req, res) => {
           console.log("error posting to subject_tutor", err);
           res.sendStatus(500);
         });
-
-    }).catch((err) => {
+    })
+    .catch((err) => {
       console.log("changeStatus failed: ", err);
       res.sendStatus(500);
-    }).catch((err) => {
+    })
+    .catch((err) => {
       console.log("error posting to subject_tutor", err);
       res.sendStatus(500);
     });
