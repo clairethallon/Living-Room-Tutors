@@ -5,10 +5,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Header from "../Header/Header";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 function TutorInfo(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
+  const newstudentInfoReducer = useSelector((store)=> store.newstudentInfoReducer);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0)}
@@ -134,7 +136,10 @@ function TutorInfo(props) {
   };
   // ******** END END END END END **************
 
-  const AddNewTutorInfo = () => {
+
+
+  const AddNewStudentInfo = () => {
+    console.log('in AddNewTutorInfo');
     //package up new student info in object
     const newStudentInfo = {
       submitter: newSubmitter,
@@ -178,11 +183,14 @@ function TutorInfo(props) {
     }
 
     // send it all to a reducer
+    console.log('in AddNewTutorInfo', newStudentInfo);
+
     dispatch({ type: "ADD_NEW_STUDENT_INFO", payload: newStudentInfo });
   };
 
   return (
     <div>
+      <ProgressBar/>
       <Header />
       <div className="maincard">
         <div>
@@ -448,7 +456,8 @@ function TutorInfo(props) {
         </div>
 
         <Link to="/StudentSubjects">
-          <Button onClick={AddNewTutorInfo, scrollToTop}>Save and Continue</Button>
+          <Button onClick={AddNewStudentInfo}>Save and Continue</Button>
+          {/* , scrollToTop  */}
         </Link>
       </div>
     </div>

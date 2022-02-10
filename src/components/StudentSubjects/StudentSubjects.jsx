@@ -5,10 +5,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Header from "../Header/Header";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import ProgressBar from "../ProgressBar/ProgressBar";
+
 
 function StudentSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
+  const newstudentInfoReducer = useSelector((store)=> store.newstudentInfoReducer);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0)}
@@ -108,6 +111,7 @@ function StudentSubjects(props) {
   return (
     <div>
       <div className="maincard">
+        <ProgressBar/>
         <Header />
 
         <>
@@ -367,7 +371,7 @@ function StudentSubjects(props) {
         </>
 
         <Link to="/StudentAdditional">
-          <Button onClick={AddNewStudentSubjects, scrollToTop}>Save and Continue</Button>
+          <Button onClick={AddNewStudentSubjects}>Save and Continue</Button>
         </Link>
       </div>
     </div>

@@ -176,7 +176,7 @@ function TutorInfo(props) {
       }
         </>
 
-        <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo, scrollToTop}>Save and Continue</Button></Link>
+        <Link to="/tutorSubjects"><Button onClick={AddNewTutorInfo}>Save and Continue</Button></Link>
         </div> 
     </div>
   );

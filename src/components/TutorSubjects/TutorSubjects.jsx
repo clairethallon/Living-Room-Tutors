@@ -1208,7 +1208,7 @@ function TutorSubjects(props) {
       </div>
 
       <Link to="/TutorAdditional">
-        <Button onClick={AddNewTutorSubjects, scrollToTop}>Add A New Tutor Info</Button>
+        <Button onClick={AddNewTutorSubjects}>Add A New Tutor Info</Button>
       </Link>
     </div>
   );
