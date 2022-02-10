@@ -40,19 +40,19 @@ function ProgressBar(props) {
 
   //sets student subjects image in project bar
   const changeProgressBarImageSubjects = () => {
-    console.log("reducer is equal to:", newStudentSubject.newPrimarySubject);
-    if (newStudentSubject.newPrimarySubject != "" || newStudentSubject.newPrimarySubject != null){
-      setProgressBarImageSubjects(true)
+    console.log("newStudentSubject.newPrimarySubject reducer is equal to:", newStudentSubject.newPrimarySubject);
+    if (newStudentSubject.newPrimarySubject === "" || newStudentSubject.newPrimarySubject === null || newStudentSubject.newPrimarySubject === undefined){
+      setProgressBarImageSubjects(false)
     }
-    else(setProgressBarImageSubjects(false))
+    else(setProgressBarImageSubjects(true))
   };
 
   const changeProgressBarImageAdditional = () => {
     console.log("newStudentSubject.newStudentAdditional", newStudentSubject.newStudentAdditional);
-    if (newStudentAdditional.newAdditionalInfo != "" || newStudentSubject.newAdditionalInfo != null ){
-    setProgressBarImageAdditional(true)
+    if (newStudentAdditional.newAdditionalInfo === "" || newStudentSubject.newAdditionalInfo === null || newStudentSubject.newAdditionalInfo === undefined){
+    setProgressBarImageAdditional(false)
     }
-    else(setProgressBarImageAdditional(false))
+    else(setProgressBarImageAdditional(true))
   };
 
 
