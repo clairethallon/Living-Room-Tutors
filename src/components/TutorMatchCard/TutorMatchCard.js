@@ -30,7 +30,6 @@ function TutorMatchCard(props) {
   useEffect(() => {
     subjectFinder(subjects);
     makePrettyTime(props.tutor.submission_timestamp);
-
   }, []);
 
   const subjects = [
@@ -98,9 +97,8 @@ function TutorMatchCard(props) {
     }
   };
 
-
   const makePrettyTime = (timestamp) => {
-    console.log(timestamp)
+    console.log(timestamp);
     let newTime = {
       year: "",
       month: "",
@@ -120,17 +118,26 @@ function TutorMatchCard(props) {
 
   return (
     <div>
-      {languageFilter.length == 0 || languageFilter == 'View All' ||
-        languageFilter === 'Chinese' && props.tutor.tutor_language_chinese === true ||
-        languageFilter === 'Arabic' && props.tutor.tutor_language_arabic === true ||
-        languageFilter === 'French' && props.tutor.tutor_language_french === true ||
-        languageFilter === 'Hmong' && props.tutor.tutor_language_hmong === true ||
-        languageFilter === 'Other' && props.tutor.tutor_language_other === true ||
-        languageFilter === 'Somali' && props.tutor.tutor_language_somali === true ||
-        languageFilter === 'Spanish' && props.tutor.tutor_language_spanish === true ||
-        languageFilter === 'Tagalog' && props.tutor.tutor_language_tagalog === true ||
-        languageFilter === 'Vietnamese' && props.tutor.tutor_language_vietnamese === true
-        ?
+      {languageFilter.length == 0 ||
+      languageFilter == "View All" ||
+      (languageFilter === "Chinese" &&
+        props.tutor.tutor_language_chinese === true) ||
+      (languageFilter === "Arabic" &&
+        props.tutor.tutor_language_arabic === true) ||
+      (languageFilter === "French" &&
+        props.tutor.tutor_language_french === true) ||
+      (languageFilter === "Hmong" &&
+        props.tutor.tutor_language_hmong === true) ||
+      (languageFilter === "Other" &&
+        props.tutor.tutor_language_other === true) ||
+      (languageFilter === "Somali" &&
+        props.tutor.tutor_language_somali === true) ||
+      (languageFilter === "Spanish" &&
+        props.tutor.tutor_language_spanish === true) ||
+      (languageFilter === "Tagalog" &&
+        props.tutor.tutor_language_tagalog === true) ||
+      (languageFilter === "Vietnamese" &&
+        props.tutor.tutor_language_vietnamese === true) ? (
         <Accordion className="mb-3" defaultActiveKey="1">
           <Accordion.Item eventKey="0">
             <Accordion.Header>
@@ -138,15 +145,30 @@ function TutorMatchCard(props) {
               <Col xs="2">
                 {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
               </Col>
-              <Col xs="2">{prettyTime.month}.{prettyTime.day}.{prettyTime.year}</Col>
-              {props.group === 'A' ?
-                <Col xs="3">{subject1}<br></br> {subject2}<br></br>{subject3}</Col> :
-                props.group === 'B' ?
-                  <Col xs="3">{subject1}<br></br> {subject2}</Col> :
-                  props.group === 'C' ?
-                    <Col xs="3">{subject1}<br></br>{subject3}</Col> :
-                    <Col xs="3">{subject1}</Col>
-              }
+              <Col xs="2">
+                {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+              </Col>
+              {props.group === "A" ? (
+                <Col xs="3">
+                  {subject1}
+                  <br></br> {subject2}
+                  <br></br>
+                  {subject3}
+                </Col>
+              ) : props.group === "B" ? (
+                <Col xs="3">
+                  {subject1}
+                  <br></br> {subject2}
+                </Col>
+              ) : props.group === "C" ? (
+                <Col xs="3">
+                  {subject1}
+                  <br></br>
+                  {subject3}
+                </Col>
+              ) : (
+                <Col xs="3">{subject1}</Col>
+              )}
               <Col xs="1" className="flaggedSubjectLanguage">
                 <SubjectFlag />
                 <LanguageFlag />
@@ -163,9 +185,10 @@ function TutorMatchCard(props) {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-        : <span></span>
-      }
-    </div >
+      ) : (
+        <span></span>
+      )}
+    </div>
   );
 }
 

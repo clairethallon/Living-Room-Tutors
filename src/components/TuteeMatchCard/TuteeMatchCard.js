@@ -19,10 +19,12 @@ function TuteeMatchCard(props) {
     day: "",
   });
 
-  useEffect(() => {
-    subjectFinder(subjects);
-    makePrettyTime(selectedTutee.tutee_submission_timestamp);
+  useEffect(async () => {
+    await subjectFinder(subjects);
+    await makePrettyTime(selectedTutee.tutee_submission_timestamp);
   }, []);
+
+  const specialSubjects = useSelector((store) => store.specialSubjects);
 
   const subjects = [
     { name: "K-5 Math ", dbname: "K5_Math" },
@@ -139,9 +141,17 @@ function TuteeMatchCard(props) {
               <br></br>
               {subject3}
             </Col>
-
+            {/* {JSON.stringify(specialSubjects)} */}
             <Col xs="2" className="flaggedSubjectLanguage">
-              <SubjectFlag />
+              {specialSubjects.map((subject) => {
+                if (
+                  selectedTutee.subject_1 === subject ||
+                  selectedTutee.subject_2 === subject ||
+                  selectedTutee.subject_3 === subject
+                ) {
+                  return <SubjectFlag />;
+                }
+              })}
               {languages.map((language) => {
                 if (language === true) {
                   return <LanguageFlag />;
