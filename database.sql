@@ -312,7 +312,7 @@ INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone"
 --NEXT TUTOR
 
 INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong", "Other" )
-VALUES ( true, false, false, false, false, false, false, false, "Farsi" );
+VALUES ( true, false, false, false, false, false, false, false, 'Farsi' );
 
 INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_social_studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french","lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep")
 	VALUES ( true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false );
@@ -474,7 +474,7 @@ NULL, '8/20/2021 8:23:28', true, false );
 --NEXT TUTOR
 
 INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong", "Other" )
-VALUES ( false, false, false, false, false, false, false, false, "Swahili");
+VALUES ( false, false, false, false, false, false, false, false, 'Swahili');
 
 INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_social_studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french","lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep")
 	VALUES ( true, true, true, false, false, false, false, false, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false );
@@ -495,7 +495,7 @@ INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "F
 VALUES ( false, false, false, false, false, false, false, false);
 
 INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_social_studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french","lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep")
-	VALUES ( false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false );
+	VALUES ( false, true, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false );
 
 INSERT INTO "mentoring_grade" ( "prek_kindergarten", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th" )
 VALUES ( true, false, false, false, false, false, false, false, false, false, false, false, false );
@@ -546,10 +546,10 @@ INSERT INTO "tutors" ("tutor_first_name", "tutor_last_name", "pronouns", "phone"
 --NEXT TUTOR
 
 INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong", "Other" )
-VALUES ( false, false, false, false, false, false, false, false, "Malayalam" );
+VALUES ( false, false, false, false, false, false, false, false, 'Malayalam' );
 
 INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_social_studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french","lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep")
-	VALUES ( false, false, false, false, false, false, false, false, true, true, true, true, true, false, true, false, true, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false );
+	VALUES ( false, false, false, false, false, false, false, false, true, true, true, true, true, false, true, false, true, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false);
 
 INSERT INTO "mentoring_grade" ( "prek_kindergarten", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th" )
 VALUES ( false, false, false, false, false, false, false, true, true, true, true, false, false );
