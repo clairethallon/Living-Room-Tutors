@@ -6,10 +6,13 @@ import MatchPageButton from "../MatchPageButton/MatchPageButton";
 import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TuteeProfile from "../TuteeProfile/TuteeProfile";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faPhone, faFlag } from "@fortawesome/free-solid-svg-icons";
 
 function TuteeMatchCard(props) {
   const selectedTutee = useSelector((store) => store.selected_tutee);
 
+  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
   const [subject1, setSubject1] = useState("");
   const [subject2, setSubject2] = useState("");
   const [subject3, setSubject3] = useState("");
@@ -135,11 +138,125 @@ function TuteeMatchCard(props) {
               {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
             </Col>
             <Col xs="3">
-              {subject1}
-              <br></br>
+              {/* {subject1}
               {subject2}
-              <br></br>
-              {subject3}
+              {subject3} */}
+
+              <div className="cardSubjects">
+                <div className="subjectContainer">
+                  {subject1 === "Precalculus/Trigonometry " ||
+                  subject1 === "Chemistry " ||
+                  subject1 === "Physics " ||
+                  subject1 === "Computer Science " ||
+                  subject1 === "Chinese " ||
+                  subject1 === "Spanish " ||
+                  subject1 === "French " ||
+                  subject1 === "German " ||
+                  subject1 === "World History " ||
+                  subject1 === "U.S. History " ||
+                  subject1 === "AP/Honors Biology " ||
+                  subject1 === "AP/Honors Chemistry " ||
+                  subject1 === "AP/Honors Physics " ||
+                  subject1 === "AP/Honors Calculus AB " ||
+                  subject1 === "AP/Honors Calculus BC " ||
+                  subject1 === "AP/Honors Statistics " ||
+                  subject1 === "AP/Honors Computer Science " ||
+                  subject1 ===
+                    "AP/Honors English Literature and Composition " ||
+                  subject1 === "AP/Honors Language and Composition " ||
+                  subject1 === "AP/Honors Macroeconomics " ||
+                  subject1 === "AP/Honors Microeconomics " ||
+                  subject1 === "AP/Honors Psychology " ||
+                  subject1 === "AP/Honors United States History " ||
+                  subject1 === "AP/Honors Government and Politics (US) " ||
+                  subject1 === "AP/Honors Human Geography " ||
+                  subject1 === "SAT Subject Tests " ||
+                  subject1 === "SAT Prep " ||
+                  subject1 === "ACT Prep " ? (
+                    <div className="subjectPillFlagged">
+                      <span className="subjectFlag">{flagIcon}</span> {subject1}
+                    </div>
+                  ) : (
+                    <div className="subjectPill">{subject1}</div>
+                  )}
+                </div>
+
+                <div className="subjectContainer">
+                  {subject2 === "Precalculus/Trigonometry " ||
+                  subject2 === "Chemistry " ||
+                  subject2 === "Physics " ||
+                  subject2 === "Computer Science " ||
+                  subject2 === "Chinese " ||
+                  subject2 === "Spanish " ||
+                  subject2 === "French " ||
+                  subject2 === "German " ||
+                  subject2 === "World History " ||
+                  subject2 === "U.S. History " ||
+                  subject2 === "AP/Honors Biology " ||
+                  subject2 === "AP/Honors Chemistry " ||
+                  subject2 === "AP/Honors Physics " ||
+                  subject2 === "AP/Honors Calculus AB " ||
+                  subject2 === "AP/Honors Calculus BC " ||
+                  subject2 === "AP/Honors Statistics " ||
+                  subject2 === "AP/Honors Computer Science " ||
+                  subject2 ===
+                    "AP/Honors English Literature and Composition " ||
+                  subject2 === "AP/Honors Language and Composition " ||
+                  subject2 === "AP/Honors Macroeconomics " ||
+                  subject2 === "AP/Honors Microeconomics " ||
+                  subject2 === "AP/Honors Psychology " ||
+                  subject2 === "AP/Honors United States History " ||
+                  subject2 === "AP/Honors Government and Politics (US) " ||
+                  subject2 === "AP/Honors Human Geography " ||
+                  subject2 === "SAT Subject Tests " ||
+                  subject2 === "SAT Prep " ||
+                  subject2 === "ACT Prep " ? (
+                    <div className="subjectPillFlagged">
+                      <span className="subjectFlag">{flagIcon}</span> {subject2}
+                    </div>
+                  ) : (
+                    <div className="subjectPill">{subject2}</div>
+                  )}
+                </div>
+
+                <div className="subjectContainer">
+                  {subject3 === "Precalculus/Trigonometry " ||
+                  subject3 === "Chemistry " ||
+                  subject3 === "Physics " ||
+                  subject3 === "Computer Science " ||
+                  subject3 === "Chinese " ||
+                  subject3 === "Spanish " ||
+                  subject3 === "French " ||
+                  subject3 === "German " ||
+                  subject3 === "World History " ||
+                  subject3 === "U.S. History " ||
+                  subject3 === "AP/Honors Biology " ||
+                  subject3 === "AP/Honors Chemistry " ||
+                  subject3 === "AP/Honors Physics " ||
+                  subject3 === "AP/Honors Calculus AB " ||
+                  subject3 === "AP/Honors Calculus BC " ||
+                  subject3 === "AP/Honors Statistics " ||
+                  subject3 === "AP/Honors Computer Science " ||
+                  subject3 ===
+                    "AP/Honors English Literature and Composition " ||
+                  subject3 === "AP/Honors Language and Composition " ||
+                  subject3 === "AP/Honors Macroeconomics " ||
+                  subject3 === "AP/Honors Microeconomics " ||
+                  subject3 === "AP/Honors Psychology " ||
+                  subject3 === "AP/Honors United States History " ||
+                  subject3 === "AP/Honors Government and Politics (US) " ||
+                  subject3 === "AP/Honors Human Geography " ||
+                  subject3 === "SAT Subject Tests " ||
+                  subject3 === "SAT Prep " ||
+                  subject3 === "ACT Prep " ? (
+                    <div className="subjectPillFlagged">
+                      <span className="subjectFlag">{flagIcon}</span> {subject3}
+                    </div>
+                  ) : (
+                    <div className="subjectPill">{subject3}</div>
+                  )}
+                </div>
+              </div>
             </Col>
             {/* {JSON.stringify(specialSubjects)} */}
             <Col xs="2" className="flaggedSubjectLanguage">
