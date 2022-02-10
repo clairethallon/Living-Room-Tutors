@@ -66,6 +66,11 @@
   src: local("Lato-Black"), url("../../fonts/Lato-Black.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "tuteeIcon";
+  src: local("tuteeIcon"), url("../../images/tuteeIcon.tif") format("tuteeIcon");
+}
+
 html,
 body,
 #react-root {
@@ -125,11 +130,11 @@ input {
 }
 
 .cardHead {
-  background-color: rgb(162, 161, 161);
+  background-color: #f9f9f9;
   display: flex;
   padding: 15px;
   border-radius: 8px;
-  margin: 40px 0px 20px 0px;
+  margin: 5px 0px 20px 0px;
   margin-bottom: 20px;
 }
 
@@ -160,10 +165,12 @@ input {
 
 .subjectFlag {
   color: #45c6a2;
+  margin-left: 3px;
 }
 
 .languageFlag {
   color: #093e48;
+  margin-left: 3px;
 }
 
 .activationButton {
@@ -173,7 +180,6 @@ input {
 .tuteeInfoSubjectsAndLanguages {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
 }
 
 .tuteeInfoSubjectsAndLanguages h2 {
@@ -217,6 +223,15 @@ h3 {
   font-size: 40px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 0px 20px;
+  transition: 0.3s;
+}
+
+.logoutNameAndIcon:hover {
+  background-color: #1898b5;
+  transition: 0.3s;
 }
 
 .logoutNameAndIcon p {
@@ -236,11 +251,13 @@ h3 {
 
 .profileAnswer {
   font-family: Lato-Regular;
+  font-size: 20px;
 }
 
 .profileQuestion {
   font-family: Lato-Black;
-  font-size: 18px;
+  font-size: 16px;
+  margin-bottom: 0px;
 }
 
 .profileFirstLastName {
@@ -248,23 +265,8 @@ h3 {
   font-size: 24px;
 }
 
-/* .profileSectionOne {
-  background-color: #c8edf8;
-  padding: 20px;
-}
-
-.profileSectionTwo {
-  background-color: #18a4c38e;
-  padding: 20px;
-}
-
-.profileSectionThree {
-  background-color: #6ece9892;
-  padding: 20px;
-} */
-
 .languagePill {
-  background-color: #c8edf8;
+  background-color: #c8edf8a4;
   padding: 8px 20px;
   width: fit-content;
   border-radius: 30px;
@@ -274,6 +276,9 @@ h3 {
 .languagePillContainer {
   display: flex;
   margin-bottom: 10px;
+  width: 50%;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .profileTitle {
@@ -286,7 +291,7 @@ h3 {
 } */
 
 .subjectPillFlagged {
-  background-color: #bdebde;
+  background-color: #bdebde83;
   padding: 8px 20px;
   width: fit-content;
   border-radius: 30px;
@@ -294,6 +299,7 @@ h3 {
   /* margin-left: 10px; */
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .subjectPill {
@@ -303,6 +309,7 @@ h3 {
   border-radius: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .gradesPill {
@@ -313,6 +320,7 @@ h3 {
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: Lato-Regular;
+  margin-right: 10px;
 }
 
 .formInput {
@@ -325,4 +333,225 @@ h3 {
 
 .textInput {
   width: 40% !important;
+}
+
+.quote {
+  font-family: Lato-Italic;
+  font-size: 20px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #1895ae;
+  background-color: #1aa3c22a;
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+
+.secondaryButton {
+  background-color: white;
+  color: #1895ae;
+  border: 1px solid #1895ae;
+  text-transform: capitalize;
+}
+
+.secondaryButton:hover {
+  background-color: #e6f6fa;
+  border: 1px solid #1895ae;
+  color: #1895ae;
+}
+
+.secondaryButton:focus {
+  background-color: #dff4fa;
+  border: 1px solid #1895ae;
+  color: #1895ae;
+  outline: none;
+}
+
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.primaryButton {
+  background-color: #1aa5c2;
+  border: 1px solid #1aa5c2 !important;
+  text-transform: capitalize;
+}
+
+.primaryButton:hover {
+  background-color: #1895ae;
+  color: white;
+  border: 1px solid #1895ae !important;
+}
+
+.primaryButton:focus {
+  background-color: #1895ae;
+  border: 1px solid #1895ae;
+  color: white;
+  outline: none;
+}
+
+.matchButton {
+  margin-left: 10px;
+}
+
+.tableHeads {
+  font-family: Lato-Black;
+}
+
+.languageFilterDropdown {
+  width: 10%;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #1aa5c2;
+}
+.nav-link:hover {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #1aa5c2;
+}
+
+.calenderIcon {
+  height: 18px;
+  margin-bottom: 5px;
+}
+
+.tuteeInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tuteeInfoBackground {
+  height: 20px;
+  width: 375px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tuteeSubject {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tuteeSubjectBackground {
+  height: 20px;
+  width: 355px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tuteeGeneralInfoRecordsSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.tuteeAdditionalInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tuteeAdditionalInfoBackground {
+  height: 20px;
+  width: 325px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tuteeSubjectRecordsSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.tuteeAdditionalInfoRecordsSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.tutorTuteeBorder {
+  border-left: 2px solid #1895ae3a;
+}
+
+.tutorGeneralInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tutorAdditionalInfoBackground {
+  height: 20px;
+  width: 370px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tutorGeneralInfoSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.tutorSubjectGradePreferenceBackground {
+  height: 20px;
+  width: 475px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tutorSubjectGradePreference {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tutorAdditionalInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tutorSubjectGradePreferenceSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.gradesPillContainer {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.subjectPillContainer {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tutorContainer {
+  padding-left: 10px;
+}
+
+.cardHeadCol {
+  padding: 0px;
+}
+
+.subjectAndLanguageDiv {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+
+.tutorTuteeHr {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.cardSubjects {
+  display: flex;
 }

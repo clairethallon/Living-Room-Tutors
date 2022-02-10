@@ -5,8 +5,8 @@ import TutorMatchCard from "../TutorMatchCard/TutorMatchCard";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
-// component name MatchTable with the name for the new component.
-function MatchTable(props) {
+// component name TutorMatchTable with the name for the new component.
+function TutorMatchTable(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
@@ -18,26 +18,24 @@ function MatchTable(props) {
   const groupCmatches = useSelector((store) => store.groupCmatches);
   const groupDmatches = useSelector((store) => store.groupDmatches);
 
-
-
   return (
     <div>
       <div>
         <Row className="cardHead">
           <Col xs="2" className="cardHeadCol">
-            <p>Name</p>
+            <p className="tableHeads">Tutor Name</p>
           </Col>
           <Col xs="2" className="cardHeadCol">
-            <p>Submission Date</p>
+            <p className="tableHeads">Submission Date</p>
           </Col>
           <Col xs="3" className="cardHeadCol">
-            <p>Subject</p>
+            <p className="tableHeads">Subject</p>
           </Col>
           <Col xs="3" className="cardHeadCol">
-            <p>Flagged</p>
+            <p className="tableHeads">Flagged</p>
           </Col>
           <Col xs="1" className="cardHeadCol">
-            <p>Action</p>
+            <p className="tableHeads">Action</p>
           </Col>
           <Col xs="2"></Col>
         </Row>
@@ -49,26 +47,26 @@ function MatchTable(props) {
       </div> */}
       <div>
         {groupAmatches.map((groupATutor) => {
-          return <TutorMatchCard tutor={groupATutor} />;
+          return <TutorMatchCard tutor={groupATutor} group={"A"} />;
         })}
       </div>
       <div>
         {groupBmatches.map((groupBTutor) => {
-          return <TutorMatchCard tutor={groupBTutor} />;
+          return <TutorMatchCard tutor={groupBTutor} group={"B"} />;
         })}
       </div>
       <div>
         {groupCmatches.map((groupCTutor) => {
-          return <TutorMatchCard tutor={groupCTutor} />;
+          return <TutorMatchCard tutor={groupCTutor} group={"C"} />;
         })}
       </div>
       <div>
         {groupDmatches.map((groupDTutor) => {
-          return <TutorMatchCard tutor={groupDTutor} />;
+          return <TutorMatchCard tutor={groupDTutor} group={"D"} />;
         })}
       </div>
     </div>
   );
 }
 
-export default MatchTable;
+export default TutorMatchTable;

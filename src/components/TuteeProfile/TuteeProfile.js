@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone, faFlag } from "@fortawesome/free-solid-svg-icons";
 
 function TuteeProfile(props) {
   const emailIcon = <FontAwesomeIcon icon={faEnvelope} />;
   const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
+  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
 
   const store = useSelector((store) => store);
   const [tuteeLanguages, setTuteeLanguages] = useState([]);
@@ -109,49 +110,63 @@ function TuteeProfile(props) {
 
   return (
     <div>
-      {/* {JSON.stringify(props.tutee)} */}
+      <div class="tuteeInfoBackground"> </div>
+      <h2 className="tuteeInfo">Tutee General Information</h2>
 
-      <div className="profileTitle">
-        <h2 className="profileFirstLastName">
-          {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
-        </h2>
-        <p>({props.tutee.tutee_pronouns})</p>
-      </div>
-      <div className="profileSectionOne">
-        <p className="profileQuestion">
+      <div className="tuteeGeneralInfoRecordsSection">
+        <div className="profileTitle">
+          <h2 className="profileFirstLastName">
+            {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
+          </h2>
+          <p>({props.tutee.tutee_pronouns})</p>
+        </div>
+        <div>
+          <p className="profileQuestion"></p>
           {emailIcon} Parent/Guardian's Email:
-          <span className="profileAnswer"> {props.tutee.email_guardian}</span>
-        </p>
-        <p className="profileQuestion">
-          {emailIcon} Student's email:
-          <span className="profileAnswer">{props.tutee.email_student}</span>
-        </p>
-        <p className="profileQuestion">
-          {phoneIcon} Phone number:{" "}
-          <span className="profileAnswer">{props.tutee.tutee_phone}</span>
-        </p>
-      </div>
-      <div className="profileSectionTwo">
-        <p className="profileQuestion">
-          Grade Level:
-          <span className="profileAnswer"> {props.tutee.tutee_grade}</span>
-        </p>
-        <p className="profileQuestion">
-          School attending:{" "}
-          <span className="profileAnswer">{props.tutee.tutee_school}</span>
-        </p>
+          <p className="profileAnswer"> {props.tutee.email_guardian}</p>
+        </div>
+        <div>
+          <p className="profileQuestion">{emailIcon} Student's email:</p>
+          <p className="profileAnswer"> {props.tutee.email_student}</p>
+        </div>
+        <div>
+          <p className="profileQuestion">{phoneIcon} Phone number: </p>
+          <p className="profileAnswer"> {props.tutee.tutee_phone}</p>
+        </div>
+        <div>
+          <p className="profileQuestion">Grade Level:</p>
+          {props.tutee.tutee_grade === "prek_kindergarten" ? (
+            <p className="profileAnswer"> Pre-K/Kindergarten</p>
+          ) : (
+            <p className="profileAnswer"> {props.tutee.tutee_grade}</p>
+          )}
+        </div>
+
+        <div>
+          <p className="profileQuestion">School attending: </p>
+          <p className="profileAnswer">{props.tutee.tutee_school}</p>
+        </div>
 
         <div>
           <p className="profileQuestion">Language preference:</p>
           <div className="languagePillContainer">
             {tuteeLanguages.map((language) => {
-              return <div className="languagePill">{language}</div>;
+              return (
+                <div className="languagePill">
+                  {" "}
+                  <span className="languageFlag">{flagIcon}</span> {language}
+                </div>
+              );
             })}
           </div>
         </div>
       </div>
-      {/* this section is the ternary operator for the first choice subject pill */}
-      <div className="profileSectionThree">
+
+      {/* -----------SUBJECT SECTION---------- */}
+
+      <div className="tuteeSubjectBackground"></div>
+      <h2 className="tuteeSubject">Tutee Subject Preference</h2>
+      <div className="tuteeSubjectRecordsSection">
         <div className="subjectContainer">
           <p className="profileQuestion">1st subject choice:</p>
           {subject1 === "Precalculus/Trigonometry " ||
@@ -182,13 +197,14 @@ function TuteeProfile(props) {
           subject1 === "SAT Subject Tests " ||
           subject1 === "SAT Prep " ||
           subject1 === "ACT Prep " ? (
-            <div className="subjectPillFlagged">{subject1}</div>
+            <div className="subjectPillFlagged">
+              <span className="subjectFlag">{flagIcon}</span> {subject1}
+            </div>
           ) : (
             <div className="subjectPill">{subject1}</div>
           )}
         </div>
 
-        {/* this section is the ternary operator for the second choice subject pill */}
         <div className="subjectContainer">
           <p className="profileQuestion">2nd subject choice:</p>
           {subject2 === "Precalculus/Trigonometry " ||
@@ -219,13 +235,14 @@ function TuteeProfile(props) {
           subject2 === "SAT Subject Tests " ||
           subject2 === "SAT Prep " ||
           subject2 === "ACT Prep " ? (
-            <div className="subjectPillFlagged">{subject2}</div>
+            <div className="subjectPillFlagged">
+              <span className="subjectFlag">{flagIcon}</span> {subject2}
+            </div>
           ) : (
             <div className="subjectPill">{subject2}</div>
           )}
         </div>
 
-        {/* this section is the ternary operator for the third choice subject pill */}
         <div className="subjectContainer">
           <p className="profileQuestion">3nd subject choice:</p>
           {subject3 === "Precalculus/Trigonometry " ||
@@ -256,7 +273,9 @@ function TuteeProfile(props) {
           subject3 === "SAT Subject Tests " ||
           subject3 === "SAT Prep " ||
           subject3 === "ACT Prep " ? (
-            <div className="subjectPillFlagged">{subject3}</div>
+            <div className="subjectPillFlagged">
+              <span className="subjectFlag">{flagIcon}</span> {subject3}
+            </div>
           ) : (
             <div className="subjectPill">{subject3}</div>
           )}
@@ -264,9 +283,18 @@ function TuteeProfile(props) {
 
         <p className="profileQuestion">
           Detail description regarding help needed:{" "}
-          <span className="profileAnswer">"{props.tutee.tutee_misc_info}"</span>
+          <p className="profileAnswer quote">
+            "{props.tutee.tutee_subject_details}"
+          </p>
         </p>
-        <p className="profileQuestion">Addition information:</p>
+      </div>
+
+      <div className="tuteeAdditionalInfoBackground"></div>
+      <h2 className="tuteeAdditionalInfo">Additional Information</h2>
+      <div className="tuteeAdditionalInfoRecordsSection">
+        <span className="profileAnswer quote">
+          "{props.tutee.tutee_misc_info}"
+        </span>
       </div>
     </div>
   );

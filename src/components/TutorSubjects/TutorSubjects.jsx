@@ -9,8 +9,8 @@ function TutorSubjects(props) {
   const store = useSelector((store) => store);
 
   const scrollToTop = () => {
-    window.scrollTo(0, 0)
-}
+    window.scrollTo(0, 0);
+  };
 
   // ******** GRADE CHECK BOXES **************
   const [PreK, setPreK] = useState(false);
@@ -41,7 +41,8 @@ function TutorSubjects(props) {
   const [MathLinearAlgebra, setMathLinearAlgebra] = useState(false);
   const [MathGeometry, setMathGeometry] = useState(false);
   const [MathAlgebraII, setMathAlgebraII] = useState(false);
-  const [MathPrecalculusTrigonometry, setMathPrecalculusTrigonometry] = useState(false);
+  const [MathPrecalculusTrigonometry, setMathPrecalculusTrigonometry] =
+    useState(false);
   const [BiologyLifeSciences, setBiologyLifeSciences] = useState(false);
   const [ScienceChemistry, setScienceChemistry] = useState(false);
   const [SciencePhysics, setSciencePhysics] = useState(false);
@@ -326,8 +327,8 @@ function TutorSubjects(props) {
 
   const changeAPHonorsPsychology = () => {
     setAPHonorsPsychology(!APHonorsPsychology);
-    console.log("APHonorsPsychology", APHonorsPsychology)
-  }
+    console.log("APHonorsPsychology", APHonorsPsychology);
+  };
 
   const changeAPHonorsUSHistory = () => {
     setAPHonorsUSHistory(!APHonorsUSHistory);
@@ -547,8 +548,7 @@ function TutorSubjects(props) {
 
   return (
     <div>
-
-       <Header/>
+      <Header />
 
       <h3>What grade levels are you comfortable tutoring/mentoring?</h3>
 

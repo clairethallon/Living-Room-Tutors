@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
 
@@ -13,11 +14,14 @@ const testRouter = require("./routes/test.router");
 const tuteesRouter = require("./routes/tutees.router");
 const tutorsRouter = require("./routes/tutors.router");
 const matchesRouter = require("./routes/matches.router");
-
+const mailRouter = require("./routes/mail.router");
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//for nodemailer
+app.use(cors());
 
 // Passport Session Configuration //
 app.use(sessionMiddleware);
@@ -32,8 +36,7 @@ app.use("/api/test", testRouter);
 app.use("/api/tutees", tuteesRouter);
 app.use("/api/tutors", tutorsRouter);
 app.use("/api/matches", matchesRouter);
-
-
+app.use("/api/mail", mailRouter);
 
 // Serve static files
 app.use(express.static("build"));

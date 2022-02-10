@@ -8,17 +8,17 @@ function PendingTutees(props) {
   const store = useSelector((store) => store);
   const [heading, setHeading] = useState("Functional Component");
 
-
   const flagIcon = <FontAwesomeIcon icon={faFlag} />;
-  
+
   const activeTutees = useSelector((store) => store.activeTutees);
 
   return (
     <div>
       <div className="tuteeInfoSubjectsAndLanguages">
         <h1>Tutees Pending Matches</h1>
-
-
+      </div>
+      <p>{activeTutees.length} pending tutee(s)</p>
+      <div className="subjectAndLanguageDiv">
         <div className="subjectAndLanguage">
           <p>
             <span className="flag subjectFlag">{flagIcon}</span>subjects
@@ -28,8 +28,6 @@ function PendingTutees(props) {
           </p>
         </div>
       </div>
-        {/* number will be replaced with an actual count from the db */}
-      <p>{activeTutees.length} pending tutee(s)</p>
       <ActiveTuteesTable />
     </div>
   );

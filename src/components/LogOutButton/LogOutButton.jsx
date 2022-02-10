@@ -18,7 +18,7 @@ function LogOutButton(props) {
       className="logoutNameAndIcon"
       onClick={() => dispatch({ type: "LOGOUT" })}
     >
-      <p className="signOutName">{user.first_name}</p>
+      <p className="signOutName">Sign out</p>
       <span className="signOutIcon">{signOutIcon}</span>
     </div>
   );

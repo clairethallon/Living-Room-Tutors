@@ -13,7 +13,8 @@ function TutorInfo(props) {
   const newstudentInfoReducer = useSelector((store)=> store.newstudentInfoReducer);
 
   const scrollToTop = () => {
-    window.scrollTo(0, 0)}
+    window.scrollTo(0, 0);
+  };
 
   const [newSubmitter, setSubmitter] = useState();
   const [newFirstName, setNewFirstName] = useState();
@@ -456,8 +457,8 @@ function TutorInfo(props) {
         </div>
 
         <Link to="/StudentSubjects">
-          <Button onClick={AddNewStudentInfo}>Save and Continue</Button>
-          {/* , scrollToTop  */}
+
+          <Button onClick={AddNewTutorInfo}>Save and Continue</Button>
         </Link>
       </div>
     </div>

@@ -1,18 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import { useSelector } from "react-redux";
 import "../AdminNavBar/AdminNavBar.css";
 import LRTHeader from "../../images/LRTHeader.png";
+import tuteeIconBlue from "../../images/tuteeIconBlue.svg";
+import tuteeIconWhite from "../../images/tuteeIconWhite.svg";
+import tutorIconBlue from "../../images/tutorIconBlue.svg";
+import tutorIconWhite from "../../images/tutorIconWhite.svg";
+import recordsIconBlue from "../../images/recordsIconBlue.svg";
+import recordsIconWhite from "../../images/recordsIconWhite.svg";
 
 function AdminNavBar() {
   const user = useSelector((store) => store.user);
 
   return (
     <div className="AdminNav">
-      <Link to="/admin">
-        <img src={LRTHeader} className="LRTHeader" />
-      </Link>
+      <div className="LRTHeaderContainer">
+        <Link to="/admin">
+          <img src={LRTHeader} className="LRTHeader" />
+        </Link>
+      </div>
 
       {/* If no user is logged in, show these links */}
       {user.id === null && (
@@ -26,17 +34,50 @@ function AdminNavBar() {
       {user.id && (
         <div className="adminNavContents">
           <div className="AdminNavLinks">
-            <Link className="AdminNavLink" to="/admin">
-              Tutees
-            </Link>
+            <NavLink
+              activeClassName="tuteeNavbarLink--active navbarlink--active"
+              className="AdminNavLink tuteeNavLink"
+              to="/admin"
+            >
+              <div className="topNavDiv"></div>
+              <div className="middleDivBackground">
+                <div className="middleNavDiv">
+                  <div className="tuteeIcon"></div>
+                  Tutees
+                </div>
+              </div>
+              <div className="bottomNavDiv"></div>
+            </NavLink>
 
-            <Link className="AdminNavLink" to="/tutors">
-              Tutors
-            </Link>
+            <NavLink
+              activeClassName="tutorNavbarLink--active navbarlink--active"
+              className="AdminNavLink tutorNavLink"
+              to="/tutors"
+            >
+              <div className="topNavDiv"> </div>
+              <div className="middleDivBackground">
+                <div className="middleNavDiv">
+                  <div className="tutorIcon"></div>
+                  Tutors
+                </div>
+              </div>
+              <div className="bottomNavDiv"></div>
+            </NavLink>
 
-            <Link className="AdminNavLink" to="/records">
-              Records
-            </Link>
+            <NavLink
+              activeClassName="recordsNavbarLink--active navbarlink--active"
+              className="AdminNavLink"
+              to="/records"
+            >
+              <div className="topNavDiv"> </div>
+              <div className="middleDivBackground">
+                <div className="middleNavDiv">
+                  <div className="recordsIcon"></div>
+                  Records
+                </div>
+              </div>
+              <div className="bottomNavDiv"></div>
+            </NavLink>
           </div>
           <div className="logoutButton">
             <LogOutButton />

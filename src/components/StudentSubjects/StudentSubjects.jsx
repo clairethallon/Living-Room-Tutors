@@ -14,7 +14,8 @@ function StudentSubjects(props) {
   const newstudentInfoReducer = useSelector((store)=> store.newstudentInfoReducer);
 
   const scrollToTop = () => {
-    window.scrollTo(0, 0)}
+    window.scrollTo(0, 0);
+  };
 
   const [newPrimarySubject, setNewPrimarySubject] = useState();
   const [changeOtherField, setOtherPrimaryField] = useState(false);

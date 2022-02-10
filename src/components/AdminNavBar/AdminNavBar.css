@@ -2,8 +2,7 @@
   /* flex box layout */
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  /* align-items: center; */
   justify-content: flex-start;
   position: fixed;
   left: 0;
@@ -12,33 +11,148 @@
   /* margin: 0 0 30px; */
   background-color: #1aa4c2;
   overflow: hidden;
-  padding: 15px;
+  /* padding: 15px 0px 15px 50px; */
   width: 300px;
 }
 
 .AdminNavLink {
   font-size: 32px;
   margin-top: 10px;
+  font-family: Lato-Regular;
+  text-decoration: none;
+  color: white;
+  width: 280px;
+}
+
+.LRTHeaderContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.AdminNavLink:hover {
+  color: white;
 }
 
 .AdminNavLinks {
   display: flex;
   flex-direction: column;
-  margin-top: 140px;
+  margin-top: 50px;
+  align-items: flex-end;
+  width: 300px;
 }
 
 .logoutButton {
   display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .adminNavContents {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 70%;
+  height: 85%;
 }
 
 .LRTHeader {
   width: 200px;
-  margin-top: 30px;
+  margin-top: 45px;
+  margin-bottom: 0px;
 }
+
+.tuteeIcon {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  background-image: url("../../images/tuteeIconWhite.svg");
+  background-size: cover;
+}
+
+.tutorIcon {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  background-image: url("../../images/tutorIconWhite.svg");
+  background-size: cover;
+}
+
+.recordsIcon {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  background-image: url("../../images/recordsIconWhite.svg");
+  background-size: cover;
+}
+
+.tuteeNavbarLink--active .tuteeIcon {
+  background-image: url("../../images/tuteeIconBlue.svg");
+  background-size: cover;
+}
+
+.tutorNavbarLink--active .tutorIcon {
+  background-image: url("../../images/tutorIconBlue.svg");
+}
+
+.recordsNavbarLink--active .recordsIcon {
+  background-image: url("../../images/recordsIconBlue.svg");
+}
+
+.navbarlink--active {
+  background-color: white;
+  color: #1aa4c2;
+  border-radius: 50px 0px 0px 50px !important;
+}
+
+.navbarlink--active .middleNavDiv {
+  background-color: white;
+  color: #1aa4c2;
+  border-radius: 50px 0px 0px 50px !important;
+}
+
+.navbarlink--active .topNavDiv {
+  /* background-color: white; */
+  border-radius: 0px 0px 100px 0px !important;
+}
+
+.navbarlink--active .bottomNavDiv {
+  /* background-color: white; */
+  border-radius: 0px 50px 0px 0px;
+}
+
+.navbarlink--active:hover {
+  color: #1aa4c2;
+}
+
+.middleNavDiv {
+  background-color: #1aa4c2;
+  color: white;
+  display: flex;
+  padding: 15px;
+  padding-left: 35px;
+  border-radius: 50px;
+}
+
+.topNavDiv {
+  height: 20px;
+  border-radius: 0px 0px 50px 0px;
+  background-color: #1aa4c2;
+}
+
+.bottomNavDiv {
+  height: 20px;
+  border-radius: 0px 50px 0px 0px;
+  background-color: #1aa4c2;
+}
+
+.middleDivBackground {
+  background-color: #1aa4c2;
+}
+
+/* .tuteeNavLink {
+  position: absolute !important;
+}
+
+.tutorNavLink {
+  position: absolute;
+  top: 310px;
+} */
