@@ -174,101 +174,119 @@ function TutorProfile(props) {
 
   return (
     <div>
-      <div className="profileTitle">
-        <h2 className="profileFirstLastName">
-          {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
-        </h2>
-        <p> ({props.tutor.tutor_pronouns})</p>
-      </div>
+      <div className="tutorAdditionalInfoBackground"></div>
+      <h2 className="tutorGeneralInfo">Tutor General Information</h2>
+      <div className="tutorGeneralInfoSection">
+        <div className="profileTitle">
+          <h2 className="profileFirstLastName">
+            {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
+          </h2>
+          <p>({props.tutor.tutor_pronouns})</p>
+        </div>
 
-      <p className="profileQuestion">
-        {emailIcon} Tutor's email:
-        <span className="profileAnswer"> {props.tutor.tutor_email}</span>
-      </p>
+        <div>
+          <p className="profileQuestion">{emailIcon} Tutor's email: </p>
+          <p className="profileAnswer">{props.tutor.tutor_email}</p>
+        </div>
 
-      <p className="profileQuestion">
-        {phoneIcon} Phone number:
-        <span className="profileAnswer">{props.tutor.tutor_phone}</span>
-      </p>
+        <div>
+          <p className="profileQuestion">{phoneIcon} Phone number: </p>
+          <p className="profileAnswer">{props.tutor.tutor_phone}</p>
+        </div>
 
-      <p className="profileQuestion">
-        Grade Level:
-        <span className="profileAnswer"> {props.tutor.tutor_grade}</span>
-      </p>
+        <div>
+          <p className="profileQuestion">Grade Level:</p>
+          <p className="profileAnswer">{props.tutor.tutor_grade}</p>
+        </div>
 
-      <p className="profileQuestion">
-        School attending:{" "}
-        <span className="profileAnswer"> {props.tutor.tutor_school}</span>
-      </p>
-
-      <p className="profileQuestion">
-        Grades comfortable tutoring:{" "}
-        {mentorChosenGrade.map((grade) => {
-          return <div className="gradesPill">{grade}</div>;
-        })}{" "}
-      </p>
-
-      <div>
-        <p className="profileQuestion">Subjects comfortable tutoring: </p>
-        {tutorSubjects.map((subject) => {
-          if (
-            subject === "Precalculus/Trigonometry " ||
-            subject === "Chemistry " ||
-            subject === "Physics " ||
-            subject === "Computer Science " ||
-            subject === "Chinese " ||
-            subject === "Spanish " ||
-            subject === "French " ||
-            subject === "German " ||
-            subject === "World History " ||
-            subject === "U.S. History " ||
-            subject === "AP/Honors Biology " ||
-            subject === "AP/Honors Chemistry " ||
-            subject === "AP/Honors Physics " ||
-            subject === "AP/Honors Calculus AB " ||
-            subject === "AP/Honors Calculus BC " ||
-            subject === "AP/Honors Statistics " ||
-            subject === "AP/Honors Computer Science " ||
-            subject === "AP/Honors English Literature and Composition " ||
-            subject === "AP/Honors Language and Composition " ||
-            subject === "AP/Honors Macroeconomics " ||
-            subject === "AP/Honors Microeconomics " ||
-            subject === "AP/Honors Psychology " ||
-            subject === "AP/Honors United States History " ||
-            subject === "AP/Honors Government and Politics (US) " ||
-            subject === "AP/Honors Human Geography " ||
-            subject === "SAT Subject Tests " ||
-            subject === "SAT Prep " ||
-            subject === "ACT Prep "
-          ) {
-            return (
-              <div className="subjectPillFlagged">
-                <span className="subjectFlag">{flagIcon}</span> {subject}
-              </div>
-            );
-          } else {
-            return <div className="subjectPill">{subject}</div>;
-          }
-        })}
-      </div>
-
-      <div>
-        <p className="profileQuestion">Languages comfortable tutoring in:</p>
-        <div className="languagePillContainer">
-          {tutorLanguages.map((language) => {
-            return (
-              <div className="languagePill">
-                <span className="languageFlag">{flagIcon}</span> {language}
-              </div>
-            );
-          })}
+        <div>
+          <p className="profileQuestion">School attending:</p>
+          <p className="profileAnswer"> {props.tutor.tutor_school}</p>
+        </div>
+        <div>
+          <p className="profileQuestion">Languages comfortable tutoring in:</p>
+          <div className="languagePillContainer">
+            {tutorLanguages.map((language) => {
+              return (
+                <div className="languagePill">
+                  <span className="languageFlag">{flagIcon}</span> {language}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
 
-      <p className="profileQuestion">
-        Additional information:{" "}
-        <span className="profileAnswer">{props.tutor.tutor_miscinfo}</span>
-      </p>
+      {/* ---------GRADES & SUBJECTS SECTION---------- */}
+
+      <div className="tutorSubjectGradePreferenceBackground"></div>
+      <h2 className="tutorSubjectGradePreference">
+        Tutor Subject & Grade Preference
+      </h2>
+      <div className="tutorSubjectGradePreferenceSection">
+        <div>
+          <p className="profileQuestion">Grades comfortable tutoring: </p>
+          <div className="gradesPillContainer">
+            {mentorChosenGrade.map((grade) => {
+              return <div className="gradesPill">{grade}</div>;
+            })}{" "}
+          </div>
+        </div>
+
+        <div>
+          <p className="profileQuestion">Subjects comfortable tutoring: </p>
+          <div className="subjectPillContainer">
+            {tutorSubjects.map((subject) => {
+              if (
+                subject === "Precalculus/Trigonometry " ||
+                subject === "Chemistry " ||
+                subject === "Physics " ||
+                subject === "Computer Science " ||
+                subject === "Chinese " ||
+                subject === "Spanish " ||
+                subject === "French " ||
+                subject === "German " ||
+                subject === "World History " ||
+                subject === "U.S. History " ||
+                subject === "AP/Honors Biology " ||
+                subject === "AP/Honors Chemistry " ||
+                subject === "AP/Honors Physics " ||
+                subject === "AP/Honors Calculus AB " ||
+                subject === "AP/Honors Calculus BC " ||
+                subject === "AP/Honors Statistics " ||
+                subject === "AP/Honors Computer Science " ||
+                subject === "AP/Honors English Literature and Composition " ||
+                subject === "AP/Honors Language and Composition " ||
+                subject === "AP/Honors Macroeconomics " ||
+                subject === "AP/Honors Microeconomics " ||
+                subject === "AP/Honors Psychology " ||
+                subject === "AP/Honors United States History " ||
+                subject === "AP/Honors Government and Politics (US) " ||
+                subject === "AP/Honors Human Geography " ||
+                subject === "SAT Subject Tests " ||
+                subject === "SAT Prep " ||
+                subject === "ACT Prep "
+              ) {
+                return (
+                  <div className="subjectPillFlagged">
+                    <span className="subjectFlag">{flagIcon}</span> {subject}
+                  </div>
+                );
+              } else {
+                return <div className="subjectPill">{subject}</div>;
+              }
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className="tuteeAdditionalInfoBackground"></div>
+      <h2 className="tuteeAdditionalInfo">Additional Information</h2>
+      <div className="tuteeAdditionalInfoRecordsSection">
+        <span className="profileAnswer quote">
+          "{props.tutor.tutor_miscinfo}"
+        </span>
+      </div>
     </div>
   );
 }

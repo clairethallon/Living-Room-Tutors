@@ -532,7 +532,9 @@ function RecordsCard(props) {
                 <Col className="tutorTuteeBorder">
                   <div className="tutorContainer">
                     <div className="tutorAdditionalInfoBackground"></div>
-                    <h2 className="tutorGeneralInfo">Tutor Information</h2>
+                    <h2 className="tutorGeneralInfo">
+                      Tutor General Information
+                    </h2>
                     <div className="tutorGeneralInfoSection">
                       <div className="profileTitle">
                         <h2 className="profileFirstLastName">
@@ -594,7 +596,7 @@ function RecordsCard(props) {
 
                     <div className="tutorSubjectGradePreferenceBackground"></div>
                     <h2 className="tutorSubjectGradePreference">
-                      Subject & Grade Preference
+                      Tutor Subject & Grade Preference
                     </h2>
                     <div className="tutorSubjectGradePreferenceSection">
                       <div>
