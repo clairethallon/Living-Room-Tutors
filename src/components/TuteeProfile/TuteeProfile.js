@@ -110,41 +110,42 @@ function TuteeProfile(props) {
 
   return (
     <div>
-      {/* {JSON.stringify(props.tutee)} */}
+      <div class="tuteeInfoBackground"> </div>
+      <h2 className="tuteeInfo">Tutee General Information</h2>
 
-      <div className="profileTitle">
-        <h2 className="profileFirstLastName">
-          {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
-        </h2>
-        <p>({props.tutee.tutee_pronouns})</p>
-      </div>
-      <div className="profileSectionOne">
-        <p className="profileQuestion">
+      <div className="tuteeGeneralInfoRecordsSection">
+        <div className="profileTitle">
+          <h2 className="profileFirstLastName">
+            {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
+          </h2>
+          <p>({props.tutee.tutee_pronouns})</p>
+        </div>
+        <div>
+          <p className="profileQuestion"></p>
           {emailIcon} Parent/Guardian's Email:
-          <span className="profileAnswer"> {props.tutee.email_guardian}</span>
-        </p>
-        <p className="profileQuestion">
-          {emailIcon} Student's email:
-          <span className="profileAnswer"> {props.tutee.email_student}</span>
-        </p>
-        <p className="profileQuestion">
-          {phoneIcon} Phone number:{" "}
-          <span className="profileAnswer"> {props.tutee.tutee_phone}</span>
-        </p>
-      </div>
-      <div className="profileSectionTwo">
-        <p className="profileQuestion">
-          Grade Level:
+          <p className="profileAnswer"> {props.tutee.email_guardian}</p>
+        </div>
+        <div>
+          <p className="profileQuestion">{emailIcon} Student's email:</p>
+          <p className="profileAnswer"> {props.tutee.email_student}</p>
+        </div>
+        <div>
+          <p className="profileQuestion">{phoneIcon} Phone number: </p>
+          <p className="profileAnswer"> {props.tutee.tutee_phone}</p>
+        </div>
+        <div>
+          <p className="profileQuestion">Grade Level:</p>
           {props.tutee.tutee_grade === "prek_kindergarten" ? (
-            <span className="profileAnswer"> Pre-K/Kindergarten</span>
+            <p className="profileAnswer"> Pre-K/Kindergarten</p>
           ) : (
-            <span className="profileAnswer"> {props.tutee.tutee_grade}</span>
+            <p className="profileAnswer"> {props.tutee.tutee_grade}</p>
           )}
-        </p>
-        <p className="profileQuestion">
-          School attending:{" "}
-          <span className="profileAnswer">{props.tutee.tutee_school}</span>
-        </p>
+        </div>
+
+        <div>
+          <p className="profileQuestion">School attending: </p>
+          <p className="profileAnswer">{props.tutee.tutee_school}</p>
+        </div>
 
         <div>
           <p className="profileQuestion">Language preference:</p>
@@ -160,8 +161,12 @@ function TuteeProfile(props) {
           </div>
         </div>
       </div>
-      {/* this section is the ternary operator for the first choice subject pill */}
-      <div className="profileSectionThree">
+
+      {/* -----------SUBJECT SECTION---------- */}
+
+      <div className="tuteeSubjectBackground"></div>
+      <h2 className="tuteeSubject">Tutee Subject Preference</h2>
+      <div className="tuteeSubjectRecordsSection">
         <div className="subjectContainer">
           <p className="profileQuestion">1st subject choice:</p>
           {subject1 === "Precalculus/Trigonometry " ||
@@ -200,7 +205,6 @@ function TuteeProfile(props) {
           )}
         </div>
 
-        {/* this section is the ternary operator for the second choice subject pill */}
         <div className="subjectContainer">
           <p className="profileQuestion">2nd subject choice:</p>
           {subject2 === "Precalculus/Trigonometry " ||
@@ -239,7 +243,6 @@ function TuteeProfile(props) {
           )}
         </div>
 
-        {/* this section is the ternary operator for the third choice subject pill */}
         <div className="subjectContainer">
           <p className="profileQuestion">3nd subject choice:</p>
           {subject3 === "Precalculus/Trigonometry " ||
@@ -280,9 +283,18 @@ function TuteeProfile(props) {
 
         <p className="profileQuestion">
           Detail description regarding help needed:{" "}
-          <span className="profileAnswer">"{props.tutee.tutee_misc_info}"</span>
+          <p className="profileAnswer quote">
+            "{props.tutee.tutee_subject_details}"
+          </p>
         </p>
-        <p className="profileQuestion">Addition information:</p>
+      </div>
+
+      <div className="tuteeAdditionalInfoBackground"></div>
+      <h2 className="tuteeAdditionalInfo">Additional Information</h2>
+      <div className="tuteeAdditionalInfoRecordsSection">
+        <span className="profileAnswer quote">
+          "{props.tutee.tutee_misc_info}"
+        </span>
       </div>
     </div>
   );

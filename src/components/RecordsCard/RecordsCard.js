@@ -317,6 +317,7 @@ function RecordsCard(props) {
                       </h2>
                       <p>({props.match.tutee_pronouns})</p>
                     </div>
+
                     <div>
                       <p className="profileQuestion">
                         {emailIcon} Parent/Guardian's email (if applicable):{" "}
