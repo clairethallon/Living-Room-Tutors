@@ -121,8 +121,9 @@ function TuteeProfile(props) {
           <p>({props.tutee.tutee_pronouns})</p>
         </div>
         <div>
-          <p className="profileQuestion"></p>
-          {emailIcon} Parent/Guardian's Email:
+          <p className="profileQuestion">
+            {emailIcon} Parent/Guardian's Email:
+          </p>
           <p className="profileAnswer"> {props.tutee.email_guardian}</p>
         </div>
         <div>
@@ -281,21 +282,29 @@ function TuteeProfile(props) {
           )}
         </div>
 
-        <p className="profileQuestion">
-          Detail description regarding help needed:{" "}
-          <p className="profileAnswer quote">
-            "{props.tutee.tutee_subject_details}"
-          </p>
-        </p>
+        {props.tutee.tutee_subject_details && (
+          <div>
+            <p className="profileQuestion">
+              Detail description regarding help needed:{" "}
+            </p>
+            <p className="profileAnswer quote">
+              "{props.tutee.tutee_subject_details}"
+            </p>
+          </div>
+        )}
       </div>
 
-      <div className="tuteeAdditionalInfoBackground"></div>
-      <h2 className="tuteeAdditionalInfo">Additional Information</h2>
-      <div className="tuteeAdditionalInfoRecordsSection">
-        <span className="profileAnswer quote">
-          "{props.tutee.tutee_misc_info}"
-        </span>
-      </div>
+      {props.tutee.tutee_misc_info && (
+        <div>
+          <div className="tuteeAdditionalInfoBackground"></div>
+          <h2 className="tuteeAdditionalInfo">Additional Information</h2>
+          <div className="tuteeAdditionalInfoRecordsSection">
+            <span className="profileAnswer quote">
+              "{props.tutee.tutee_misc_info}"
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -315,17 +315,21 @@ function RecordsCard(props) {
                         {props.match.tutee_firstname}{" "}
                         {props.match.tutee_lastname}
                       </h2>
-                      <p>({props.match.tutee_pronouns})</p>
+                      {props.match.tutee_pronouns && (
+                        <p>({props.match.tutee_pronouns})</p>
+                      )}
                     </div>
 
-                    <div>
-                      <p className="profileQuestion">
-                        {emailIcon} Parent/Guardian's email (if applicable):{" "}
-                      </p>
-                      <p className="profileAnswer">
-                        {props.match.email_guardian}
-                      </p>
-                    </div>
+                    {props.match.email_guardian && (
+                      <div>
+                        <p className="profileQuestion">
+                          {emailIcon} Parent/Guardian's email:{" "}
+                        </p>
+                        <p className="profileAnswer">
+                          {props.match.email_guardian}
+                        </p>
+                      </div>
+                    )}
 
                     <div>
                       <p className="profileQuestion">
@@ -509,23 +513,31 @@ function RecordsCard(props) {
                       )}
                     </div>
 
-                    <p className="profileQuestion">
-                      Detail description regarding help needed:{" "}
-                      <p className="profileAnswer quote">
-                        "{props.match.tutee_subject_details}"
-                      </p>
-                    </p>
+                    {props.match.tutee_subject_details && (
+                      <div>
+                        <p className="profileQuestion">
+                          Detail description regarding help needed:{" "}
+                        </p>
+                        <p className="profileAnswer quote">
+                          "{props.match.tutee_subject_details}"
+                        </p>
+                      </div>
+                    )}
                   </div>
 
-                  <div className="tuteeAdditionalInfoBackground"></div>
-                  <h2 className="tuteeAdditionalInfo">
-                    Additional Information
-                  </h2>
-                  <div className="tuteeAdditionalInfoRecordsSection">
-                    <span className="profileAnswer quote">
-                      "{props.match.tutee_misc_info}"
-                    </span>
-                  </div>
+                  {props.match.tutee_misc_info && (
+                    <div>
+                      <div className="tuteeAdditionalInfoBackground"></div>
+                      <h2 className="tuteeAdditionalInfo">
+                        Additional Information
+                      </h2>
+                      <div className="tuteeAdditionalInfoRecordsSection">
+                        <span className="profileAnswer quote">
+                          "{props.match.tutee_misc_info}"
+                        </span>
+                      </div>
+                    </div>
+                  )}
                 </Col>
 
                 {/* -----------tutor info starts---------- */}
@@ -541,7 +553,9 @@ function RecordsCard(props) {
                           {props.match.tutor_first_name}{" "}
                           {props.match.tutor_last_name}
                         </h2>
-                        <p>({props.match.tutor_pronouns})</p>
+                        {props.match.tutor_pronouns && (
+                          <p>({props.match.tutor_pronouns})</p>
+                        )}
                       </div>
 
                       <div>
@@ -666,15 +680,19 @@ function RecordsCard(props) {
                         </div>
                       </div>
                     </div>
-                    <div className="tuteeAdditionalInfoBackground"></div>
-                    <h2 className="tuteeAdditionalInfo">
-                      Additional Information
-                    </h2>
-                    <div className="tuteeAdditionalInfoRecordsSection">
-                      <span className="profileAnswer quote">
-                        "{props.match.tutor_miscinfo}"
-                      </span>
-                    </div>
+                    {props.match.tutor_miscinfo && (
+                      <div>
+                        <div className="tuteeAdditionalInfoBackground"></div>
+                        <h2 className="tuteeAdditionalInfo">
+                          Additional Information
+                        </h2>
+                        <div className="tuteeAdditionalInfoRecordsSection">
+                          <span className="profileAnswer quote">
+                            "{props.match.tutor_miscinfo}"
+                          </span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </Col>
               </Row>
