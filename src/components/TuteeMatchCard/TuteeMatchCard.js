@@ -8,7 +8,6 @@ import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TuteeProfile from "../TuteeProfile/TuteeProfile";
 
 function TuteeMatchCard(props) {
-
   const selectedTutee = useSelector((store) => store.selected_tutee);
 
   const [subject1, setSubject1] = useState("");
@@ -91,7 +90,7 @@ function TuteeMatchCard(props) {
   };
 
   const makePrettyTime = (timestamp) => {
-    console.log(timestamp)
+    console.log(timestamp);
     let newTime = {
       year: "",
       month: "",
@@ -109,9 +108,20 @@ function TuteeMatchCard(props) {
     }
   };
 
+  const languages = [
+    selectedTutee.tutee_language_arabic,
+    selectedTutee.tutee_language_chinese,
+    selectedTutee.tutee_language_french,
+    selectedTutee.tutee_language_hmong,
+    selectedTutee.tutee_language_somali,
+    selectedTutee.tutee_language_tagalog,
+    selectedTutee.tutee_language_tagalog,
+    selectedTutee.tutee_language_vietnamese,
+    selectedTutee.tutee_language_spanish,
+  ];
+
   return (
     <div>
-      {/* {JSON.stringify(selectedTutee)} */}
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -119,12 +129,24 @@ function TuteeMatchCard(props) {
             <Col xs="2">
               {selectedTutee.tutee_firstname} {selectedTutee.tutee_lastname}
             </Col>
-            <Col xs="2">{prettyTime.month}.{prettyTime.day}.{prettyTime.year}</Col>
-            <Col xs="3">{subject1}<br></br>{subject2}<br></br>{subject3}</Col>
+            <Col xs="2">
+              {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+            </Col>
+            <Col xs="3">
+              {subject1}
+              <br></br>
+              {subject2}
+              <br></br>
+              {subject3}
+            </Col>
 
             <Col xs="2" className="flaggedSubjectLanguage">
               <SubjectFlag />
-              <LanguageFlag />
+              {languages.map((language) => {
+                if (language === true) {
+                  return <LanguageFlag />;
+                }
+              })}
             </Col>
             {/* </Row> */}
           </Accordion.Header>
