@@ -35,6 +35,18 @@ function TutorMatchCard(props) {
     await tutorSubjectFinder(tutorSubject);
   }, []);
 
+  const languages = [
+    props.tutor.tutor_language_arabic,
+    props.tutor.tutor_language_chinese,
+    props.tutor.tutor_language_french,
+    props.tutor.tutor_language_hmong,
+    props.tutor.tutor_language_somali,
+    props.tutor.tutor_language_tagalog,
+    props.tutor.tutor_language_tagalog,
+    props.tutor.tutor_language_vietnamese,
+    props.tutor.tutor_language_spanish,
+  ];
+
   const specialSubjects = useSelector((store) => store.specialSubjects);
 
   const tutorSubject = [
@@ -313,7 +325,11 @@ function TutorMatchCard(props) {
                   }
                 })}
 
-                <LanguageFlag />
+                {languages.map((language) => {
+                  if (language === true) {
+                    return <LanguageFlag />;
+                  }
+                })}
               </Col>
               <Col xs="2"></Col>
               <Col>
