@@ -21,7 +21,7 @@ function RecordsPage(props) {
   return (
     <div className="adminPageContainer">
       <AdminNavBar />
-      <h2>Matched Tutors & Tutees</h2>
+      <h1>Matched Tutors & Tutees</h1>
       <label htmlFor="yearFilter">
         <img className="calenderIcon" src={calenderIcon} /> Filter Matches by
         Year

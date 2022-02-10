@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ActiveTutorsTable from "../ActiveTutorsTable/ActiveTutorsTable";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFlag } from "@fortawesome/free-solid-svg-icons";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name PendingTutorsPage with the name for the new component.
 function PendingTutors(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-
+  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
 
   const [heading, setHeading] = useState("Functional Component");
   const activeTutors = useSelector((store) => store.activeTutors);
 
-
-
   return (
     <div>
       <h1>Tutors Pending Matches</h1>
-      {/* number will be replaced with an actual count from the db */}
+
       <p>{activeTutors.length} pending tutor(s)</p>
+      <div className="subjectAndLanguageDiv">
+        <div className="subjectAndLanguage">
+          <p>
+            <span className="flag subjectFlag">{flagIcon}</span>subjects
+          </p>
+          <p>
+            <span className="flag languageFlag">{flagIcon}</span>Languages
+          </p>
+        </div>
+      </div>
       <ActiveTutorsTable />
     </div>
   );

@@ -134,7 +134,7 @@ input {
   display: flex;
   padding: 15px;
   border-radius: 8px;
-  margin: 40px 0px 20px 0px;
+  margin: 5px 0px 20px 0px;
   margin-bottom: 20px;
 }
 
@@ -165,10 +165,12 @@ input {
 
 .subjectFlag {
   color: #45c6a2;
+  margin-left: 3px;
 }
 
 .languageFlag {
   color: #093e48;
+  margin-left: 3px;
 }
 
 .activationButton {
@@ -178,7 +180,6 @@ input {
 .tuteeInfoSubjectsAndLanguages {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
 }
 
 .tuteeInfoSubjectsAndLanguages h2 {
@@ -250,11 +251,13 @@ h3 {
 
 .profileAnswer {
   font-family: Lato-Regular;
+  font-size: 20px;
 }
 
 .profileQuestion {
   font-family: Lato-Black;
-  font-size: 18px;
+  font-size: 16px;
+  margin-bottom: 0px;
 }
 
 .profileFirstLastName {
@@ -273,6 +276,9 @@ h3 {
 .languagePillContainer {
   display: flex;
   margin-bottom: 10px;
+  width: 50%;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .profileTitle {
@@ -293,6 +299,7 @@ h3 {
   /* margin-left: 10px; */
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .subjectPill {
@@ -302,6 +309,7 @@ h3 {
   border-radius: 30px;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .gradesPill {
@@ -312,6 +320,7 @@ h3 {
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: Lato-Regular;
+  margin-right: 10px;
 }
 
 .formInput {
@@ -383,7 +392,7 @@ h3 {
 }
 
 .matchButton {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 .tableHeads {
@@ -391,7 +400,7 @@ h3 {
 }
 
 .languageFilterDropdown {
-  width: 25%;
+  width: 10%;
 }
 
 .nav-link {
@@ -462,4 +471,87 @@ h3 {
 .tuteeAdditionalInfoRecordsSection {
   margin-bottom: 25px;
   margin-left: 20px;
+}
+
+.tutorTuteeBorder {
+  border-left: 2px solid #1895ae3a;
+}
+
+.tutorGeneralInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tutorAdditionalInfoBackground {
+  height: 20px;
+  width: 370px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tutorGeneralInfoSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.tutorSubjectGradePreferenceBackground {
+  height: 20px;
+  width: 475px;
+  position: absolute;
+  background-color: #1aa6c258;
+  margin-top: 22px;
+}
+
+.tutorSubjectGradePreference {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tutorAdditionalInfo {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.tutorSubjectGradePreferenceSection {
+  margin-bottom: 25px;
+  margin-left: 20px;
+}
+
+.gradesPillContainer {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.subjectPillContainer {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.tutorContainer {
+  padding-left: 10px;
+}
+
+.cardHeadCol {
+  padding: 0px;
+}
+
+.subjectAndLanguageDiv {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+
+.tutorTuteeHr {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.cardSubjects {
+  display: flex;
 }
