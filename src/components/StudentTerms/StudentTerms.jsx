@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Header from "../Header/Header";
 import StudentModal from "../StudentModal/StudentModal";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -74,6 +75,7 @@ function StudentTerms(props) {
 
   return (
     <div>
+      <ProgressBar/>
       <Header />
       <div className="maincard">
         <p>

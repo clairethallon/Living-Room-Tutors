@@ -234,6 +234,7 @@ function TutorInfo(props) {
           <Button onClick={AddNewTutorInfo}>Save and Continue</Button>
         </Link>
       </div>
+
     </div>
   );
 }

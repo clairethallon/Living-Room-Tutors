@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Header from '../Header/Header';
 import { Form } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 
 function StudentAdditional(props) {
@@ -31,7 +32,7 @@ function StudentAdditional(props) {
 
   return (
     <div>
-      
+      <ProgressBar/>
      <Header/>
 
       <div className= 'maincard'>

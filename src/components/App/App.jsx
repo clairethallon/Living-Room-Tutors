@@ -40,6 +40,8 @@ import TutorsPage from "../TutorsPage/TutorsPage";
 import RecordsPage from "../RecordsPage/RecordsPage";
 import MatchPage from "../MatchPage/MatchPage";
 
+import ProgressBar from "../ProgressBar/ProgressBar";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -66,6 +68,10 @@ function App() {
             path="/about"
           >
             <AboutPage />
+          </Route>
+
+          <Route exact path="/ProgressBar">
+            <ProgressBar />
           </Route>
 
           <Route exact path="/StudentAdditional">
