@@ -188,7 +188,7 @@ function TutorProfile(props) {
           <h2 className="profileFirstLastName">
             {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
           </h2>
-          <p>({props.tutor.tutor_pronouns})</p>
+          {props.tutor.tutor_pronouns && <p>({props.tutor.tutor_pronouns})</p>}
         </div>
 
         <div>
@@ -287,13 +287,17 @@ function TutorProfile(props) {
         </div>
       </div>
 
-      <div className="tuteeAdditionalInfoBackground"></div>
-      <h2 className="tuteeAdditionalInfo">Additional Information</h2>
-      <div className="tuteeAdditionalInfoRecordsSection">
-        <span className="profileAnswer quote">
-          "{props.tutor.tutor_miscinfo}"
-        </span>
-      </div>
+      {props.tutor.tutor_miscinfo && (
+        <div>
+          <div className="tuteeAdditionalInfoBackground"></div>
+          <h2 className="tuteeAdditionalInfo">Additional Information</h2>
+          <div className="tuteeAdditionalInfoRecordsSection">
+            <span className="profileAnswer quote">
+              "{props.tutor.tutor_miscinfo}"
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
