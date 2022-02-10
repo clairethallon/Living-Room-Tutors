@@ -134,7 +134,7 @@ input {
   display: flex;
   padding: 15px;
   border-radius: 8px;
-  margin: 40px 0px 20px 0px;
+  margin: 5px 0px 20px 0px;
   margin-bottom: 20px;
 }
 
@@ -165,10 +165,12 @@ input {
 
 .subjectFlag {
   color: #45c6a2;
+  margin-left: 3px;
 }
 
 .languageFlag {
   color: #093e48;
+  margin-left: 3px;
 }
 
 .activationButton {
@@ -178,7 +180,6 @@ input {
 .tuteeInfoSubjectsAndLanguages {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
 }
 
 .tuteeInfoSubjectsAndLanguages h2 {
@@ -537,4 +538,11 @@ h3 {
 
 .cardHeadCol {
   padding: 0px;
+}
+
+.subjectAndLanguageDiv {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 20px;
 }
