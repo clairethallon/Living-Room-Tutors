@@ -43,12 +43,13 @@ function CompleteMatchButton(props) {
       </Button>
 
       <Modal show={show} onHide={handleClose}
+        style={{ paddingTop: '50px' }}
         size="lg"
       >
         <Modal.Header closeButton>
           <Modal.Title style={{ marginLeft: '20px' }}>Match Confirmation</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ margin: '15px' }}>
+        <Modal.Body style={{ margin: '15px', height: '50%' }}>
           <Tabs
             id="uncontrolled-tab-example"
             className="mb-3"
