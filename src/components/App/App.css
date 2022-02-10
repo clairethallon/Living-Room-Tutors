@@ -400,7 +400,7 @@ h3 {
 }
 
 .languageFilterDropdown {
-  width: 25%;
+  width: 10%;
 }
 
 .nav-link {
@@ -545,4 +545,9 @@ h3 {
   width: 100%;
   justify-content: flex-end;
   font-size: 20px;
+}
+
+.tutorTuteeHr {
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
