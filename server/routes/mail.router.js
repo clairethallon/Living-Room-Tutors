@@ -12,21 +12,20 @@ router.post("/", cors(), async (req, res) => {
   console.log("email post route hit");
   console.log(req.body.email);
   let email = req.body.email;
-  let testAccount = await nodemailer.createTestAccount();
 
   let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
+    host: "smtp.gmail.com",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
+      user: "stars4mimi@gmail.com",
+      pass: "fatfarley",
     },
   });
 
   let info = await transporter
     .sendMail({
-      from: "Miriam <miriammcnamara@icloud.com>",
+      from: "miriammcnamara@icloud.com", //not showing up in email
       to: `${email}`,
       subject: "test email",
       text: "Thank you so much for contacting Living Room Tutors! This is a test. Thanks again, Living Room Tutors.",
@@ -37,8 +36,7 @@ router.post("/", cors(), async (req, res) => {
     </div>`,
     })
     .catch(console.error);
-  console.log("Message sent: %s", info.messageId);
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  // console.log("Message sent: %s", info.messageId);
 });
 
 module.exports = router;

@@ -19,9 +19,9 @@ function TutorCard(props) {
     props.tutor.tutor_language_hmong,
     props.tutor.tutor_language_somali,
     props.tutor.tutor_language_tagalog,
-    props.tutor.tutor_language_tagalog,
     props.tutor.tutor_language_vietnamese,
     props.tutor.tutor_language_spanish,
+    props.tutor.tutor_language_other,
   ];
 
   const [prettyTime, setPrettyTime] = useState({
@@ -54,14 +54,14 @@ function TutorCard(props) {
   }, []);
 
   const subjects = [
-    { name: "K-5 Math ", status: props.tutor.tutor_K5_Math },
-    { name: "K-5 Reading ", status: props.tutor.tutor_K5_Reading },
+    { name: "K-5 Math ", status: props.tutor.tutor_k5_math },
+    { name: "K-5 Reading ", status: props.tutor.tutor_k5_reading },
     {
       name: "K-5 English/Writing ",
-      status: props.tutor.tutor_K5_English_Writing,
+      status: props.tutor.tutor_k5_english_writing,
     },
-    { name: "K-5 Social Studies ", status: props.tutor.tutor_K5_Science },
-    { name: "K-5 Science ", status: props.tutor.tutor_K5_social_studies },
+    { name: "K-5 Social Studies ", status: props.tutor.tutor_k5_science },
+    { name: "K-5 Science ", status: props.tutor.tutor_k5_social_studies },
     {
       name: "6-8th Language Arts ",
       status: props.tutor.tutor_6th_to_8th_language_arts,
@@ -148,6 +148,11 @@ function TutorCard(props) {
     for (let i = 0; i < subjects.length; i++) {
       if (subjects[i].status === true) {
         mentor_subjects.push(subjects[i].name);
+        console.log(
+          props.tutor.tutor_first_name,
+          subjects[i].name,
+          subjects[i].status
+        );
       }
     }
     console.log("MENTORING_SUBJECTS", mentor_subjects);
@@ -157,6 +162,7 @@ function TutorCard(props) {
 
   return (
     <div>
+      <p>{JSON.stringify(props.tutor)}</p>
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
@@ -170,7 +176,6 @@ function TutorCard(props) {
             <Col xs="2">{props.tutor.tutor_grade}</Col>
             <Col xs="2" className="flaggedSubjectLanguage">
               {/* <SubjectFlag /> */}
-
               {tutorSubjects.map((subject) => {
                 if (
                   subject === "Precalculus/Trigonometry " ||

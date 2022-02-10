@@ -29,17 +29,18 @@ function TutorProfile(props) {
     { name: "Tagalog ", status: props.tutor.tutor_language_tagalog },
     { name: "Vietnamese ", status: props.tutor.tutor_language_vietnamese },
     { name: "Spanish ", status: props.tutor.tutor_language_spanish },
+    { name: props.tutor.tutor_language_other, status: true },
   ];
 
   const subjects = [
-    { name: "K-5 Math ", status: props.tutor.tutor_K5_Math },
-    { name: "K-5 Reading ", status: props.tutor.tutor_K5_Reading },
+    { name: "K-5 Math ", status: props.tutor.tutor_k5_math },
+    { name: "K-5 Reading ", status: props.tutor.tutor_k5_reading },
     {
       name: "K-5 English/Writing ",
-      status: props.tutor.tutor_K5_English_Writing,
+      status: props.tutor.tutor_k5_english_writing,
     },
-    { name: "K-5 Social Studies ", status: props.tutor.tutor_K5_Science },
-    { name: "K-5 Science ", status: props.tutor.tutor_K5_social_studies },
+    { name: "K-5 Social Studies ", status: props.tutor.tutor_k5_science },
+    { name: "K-5 Science ", status: props.tutor.tutor_k5_social_studies },
     {
       name: "6-8th Language Arts ",
       status: props.tutor.tutor_6th_to_8th_language_arts,
@@ -60,7 +61,10 @@ function TutorProfile(props) {
       name: "Precalculus/Trigonometry ",
       status: props.tutor.tutor_math_precalc_trig,
     },
-    { name: "Biology/Life Sciences ", status: props.tutor.tutor_sci_bio_life },
+    {
+      name: "Biology/Life Sciences ",
+      status: props.tutor.tutor_sci_bio_life,
+    },
     { name: "Chemistry ", status: props.tutor.tutor_sci_chem },
     { name: "Physics ", status: props.tutor.tutor_sci_physics },
     { name: "Computer Science ", status: props.tutor.tutor_sci_comp_sci },
@@ -109,7 +113,10 @@ function TutorProfile(props) {
       name: "AP/Honors Human Geography ",
       status: props.tutor.tutor_ap_human_geog,
     },
-    { name: "SAT Subject Tests ", status: props.tutor.tutor_sat_subject_tests },
+    {
+      name: "SAT Subject Tests ",
+      status: props.tutor.tutor_sat_subject_tests,
+    },
     { name: "SAT Prep ", status: props.tutor.tutor_sat_prep },
     { name: "ACT Prep ", status: props.tutor.tutor_act_prep },
   ];
