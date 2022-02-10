@@ -18,6 +18,8 @@ function TutorMatchCard(props) {
   const languageFilter = useSelector((store) => store.languageFilter);
   const selected_tutee = useSelector((store) => store.selected_tutee);
 
+  const [tutorSubjects, setTutorSubjects] = useState([]);
+
   const [subject1, setSubject1] = useState("");
   const [subject2, setSubject2] = useState("");
   const [subject3, setSubject3] = useState("");
@@ -27,10 +29,102 @@ function TutorMatchCard(props) {
     day: "",
   });
 
-  useEffect(() => {
-    subjectFinder(subjects);
-    makePrettyTime(props.tutor.submission_timestamp);
+  useEffect(async () => {
+    await subjectFinder(subjects);
+    await makePrettyTime(props.tutor.submission_timestamp);
+    await tutorSubjectFinder(tutorSubject);
   }, []);
+
+  const specialSubjects = useSelector((store) => store.specialSubjects);
+
+  const tutorSubject = [
+    { name: "K-5 Math ", status: props.tutor.tutor_K5_Math },
+    { name: "K-5 Reading ", status: props.tutor.tutor_K5_Reading },
+    {
+      name: "K-5 English/Writing ",
+      status: props.tutor.tutor_K5_English_Writing,
+    },
+    { name: "K-5 Social Studies ", status: props.tutor.tutor_K5_Science },
+    { name: "K-5 Science ", status: props.tutor.tutor_K5_social_studies },
+    {
+      name: "6-8th Language Arts ",
+      status: props.tutor.tutor_6th_to_8th_language_arts,
+    },
+    { name: "6-8th Science ", status: props.tutor.tutor_6th_to_8th_science },
+    {
+      name: "6-8th Social Studies ",
+      status: props.tutor.tutor_6th_to_8th_social_studies,
+    },
+    { name: "Pre-Algebra ", status: props.tutor.tutor_math_pre_algebra },
+    {
+      name: "Algebra I/ Linear Algebra ",
+      status: props.tutor.tutor_math_alg1_linear_alg,
+    },
+    { name: "Algebra II ", status: props.tutor.tutor_math_alg2 },
+    { name: "Geometry ", status: props.tutor.tutor_math_geom },
+    {
+      name: "Precalculus/Trigonometry ",
+      status: props.tutor.tutor_math_precalc_trig,
+    },
+    {
+      name: "Biology/Life Sciences ",
+      status: props.tutor.tutor_sci_bio_life,
+    },
+    { name: "Chemistry ", status: props.tutor.tutor_sci_chem },
+    { name: "Physics ", status: props.tutor.tutor_sci_physics },
+    { name: "Computer Science ", status: props.tutor.tutor_sci_comp_sci },
+    { name: "Chinese ", status: props.tutor.tutor_lang_chinese },
+    { name: "Spanish ", status: props.tutor.tutor_lang_spanish },
+    { name: "French ", status: props.tutor.tutor_lang_french },
+    { name: "German ", status: props.tutor.tutor_lang_german },
+    { name: "World History ", status: props.tutor.tutor_hist_world },
+    { name: "U.S. History ", status: props.tutor.tutor_hist_us },
+    { name: "AP/Honors Biology ", status: props.tutor.tutor_ap_bio },
+    { name: "AP/Honors Chemistry ", status: props.tutor.tutor_ap_chem },
+    { name: "AP/Honors Physics ", status: props.tutor.tutor_ap_physics },
+    { name: "AP/Honors Calculus AB ", status: props.tutor.tutor_ap_calc_AB },
+    { name: "AP/Honors Calculus BC ", status: props.tutor.tutor_ap_calc_BC },
+    { name: "AP/Honors Statistics ", status: props.tutor.tutor_ap_stats },
+    {
+      name: "AP/Honors Computer Science ",
+      status: props.tutor.tutor_ap_comp_sci,
+    },
+    {
+      name: "AP/Honors English Literature and Composition ",
+      status: props.tutor.tutor_ap_english_lit_comp,
+    },
+    {
+      name: "AP/Honors Language and Composition ",
+      status: props.tutor.tutor_ap_lang_comp,
+    },
+    {
+      name: "AP/Honors Macroeconomics ",
+      status: props.tutor.tutor_ap_macro_econ,
+    },
+    {
+      name: "AP/Honors Microeconomics ",
+      status: props.tutor.tutor_ap_micro_econ,
+    },
+    { name: "AP/Honors Psychology ", status: props.tutor.tutor_ap_psyc },
+    {
+      name: "AP/Honors United States History ",
+      status: props.tutor.tutor_ap_hist_us,
+    },
+    {
+      name: "AP/Honors Government and Politics (US) ",
+      status: props.tutor.tutor_ap_gov_politics_us,
+    },
+    {
+      name: "AP/Honors Human Geography ",
+      status: props.tutor.tutor_ap_human_geog,
+    },
+    {
+      name: "SAT Subject Tests ",
+      status: props.tutor.tutor_sat_subject_tests,
+    },
+    { name: "SAT Prep ", status: props.tutor.tutor_sat_prep },
+    { name: "ACT Prep ", status: props.tutor.tutor_act_prep },
+  ];
 
   const subjects = [
     { name: "K-5 Math ", dbname: "K5_Math" },
@@ -95,6 +189,19 @@ function TutorMatchCard(props) {
         setSubject3(subjects[i].name);
       }
     }
+  };
+
+  const tutorSubjectFinder = (tutorSubject) => {
+    // console.log(subjects);
+    let mentor_subjects = [];
+    for (let i = 0; i < tutorSubject.length; i++) {
+      if (tutorSubject[i].status === true) {
+        mentor_subjects.push(tutorSubject[i].name);
+      }
+    }
+    console.log("MENTORING_SUBJECTS", mentor_subjects);
+    setTutorSubjects(mentor_subjects);
+    return mentor_subjects;
   };
 
   const makePrettyTime = (timestamp) => {
@@ -170,7 +277,42 @@ function TutorMatchCard(props) {
                 <Col xs="3">{subject1}</Col>
               )}
               <Col xs="1" className="flaggedSubjectLanguage">
-                <SubjectFlag />
+                {tutorSubjects.map((subject) => {
+                  if (
+                    props.tutor === "Precalculus/Trigonometry " ||
+                    subject === "Chemistry " ||
+                    subject === "Physics " ||
+                    subject === "Computer Science " ||
+                    subject === "Chinese " ||
+                    subject === "Spanish " ||
+                    subject === "French " ||
+                    subject === "German " ||
+                    subject === "World History " ||
+                    subject === "U.S. History " ||
+                    subject === "AP/Honors Biology " ||
+                    subject === "AP/Honors Chemistry " ||
+                    subject === "AP/Honors Physics " ||
+                    subject === "AP/Honors Calculus AB " ||
+                    subject === "AP/Honors Calculus BC " ||
+                    subject === "AP/Honors Statistics " ||
+                    subject === "AP/Honors Computer Science " ||
+                    subject ===
+                      "AP/Honors English Literature and Composition " ||
+                    subject === "AP/Honors Language and Composition " ||
+                    subject === "AP/Honors Macroeconomics " ||
+                    subject === "AP/Honors Microeconomics " ||
+                    subject === "AP/Honors Psychology " ||
+                    subject === "AP/Honors United States History " ||
+                    subject === "AP/Honors Government and Politics (US) " ||
+                    subject === "AP/Honors Human Geography " ||
+                    subject === "SAT Subject Tests " ||
+                    subject === "SAT Prep " ||
+                    subject === "ACT Prep "
+                  ) {
+                    return <SubjectFlag />;
+                  }
+                })}
+
                 <LanguageFlag />
               </Col>
               <Col xs="2"></Col>
