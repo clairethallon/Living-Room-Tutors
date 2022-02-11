@@ -82,6 +82,11 @@
   border-color: #1791ac;
 }
 
+.tutorButton:focus {
+  background-color: #1791ac;
+  border-color: #1791ac;
+}
+
 .tuteeButton {
   border-radius: 9px !important;
   font-size: 24px;
@@ -95,6 +100,11 @@
 }
 
 .tuteeButton:hover {
+  background-color: #64b7c9;
+  border-color: #64b7c9;
+}
+
+.tuteeButton:focus {
   background-color: #64b7c9;
   border-color: #64b7c9;
 }
