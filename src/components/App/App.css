@@ -613,6 +613,8 @@ label {
   font-size: 18px;
 }
 
+/* ------radio buttons--------- */
+
 .form-check-input.is-valid:checked,
 .was-validated .form-check-input:valid:checked {
   background-color: #45c6a2;
@@ -641,4 +643,8 @@ label {
 .form-check-input.is-valid ~ .form-check-label,
 .was-validated .form-check-input:valid ~ .form-check-label {
   color: black;
+}
+
+.form-check-input {
+  margin-top: none;
 }
