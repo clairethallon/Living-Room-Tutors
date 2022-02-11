@@ -1,13 +1,34 @@
 const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
-require("dotenv").config();
+const { config } = require("dotenv");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 
-/**
- * POST route template
- */
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+const oauth2Client = new OAuth2(
+  "974624020655-keep76op2bshp75g2dufkih1rkt1p1cf.apps.googleusercontent.com",
+  "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",
+  "https://developers.google.com/oauthplayground"
+);
+
+const gconfig = {
+  mailUser: "noreply.livingroomtutors@gmail.com",
+  clientId:
+    "974624020655-keep76op2bshp75g2dufkih1rkt1p1cf.apps.googleusercontent.com",
+  clientSecret: "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",
+  refreshToken:
+    "1//04lwwFNn-S9yTCgYIARAAGAQSNwF-L9IrJsLTDCMcZ6LH_lSBeM56LfTsroka__l0sXFsMy7OweyrOHppSUcCj2xwr73OQs9lwfA",
+};
+
+oauth2Client.setCredentials({
+  refresh_token:
+    "1//04lwwFNn-S9yTCgYIARAAGAQSNwF-L9IrJsLTDCMcZ6LH_lSBeM56LfTsroka__l0sXFsMy7OweyrOHppSUcCj2xwr73OQs9lwfA",
+});
+
+const accessToken = oauth2Client.getAccessToken();
+
 router.post("/", cors(), async (req, res) => {
   console.log("email post route hit");
   console.log(req.body.email);
@@ -15,17 +36,61 @@ router.post("/", cors(), async (req, res) => {
 
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 587,
-    secure: false, // true for 465, false for other ports
+    port: 465,
+    secure: true,
     auth: {
-      user: "stars4mimi@gmail.com",
-      pass: "fatfarley",
+      type: "OAuth2",
+      user: gconfig.mailUser,
+      clientId: gconfig.clientId,
+      clientSecret: gconfig.clientSecret,
+      refreshToken: gconfig.refreshToken,
+      accessToken: accessToken,
     },
   });
 
+  // transporter.verify((err, success) => {
+  //   err
+  //     ? console.log(err)
+  //     : console.log(`=== Server is ready to take messages: ${success} ===`);
+  // });
+
+  // let mailOptions = {
+  //   from: "test@gmail.com",
+  //   to: gconfig.mailUser,
+  //   subject: "Nodemailer API",
+  //   text: "Hi from your nodemailer API",
+  // };
+
+  // transporter.sendMail(mailOptions, function (err, data) {
+  //   if (err) {
+  //     console.log("Error " + err);
+  //   } else {
+  //     console.log("Email sent successfully");
+  //   }
+  // });
+  // });
+
+  /**
+   * POST route template
+   */
+  // router.post("/", cors(), async (req, res) => {
+  //   console.log("email post route hit");
+  //   console.log(req.body.email);
+  //   let email = req.body.email;
+
+  //   let transporter = nodemailer.createTransport({
+  //     host: "smtp.gmail.com",
+  //     port: 587,
+  //     secure: false, // true for 465, false for other ports
+  //     auth: {
+  //       user: "blahblah@gmail.com",
+  //       pass: "blooper",
+  //     },
+  //   });
+
   let info = await transporter
     .sendMail({
-      from: "miriammcnamara@icloud.com", //not showing up in email
+      from: gconfig.mailUser, //not showing up in email
       to: `${email}`,
       subject: "test email",
       text: "Thank you so much for contacting Living Room Tutors! This is a test. Thanks again, Living Room Tutors.",
