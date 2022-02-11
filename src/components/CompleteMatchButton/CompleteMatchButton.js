@@ -151,10 +151,10 @@ function CompleteMatchButton(props) {
               <Button
                 className="primaryButton matchButton"
                 style={{
-                  marginLeft: "58%",
+                  marginLeft: "575px",
                   display: "flex",
                   justifyContent: "flex-end",
-                  position: "relative"
+                  position: "fixed"
                 }}
                 onClick={() => createCopyText("tutorEmail")}
               >
@@ -183,10 +183,13 @@ function CompleteMatchButton(props) {
                 }{" "}
                 with the news, and we will cc you in that email. From there, you
                 may start communication and determine a meeting time with your
-                tutee.</p>
+                tutee. </p>
                 <p>{selectedTutee.tutee_firstname} needs the most help in: {subject1}, {subject2}, and {subject3}.
-                Additional comments include:
-                {selectedTutee.tutee_misc_info}.</p>
+
+                {selectedTutee.tutee_misc_info === null && selectedTutee.tutee_subject_details === null
+                    ? " "
+                    : "Additional comments include: " + selectedTutee.tutee_misc_info + " " + selectedTutee.tutee_subject_details
+                  }</p>
                 <p>Don’t worry if you cannot help with all of the subjects listed.
                 There will be LRT guide documents linked below. Please review
                 the documents thoroughly. As well as guidelines, expectations,
@@ -206,18 +209,21 @@ function CompleteMatchButton(props) {
                 <p>Take Care,</p>
                 <p><b>Living Room Tutors Team</b></p>
                 <p><u>Contact Information:</u><br></br>
-                  {selectedTutee.tutee_firstname}'s email:{" "}<br></br>
-                  {selectedTutee.email_student}
+                  {selectedTutee.email_student === null
+                    ? ""
+                    : selectedTutee.tutee_firstname + "'s email: " + selectedTutee.email_student}
                   <br></br>
-                Guardian's email: {selectedTutee.email_guardian} <br></br>
-                phone: {selectedTutee.tutee_phone}</p>
+                  {selectedTutee.email_guardian === null
+                    ? ""
+                    : "Guardian's email: " + selectedTutee.email_guardian}<br></br>
+                Phone: {selectedTutee.tutee_phone}</p>
 
                 <p><u>LRT Tutor Documents:</u><br></br>
                   <a href="https://docs.google.com/document/d/1iLv0qmxogcVK0bEjOEHcaxGSfnyEhC3dsoOwiO88PyQ/edit?usp=sharing">
-                    LRT Tutors Guide
+                    Tutor Guide
                 </a><br></br>
                   <a href="https://docs.google.com/presentation/d/1P2iS4r5KldjDjzYzU3Wy9FOSiFMSmdZBCegxTdIWzrE/edit?usp=sharing">
-                    LRT Tutor Trainig Modules
+                    Tutor Trainig Modules
                 </a></p>
               </div>
             </Tab>
@@ -228,7 +234,7 @@ function CompleteMatchButton(props) {
                   <Button
                     className="primaryButton matchButton"
                     style={{
-                      marginLeft: "58%",
+                      marginLeft: "575px",
                       display: "flex",
                       justifyContent: "flex-end",
                       position: "relative"
@@ -240,7 +246,9 @@ function CompleteMatchButton(props) {
 
                   <div id="tuteeEmail">
                     <p><b>To: {selectedTutee.email_student}</b><br></br>
-                      <b>Cc: {props.tutor.tutor_email}</b></p><br></br>
+                      <b>Cc: {props.tutor.tutor_email} {selectedTutee.email_guardian === null
+                        ? ""
+                        : " ; " + selectedTutee.email_guardian}</b></p><br></br>
 
                     <p>Dear {selectedTutee.tutee_firstname}
                       {selectedTutee.tutee_lastname},</p>
@@ -282,7 +290,7 @@ function CompleteMatchButton(props) {
                     phone: {props.tutor.tutor_phone}</p>
                     <p><u>LRT Guide Document:</u><br></br>
                       <a href="https://docs.google.com/document/d/1sOTJKTd0vUQGcOqFKAY_WP57xqhRtukZdYaYKfLxUx4/edit?usp=sharing">
-                        LRT Tutee Guide
+                        Tutee Guide
                   </a></p>
                   </div>
                 </Tab>
@@ -292,10 +300,10 @@ function CompleteMatchButton(props) {
                   <Button
                     className="primaryButton matchButton"
                     style={{
-                      marginLeft: "56%",
+                      marginLeft: "553px",
                       display: "flex",
                       justifyContent: "flex-end",
-                      position: "relative"
+                      position: "fixed"
                     }}
                     onClick={() => createCopyText("adultEmail")}
                   >
@@ -304,7 +312,9 @@ function CompleteMatchButton(props) {
                   <div id="adultEmail">
                     <p><b>To: {selectedTutee.email_guardian}</b>
                       <br></br>
-                      <b>Cc: {props.tutor.tutor_email}</b></p>
+                      <b>Cc: {props.tutor.tutor_email} {selectedTutee.email_student === null
+                        ? ""
+                        : " ; " + selectedTutee.email_student}</b></p>
                     <br></br>
                     <p>Dear Parents/Guardians/Teachers of{" "}
                       {selectedTutee.tutee_firstname} {selectedTutee.tutee_lastname}
@@ -362,7 +372,7 @@ function CompleteMatchButton(props) {
 
                     <p><u>LRT Guide Document:</u><br></br>
                       <a href="https://docs.google.com/document/d/1sOTJKTd0vUQGcOqFKAY_WP57xqhRtukZdYaYKfLxUx4/edit?usp=sharing">
-                        LRT Tutee Guide
+                        Tutee Guide
                       </a></p>
                   </div>
                 </Tab>
@@ -370,8 +380,10 @@ function CompleteMatchButton(props) {
           </Tabs>
         </Modal.Body>
         <Modal.Footer>
-          * By clicking "confirm match", you confirm that the tutor and tutee
-          have been emailed and notified of the match
+          <p style={{ width: "500px", marginLeft: "0" }}>
+            * By clicking "confirm match", you confirm that the tutor and tutee
+            have been emailed and notified of the match
+          </p>
           <Button
             className="secondaryButton"
             variant="secondary"

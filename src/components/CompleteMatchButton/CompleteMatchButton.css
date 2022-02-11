@@ -3,6 +3,9 @@
   max-height: 700px;
 
 }
+.Modal.Footer{
+  padding: 35px;
+}
 p{
   font-family: inherit;
 }
@@ -11,6 +14,7 @@ p{
   max-height: 600px;
   overflow-y: auto;
   padding-top: 15px;
+  padding-right: 15px;
 }
 .fixed{
   position: fixed;
