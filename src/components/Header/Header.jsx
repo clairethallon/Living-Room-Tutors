@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
-import Logo from "../../images/Logo.png";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import Logo from "../../images/logoCrop.png";
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -9,16 +9,15 @@ function Header(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Living Room Tutors K-12 Registration Form');
 
   return (
-    <div>
+    <div className="headerDiv">
       <div>
-        <img  style={{'maxWidth': '100px'}} src={Logo}/>
+        <img style={{ maxWidth: "100px" }} src={Logo} />
+        <span className="headingLRT">LIVING ROOM TUTORS</span>
       </div>
-
-      <div>
-        <h2>{heading}</h2>
+      <div className="LTRRegFormHeader">
+        <p>Living Room Tutors K-12 Registration Form</p>
       </div>
     </div>
   );
