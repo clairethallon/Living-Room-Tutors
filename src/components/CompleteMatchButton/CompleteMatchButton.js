@@ -151,17 +151,17 @@ function CompleteMatchButton(props) {
               <Button
                 className="primaryButton matchButton"
                 style={{
-                  marginLeft: "575px",
+                  marginLeft: "553px",
                   display: "flex",
                   justifyContent: "flex-end",
                   position: "fixed"
                 }}
                 onClick={() => createCopyText("tutorEmail")}
               >
-                Copy Tutor Email
+                Copy Email to Tutor
                     </Button>
               <div id="tutorEmail">
-                <p><b>To: {props.tutor.tutor_email}</b></p>
+                <p><b>To: (tutor) {props.tutor.tutor_email}</b></p>
                 <br></br>
                 <p>Dear {props.tutor.tutor_first_name}{" "}
                   {props.tutor.tutor_last_name},</p>
@@ -234,21 +234,21 @@ function CompleteMatchButton(props) {
                   <Button
                     className="primaryButton matchButton"
                     style={{
-                      marginLeft: "575px",
+                      marginLeft: "551px",
                       display: "flex",
                       justifyContent: "flex-end",
-                      position: "relative"
+                      position: "fixed"
                     }}
                     onClick={() => createCopyText("tuteeEmail")}
                   >
-                    Copy Tutee Email
+                    Copy Email to Tutee
                     </Button>
 
                   <div id="tuteeEmail">
-                    <p><b>To: {selectedTutee.email_student}</b><br></br>
-                      <b>Cc: {props.tutor.tutor_email} {selectedTutee.email_guardian === null
+                    <p><b>To: (tutee) {selectedTutee.email_student}</b><br></br>
+                      <b>Cc: (tutor) {props.tutor.tutor_email} {selectedTutee.email_guardian === null
                         ? ""
-                        : " ; " + selectedTutee.email_guardian}</b></p><br></br>
+                        : " ; (guardian) " + selectedTutee.email_guardian}</b></p><br></br>
 
                     <p>Dear {selectedTutee.tutee_firstname}
                       {selectedTutee.tutee_lastname},</p>
@@ -310,11 +310,11 @@ function CompleteMatchButton(props) {
                     Copy Email to Adult
                     </Button>
                   <div id="adultEmail">
-                    <p><b>To: {selectedTutee.email_guardian}</b>
+                    <p><b>To: (adult) {selectedTutee.email_guardian}</b>
                       <br></br>
-                      <b>Cc: {props.tutor.tutor_email} {selectedTutee.email_student === null
+                      <b>Cc: (tutor) {props.tutor.tutor_email} {selectedTutee.email_student === null
                         ? ""
-                        : " ; " + selectedTutee.email_student}</b></p>
+                        : " ; (tutee) " + selectedTutee.email_student}</b></p>
                     <br></br>
                     <p>Dear Parents/Guardians/Teachers of{" "}
                       {selectedTutee.tutee_firstname} {selectedTutee.tutee_lastname}
@@ -379,7 +379,19 @@ function CompleteMatchButton(props) {
               )}
           </Tabs>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer style={{
+          display: "flex",
+          flexWrap: "wrap",
+          flexShrink: "0",
+          alignItems: "center",
+          justifyContent: "center",
+          paddingLeft: "20px",
+          padding: "0.75rem",
+          borderTop: '1px solid #dee2e6',
+          borderBottomRightRadius: "calc(0.3rem - 1px)",
+          borderBottomLeftRadius: "calc(0.3rem - 1px)",
+          padding: "25px"
+        }}>
           <p style={{ width: "500px", marginLeft: "0" }}>
             * By clicking "confirm match", you confirm that the tutor and tutee
             have been emailed and notified of the match
