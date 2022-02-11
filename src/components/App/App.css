@@ -555,3 +555,232 @@ h3 {
 .cardSubjects {
   display: flex;
 }
+
+/* -----------Forms Header------------- */
+
+.headerDiv {
+  background-color: white;
+  padding-top: 10px;
+}
+
+.headerDiv h1 {
+  margin: 0px;
+  margin-left: 10px;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
+  padding-bottom: 15px;
+  padding-top: 10px;
+}
+
+.headingLRT {
+  font-family: Lato-Bold;
+  font-size: 27px;
+  margin-left: 20px;
+}
+
+.LTRRegFormHeader h2 {
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+.brandNameHeader {
+  display: flex;
+  align-items: center;
+}
+
+/*---- forms ----*/
+
+.formBackground {
+  background-color: #ecf0f1;
+  padding-bottom: 20px;
+  min-height: 100vh;
+}
+
+.formContainer {
+  background-color: white;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  padding-bottom: 80px;
+}
+
+.formContent {
+  font-family: Lato-regular;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 50px;
+}
+
+.formContent p {
+  font-size: 18px;
+  font-family: Lato-regular;
+}
+
+.formQandA {
+  margin-bottom: 45px;
+}
+
+label {
+  text-transform: initial;
+  color: #70757a;
+}
+
+.customeCheckandRedioOptions {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.firstLastName {
+  display: flex;
+}
+
+.firstName {
+  margin-right: 15px;
+}
+
+.requiredField {
+  color: red;
+}
+
+.subP {
+  font-size: 15px !important;
+}
+
+.selectGradeDropdown {
+  width: 27.2em;
+}
+
+.saveAndContinueButton {
+  width: 100%;
+  height: 50px;
+  text-transform: none;
+  font-size: 20px;
+}
+
+.saveAndContinueButton:disabled {
+  background-color: gray;
+  border: none !important;
+  color: white;
+  outline: none;
+  width: 100%;
+  height: 50px;
+  font-size: 20px !important;
+}
+
+.rightarrow {
+  position: relative;
+  left: 435px;
+}
+
+.form-check-input {
+  margin-top: 4.5px;
+}
+
+.form-control {
+  margin-left: 0px;
+}
+
+.pWithSubP {
+  margin-bottom: 0px;
+}
+
+.textArea {
+  resize: none;
+  width: 500px;
+}
+
+.additionalTextArea {
+  height: 200px !important;
+  width: 1080px !important;
+}
+
+.okButton {
+  border-radius: 20px !important;
+  width: 100px;
+}
+
+.submissionModalFooter {
+  display: flex;
+  justify-content: center;
+  border-top: none;
+  padding-bottom: 20px;
+}
+
+.submissionModalHeader {
+  border-bottom: none;
+  padding-bottom: 0px;
+}
+
+.checkIcon {
+  font-size: 110px;
+  display: flex;
+  color: #6bc4d7;
+  justify-content: center;
+}
+
+.submissionModalH1 {
+  font-family: Lato-regular;
+  font-size: 36px;
+}
+
+.submissionModalTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+/* ------radio buttons--------- */
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid,
+.was-validated .form-check-input:valid {
+  border-color: #45c6a2;
+}
+
+.form-check-input:checked ~ .form-check-label {
+  color: black;
+}
+
+/* ------checkbox--------- */
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid,
+.was-validated .form-check-input:valid {
+  border-color: #45c6a2;
+}
+
+.form-check-input:checked {
+  background-color: #45c6a2;
+  border-color: #45c6a2;
+}
