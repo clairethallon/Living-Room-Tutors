@@ -1,9 +1,33 @@
 const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
-require("dotenv").config();
+const { config } = require("dotenv");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+const oauth2Client = new OAuth2(
+  "974624020655-keep76op2bshp75g2dufkih1rkt1p1cf.apps.googleusercontent.com",
+  "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",
+  "https://developers.google.com/oauthplayground"
+);
+
+const gconfig = {
+  mailUser: "noreply.livingroomtutors@gmail.com",
+  clientId:
+    "974624020655-keep76op2bshp75g2dufkih1rkt1p1cf.apps.googleusercontent.com",
+  clientSecret: "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",
+  refreshToken:
+    "1//04FfHgyNFP33qCgYIARAAGAQSNwF-L9IrvntuCyXKwqxHVdeskB1L19PeRPs7GEPFc5drcGsf5Xtv_x63BD0OyceuK3kslVS12sc",
+};
+
+oauth2Client.setCredentials({
+  refresh_token:
+    "1//04FfHgyNFP33qCgYIARAAGAQSNwF-L9IrvntuCyXKwqxHVdeskB1L19PeRPs7GEPFc5drcGsf5Xtv_x63BD0OyceuK3kslVS12sc",
+});
+
+const accessToken = oauth2Client.getAccessToken();
 
 let transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -11,11 +35,11 @@ let transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     type: "OAuth2",
-    user: process.env.EMAIL,
-    pass: process.env.WORD,
-    clientId: process.env.OAUTH_CLIENTID,
-    clientSecret: process.env.OAUTH_CLIENT_SECRET,
-    refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+    user: gconfig.mailUser,
+    clientId: gconfig.clientId,
+    clientSecret: gconfig.clientSecret,
+    refreshToken: gconfig.refreshToken,
+    accessToken: accessToken,
   },
 });
 
@@ -27,7 +51,7 @@ transporter.verify((err, success) => {
 
 let mailOptions = {
   from: "test@gmail.com",
-  to: process.env.EMAIL,
+  to: gconfig.mailUser,
   subject: "Nodemailer API",
   text: "Hi from your nodemailer API",
 };
@@ -53,8 +77,8 @@ transporter.sendMail(mailOptions, function (err, data) {
 //     port: 587,
 //     secure: false, // true for 465, false for other ports
 //     auth: {
-//       user: "stars4mimi@gmail.com",
-//       pass: "fatfarley",
+//       user: "blahblah@gmail.com",
+//       pass: "blooper",
 //     },
 //   });
 
