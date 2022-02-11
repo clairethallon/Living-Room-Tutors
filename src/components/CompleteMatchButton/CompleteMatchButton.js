@@ -14,19 +14,88 @@ import { Link } from "react-router-dom";
 // component name MatchButton with the name for the new component.
 function CompleteMatchButton(props) {
 
+  useEffect(() => {
+    subjectFinder(subjects);
+  }, []);
 
   const dispatch = useDispatch();
 
   const selectedTutee = useSelector((store) => store.selected_tutee);
 
   const [show, setShow] = useState(false);
-  const [tutorEmailText, setTutorEmailText] = useState('false');
-  const [tuteeEmailText, setTuteeEmailText] = useState('false');
-  const [adultEmailText, setAdultEmailText] = useState('false');
+  const [subject1, setSubject1] = useState("");
+  const [subject2, setSubject2] = useState("");
+  const [subject3, setSubject3] = useState("");
 
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const subjects = [
+    { name: "K-5 Math", dbname: "K5_Math" },
+    { name: "K-5 Reading", dbname: "K5_Reading" },
+    { name: "K-5 English/Writing", dbname: "K5_English_Writing" },
+    { name: "K-5 Social Studies", dbname: "K5_Science" },
+    { name: "K-5 Science", dbname: "K5_social_studies" },
+    { name: "6-8th Language Arts", dbname: "6th_to_8th_language_arts" },
+    { name: "6-8th Science", dbname: "6th_to_8th_science" },
+    { name: "6-8th Social Studies", dbname: "6th_to_8th_social_studies" },
+    { name: "Pre-Algebra", dbname: "math_pre_algebra" },
+    { name: "Algebra I/ Linear Algebra", dbname: "math_alg1_linear_alg" },
+    { name: "Algebra II", dbname: "math_alg2" },
+    { name: "Geometry", dbname: "math_geom" },
+    { name: "Precalculus/Trigonometry", dbname: "math_precalc_trig" },
+    { name: "Biology/Life Sciences", dbname: "sci_bio_life" },
+    { name: "Chemistry", dbname: "sci_chem" },
+    { name: "Physics", dbname: "sci_physics" },
+    { name: "Computer Science", dbname: "sci_comp_sci" },
+    { name: "Chinese", dbname: "lang_chinese" },
+    { name: "Spanish", dbname: "lang_spanish" },
+    { name: "French", dbname: "lang_french" },
+    { name: "German", dbname: "lang_german" },
+    { name: "World History", dbname: "hist_world" },
+    { name: "U.S. History", dbname: "hist_us" },
+    { name: "AP/Honors Biology", dbname: "ap_bio" },
+    { name: "AP/Honors Chemistry", dbname: "ap_chem" },
+    { name: "AP/Honors Physics", dbname: "ap_physics" },
+    { name: "AP/Honors Calculus AB", dbname: "ap_calc_AB" },
+    { name: "AP/Honors Calculus BC", dbname: "ap_calc_BC" },
+    { name: "AP/Honors Statistics", dbname: "ap_stats" },
+    { name: "AP/Honors Computer Science", dbname: "ap_comp_sci" },
+    {
+      name: "AP/Honors English Literature and Composition",
+      dbname: "ap_english_lit_comp",
+    },
+    { name: "AP/Honors Language and Composition", dbname: "ap_lang_comp" },
+    { name: "AP/Honors Macroeconomics", dbname: "ap_macro_econ" },
+    { name: "AP/Honors Microeconomics", dbname: "ap_micro_econ" },
+    { name: "AP/Honors Psychology", dbname: "ap_psyc" },
+    { name: "AP/Honors United States History", dbname: "ap_hist_us" },
+    {
+      name: "AP/Honors Government and Politics (US)",
+      dbname: "ap_gov_politics_us",
+    },
+    { name: "AP/Honors Human Geography", dbname: "ap_human_geog" },
+    { name: "SAT Subject Tests", dbname: "sat_subject_tests" },
+    { name: "SAT Prep", dbname: "sat_prep" },
+    { name: "ACT Prep", dbname: "act_prep" },
+  ];
+
+
+  const subjectFinder = (subjects) => {
+    console.log("in subjectFinder");
+    for (let i = 0; i < subjects.length; i++) {
+      if (subjects[i].dbname == selectedTutee.subject_1) {
+        setSubject1(subjects[i].name);
+      }
+      if (subjects[i].dbname == selectedTutee.subject_2) {
+        setSubject2(subjects[i].name);
+      }
+      if (subjects[i].dbname == selectedTutee.subject_3) {
+        setSubject3(subjects[i].name);
+      }
+    }
+  };
 
   const postMatch = () => {
     console.log("in postMatch", props.tutor, selectedTutee);
@@ -79,29 +148,22 @@ function CompleteMatchButton(props) {
           <Tabs id="uncontrolled-tab-example" className="mb-3">
             <Tab eventKey="Pending-Tutees" title="Email to Tutor">
               <br></br>
-              <Row>
-                <Col className="cardHeadCol">
-                  <b>To: {props.tutor.tutor_email}</b>
-                  <br></br>
-                  <br></br>
-                </Col>
-                <Col className="cardHeadCol">
-                  <Button
-                    className="primaryButton matchButton"
-                    style={{
-                      marginLeft: "auto",
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      position: "relative",
-                    }}
-                    onClick={() => createCopyText("tutorEmail")}
-                  >
-                    Copy Tutor Email
+              <Button
+                className="primaryButton matchButton"
+                style={{
+                  marginLeft: "58%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  position: "fixed"
+                }}
+                onClick={() => createCopyText("tutorEmail")}
+              >
+                Copy Tutor Email
                     </Button>
-                </Col>
-              </Row>
 
               <div id="tutorEmail">
+                <p><b>To: {props.tutor.tutor_email}</b></p>
+                <br></br>
                 <p>Dear {props.tutor.tutor_first_name}{" "}
                   {props.tutor.tutor_last_name},</p>
                 <p>Great News! You have been matched! We are honored to have you
@@ -123,9 +185,8 @@ function CompleteMatchButton(props) {
                 with the news, and we will cc you in that email. From there, you
                 may start communication and determine a meeting time with your
                 tutee.</p>
-                <p>{selectedTutee.tutee_firstname} needs the most help in:{" "}
-                  {selectedTutee.subject_1}, {selectedTutee.subject_2}, and{" "}
-                  {selectedTutee.subject_3}. Additional comments include:
+                <p>{selectedTutee.tutee_firstname} needs the most help in: {subject1}, {subject2}, and {subject3}.
+                Additional comments include:
                 {selectedTutee.tutee_misc_info}.</p>
                 <p>Don’t worry if you cannot help with all of the subjects listed.
                 There will be an LRT guide documents linked below. Please review
@@ -147,15 +208,14 @@ function CompleteMatchButton(props) {
                 the best!</p>
                 <p>Take Care,</p>
                 <p>Living Room Tutors Team</p>
-                <p>Contact Information:</p>
-
-                <p>{selectedTutee.tutee_firstname}'s email:{" "}<br></br>
+                <p><b>Contact Information:</b><br></br>
+                  {selectedTutee.tutee_firstname}'s email:{" "}<br></br>
                   {selectedTutee.email_student}
                   <br></br>
                 Guardian's email: {selectedTutee.email_guardian} <br></br>
                 phone: {selectedTutee.tutee_phone}</p>
 
-                <p>LRT Tutor Documents:<br></br>
+                <p><b>LRT Tutor Documents:</b><br></br>
                   <a href="https://docs.google.com/document/d/1iLv0qmxogcVK0bEjOEHcaxGSfnyEhC3dsoOwiO88PyQ/edit?usp=sharing">
                     LRT Tutors Guide
                 </a><br></br>

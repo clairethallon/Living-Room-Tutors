@@ -3,8 +3,24 @@
   max-height: 700px;
 
 }
+p{
+  font-family: inherit;
+}
 
 #tutorEmail, #tuteeEmail, #adultEmail{
   max-height: 550px;
   overflow-y: auto;
+  padding-top: 15px;
+}
+.fixed{
+  position: fixed;
+  background-color: white;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  padding-right: 75px;
+}
+
+.bold{
+  font-weight: bold;
+
 }
