@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Header from "../Header/Header";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import TutorProgressBar from "../TutorProgressBar/TutorProgressBar";
 // import Form from 'react-bootstrap/Form';
 
 function TutorInfo(props) {
@@ -106,6 +107,7 @@ function TutorInfo(props) {
 
   return (
     <div>
+      <TutorProgressBar/>
       <div className="maincard">
         <Header />
         <>
