@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import "../HomePage/HomePage.css";
-import { Table, Card, Col, Row } from "react-bootstrap";
+import { Table, Card, Col, Row, Button, ButtonGroup } from "react-bootstrap";
+import logo from "../../images/logoCrop.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name HomePage with the name for the new component.
 function HomePage(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
   const store = useSelector((store) => store);
+
+  const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   return (
     <div className="homePage">
+      <img className="homeLogo" src={logo} />
       <Row>
-        <Col className="registrationTermsCol">
+        <Col lg="6" xs="12" className="registrationTermsCol">
           <div className="registrationTermsContainer">
             <h1>K-12 Registration Form</h1>
             <p>
@@ -35,12 +36,23 @@ function HomePage(props) {
             <p>*PLEASE BE AWARE THAT THIS IS A VIRTUAL TUTORING SERVICE*</p>
           </div>
         </Col>
-        <Col>
+        <Col lg="6" xs="12" className="tutorOrTuteeQuestionCol">
           <div className="tutorOrTuteeQuestion">
-            <p>
-              Are you a student willing to tutor or a student wanting to receive
-              tutoring services? *
-            </p>
+            <div>
+              <p>
+                Are you a student willing to tutor or a student wanting to
+                receive tutoring services? *
+              </p>
+              <ButtonGroup className="tutorTuteeButtonGroup" vertical>
+                <Button className="tutorButton">
+                  I want to become a volunteer tutor
+                  {rightArrow}
+                </Button>
+                <Button className="tuteeButton">
+                  I want to receive tutoring {rightArrow}
+                </Button>
+              </ButtonGroup>
+            </div>
           </div>
         </Col>
       </Row>
