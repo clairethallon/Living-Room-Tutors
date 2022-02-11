@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Header from "../Header/Header";
 import TutorModal from "../TutorModal/TutorModal";
+import TutorProgressBar from "../TutorProgressBar/TutorProgressBar";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name StudentTerms with the name for the new component.
 function StudentTerms(props) {
   const dispatch = useDispatch();
 
@@ -123,6 +121,7 @@ function StudentTerms(props) {
 
   return (
     <div>
+        <TutorProgressBar/>
           <Header/>
       <div className="maincard">
 

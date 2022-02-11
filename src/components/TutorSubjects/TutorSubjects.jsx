@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Header from "../Header/Header";
+import TutorProgressBar from "../TutorProgressBar/TutorProgressBar";
 
 function TutorSubjects(props) {
   const dispatch = useDispatch();
@@ -548,6 +549,7 @@ function TutorSubjects(props) {
 
   return (
     <div>
+      <TutorProgressBar/>
       <Header />
 
       <h3>What grade levels are you comfortable tutoring/mentoring?</h3>
