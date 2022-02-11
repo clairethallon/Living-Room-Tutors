@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Table, Card, Col, Row } from "react-bootstrap";
 import { Tab, Tabs } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import './CompleteMatchButton.css';
 
 import { Link } from "react-router-dom";
 
@@ -60,7 +61,9 @@ function CompleteMatchButton(props) {
       <Modal
         show={show}
         onHide={handleClose}
-        style={{ paddingTop: "50px" }}
+        style={{
+          paddingTop: "50px",
+        }}
         size="lg"
       >
         <Modal.Header closeButton>
@@ -68,7 +71,11 @@ function CompleteMatchButton(props) {
             Match Confirmation
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ margin: "15px", height: "50%" }}>
+        <Modal.Body style={{
+          margin: "15px",
+          height: "80vh",
+          overflowy: "auto"
+        }}>
           <Tabs id="uncontrolled-tab-example" className="mb-3">
             <Tab eventKey="Pending-Tutees" title="Email to Tutor">
               <br></br>

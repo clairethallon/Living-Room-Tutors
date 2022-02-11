@@ -1,0 +1,10 @@
+/*  */
+.modal-body{
+  max-height: 700px;
+
+}
+
+#tutorEmail, #tuteeEmail, #adultEmail{
+  max-height: 550px;
+  overflow-y: auto;
+}
