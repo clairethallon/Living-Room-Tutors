@@ -39,6 +39,7 @@ import TuteesPage from "../TuteesPage/TuteesPage";
 import TutorsPage from "../TutorsPage/TutorsPage";
 import RecordsPage from "../RecordsPage/RecordsPage";
 import MatchPage from "../MatchPage/MatchPage";
+import HomePage from "../HomePage/HomePage";
 
 import ProgressBar from "../ProgressBar/ProgressBar";
 
@@ -70,6 +71,10 @@ function App() {
             <AboutPage />
           </Route>
 
+          <Route exact path="/home">
+            <HomePage />
+          </Route>
+
           <Route exact path="/ProgressBar">
             <ProgressBar />
           </Route>
@@ -99,7 +104,7 @@ function App() {
           </Route>
 
           <Route exact path="/TutorModal">
-            <TutorModal/>
+            <TutorModal />
           </Route>
 
           <Route exact path="/TutorInfo">
@@ -209,7 +214,6 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        <Footer />
       </div>
     </Router>
   );

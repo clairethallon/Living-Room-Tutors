@@ -1,0 +1,114 @@
+.homePage {
+  background-image: url(../../images/homeBackground.png);
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.registrationTermsCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tutorOrTuteeQuestion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registrationTermsContainer {
+  width: 600px;
+  color: white;
+}
+
+.registrationTermsContainer p {
+  font-family: Lato-Regular;
+  font-size: 21px;
+}
+
+.registrationTermsContainer span {
+  margin-top: 30px;
+}
+
+.registrationTermsContainer h1 {
+  font-family: Lato-Regular;
+  margin-bottom: 20px;
+}
+
+.homeLogo {
+  height: 150px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+
+.tutorOrTuteeQuestion {
+  display: flex;
+  justify-content: center;
+  width: 800px;
+}
+
+.tutorOrTuteeQuestion p {
+  font-size: 28px;
+  font-family: Lato-bold;
+  color: #676767;
+}
+
+.tutorOrTuteeQuestionCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tutorButton {
+  margin-bottom: 25px;
+  border-radius: 9px !important;
+  font-size: 24px;
+  height: 70px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Lato-Regular;
+  background-color: #1aa4c2;
+  border-color: #1aa4c2;
+}
+
+.tutorButton:hover {
+  background-color: #1791ac;
+  border-color: #1791ac;
+}
+
+.tutorButton:focus {
+  background-color: #1791ac;
+  border-color: #1791ac;
+}
+
+.tuteeButton {
+  border-radius: 9px !important;
+  font-size: 24px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Lato-Regular;
+  background-color: #6bc4d7;
+  border-color: #6bc4d7;
+}
+
+.tuteeButton:hover {
+  background-color: #64b7c9;
+  border-color: #64b7c9;
+}
+
+.tuteeButton:focus {
+  background-color: #64b7c9;
+  border-color: #64b7c9;
+}
+
+.tutorTuteeButtonGroup {
+  width: 89%;
+}
