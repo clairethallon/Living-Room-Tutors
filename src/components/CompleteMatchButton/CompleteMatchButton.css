@@ -1,0 +1,40 @@
+/*  */
+.modal-body{
+  max-height: 700px;
+
+}
+#modalFoot{
+  padding: 35px;
+  display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding: 0.75rem;
+    border-top: 1px solid #dee2e6;
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    border-bottom-left-radius: calc(0.3rem - 1px);
+}
+p{
+  font-family: inherit;
+}
+
+#tutorEmail, #tuteeEmail, #adultEmail{
+  max-height: 600px;
+  overflow-y: auto;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+.fixed{
+  position: fixed;
+  background-color: white;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  padding-right: 75px;
+}
+
+.bold{
+  font-weight: bold;
+
+}
