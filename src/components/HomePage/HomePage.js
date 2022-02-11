@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "../HomePage/HomePage.css";
 import { Table, Card, Col, Row, Button, ButtonGroup } from "react-bootstrap";
@@ -8,6 +9,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function HomePage(props) {
   const store = useSelector((store) => store);
+  const history = useHistory();
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
@@ -44,11 +46,17 @@ function HomePage(props) {
                 receive tutoring services? *
               </p>
               <ButtonGroup className="tutorTuteeButtonGroup" vertical>
-                <Button className="tutorButton">
+                <Button
+                  onClick={() => history.push(`/TutorInfo`)}
+                  className="tutorButton"
+                >
                   I want to become a volunteer tutor
                   {rightArrow}
                 </Button>
-                <Button className="tuteeButton">
+                <Button
+                  onClick={() => history.push(`/StudentInfo`)}
+                  className="tuteeButton"
+                >
                   I want to receive tutoring {rightArrow}
                 </Button>
               </ButtonGroup>
