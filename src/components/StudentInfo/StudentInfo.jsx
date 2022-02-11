@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import Header from "../Header/Header";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import { Container } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 
 import ProgressBar from "../ProgressBar/ProgressBar";
 
@@ -44,7 +43,7 @@ function TutorInfo(props) {
   // ******** LANGUAGE CHECK BOXES **************
 
   const changeSubmitter = () => {
-    console.log("in new submitter");
+    console.log("in new submitter", event.target.value);
     setSubmitter(event.target.value);
   };
 
@@ -196,37 +195,47 @@ function TutorInfo(props) {
       <Header />
       <Container className="formContainer">
         <ProgressBar />
-        <div className="maincard">
-          <div>
+        <div className="formContent">
+          <div className="formQandA">
             <p>
               Please indicate if you are you a student registering yourself or
               are a parent/guardian/teacher registering on behalf of a student:
             </p>
-            <input
-              type="radio"
-              id="student"
-              name="studentOrParent"
-              value="Student"
-              onChange={(event) => changeSubmitter(event)}
-            />
-            <label for="Student">I am a student</label>
-            <input
-              type="radio"
-              id="parentGuardian"
-              name="studentOrParent"
-              value="ParentOrGuardian"
-              onChange={(event) => changeSubmitter(event)}
-            />
-            <label for="ParentOrGuardian">
-              I am a Parent or Guardian registering a Student
-            </label>
+
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="radio"
+                id="student"
+                name="studentOrParent"
+                value="Student"
+                onChange={(event) => changeSubmitter(event)}
+                isValid
+              />
+              <Form.Check.Label htmlFor="Student">
+                I am a student
+              </Form.Check.Label>
+            </Form.Check>
+
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="radio"
+                id="parentGuardian"
+                name="studentOrParent"
+                value="ParentOrGuardian"
+                onChange={(event) => changeSubmitter(event)}
+                isValid
+              />
+              <Form.Check.Label htmlFor="ParentOrGuardian">
+                I am a Parent or Guardian registering a Student
+              </Form.Check.Label>
+            </Form.Check>
           </div>
 
-          <>
-            <h3>
+          <div>
+            <p>
               If you are a Parent/Guardian registering a Student, please enter
               your email:
-            </h3>
+            </p>
             <FloatingLabel
               controlID="GuardianEmail"
               label="Parent/Guardian's Email"
@@ -235,10 +244,10 @@ function TutorInfo(props) {
             >
               <Form.Control type="GuardianEmail" placeholder="GuardianEmail" />
             </FloatingLabel>
-          </>
+          </div>
 
           <>
-            <h3>What is the Student's name? (First and Last)</h3>
+            <p>What is the Student's name? (First and Last)</p>
             <FloatingLabel
               controlID="StudentFirstName"
               label="Student's First Name"
@@ -264,7 +273,7 @@ function TutorInfo(props) {
           </>
 
           <>
-            <h3>What is the Student's email address?</h3>
+            <p>What is the Student's email address?</p>
             <p>
               Please confirm the email address you enter is correct. Email is
               our primary way of communicating with our tutors and tutees, so it
@@ -281,7 +290,7 @@ function TutorInfo(props) {
           </>
 
           <>
-            <h3>What are the Student's pronouns?</h3>
+            <p>What are the Student's pronouns?</p>
             <FloatingLabel
               controlID="Pronouns"
               label="Student's Pronouns Ex:She/Her"
@@ -293,9 +302,9 @@ function TutorInfo(props) {
           </>
 
           <>
-            <h3>
+            <p>
               What is the best phone number to contact the Student or Guardian?
-            </h3>
+            </p>
             <FloatingLabel
               controlID="StudentPhone"
               label="Student's Phone Number"
@@ -310,7 +319,7 @@ function TutorInfo(props) {
           </>
 
           <>
-            <h3>What school does the Student attend?</h3>
+            <p>What school does the Student attend?</p>
             <FloatingLabel
               controlID="StudentSchool"
               label="Student's School"
@@ -460,11 +469,10 @@ function TutorInfo(props) {
                 </fieldset>
               </>
             </div>
+            <Link to="/StudentSubjects">
+              <Button onClick={AddNewStudentInfo}>Save and Continue</Button>
+            </Link>
           </div>
-
-          <Link to="/StudentSubjects">
-            <Button onClick={AddNewStudentInfo}>Save and Continue</Button>
-          </Link>
         </div>
       </Container>
     </div>

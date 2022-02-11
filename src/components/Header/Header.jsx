@@ -13,11 +13,13 @@ function Header(props) {
   return (
     <div className="headerDiv">
       <div>
-        <img style={{ maxWidth: "100px" }} src={Logo} />
-        <span className="headingLRT">LIVING ROOM TUTORS</span>
+        <h1>
+          <img style={{ maxWidth: "100px" }} src={Logo} />
+          <span className="headingLRT">LIVING ROOM TUTORS</span>
+        </h1>
       </div>
       <div className="LTRRegFormHeader">
-        <p>Living Room Tutors K-12 Registration Form</p>
+        <h2>Living Room Tutors K-12 Registration Form</h2>
       </div>
     </div>
   );

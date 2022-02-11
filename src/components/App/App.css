@@ -571,12 +571,12 @@ h3 {
 
 .headingLRT {
   font-family: Lato-Bold;
-  font-size: 30px;
+  font-size: 34px;
   margin-left: 20px;
 }
 
-.LTRRegFormHeader p {
-  font-size: 20px;
+.LTRRegFormHeader h2 {
+  font-size: 23px;
   margin-bottom: 0px;
 }
 
@@ -592,4 +592,53 @@ h3 {
   margin-top: 30px;
   margin-bottom: 30px;
   border-radius: 20px;
+}
+
+.formContent {
+  font-family: Lato-regular;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.formContent p {
+  font-size: 23px;
+  font-family: Lato-regular;
+}
+
+.formQandA {
+  margin-bottom: 32px;
+}
+
+label {
+  font-size: 18px;
+}
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid,
+.was-validated .form-check-input:valid {
+  border-color: #45c6a2;
+}
+
+.form-check-input.is-valid ~ .form-check-label,
+.was-validated .form-check-input:valid ~ .form-check-label {
+  color: black;
 }
