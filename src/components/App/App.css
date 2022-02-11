@@ -589,15 +589,16 @@ h3 {
 
 .formContainer {
   background-color: white;
-  margin-top: 30px;
+  margin-top: 50px;
   margin-bottom: 30px;
   border-radius: 20px;
 }
 
 .formContent {
   font-family: Lato-regular;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 50px;
 }
 
 .formContent p {
@@ -606,11 +607,29 @@ h3 {
 }
 
 .formQandA {
-  margin-bottom: 32px;
+  margin-bottom: 45px;
 }
 
 label {
   font-size: 18px;
+  text-transform: lowercase;
+  color: #70757a;
+}
+
+.firstLastName {
+  display: flex;
+}
+
+.firstName {
+  margin-right: 15px;
+}
+
+.requiredField {
+  color: red;
+}
+
+.subP {
+  font-size: 16px !important;
 }
 
 /* ------radio buttons--------- */

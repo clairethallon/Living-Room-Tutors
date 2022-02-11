@@ -200,6 +200,7 @@ function TutorInfo(props) {
             <p>
               Please indicate if you are you a student registering yourself or
               are a parent/guardian/teacher registering on behalf of a student:
+              <span className="requiredField"> *</span>
             </p>
 
             <Form.Check type="radio">
@@ -226,15 +227,15 @@ function TutorInfo(props) {
                 isValid
               />
               <Form.Check.Label htmlFor="ParentOrGuardian">
-                I am a Parent or Guardian registering a Student
+                I am a parent or guardian registering a student
               </Form.Check.Label>
             </Form.Check>
           </div>
 
-          <div>
+          <div className="formQandA">
             <p>
-              If you are a Parent/Guardian registering a Student, please enter
-              your email:
+              If you are a parent/guardian registering a student, please enter
+              your email: <span className="requiredField"> *</span>
             </p>
             <FloatingLabel
               controlID="GuardianEmail"
@@ -246,35 +247,12 @@ function TutorInfo(props) {
             </FloatingLabel>
           </div>
 
-          <>
-            <p>What is the Student's name? (First and Last)</p>
-            <FloatingLabel
-              controlID="StudentFirstName"
-              label="Student's First Name"
-              className="formInput"
-              onChange={(event) => changefirstName(event)}
-            >
-              <Form.Control
-                type="StudentFirstName"
-                placeholder="Student First Name"
-              />
-            </FloatingLabel>
-            <FloatingLabel
-              controlID="StudentLastName"
-              label="Student's Last Name"
-              className="formInput"
-              onChange={(event) => changelastName(event)}
-            >
-              <Form.Control
-                type="StudentLastName"
-                placeholder="Student Last Name"
-              />
-            </FloatingLabel>
-          </>
-
-          <>
-            <p>What is the Student's email address?</p>
+          <div className="formQandA">
             <p>
+              What is the Student's email address?
+              <span className="requiredField"> *</span>
+            </p>
+            <p className="subP">
               Please confirm the email address you enter is correct. Email is
               our primary way of communicating with our tutors and tutees, so it
               is crucial that the email address that you provide is correct.
@@ -287,9 +265,58 @@ function TutorInfo(props) {
             >
               <Form.Control type="StudentEmail" placeholder="Student Email" />
             </FloatingLabel>
-          </>
+          </div>
 
-          <>
+          <div className="formQandA">
+            <p>
+              What is the best phone number to contact the student or guardian?
+              <span className="requiredField"> *</span>
+            </p>
+            <FloatingLabel
+              controlID="StudentPhone"
+              label="Student/Guardian Phone Number"
+              className="formInput"
+              onChange={(event) => changePhone(event)}
+            >
+              <Form.Control
+                type="StudentPhone"
+                placeholder="Student's Phone Number"
+              />
+            </FloatingLabel>
+          </div>
+
+          <div className="formQandA">
+            <p>
+              What is the student's name?{" "}
+              <span className="requiredField"> *</span>
+            </p>
+            <div className="firstLastName">
+              <FloatingLabel
+                controlID="StudentFirstName"
+                label="Student's First Name"
+                className="formInput firstName"
+                onChange={(event) => changefirstName(event)}
+              >
+                <Form.Control
+                  type="StudentFirstName"
+                  placeholder="Student First Name"
+                />
+              </FloatingLabel>
+              <FloatingLabel
+                controlID="StudentLastName"
+                label="Student's Last Name"
+                className="formInput"
+                onChange={(event) => changelastName(event)}
+              >
+                <Form.Control
+                  type="StudentLastName"
+                  placeholder="Student Last Name"
+                />
+              </FloatingLabel>
+            </div>
+          </div>
+
+          <div className="formQandA">
             <p>What are the Student's pronouns?</p>
             <FloatingLabel
               controlID="Pronouns"
@@ -299,27 +326,13 @@ function TutorInfo(props) {
             >
               <Form.Control type="Pronouns" placeholder="Pronouns" />
             </FloatingLabel>
-          </>
+          </div>
 
-          <>
+          <div className="formQandA">
             <p>
-              What is the best phone number to contact the Student or Guardian?
+              What school does the Student attend?{" "}
+              <span className="requiredField"> *</span>
             </p>
-            <FloatingLabel
-              controlID="StudentPhone"
-              label="Student's Phone Number"
-              className="formInput"
-              onChange={(event) => changePhone(event)}
-            >
-              <Form.Control
-                type="StudentPhone"
-                placeholder="Student's Phone Number"
-              />
-            </FloatingLabel>
-          </>
-
-          <>
-            <p>What school does the Student attend?</p>
             <FloatingLabel
               controlID="StudentSchool"
               label="Student's School"
@@ -331,9 +344,14 @@ function TutorInfo(props) {
                 placeholder="Student's School"
               />
             </FloatingLabel>
-          </>
+          </div>
 
-          <>
+          <div className="formQandA">
+            <p>
+              What is the student's current grade level?{" "}
+              <span className="requiredField"> *</span>
+            </p>
+
             <FloatingLabel
               controlId="gradeLevel"
               label="Student's Current Grade Level"
@@ -341,7 +359,7 @@ function TutorInfo(props) {
               className="selectInput"
             >
               <Form.Select aria-label="gradeLevel">
-                <option>Select Student's Current Grade Level:</option>
+                <option>Select Student's Current Grade Level</option>
                 <option value="prek_kindergarten">Pre-K/Kindergarten</option>
                 <option value="1st">1st Grade</option>
                 <option value="2nd">2nd Grade</option>
@@ -357,9 +375,9 @@ function TutorInfo(props) {
                 <option value="12th">12th Grade</option>
               </Form.Select>
             </FloatingLabel>
-          </>
+          </div>
 
-          <div>
+          <div className="formQandA">
             <p>
               Is the student an English language learner? If so, what is their
               preferred language?
