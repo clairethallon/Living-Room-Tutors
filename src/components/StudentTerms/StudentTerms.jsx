@@ -24,19 +24,16 @@ function StudentTerms(props) {
     (store) => store.newStudent.newstudentSubjectReducer
   );
 
-  const [studentterms, setStudentTerms] = useState(false);
-  const [ClikcableButton, setClikcableButton] = useState(false);
+  // const [studentterms, setStudentTerms] = useState(false);
+  const [agreedToggle, setAgreedToggle] = useState(false);
 
   const changeStudentTerms = () => {
     console.log("in tutor terms");
-
-    if (event.target.value) {
-      setClikcableButton(true);
+    if (agreedToggle === false) {
+      setAgreedToggle(true);
     } else {
-      setClikcableButton(false);
+      setAgreedToggle(false);
     }
-
-    setStudentTerms(!studentterms);
   };
 
   //package up new info in object
@@ -112,30 +109,28 @@ function StudentTerms(props) {
               participation.
             </p>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
-                id="Student Terms"
-                name="Student Terms"
-                onChange={(event) => changeStudentTerms()}
+                id="StudentTerms"
+                name="StudentTerms"
+                onChange={() => changeStudentTerms()}
               />
-              <label for="Student Terms">I understand</label>
-            </div>
-            {/* <p>{JSON.stringify(studentterms)}</p> */}
-
-            {/* <Link to="/StudentInfo">
-          <Button onClick={sendNewStudent}>Submit</Button>
-        </Link> */}
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="StudentTerms"
+              >
+                I understand <span className="requiredField"> *</span>
+              </Form.Check.Label>
+            </Form.Check>
 
             <div>
-              {ClikcableButton ? (
-                <>
-                  <StudentModal newStudentObject={newStudentObject} />
-                </>
+              {agreedToggle ? (
+                <StudentModal newStudentObject={newStudentObject} />
               ) : (
-                <>
-                  <p>Please Agree to continue.</p>
-                </>
+                <Button className="saveAndContinueButton" disabled>
+                  Submit
+                </Button>
               )}
             </div>
           </div>
