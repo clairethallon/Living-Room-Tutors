@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Header from "../Header/Header";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import { Container } from "react-bootstrap";
+
 import ProgressBar from "../ProgressBar/ProgressBar";
 
 function TutorInfo(props) {
@@ -190,9 +192,9 @@ function TutorInfo(props) {
   };
 
   return (
-    <div>
+    <div className="formBackground">
       <Header />
-      <div>
+      <Container className="formContainer">
         <ProgressBar />
         <div className="maincard">
           <div>
@@ -464,7 +466,7 @@ function TutorInfo(props) {
             <Button onClick={AddNewStudentInfo}>Save and Continue</Button>
           </Link>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }
