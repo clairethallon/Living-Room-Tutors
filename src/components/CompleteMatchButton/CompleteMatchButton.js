@@ -154,13 +154,12 @@ function CompleteMatchButton(props) {
                   marginLeft: "58%",
                   display: "flex",
                   justifyContent: "flex-end",
-                  position: "fixed"
+                  position: "relative"
                 }}
                 onClick={() => createCopyText("tutorEmail")}
               >
                 Copy Tutor Email
                     </Button>
-
               <div id="tutorEmail">
                 <p><b>To: {props.tutor.tutor_email}</b></p>
                 <br></br>
@@ -189,8 +188,8 @@ function CompleteMatchButton(props) {
                 Additional comments include:
                 {selectedTutee.tutee_misc_info}.</p>
                 <p>Don’t worry if you cannot help with all of the subjects listed.
-                There will be an LRT guide documents linked below. Please review
-                the document thoroughly. As well as guidelines, expectations,
+                There will be LRT guide documents linked below. Please review
+                the documents thoroughly. As well as guidelines, expectations,
                 and resources, it contains information about certifying
                 volunteer hours and a tutoring exit form for when you would like
                 to discontinue service with your tutee.</p>
@@ -199,23 +198,21 @@ function CompleteMatchButton(props) {
                 does not respond to your message after 7 business days, please
                 contact us. Thank you for giving back to your community; you are
                 making a vital impact on the future of these bright learners.
-                Your influence is truly boundless. If you ever have any
+                Your influence is truly boundless.</p>
+                <p> If you ever have any
                 questions or concerns, do not hesitate to reach out. Email us at
                 livingroomtutor@gmail.com.</p>
-                <p>Our team at LRT wishes you and {
-                  selectedTutee.tutee_firstname
-                }{" "}
-                the best!</p>
+                <p>Our team at LRT wishes you and {selectedTutee.tutee_firstname} the best!</p>
                 <p>Take Care,</p>
-                <p>Living Room Tutors Team</p>
-                <p><b>Contact Information:</b><br></br>
+                <p><b>Living Room Tutors Team</b></p>
+                <p><u>Contact Information:</u><br></br>
                   {selectedTutee.tutee_firstname}'s email:{" "}<br></br>
                   {selectedTutee.email_student}
                   <br></br>
                 Guardian's email: {selectedTutee.email_guardian} <br></br>
                 phone: {selectedTutee.tutee_phone}</p>
 
-                <p><b>LRT Tutor Documents:</b><br></br>
+                <p><u>LRT Tutor Documents:</u><br></br>
                   <a href="https://docs.google.com/document/d/1iLv0qmxogcVK0bEjOEHcaxGSfnyEhC3dsoOwiO88PyQ/edit?usp=sharing">
                     LRT Tutors Guide
                 </a><br></br>
@@ -228,49 +225,38 @@ function CompleteMatchButton(props) {
               selectedTutee.student_or_guardian == "Student" ? (
                 <Tab eventKey="Email-To-Tutee" title="Email to Tutee">
                   <br></br>
-                  <Row>
-                    <Col className="cardHeadCol">
-                      <b>To: {selectedTutee.email_guardian}</b>
-                      <br></br>
-                      <b>Cc: {props.tutor.tutor_email}</b>{" "}
-                    </Col>
-                    <Col className="cardHeadCol">
-                      <Button
-                        className="primaryButton matchButton"
-                        style={{
-                          marginLeft: "auto",
-                          display: "flex",
-                          justifyContent: "flex-end",
-                          position: "relative",
-                        }}
-                        onClick={() => createCopyText("tuteeEmail")}
-
-                      >
-                        Copy Tutee Email
+                  <Button
+                    className="primaryButton matchButton"
+                    style={{
+                      marginLeft: "58%",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      position: "relative"
+                    }}
+                    onClick={() => createCopyText("tuteeEmail")}
+                  >
+                    Copy Tutee Email
                     </Button>
-                    </Col>
-                  </Row>
-                  <div id="tuteeEmail">
-                    <p>To: {selectedTutee.email_student}</p>
-                    <p>Cc: {props.tutor.tutor_email}</p>
 
-                    <p>Dear {selectedTutee.tutee_firstname}{" "}
+                  <div id="tuteeEmail">
+                    <p><b>To: {selectedTutee.email_student}</b><br></br>
+                      <b>Cc: {props.tutor.tutor_email}</b></p><br></br>
+
+                    <p>Dear {selectedTutee.tutee_firstname}
                       {selectedTutee.tutee_lastname},</p>
                     <p>
                       Congratulations! You have been matched! After careful
                       consideration of your application, we feel your best match is
-                  with tutor {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}</p>
-                    <p>{props.tutor.tutor_first_name} is in{" "}
-                      {props.tutor.tutor_grade === "In College"
-                        ? "College"
-                        : props.tutor.tutor_grade + " grade"}{" "}
-                  and attends {props.tutor.tutor_school}.{" "}
-                      {props.tutor.tutor_first_name} is cc'd on this email and will
+                  with tutor <b>{props.tutor.tutor_first_name} {props.tutor.tutor_last_name}</b>.</p>
+                    <p>{props.tutor.tutor_first_name} is in {props.tutor.tutor_grade === "In College"
+                      ? "College"
+                      : props.tutor.tutor_grade + " grade"}
+                  and attends {props.tutor.tutor_school}. {props.tutor.tutor_first_name} is cc'd on this email and will
                   be reaching out to you to schedule a meeting. We will also
                   include {props.tutor.tutor_first_name}’s contact information
                   below.</p>
 
-                    <p>  We recommend using Zoom to conduct the tutoring sessions,
+                    <p>We recommend using Zoom to conduct the tutoring sessions,
                     however, there are other online conferencing platforms such as
                     Google Meet, or Skype. Please note that Zoom operates best
                     with the Chrome Browser. Please consider either installing
@@ -281,31 +267,20 @@ function CompleteMatchButton(props) {
                     <p>If you ever have any questions or concerns, do not hesitate to
                     reach out. Email us at livingroomtutor@gmail.com. Our team
                     here at LRT understands the difficulty of finding a tutor
-                  tailored just for you. Your personalized tutor,{" "}
+                    tailored just for you. Your personalized tutor,
                       {props.tutor.tutor_first_name}, is going to be a wonderful
                   resource for you.</p>
-
                     <p>Note: If your tutor does not reach out after 5 business days
-                  upon receiving this email, please contact us.</p>
-
-                    <p>There will be an LRT guide document attached below. Please
+                    upon receiving this email, please contact us. There will be an LRT guide document attached below. Please
                   review the document thoroughly.</p>
-
-                    <p>Our team at LRT wishes you and {
-                      props.tutor.tutor_first_name
-                    }{" "}
+                    <p>Our team at LRT wishes you and {props.tutor.tutor_first_name}
                   the best! Thank you for using our service.</p>
-
                     <p>Sincerely,</p>
-
-                    <p>Living Room Tutors Team</p>
-
-                    <p><b>{props.tutor.tutor_first_name}'s Contact Information:</b></p>
-                    <p>email: {props.tutor.tutor_email}</p>
-
-                    <p>phone: {props.tutor.tutor_phone}</p>
-
-                    <p><b>LRT Tutee Guide:</b><br></br>
+                    <p><b>Living Room Tutors Team</b></p>
+                    <p><u>{props.tutor.tutor_first_name}'s Contact Information:</u><br></br>
+                    email: {props.tutor.tutor_email} <br></br>
+                    phone: {props.tutor.tutor_phone}</p>
+                    <p><u>LRT Guide Document:</u><br></br>
                       <a href="https://docs.google.com/document/d/1sOTJKTd0vUQGcOqFKAY_WP57xqhRtukZdYaYKfLxUx4/edit?usp=sharing">
                         LRT Tutee Guide
                   </a></p>
@@ -314,32 +289,23 @@ function CompleteMatchButton(props) {
               ) : (
                 <Tab eventKey="Email-To-Guardian" title="Email to Adult of Tutee">
                   <br></br>
-                  <Row>
-                    <Col className="cardHeadCol">
-                      <div>
-                        <b>To: {selectedTutee.email_guardian}</b>
-                        <br></br>
-                        <b>Cc: {props.tutor.tutor_email}</b>
-                      </div>
-                    </Col>
-                    <Col className="cardHeadCol">
-                      <Button
-                        className="primaryButton matchButton"
-                        style={{
-                          marginLeft: "auto",
-                          display: "flex",
-                          justifyContent: "flex-end",
-                          position: "relative",
-                        }}
-                        onClick={() => createCopyText("adultEmail")}
-
-                      >
-                        Copy Tutor Email
+                  <Button
+                    className="primaryButton matchButton"
+                    style={{
+                      marginLeft: "56%",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      position: "relative"
+                    }}
+                    onClick={() => createCopyText("adultEmail")}
+                  >
+                    Copy Email to Adult
                     </Button>
-                    </Col>
-                  </Row>
-
                   <div id="adultEmail">
+                    <p><b>To: {selectedTutee.email_guardian}</b>
+                      <br></br>
+                      <b>Cc: {props.tutor.tutor_email}</b></p>
+                    <br></br>
                     <p>Dear Parents/Guardians/Teachers of{" "}
                       {selectedTutee.tutee_firstname} {selectedTutee.tutee_lastname}
                   ,</p>
@@ -388,17 +354,16 @@ function CompleteMatchButton(props) {
                     <p>
                       Sincerely,
                   </p>
-                    <p>Living Room Tutors Team</p>
-                    <p><b>{props.tutor.tutor_first_name}'s Contact Information:</b>
-                      <br></br>
-                  email: {props.tutor.tutor_email}
-                      <br></br>
-                  phone: {props.tutor.tutor_phone}</p>
-                    <p> <b>LRT Tutee Guide:</b>
-                      <br></br>
+                    <p><b>Living Room Tutors Team</b></p>
+
+                    <p><u>{props.tutor.tutor_first_name}'s Contact Information:</u><br></br>
+                    email: {props.tutor.tutor_email} <br></br>
+                    phone: {props.tutor.tutor_phone}</p>
+
+                    <p><u>LRT Guide Document:</u><br></br>
                       <a href="https://docs.google.com/document/d/1sOTJKTd0vUQGcOqFKAY_WP57xqhRtukZdYaYKfLxUx4/edit?usp=sharing">
                         LRT Tutee Guide
-                  </a></p>
+                      </a></p>
                   </div>
                 </Tab>
               )}
