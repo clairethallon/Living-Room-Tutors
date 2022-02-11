@@ -8,6 +8,7 @@ import { Container, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import { useHistory } from "react-router-dom";
 
 function TutorInfo(props) {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ function TutorInfo(props) {
   const newstudentInfoReducer = useSelector(
     (store) => store.newstudentInfoReducer
   );
+  const history = useHistory();
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -189,13 +191,14 @@ function TutorInfo(props) {
       newStudentInfo.grade == "" ||
       newStudentInfo.grade == null
     ) {
-      alert("Please complete all required fields.");
+      return alert("Please complete all required fields.");
     }
-
     // send it all to a reducer
-    console.log("in AddNewTutorInfo", newStudentInfo);
-
-    dispatch({ type: "ADD_NEW_STUDENT_INFO", payload: newStudentInfo });
+    else {
+      console.log("in AddNewTutorInfo", newStudentInfo);
+      dispatch({ type: "ADD_NEW_STUDENT_INFO", payload: newStudentInfo });
+      history.push("/StudentSubjects");
+    }
   };
 
   return (
@@ -543,14 +546,12 @@ function TutorInfo(props) {
             </Form.Check>
           </div>
 
-          <Link to="/StudentSubjects">
-            <Button
-              className="primaryButton saveAndContinueButton"
-              onClick={AddNewStudentInfo}
-            >
-              Save and Continue <span className="rightarrow">{rightArrow}</span>
-            </Button>
-          </Link>
+          <Button
+            className="primaryButton saveAndContinueButton"
+            onClick={AddNewStudentInfo}
+          >
+            Save and Continue <span className="rightarrow">{rightArrow}</span>
+          </Button>
         </div>
       </Container>
     </div>
