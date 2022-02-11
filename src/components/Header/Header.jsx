@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Logo from "../../images/logoCrop.png";
 
@@ -12,15 +13,15 @@ function Header(props) {
 
   return (
     <div className="headerDiv">
-      <div>
-        <h1>
-          <img style={{ maxWidth: "100px" }} src={Logo} />
-          <span className="headingLRT">LIVING ROOM TUTORS</span>
-        </h1>
-      </div>
-      <div className="LTRRegFormHeader">
-        <h2>Living Room Tutors K-12 Registration Form</h2>
-      </div>
+      <Container className="headerContainer">
+        <div className="brandNameHeader">
+          <img style={{ maxWidth: "65px" }} src={Logo} />
+          <h1 className="headingLRT">LIVING ROOM TUTORS</h1>
+        </div>
+        <div className="LTRRegFormHeader">
+          <h2>Living Room Tutors K-12 Registration Form</h2>
+        </div>
+      </Container>
     </div>
   );
 }

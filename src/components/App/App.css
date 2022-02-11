@@ -559,25 +559,38 @@ h3 {
 /* -----------Forms Header------------- */
 
 .headerDiv {
+  background-color: white;
+  padding-top: 10px;
+}
+
+.headerDiv h1 {
+  margin: 0px;
+  margin-left: 10px;
+}
+
+.headerContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-right: 20px;
-  padding-left: 10px;
-  background-color: white;
+  padding: 0px;
+  padding-bottom: 15px;
   padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .headingLRT {
   font-family: Lato-Bold;
-  font-size: 34px;
+  font-size: 27px;
   margin-left: 20px;
 }
 
 .LTRRegFormHeader h2 {
-  font-size: 23px;
+  font-size: 18px;
   margin-bottom: 0px;
+}
+
+.brandNameHeader {
+  display: flex;
+  align-items: center;
 }
 
 /*---- forms ----*/
@@ -592,6 +605,7 @@ h3 {
   margin-top: 50px;
   margin-bottom: 30px;
   border-radius: 20px;
+  padding-bottom: 80px;
 }
 
 .formContent {
@@ -602,7 +616,7 @@ h3 {
 }
 
 .formContent p {
-  font-size: 23px;
+  font-size: 18px;
   font-family: Lato-regular;
 }
 
@@ -611,9 +625,12 @@ h3 {
 }
 
 label {
-  font-size: 18px;
-  text-transform: lowercase;
+  text-transform: initial;
   color: #70757a;
+}
+
+.customeCheckandRedioOptions {
+  font-size: 16px;
 }
 
 .firstLastName {
@@ -630,6 +647,22 @@ label {
 
 .subP {
   font-size: 16px !important;
+}
+
+.selectGradeDropdown {
+  width: 27.2em;
+}
+
+.saveAndContinueButton {
+  width: 100%;
+  height: 50px;
+  text-transform: none;
+  font-size: 20px;
+}
+
+.rightarrow {
+  position: relative;
+  left: 435px;
 }
 
 /* ------radio buttons--------- */
@@ -659,11 +692,27 @@ label {
   border-color: #45c6a2;
 }
 
-.form-check-input.is-valid ~ .form-check-label,
-.was-validated .form-check-input:valid ~ .form-check-label {
+.form-check-input:checked ~ .form-check-label {
   color: black;
 }
 
+/* ------checkbox--------- */
+
+.form-check-input.is-valid:checked,
+.was-validated .form-check-input:valid:checked {
+  background-color: #45c6a2;
+}
+
+.form-check-input.is-valid,
+.was-validated .form-check-input:valid {
+  border-color: #45c6a2;
+}
+
+.form-check-input:checked {
+  background-color: #45c6a2;
+  border-color: #45c6a2;
+}
+
 .form-check-input {
-  margin-top: none;
+  margin-top: 4.5px;
 }

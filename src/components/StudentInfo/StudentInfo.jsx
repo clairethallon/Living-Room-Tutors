@@ -5,7 +5,8 @@ import Button from "react-bootstrap/Button";
 import Header from "../Header/Header";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import { Container, Form } from "react-bootstrap";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
 function TutorInfo(props) {
@@ -18,6 +19,8 @@ function TutorInfo(props) {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+  const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   const [newSubmitter, setSubmitter] = useState();
   const [newFirstName, setNewFirstName] = useState();
@@ -84,8 +87,13 @@ function TutorInfo(props) {
   };
 
   const changeGrade = () => {
-    console.log("in new grade");
-    setNewGrade(event.target.value);
+    console.log("in new grade", event.target.value);
+    if (event.target.value === "") {
+      setNewGrade(undefined);
+      console.log(newGrade);
+    } else {
+      setNewGrade(event.target.value);
+    }
   };
 
   // ******** LANGUAGE CHECK BOXES **************
@@ -210,9 +218,11 @@ function TutorInfo(props) {
                 name="studentOrParent"
                 value="Student"
                 onChange={(event) => changeSubmitter(event)}
-                isValid
               />
-              <Form.Check.Label htmlFor="Student">
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="Student"
+              >
                 I am a student
               </Form.Check.Label>
             </Form.Check>
@@ -224,9 +234,11 @@ function TutorInfo(props) {
                 name="studentOrParent"
                 value="ParentOrGuardian"
                 onChange={(event) => changeSubmitter(event)}
-                isValid
               />
-              <Form.Check.Label htmlFor="ParentOrGuardian">
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="ParentOrGuardian"
+              >
                 I am a parent or guardian registering a student
               </Form.Check.Label>
             </Form.Check>
@@ -352,29 +364,26 @@ function TutorInfo(props) {
               <span className="requiredField"> *</span>
             </p>
 
-            <FloatingLabel
-              controlId="gradeLevel"
-              label="Student's Current Grade Level"
+            <Form.Select
+              className="selectGradeDropdown"
+              aria-label="gradeLevel"
               onChange={(event) => changeGrade(event)}
-              className="selectInput"
             >
-              <Form.Select aria-label="gradeLevel">
-                <option>Select Student's Current Grade Level</option>
-                <option value="prek_kindergarten">Pre-K/Kindergarten</option>
-                <option value="1st">1st Grade</option>
-                <option value="2nd">2nd Grade</option>
-                <option value="3rd">3rd Grade</option>
-                <option value="4th">4th Grade</option>
-                <option value="5th">5th Grade</option>
-                <option value="6th">6th Grade</option>
-                <option value="7th">7th Grade</option>
-                <option value="8th">8th Grade</option>
-                <option value="9th">9th Grade</option>
-                <option value="10th">10th Grade</option>
-                <option value="11th">11th Grade</option>
-                <option value="12th">12th Grade</option>
-              </Form.Select>
-            </FloatingLabel>
+              <option value="">Select Student's Current Grade Level</option>
+              <option value="prek_kindergarten">Pre-K/Kindergarten</option>
+              <option value="1st">1st Grade</option>
+              <option value="2nd">2nd Grade</option>
+              <option value="3rd">3rd Grade</option>
+              <option value="4th">4th Grade</option>
+              <option value="5th">5th Grade</option>
+              <option value="6th">6th Grade</option>
+              <option value="7th">7th Grade</option>
+              <option value="8th">8th Grade</option>
+              <option value="9th">9th Grade</option>
+              <option value="10th">10th Grade</option>
+              <option value="11th">11th Grade</option>
+              <option value="12th">12th Grade</option>
+            </Form.Select>
           </div>
 
           <div className="formQandA">
@@ -383,114 +392,165 @@ function TutorInfo(props) {
               preferred language?
             </p>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
                 id="Spanish"
                 name="Spanish"
                 onChange={(event) => changeSpanish()}
               />
-              <label for="Spanish">Spanish</label>
-            </div>
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="Spanish"
+              >
+                Spanish
+              </Form.Check.Label>
+            </Form.Check>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
                 id="Somali"
                 name="Somali"
                 onChange={(event) => changeSomali()}
               />
-              <label for="Somali">Somali</label>
-            </div>
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="Somali"
+              >
+                Somali
+              </Form.Check.Label>
+            </Form.Check>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
                 id="Arabic"
                 name="Arabic"
                 onChange={(event) => changeArabic()}
               />
-              <label for="Arabic">Arabic</label>
-            </div>
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="Arabic"
+              >
+                Arabic
+              </Form.Check.Label>
+            </Form.Check>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
                 id="Chinese"
                 name="Chinese"
                 onChange={(event) => changeChinese()}
               />
-              <label for="Chinese">Chinese</label>
-            </div>
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="Chinese"
+              >
+                Chinese
+              </Form.Check.Label>
+            </Form.Check>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
                 id="Tagalog"
                 name="Tagalog"
                 onChange={(event) => changeTagalog()}
               />
-              <label for="Tagalog">Tagalog</label>
-            </div>
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="Tagalog"
+              >
+                Tagalog
+              </Form.Check.Label>
+            </Form.Check>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
                 id="French"
                 name="French"
                 onChange={(event) => changeFrench()}
               />
-              <label for="French">French</label>
-            </div>
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="French"
+              >
+                French
+              </Form.Check.Label>
+            </Form.Check>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
                 id="Vietnamese"
                 name="Vietnamese"
                 onChange={(event) => changeVietnamese()}
               />
-              <label for="Vietnamese">Vietnamese</label>
-            </div>
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="Vietnamese"
+              >
+                Vietnamese
+              </Form.Check.Label>
+            </Form.Check>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
                 id="Hmong"
                 name="Hmong"
                 onChange={(event) => changeHmong()}
               />
-              <label for="Hmong">Hmong</label>
-            </div>
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="Hmong"
+              >
+                Hmong
+              </Form.Check.Label>
+            </Form.Check>
 
-            <div>
-              <input
+            <Form.Check type="radio">
+              <Form.Check.Input
                 type="checkbox"
                 id="OtherLanguage"
                 name="OtherLanguage"
                 onChange={(e) => changeIsLangChecked(event.target.checked)}
               />
-              <label htmlFor="Other Pronouns">Other</label>
-              <>
-                <fieldset disabled={IsLangChecked}>
-                  <FloatingLabel
-                    controlID="OtherLanguage"
-                    label="Other Language"
-                    className="formInput"
-                    onChange={(event) => changeotherLangauge(event)}
-                  >
-                    <Form.Control
-                      type="OtherLanguage"
-                      placeholder="Other Language"
-                    />
-                  </FloatingLabel>
-                </fieldset>
-              </>
-            </div>
-            <Link to="/StudentSubjects">
-              <Button onClick={AddNewStudentInfo}>Save and Continue</Button>
-            </Link>
+
+              <Form.Check.Label
+                className="customeCheckandRedioOptions"
+                htmlFor="Other"
+              >
+                Other
+              </Form.Check.Label>
+
+              <fieldset disabled={IsLangChecked}>
+                <FloatingLabel
+                  controlID="OtherLanguage"
+                  label="Other Language"
+                  className="formInput"
+                  onChange={(event) => changeotherLangauge(event)}
+                >
+                  <Form.Control
+                    type="OtherLanguage"
+                    placeholder="Other Language"
+                  />
+                </FloatingLabel>
+              </fieldset>
+            </Form.Check>
           </div>
+
+          <Link to="/StudentSubjects">
+            <Button
+              className="primaryButton saveAndContinueButton"
+              onClick={AddNewStudentInfo}
+            >
+              Save and Continue <span className="rightarrow">{rightArrow}</span>
+            </Button>
+          </Link>
         </div>
       </Container>
     </div>
