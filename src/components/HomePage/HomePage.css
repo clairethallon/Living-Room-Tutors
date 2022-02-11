@@ -1,0 +1,38 @@
+.homePage {
+  background-image: url(../../images/homeBackground.png);
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.registrationTermsCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tutorOrTuteeQuestion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registrationTermsContainer {
+  width: 600px;
+  color: white;
+}
+
+.registrationTermsContainer p {
+  font-family: Lato-Regular;
+  font-size: 20px;
+}
+
+.registrationTermsContainer span {
+  margin-top: 30px;
+}
+
+.registrationTermsContainer h1 {
+  font-family: Lato-Regular;
+  margin-bottom: 20px;
+}
