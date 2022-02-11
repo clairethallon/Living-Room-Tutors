@@ -646,7 +646,7 @@ label {
 }
 
 .subP {
-  font-size: 16px !important;
+  font-size: 15px !important;
 }
 
 .selectGradeDropdown {
@@ -663,6 +663,23 @@ label {
 .rightarrow {
   position: relative;
   left: 435px;
+}
+
+.form-check-input {
+  margin-top: 4.5px;
+}
+
+.form-control {
+  margin-left: 0px;
+}
+
+.pWithSubP {
+  margin-bottom: 0px;
+}
+
+.textArea {
+  resize: none;
+  width: 500px;
 }
 
 /* ------radio buttons--------- */
@@ -711,8 +728,4 @@ label {
 .form-check-input:checked {
   background-color: #45c6a2;
   border-color: #45c6a2;
-}
-
-.form-check-input {
-  margin-top: 4.5px;
 }

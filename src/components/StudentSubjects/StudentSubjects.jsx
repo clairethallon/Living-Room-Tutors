@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import { Container, Form } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import Header from "../Header/Header";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function StudentSubjects(props) {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function StudentSubjects(props) {
   const newstudentInfoReducer = useSelector(
     (store) => store.newstudentInfoReducer
   );
+  const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -337,16 +339,18 @@ function StudentSubjects(props) {
               )} */}
             </div>
             {/*---------- last section---------- */}
-            <>
-              <h3>
+            <div className="formQandA">
+              <p className="pWithSubP">
                 Please describe your needs in detail regarding the subject(s)
                 you selected above:
-              </h3>
-              <p>
+              </p>
+              <p className="subP">
                 The more detailed you are, the better we can find a tutor to fit
-                your needs! For example: (AP Macroeconomics) I need help
-                understanding Fiscal Policy; (K-5 math) I need help with
-                understanding long division.
+                your needs!
+                <br></br>
+                For example: (AP Macroeconomics) I need help understanding
+                Fiscal Policy; (K-5 math) I need help with understanding long
+                division.
               </p>
               <FloatingLabel
                 controlId="DetailedNeeds"
@@ -355,14 +359,20 @@ function StudentSubjects(props) {
                 onChange={(event) => changeDetailedNeeds(event)}
               >
                 <Form.Control
+                  className="textArea"
                   as="textarea"
                   placeholder="Details of tutoring needs"
                   style={{ height: "100px" }}
                 />
               </FloatingLabel>
-            </>
+            </div>
 
-            <Button onClick={AddNewStudentSubjects}>Save and Continue</Button>
+            <Button
+              className="primaryButton saveAndContinueButton"
+              onClick={AddNewStudentSubjects}
+            >
+              Save and Continue <span className="rightarrow">{rightArrow}</span>
+            </Button>
           </div>
         </div>
       </Container>

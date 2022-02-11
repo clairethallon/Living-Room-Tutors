@@ -263,7 +263,7 @@ function TutorInfo(props) {
           </div>
 
           <div className="formQandA">
-            <p>
+            <p className="pWithSubP">
               What is the Student's email address?
               <span className="requiredField"> *</span>
             </p>
