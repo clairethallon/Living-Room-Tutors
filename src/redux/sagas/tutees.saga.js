@@ -16,11 +16,20 @@ function* fetchTutees() {
 function* postNewStudent(action) {
   //this function adds a new tutee to the tutee table, along with entry for them in
   //language table
+
+  let emailToSend = "";
+  if (action.payload.studentOrGuardian === "Student") {
+    emailToSend = action.payload.emailStudent;
+  } else {
+    emailToSend = action.payload.emailGuardian;
+  }
+  console.log("emailToSend:", emailToSend);
+
   try {
     const response = yield axios.post("/api/tutees", action.payload);
     try {
       const response2 = yield axios.post("/api/mail", {
-        email: action.payload.emailStudent,
+        email: emailToSend,
       });
     } catch (err) {
       alert("no");
