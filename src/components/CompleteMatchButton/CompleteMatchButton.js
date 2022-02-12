@@ -295,7 +295,7 @@ function CompleteMatchButton(props) {
                   </div>
                 </Tab>
               ) : (
-                <Tab eventKey="Email-To-Guardian" title="Email to Adult of Tutee">
+                <Tab eventKey="Email-To-Guardian" title="Email to Guardian">
                   <br></br>
                   <Button
                     className="primaryButton matchButton"
@@ -307,10 +307,10 @@ function CompleteMatchButton(props) {
                     }}
                     onClick={() => createCopyText("adultEmail")}
                   >
-                    Copy Email to Adult
+                    Copy Email to Guardian
                     </Button>
                   <div id="adultEmail">
-                    <p><b>To: (adult) {selectedTutee.email_guardian}</b>
+                    <p><b>To: (guardian) {selectedTutee.email_guardian}</b>
                       <br></br>
                       <b>Cc: (tutor) {props.tutor.tutor_email} {selectedTutee.email_student === null
                         ? ""
