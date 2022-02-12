@@ -387,10 +387,13 @@ function CompleteMatchButton(props) {
               alignItems: "center",
               justifyContent: "space-between",
               borderBottomRightRadius: "calc(0.3rem - 1px)",
-              borderBottomLeftRadius: "calc(0.3rem - 1px)"
+              borderBottomLeftRadius: "calc(0.3rem - 1px)",
+              marginLeft: "25px",
+              marginRight: "20px"
+
             }}
           >
-            <p style={{ width: "50%" }}>
+            <p style={{ width: "60%" }}>
               * By clicking "confirm match", you confirm that the tutor and tutee
               have been emailed and notified of the match
           </p>
