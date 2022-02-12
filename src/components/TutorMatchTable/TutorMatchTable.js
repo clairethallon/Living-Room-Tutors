@@ -29,7 +29,7 @@ function TutorMatchTable(props) {
             <p className="tableHeads">Submission Date</p>
           </Col>
           <Col xs="3" className="cardHeadCol">
-            <p className="tableHeads">Subject</p>
+            <p className="tableHeads">Matched Subjects</p>
           </Col>
           <Col xs="3" className="cardHeadCol">
             <p className="tableHeads">Flagged</p>

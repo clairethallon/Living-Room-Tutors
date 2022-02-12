@@ -27,7 +27,37 @@ function TuteeMatchCard(props) {
     await makePrettyTime(selectedTutee.tutee_submission_timestamp);
   }, []);
 
-  const specialSubjects = useSelector((store) => store.specialSubjects);
+  const specialSubjects = [
+    "Precalculus/Trigonometry ",
+    "Biology/Life Sciences ",
+    "Chemistry ",
+    "AP/Honors Chemistry ",
+    "Physics ",
+    "Computer Science ",
+    "Chinese ",
+    "Spanish ",
+    "French ",
+    "German ",
+    "World History ",
+    "U.S. History ",
+    "AP/Honors Biology ",
+    "AP/Honors Physics ",
+    "AP/Honors Calculus AB ",
+    "AP/Honors Calculus BC ",
+    "AP/Honors Statistics ",
+    "AP/Honors Computer Science ",
+    "AP/Honors English Literature and Composition ",
+    "AP/Honors Language and Composition ",
+    "AP/Honors Macroeconomics ",
+    "AP/Honors Microeconomics ",
+    "AP/Honors Psychology ",
+    "AP/Honors United States History ",
+    "AP/Honors Government and Politics (US) ",
+    "AP/Honors Human Geography ",
+    "SAT Subject Tests ",
+    "SAT Prep ",
+    "ACT Prep ",
+  ];
 
   const subjects = [
     { name: "K-5 Math ", dbname: "K5_Math" },
@@ -145,10 +175,21 @@ function TuteeMatchCard(props) {
               <br></br>
               {subject3}
             </Col>
-
             <Col xs="2" className="flaggedSubjectLanguage">
-              <SubjectFlag />
-              <LanguageFlag />
+              {specialSubjects.map((subject) => {
+                if (
+                  subject === subject1 ||
+                  subject === subject2 ||
+                  subject === subject3
+                ) {
+                  return <SubjectFlag />;
+                }
+              })}
+              {languages.map((language) => {
+                if (language === true) {
+                  return <LanguageFlag />;
+                }
+              })}
             </Col>
             {/* </Row> */}
           </Accordion.Header>
