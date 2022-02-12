@@ -131,7 +131,7 @@ function CompleteMatchButton(props) {
         show={show}
         onHide={handleClose}
         style={{
-          paddingTop: "50px",
+          height: "95%"
         }}
         size="lg"
       >
@@ -142,7 +142,7 @@ function CompleteMatchButton(props) {
         </Modal.Header>
         <Modal.Body style={{
           margin: "15px",
-          height: "80vh",
+          // height: "80vh",
           overflowy: "auto"
         }}>
           <Tabs id="uncontrolled-tab-example" className="mb-3">
@@ -151,10 +151,10 @@ function CompleteMatchButton(props) {
               <Button
                 className="primaryButton matchButton"
                 style={{
-                  marginLeft: "553px",
+                  marginLeft: "auto",
                   display: "flex",
                   justifyContent: "flex-end",
-                  position: "fixed"
+                  marginBottom: "10px"
                 }}
                 onClick={() => createCopyText("tutorEmail")}
               >
@@ -234,10 +234,10 @@ function CompleteMatchButton(props) {
                   <Button
                     className="primaryButton matchButton"
                     style={{
-                      marginLeft: "551px",
+                      marginLeft: "auto",
                       display: "flex",
                       justifyContent: "flex-end",
-                      position: "fixed"
+                      marginBottom: "10px"
                     }}
                     onClick={() => createCopyText("tuteeEmail")}
                   >
@@ -300,10 +300,10 @@ function CompleteMatchButton(props) {
                   <Button
                     className="primaryButton matchButton"
                     style={{
-                      marginLeft: "553px",
+                      marginLeft: "auto",
                       display: "flex",
                       justifyContent: "flex-end",
-                      position: "fixed"
+                      marginBottom: "10px"
                     }}
                     onClick={() => createCopyText("adultEmail")}
                   >
@@ -390,28 +390,29 @@ function CompleteMatchButton(props) {
           borderTop: '1px solid #dee2e6',
           borderBottomRightRadius: "calc(0.3rem - 1px)",
           borderBottomLeftRadius: "calc(0.3rem - 1px)",
-          padding: "25px"
         }}>
-          <p style={{ width: "500px", marginLeft: "0" }}>
-            * By clicking "confirm match", you confirm that the tutor and tutee
-            have been emailed and notified of the match
+          <div>
+            <p>
+              * By clicking "confirm match", you confirm that the tutor and tutee
+              have been emailed and notified of the match
           </p>
-          <Button
-            className="secondaryButton"
-            variant="secondary"
-            onClick={handleClose}
-          >
-            Cancel
-          </Button>
-          <Link to="/records">
             <Button
-              className="primaryButton"
-              variant="primary"
-              onClick={postMatch}
+              className="secondaryButton"
+              variant="secondary"
+              onClick={handleClose}
             >
-              Confirm Match
+              Cancel
+          </Button>
+            <Link to="/records">
+              <Button
+                className="primaryButton"
+                variant="primary"
+                onClick={postMatch}
+              >
+                Confirm Match
             </Button>
-          </Link>
+            </Link>
+          </div>
         </Modal.Footer>
       </Modal>
     </>
