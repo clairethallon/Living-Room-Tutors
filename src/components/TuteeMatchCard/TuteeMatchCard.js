@@ -139,8 +139,9 @@ function TuteeMatchCard(props) {
       } else if (i > 7 && i < 10) {
         newTime.day += timestamp[i];
       }
-      setPrettyTime(newTime);
     }
+    setPrettyTime(newTime);
+
   };
 
   const languages = [
