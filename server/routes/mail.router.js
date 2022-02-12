@@ -48,56 +48,18 @@ router.post("/", cors(), async (req, res) => {
     },
   });
 
-  // transporter.verify((err, success) => {
-  //   err
-  //     ? console.log(err)
-  //     : console.log(`=== Server is ready to take messages: ${success} ===`);
-  // });
-
-  // let mailOptions = {
-  //   from: "test@gmail.com",
-  //   to: gconfig.mailUser,
-  //   subject: "Nodemailer API",
-  //   text: "Hi from your nodemailer API",
-  // };
-
-  // transporter.sendMail(mailOptions, function (err, data) {
-  //   if (err) {
-  //     console.log("Error " + err);
-  //   } else {
-  //     console.log("Email sent successfully");
-  //   }
-  // });
-  // });
-
-  /**
-   * POST route template
-   */
-  // router.post("/", cors(), async (req, res) => {
-  //   console.log("email post route hit");
-  //   console.log(req.body.email);
-  //   let email = req.body.email;
-
-  //   let transporter = nodemailer.createTransport({
-  //     host: "smtp.gmail.com",
-  //     port: 587,
-  //     secure: false, // true for 465, false for other ports
-  //     auth: {
-  //       user: "blahblah@gmail.com",
-  //       pass: "blooper",
-  //     },
-  //   });
-
   let info = await transporter
     .sendMail({
-      from: gconfig.mailUser, //not showing up in email
+      from: gconfig.mailUser,
       to: `${email}`,
-      subject: "test email",
-      text: "Thank you so much for contacting Living Room Tutors! This is a test. Thanks again, Living Room Tutors.",
+      subject: "Thank You For Contacting Living Room Tutors!",
+      text: "Thank you so much for submitting an application to Living Room Tutors! An administrator is reviewing your application and will be in touch with you soon. If you have any questions in the meantime, please email livingroomtutor@gmail.com. Thank you so much! Living Room Tutors",
       html: `<div className="email" >
-      <h2>Thank you so much for contacting Living Room Tutors!</h2>
-      <p>This is a test.</p>
-      <p>Thanks again, Living Room Tutors</p>
+      <h3>Thank you so much for contacting Living Room Tutors!</h3>
+      <p>An administrator is reviewing your application and will be in touch with you soon.</p>
+      <p>If you have any questions in the meantime, please email livingroomtutor@gmail.com.</p>
+      <p>Thanks again!</p>
+      <h3>Living Room Tutors</h3>
     </div>`,
     })
     .catch(console.error);
