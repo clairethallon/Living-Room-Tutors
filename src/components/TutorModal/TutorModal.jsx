@@ -35,7 +35,7 @@ function TutorModal(props) {
         </Modal.Body>
 
         <Modal.Footer>
-          <Link to="/TutorInfo"><Button variant="primary" onClick={handleClose}>Home</Button></Link>
+          <Link to="/Home"><Button variant="primary" onClick={handleClose}>Home</Button></Link>
         </Modal.Footer>
   
       </Modal>

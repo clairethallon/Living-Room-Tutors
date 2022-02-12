@@ -48,9 +48,9 @@ function ProgressBar(props) {
   };
 
   const changeProgressBarImageAdditional = () => {
-    console.log("newStudentSubject.newStudentAdditional", newStudentSubject.newStudentAdditional);
-    if (newStudentAdditional.newAdditionalInfo === "" || newStudentSubject.newAdditionalInfo === null || newStudentSubject.newAdditionalInfo === undefined){
-    setProgressBarImageAdditional(false)
+    console.log("newStudentAdditional.newStudentAdditional", newStudentAdditional.newAdditionalInfo);
+    if (newStudentAdditional.newAdditionalInfo === "" || newStudentAdditional.newAdditionalInfo === null || newStudentAdditional.newAdditionalInfo === undefined){
+      setProgressBarImageAdditional(false)
     }
     else(setProgressBarImageAdditional(true))
   };
