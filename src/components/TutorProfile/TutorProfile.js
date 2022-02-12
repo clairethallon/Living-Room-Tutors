@@ -214,11 +214,13 @@ function TutorProfile(props) {
           <p className="profileQuestion">Languages comfortable tutoring in:</p>
           <div className="languagePillContainer">
             {tutorLanguages.map((language) => {
-              return (
-                <div className="languagePill">
-                  <span className="languageFlag">{flagIcon}</span> {language}
-                </div>
-              );
+              if (language !== null) {
+                return (
+                  <div className="languagePill">
+                    <span className="languageFlag">{flagIcon}</span> {language}
+                  </div>
+                );
+              }
             })}
           </div>
         </div>

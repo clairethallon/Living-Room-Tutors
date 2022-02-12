@@ -162,7 +162,6 @@ function TutorCard(props) {
 
   return (
     <div>
-      <p>{JSON.stringify(props.tutor)}</p>
       <Accordion className="mb-3" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
