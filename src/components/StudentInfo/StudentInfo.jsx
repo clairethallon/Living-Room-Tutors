@@ -29,7 +29,7 @@ function TutorInfo(props) {
   const [newLastName, setNewLastName] = useState();
   const [newParentEmail, setNewParentEmail] = useState();
   const [newEmail, setNewEmail] = useState();
-  const [Pronouns, setPronouns] = useState(false);
+  const [Pronouns, setPronouns] = useState(null);
   const [newPhone, setNewPhone] = useState();
   const [newSchool, setNewSchool] = useState();
   const [newGrade, setNewGrade] = useState();

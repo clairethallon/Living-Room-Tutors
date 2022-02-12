@@ -118,8 +118,9 @@ function TuteeProfile(props) {
           <h2 className="profileFirstLastName">
             {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
           </h2>
-          <p>({props.tutee.tutee_pronouns})</p>
+          {props.tutee.tutee_pronouns && <p>({props.tutee.tutee_pronouns})</p>}
         </div>
+
         <div>
           <p className="profileQuestion">
             {emailIcon} Parent/Guardian's Email:

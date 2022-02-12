@@ -8,7 +8,6 @@ import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TuteeProfile from "../TuteeProfile/TuteeProfile";
 
 function TuteeCard(props) {
-
   useEffect(() => {
     makePrettyTime(props.tutee.tutee_submission_timestamp);
   }, []);
@@ -64,10 +63,14 @@ function TuteeCard(props) {
             <Col xs="3">
               {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
             </Col>
-            <Col xs="2">{prettyTime.month}.{prettyTime.day}.{prettyTime.year}</Col>
-            {props.tutee.tutee_grade === "prek_kindergarten" ?
-              <Col xs="2">Pre-K/Kindergarten</Col> :
-              <Col xs="2">{props.tutee.tutee_grade}</Col>}
+            <Col xs="2">
+              {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+            </Col>
+            {props.tutee.tutee_grade === "prek_kindergarten" ? (
+              <Col xs="2">Pre-K/Kindergarten</Col>
+            ) : (
+              <Col xs="2">{props.tutee.tutee_grade}</Col>
+            )}
             <Col xs="2" className="flaggedSubjectLanguage">
               {specialSubjects.map((subject) => {
                 if (
