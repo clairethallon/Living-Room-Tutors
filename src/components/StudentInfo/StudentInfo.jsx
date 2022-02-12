@@ -305,30 +305,28 @@ function TutorInfo(props) {
               What is the student's name?{" "}
               <span className="requiredField"> *</span>
             </p>
-            <div className="firstLastName">
-              <FloatingLabel
-                controlID="StudentFirstName"
-                label="Student's First Name"
-                className="formInput firstName"
-                onChange={(event) => changefirstName(event)}
-              >
-                <Form.Control
-                  type="StudentFirstName"
-                  placeholder="Student First Name"
-                />
-              </FloatingLabel>
-              <FloatingLabel
-                controlID="StudentLastName"
-                label="Student's Last Name"
-                className="formInput"
-                onChange={(event) => changelastName(event)}
-              >
-                <Form.Control
-                  type="StudentLastName"
-                  placeholder="Student Last Name"
-                />
-              </FloatingLabel>
-            </div>
+            <FloatingLabel
+              controlID="StudentFirstName"
+              label="Student's First Name"
+              className="formInput firstName"
+              onChange={(event) => changefirstName(event)}
+            >
+              <Form.Control
+                type="StudentFirstName"
+                placeholder="Student First Name"
+              />
+            </FloatingLabel>
+            <FloatingLabel
+              controlID="StudentLastName"
+              label="Student's Last Name"
+              className="formInput"
+              onChange={(event) => changelastName(event)}
+            >
+              <Form.Control
+                type="StudentLastName"
+                placeholder="Student Last Name"
+              />
+            </FloatingLabel>
           </div>
 
           <div className="formQandA">
@@ -362,12 +360,13 @@ function TutorInfo(props) {
           </div>
 
           <div className="formQandA">
-            <p>
+            <label className="customLabel" htmlFor="gradeLevel">
               What is the student's current grade level?{" "}
               <span className="requiredField"> *</span>
-            </p>
+            </label>
 
             <Form.Select
+              id="gradeLevel"
               className="selectGradeDropdown"
               aria-label="gradeLevel"
               onChange={(event) => changeGrade(event)}

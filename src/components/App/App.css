@@ -738,6 +738,12 @@ label {
   margin-top: 20px;
 }
 
+.customLabel {
+  color: black;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
 /* ------radio buttons--------- */
 
 .form-check-input.is-valid:checked,
