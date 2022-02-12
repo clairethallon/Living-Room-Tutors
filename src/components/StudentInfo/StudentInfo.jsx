@@ -13,8 +13,8 @@ import { useHistory } from "react-router-dom";
 function TutorInfo(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
-  const newstudentInfoReducer = useSelector(
-    (store) => store.newstudentInfoReducer
+  const newstudentInfo = useSelector(
+    (store) => store.newStudent.newstudentInfoReducer
   );
   const history = useHistory();
 
@@ -224,7 +224,7 @@ function TutorInfo(props) {
               />
               <Form.Check.Label
                 className="customeCheckandRedioOptions"
-                htmlFor="Student"
+                htmlFor="student"
               >
                 I am a student
               </Form.Check.Label>
@@ -233,7 +233,7 @@ function TutorInfo(props) {
             <Form.Check type="radio">
               <Form.Check.Input
                 type="radio"
-                id="parentGuardian"
+                id="ParentOrGuardian"
                 name="studentOrParent"
                 value="ParentOrGuardian"
                 onChange={(event) => changeSubmitter(event)}
