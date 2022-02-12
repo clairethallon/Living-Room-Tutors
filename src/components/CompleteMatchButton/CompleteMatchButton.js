@@ -379,40 +379,40 @@ function CompleteMatchButton(props) {
               )}
           </Tabs>
         </Modal.Body>
-        <Modal.Footer style={{
-          display: "flex",
-          flexWrap: "wrap",
-          flexShrink: "0",
-          alignItems: "center",
-          justifyContent: "center",
-          paddingLeft: "20px",
-          padding: "0.75rem",
-          borderTop: '1px solid #dee2e6',
-          borderBottomRightRadius: "calc(0.3rem - 1px)",
-          borderBottomLeftRadius: "calc(0.3rem - 1px)",
-        }}>
-          <div>
-            <p>
+        <Modal.Footer>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "space-between",
+              borderBottomRightRadius: "calc(0.3rem - 1px)",
+              borderBottomLeftRadius: "calc(0.3rem - 1px)"
+            }}
+          >
+            <p style={{ width: "50%" }}>
               * By clicking "confirm match", you confirm that the tutor and tutee
               have been emailed and notified of the match
           </p>
-            <Button
-              className="secondaryButton"
-              variant="secondary"
-              onClick={handleClose}
-            >
-              Cancel
-          </Button>
-            <Link to="/records">
+            <div>
               <Button
-                className="primaryButton"
-                variant="primary"
-                onClick={postMatch}
+                className="secondaryButton"
+                variant="secondary"
+                onClick={handleClose}
+                style={{ marginRight: "5px" }}
               >
-                Confirm Match
+                Cancel
+          </Button>
+              <Link to="/records">
+                <Button
+                  className="primaryButton"
+                  variant="primary"
+                  onClick={postMatch}
+                >
+                  Confirm Match
             </Button>
-            </Link>
-          </div>
+              </Link>
+            </div></div>
         </Modal.Footer>
       </Modal>
     </>
