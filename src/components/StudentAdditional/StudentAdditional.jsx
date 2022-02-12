@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
@@ -16,6 +16,14 @@ function StudentAdditional(props) {
 
   const [newAdditionalInfo, setNewAdditionalInfo] = useState();
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
+
+  useEffect(()=>{ 
+    scrollToTop ();
+    }, []);
+
+    const scrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
 
   const changeAdditionalInfo = () => {
     console.log("in any additional info");

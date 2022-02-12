@@ -9,6 +9,10 @@ function TutorSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
 
+  useEffect(()=>{ 
+    scrollToTop ();
+    }, []);
+
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };

@@ -13,6 +13,10 @@ function TutorInfo(props) {
   const store = useSelector((store) => store);
   const newtutorInfo = useSelector((store) => store.newtutorInfo);
 
+  useEffect(()=>{ 
+    scrollToTop ();
+    }, []);
+
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
