@@ -19,9 +19,9 @@ function TutorInfo(props) {
   );
   const history = useHistory();
 
-  useEffect(()=>{ 
-    scrollToTop ();
-    }, []);
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
