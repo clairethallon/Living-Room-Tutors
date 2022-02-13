@@ -56,6 +56,7 @@ function MatchPage(props) {
           className="languageFilterDropdown"
           aria-label="Default select example"
           onChange={(event) => changeLang(event)}
+          style={{ width: "132px" }}
         >
           <option>View All</option>
           <option value="Arabic">Arabic</option>

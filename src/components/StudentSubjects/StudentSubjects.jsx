@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
@@ -12,6 +12,12 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 function StudentSubjects(props) {
   const dispatch = useDispatch();
   const history = useHistory();
+
+
+  useEffect(()=>{ 
+    scrollToTop ();
+    }, []);
+
 
   const store = useSelector((store) => store);
   const newstudentInfoReducer = useSelector(

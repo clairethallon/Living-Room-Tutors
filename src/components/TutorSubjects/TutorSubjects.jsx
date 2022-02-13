@@ -12,9 +12,15 @@ function TutorSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
 
+
   const history = useHistory();
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
+
+  useEffect(()=>{ 
+    scrollToTop ();
+    }, []);
+
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);

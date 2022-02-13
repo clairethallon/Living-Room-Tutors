@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
@@ -8,6 +8,15 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 
 function StudentTerms(props) {
   const dispatch = useDispatch();
+
+
+  useEffect(()=>{ 
+    scrollToTop ();
+    }, []);
+
+    const scrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
 
   const studentInfo = useSelector(
     (store) => store.newStudent.newstudentInfoReducer

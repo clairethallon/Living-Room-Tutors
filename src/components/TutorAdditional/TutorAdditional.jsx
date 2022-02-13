@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import Header from "../Header/Header";
+
+
 import { Container, Form, Button } from "react-bootstrap";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+import React, { useEffect, useState } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import { Link } from 'react-router-dom'; 
+import Button from 'react-bootstrap/Button';
+import Header from '../Header/Header';
+import { Form } from 'react-bootstrap';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import TutorProgressBar from "../TutorProgressBar/TutorProgressBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -15,7 +19,17 @@ function StudentAdditional(props) {
   const [heading, setHeading] = useState("Tutor Additional Info");
   const history = useHistory();
 
+
   const [newutorAdditionalInfo, setNewTutorAdditionalInfo] = useState();
+
+  useEffect(()=>{ 
+    scrollToTop ();
+    }, []);
+
+    const scrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
+
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 

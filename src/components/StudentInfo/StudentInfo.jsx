@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -10,6 +10,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useHistory } from "react-router-dom";
 
+
 function TutorInfo(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
@@ -17,6 +18,10 @@ function TutorInfo(props) {
     (store) => store.newStudent.newstudentInfoReducer
   );
   const history = useHistory();
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
