@@ -105,7 +105,9 @@ function StudentSubjects(props) {
       newStudentSubjects.newDetailedNeeds == "" ||
       newStudentSubjects.newDetailedNeeds == null
     ) {
-      return alert("Please complete all required fields.");
+      return alert(
+        "At least one required field was empty. Please fill in the required fields before continuing."
+      );
     } else {
       dispatch({
         type: "ADD_NEW_STUDENT_SUBJECTS",
@@ -348,7 +350,7 @@ function StudentSubjects(props) {
             <div className="formQandA">
               <p className="pWithSubP">
                 Please describe your needs in detail regarding the subject(s)
-                you selected above:
+                you selected above: <span className="requiredField"> *</span>
               </p>
               <p className="subP">
                 The more detailed you are, the better we can find a tutor to fit

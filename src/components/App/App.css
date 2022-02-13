@@ -127,6 +127,7 @@ input {
   padding-right: 50px;
   min-height: 100vh;
   padding-top: 40px;
+  padding-bottom: 20px;
 }
 
 .cardHead {
@@ -403,7 +404,7 @@ h3 {
   width: 10%;
 }
 
-.nav-link {
+/* .nav-link {
   display: block;
   padding: 0.5rem 1rem;
   color: #1aa5c2;
@@ -412,7 +413,7 @@ h3 {
   display: block;
   padding: 0.5rem 1rem;
   color: #1aa5c2;
-}
+} */
 
 .calenderIcon {
   height: 18px;
@@ -630,9 +631,9 @@ label {
   color: #70757a;
 }
 
-.customeCheckandRedioOptions {
+.customCheckAndRadioOptions {
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 6px;
 }
 
 .firstLastName {
@@ -735,6 +736,12 @@ label {
   padding-right: 20px;
   padding-left: 20px;
   margin-top: 20px;
+}
+
+.customLabel {
+  color: black;
+  font-size: 18px;
+  margin-bottom: 16px;
 }
 
 /* ------radio buttons--------- */

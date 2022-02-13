@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+import { Container, Form, Button } from "react-bootstrap";
 import Header from "../Header/Header";
 import TutorProgressBar from "../TutorProgressBar/TutorProgressBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
 
 function TutorSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
 
+
+  const history = useHistory();
+
+  const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
+
   useEffect(()=>{ 
     scrollToTop ();
     }, []);
+
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -545,677 +554,977 @@ function TutorSubjects(props) {
     }
 
     if (gradesErrors || subjectErrors) {
-      alert("Please select at least one grade level and subject");
+      alert(
+        "At least one required field was empty. Please fill in the required fields before continuing."
+      );
+    } else {
+      dispatch({ type: "ADD_NEW_TUTOR_SUBJECTS", payload: newTutorSubjects });
+      history.push("/TutorAdditional");
     }
-
-    dispatch({ type: "ADD_NEW_TUTOR_SUBJECTS", payload: newTutorSubjects });
   };
 
   return (
-    <div>
-      <TutorProgressBar/>
+    <div className="formBackground">
       <Header />
+      <Container className="formContainer">
+        <TutorProgressBar />
+        <div className="formContent">
+          <div className="formQandA">
+            <p>
+              What grade levels are you comfortable tutoring/mentoring?{" "}
+              <span className="requiredField"> *</span>
+            </p>
 
-      <h3>What grade levels are you comfortable tutoring/mentoring?</h3>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Pre-K/Kindergarten"
+                name="Pre-K/Kindergarten"
+                onChange={(event) => changePreK()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Pre-K/Kindergarten"
+              >
+                Pre-K/Kindergarten
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Pre-K/Kindergarten"
-          name="Pre-K/Kindergarten"
-          onChange={(event) => changePreK()}
-        />
-        <label htmlFor="Pre-K/Kindergarten">Pre-K/Kindergarten</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="1st Grade"
+                name="1st Grade"
+                onChange={(event) => changeFirstGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="1st Grade"
+              >
+                1st Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="1st Grade"
-          name="1st Grade"
-          onChange={(event) => changeFirstGrade()}
-        />
-        <label htmlFor="1st Grade">1st Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="2nd Grade"
+                name="2nd Grade"
+                onChange={(event) => changeSecondGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="2nd Grade"
+              >
+                2nd Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="2nd Grade"
-          name="2nd Grade"
-          onChange={(event) => changeSecondGrade()}
-        />
-        <label for="2nd Grade">2nd Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="3rd Grade"
+                name="3rd Grade"
+                onChange={(event) => changeThirdGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="3rd Grade"
+              >
+                3rd Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="3rd Grade"
-          name="3rd Grade"
-          onChange={(event) => changeThirdGrade()}
-        />
-        <label htmlFor="3rd Grade">3rd Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="4th Grade"
+                name="4th Grade"
+                onChange={(event) => changeFourthGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="4th Grade"
+              >
+                4th Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="4th Grade"
-          name="4th Grade"
-          onChange={(event) => changeFourthGrade()}
-        />
-        <label htmlFor="4th Grade">4th Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="5th Grade"
+                name="5th Grade"
+                onChange={(event) => changeFifthGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="5th Grade"
+              >
+                5th Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="5th Grade"
-          name="5th Grade"
-          onChange={(event) => changeFifthGrade()}
-        />
-        <label htmlFor="5th Grade">5th Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="6th Grade"
+                name="6th Grade"
+                onChange={(event) => changeSixthGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="6th Grade"
+              >
+                6th Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="6th Grade"
-          name="6th Grade"
-          onChange={(event) => changeSixthGrade()}
-        />
-        <label htmlFor="6th Grade">6th Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="7th Grade"
+                name="7th Grade"
+                onChange={(event) => changeSeventhGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="7th Grade"
+              >
+                7th Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="7th Grade"
-          name="7th Grade"
-          onChange={(event) => changeSeventhGrade()}
-        />
-        <label htmlFor="7th Grade">7th Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="8th Grade"
+                name="8th Grade"
+                onChange={(event) => changeEighthGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="8th Grade"
+              >
+                8th Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="8th Grade"
-          name="8th Grade"
-          onChange={(event) => changeEighthGrade()}
-        />
-        <label htmlFor="8th Grade">8th Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="9th Grade"
+                name="9th Grade"
+                onChange={(event) => changeNinthGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="9th Grade"
+              >
+                9th Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="9th Grade"
-          name="9th Grade"
-          onChange={(event) => changeNinthGrade()}
-        />
-        <label htmlFor="9th Grade">9th Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="10th Grade"
+                name="10th Grade"
+                onChange={(event) => changeTenthGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="10th Grade"
+              >
+                10th Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="10th Grade"
-          name="10th Grade"
-          onChange={(event) => changeTenthGrade()}
-        />
-        <label htmlFor="10th Grade">10th Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="11th Grade"
+                name="11th Grade"
+                onChange={(event) => changeEleventhGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="11th Grade"
+              >
+                11th Grade
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="11th Grade"
-          name="11th Grade"
-          onChange={(event) => changeEleventhGrade()}
-        />
-        <label htmlFor="11th Grade">11th Grade</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="12th Grade"
+                name="12th Grade"
+                onChange={(event) => changeTwelfthGrade()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="12th Grade"
+              >
+                12th Grade
+              </Form.Check.Label>
+            </Form.Check>
+          </div>
 
-      <div>
-        <input
-          type="checkbox"
-          id="12th Grade"
-          name="12th Grade"
-          onChange={(event) => changeTwelfthGrade()}
-        />
-        <label htmlFor="12th Grade">12th Grade</label>
-      </div>
+          <div className="formQandA">
+            <p>
+              What subjects are you comfortable tutoring?{" "}
+              <span className="requiredField"> *</span>
+            </p>
+            {/* NEED TO ADD THE ON CHANGE AND HOOKS FOR GRADE onChange={(event)=>changeTutorSujects(event)} */}
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="K-5 Math"
+                name="K-5 Math"
+                onChange={(event) => changeK5Math()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="K-5 Math"
+              >
+                K-5 Math
+              </Form.Check.Label>
+            </Form.Check>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="K-5 Reading"
+                name="K-5 Reading"
+                onChange={(event) => changeK5Reading()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="K-5 Reading"
+              >
+                K-5 Reading
+              </Form.Check.Label>
+            </Form.Check>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="K-5 English/Writing"
+                name="K-5 English/Writing"
+                onChange={(event) => changeK5EnglishWriting()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="K-5 English/Writing"
+              >
+                K-5 English/Writing
+              </Form.Check.Label>
+            </Form.Check>
 
-      <h3>What subjects are you comfortable tutoring?</h3>
-      {/* NEED TO ADD THE ON CHANGE AND HOOKS FOR GRADE onChange={(event)=>changeTutorSujects(event)} */}
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="K-5 Social Studies"
+                name="K-5 Social Studies"
+                onChange={(event) => changeK5SocialStudies()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="K-5 Social Studies"
+              >
+                K-5 Social Studies
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="K-5 Math"
-          name="K-5 Math"
-          onChange={(event) => changeK5Math()}
-        />
-        <label htmlFor="K-5 Math">K-5 Math</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="K-5 Science"
+                name="K-5 Science"
+                onChange={(event) => changeK5Science()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="K-5 Science"
+              >
+                K-5 Science
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="K-5 Reading"
-          name="K-5 Reading"
-          onChange={(event) => changeK5Reading()}
-        />
-        <label htmlFor="K-5 Reading">K-5 Reading</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="6-8th Language Arts"
+                name="6-8th Language Arts"
+                onChange={(event) => changeSixToEightLanguageArts()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="6-8th Language Arts"
+              >
+                6-8th Language Arts
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="K-5 English/Writing"
-          name="K-5 English/Writing"
-          onChange={(event) => changeK5EnglishWriting()}
-        />
-        <label htmlFor="K-5 English/Writing">K-5 English/Writing</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="6-8th Science"
+                name="6-8th Science"
+                onChange={(event) => changeSixToEightScience()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="6-8th Science"
+              >
+                6-8th Science
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="K-5 Social Studies"
-          name="K-5 Social Studies"
-          onChange={(event) => changeK5SocialStudies()}
-        />
-        <label htmlFor="K-5 Social Studies">K-5 Social Studies</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="6-8th Social Studies"
+                name="6-8th Social Studies"
+                onChange={(event) => changeSixToEightSocialStudies()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="6-8th Social Studies"
+              >
+                6-8th Social Studies
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="K-5 Science"
-          name="K-5 Science"
-          onChange={(event) => changeK5Science()}
-        />
-        <label htmlFor="K-5 Science">K-5 Science</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Math: Pre-Algebra"
+                name="K-5 Science"
+                onChange={(event) => changeMathPreAlgebra()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Math: Pre-Algebra"
+              >
+                Math: Pre-Algebra
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="6-8th Language Arts"
-          name="6-8th Language Arts"
-          onChange={(event) => changeSixToEightLanguageArts()}
-        />
-        <label htmlFor="6-8th Language Arts">6-8th Language Arts</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Math: Algebra 1/Linear Algebra"
+                name="Math: Algebra 1/Linear Algebra"
+                onChange={(event) => changeMathLinearAlgebra()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Math: Algebra 1/Linear Algebra"
+              >
+                Math: Algebra 1/Linear Algebra
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="6-8th Science"
-          name="6-8th Science"
-          onChange={(event) => changeSixToEightScience()}
-        />
-        <label htmlFor="6-8th Science">6-8th Science</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Math: Algebra II"
+                name="Math: Algebra II"
+                onChange={(event) => changeMathAlgebraII()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Math: Algebra II"
+              >
+                Math: Algebra II
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="6-8th Social Studies"
-          name="6-8th Social Studies"
-          onChange={(event) => changeSixToEightSocialStudies()}
-        />
-        <label htmlFor="6-8th Social Studies">6-8th Social Studies</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Math: Geometry"
+                name="Math: Geometry"
+                onChange={(event) => changeMathGeometry()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Math: Geometry"
+              >
+                Math: Geometry
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Math: Pre-Algebra"
-          name="K-5 Science"
-          onChange={(event) => changeMathPreAlgebra()}
-        />
-        <label htmlFor="Math: Pre-Algebra">Math: Pre-Algebra</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Math: Precalculus/Trigonometry"
+                name="Math: Precalculus/Trigonometry"
+                onChange={(event) => changeMathPrecalculusTrigonometry()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Math: Precalculus/Trigonometry"
+              >
+                Math: Precalculus/Trigonometry
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Math: Algebra 1/Linear Algebra"
-          name="Math: Algebra 1/Linear Algebra"
-          onChange={(event) => changeMathLinearAlgebra()}
-        />
-        <label htmlFor="Math: Algebra 1/Linear Algebra">
-          Math: Algebra 1/Linear Algebra
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Science: Biology/Life Sciences"
+                name="Science: Biology/Life Sciences"
+                onChange={(event) => changeBiologyLifeSciences()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Science: Biology/Life Sciences"
+              >
+                Science: Biology/Life Sciences
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Math: Algebra II"
-          name="Math: Algebra II"
-          onChange={(event) => changeMathAlgebraII()}
-        />
-        <label htmlFor="Math: Algebra II">Math: Algebra II</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Science: Chemistry"
+                name="Science: Chemistry"
+                onChange={(event) => changeScienceChemistry()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Science: Chemistry"
+              >
+                Science: Chemistry
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Math: Geometry"
-          name="Math: Geometry"
-          onChange={(event) => changeMathGeometry()}
-        />
-        <label htmlFor="Math: Geometry">Math: Geometry</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Science: Physics"
+                name="Science: Physics"
+                onChange={(event) => changeSciencePhysics()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Science: Physics"
+              >
+                Science: Physics
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Math: Precalculus/Trigonometry"
-          name="Math: Precalculus/Trigonometry"
-          onChange={(event) => changeMathPrecalculusTrigonometry()}
-        />
-        <label htmlFor="Math: Precalculus/Trigonometry">
-          Math: Precalculus/Trigonometry
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Science: Computer Science"
+                name="Science: Computer Science"
+                onChange={(event) => changeComputerScience()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Science: Computer Science"
+              >
+                Science: Computer Science
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Science: Biology/Life Sciences"
-          name="Science: Biology/Life Sciences"
-          onChange={(event) => changeBiologyLifeSciences()}
-        />
-        <label htmlFor="Science: Biology/Life Sciences">
-          Science: Biology/Life Sciences
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Language: Chinese"
+                name="Language: Chinese"
+                onChange={(event) => changeLanguageChinese()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Language: Chinese"
+              >
+                Language: Chinese
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Science: Chemistry"
-          name="Science: Chemistry"
-          onChange={(event) => changeScienceChemistry()}
-        />
-        <label htmlFor="Science: Chemistry">Science: Chemistry</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Language: Spanish"
+                name="Language: Spanish"
+                onChange={(event) => changeLanguageSpanish()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Language: Spanish"
+              >
+                Language: Spanish
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Science: Physics"
-          name="Science: Physics"
-          onChange={(event) => changeSciencePhysics()}
-        />
-        <label htmlFor="Science: Physics">Science: Physics</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Language: French"
+                name="Language: French"
+                onChange={(event) => changeLanguageFrench()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Language: French"
+              >
+                Language: French
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Science: Computer Science"
-          name="Science: Computer Science"
-          onChange={(event) => changeComputerScience()}
-        />
-        <label htmlFor="Science: Computer Science">
-          Science: Computer Science
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Language: German"
+                name="Language: German"
+                onChange={(event) => changeLanguageGerman()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Language: German"
+              >
+                Language: German
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Language: Chinese"
-          name="Language: Chinese"
-          onChange={(event) => changeLanguageChinese()}
-        />
-        <label htmlFor="Language: Chinese">Language: Chinese</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="History: World History"
+                name="History: World History"
+                onChange={(event) => changeWorldHistory()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="History: World History"
+              >
+                History: World History
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Language: Spanish"
-          name="Language: Spanish"
-          onChange={(event) => changeLanguageSpanish()}
-        />
-        <label htmlFor="Language: Spanish">Language: Spanish</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="History: U.S. Historyn"
+                name="History: U.S. History"
+                onChange={(event) => changeUSHistory()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="History: U.S. History"
+              >
+                History: U.S. History
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Language: French"
-          name="Language: French"
-          onChange={(event) => changeLanguageFrench()}
-        />
-        <label htmlFor="Language: French">Language: French</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Biology"
+                name="AP Honors Biology"
+                onChange={(event) => changeAPHonorsBiology()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Biology"
+              >
+                AP Honors Biology
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="Language: German"
-          name="Language: German"
-          onChange={(event) => changeLanguageGerman()}
-        />
-        <label htmlFor="Language: German">Language: German</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Chemistry"
+                name="AP Honors Chemistry"
+                onChange={(event) => changeAPHonorsChemistry()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Biology"
+              >
+                AP Honors Chemistry
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="History: World History"
-          name="History: World History"
-          onChange={(event) => changeWorldHistory()}
-        />
-        <label htmlFor="History: World History">History: World History</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Physics"
+                name="AP Honors Physics"
+                onChange={(event) => changeAPHonorsPhysics()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Physics"
+              >
+                AP Honors Physics
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="History: U.S. Historyn"
-          name="History: U.S. History"
-          onChange={(event) => changeUSHistory()}
-        />
-        <label htmlFor="History: U.S. History">History: U.S. History</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Computer Science"
+                name="AP Honors Computer Science"
+                onChange={(event) => changeAPHonorsComputerScience()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Computer Science"
+              >
+                AP Honors Computer Science
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Biology"
-          name="AP Honors Biology"
-          onChange={(event) => changeAPHonorsBiology()}
-        />
-        <label htmlFor="AP Honors Biology">AP Honors Biology</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Calculus AB"
+                name="AP Honors Calculus AB"
+                onChange={(event) => changeAPHonorsCalculusAB()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Calculus AB"
+              >
+                AP Honors Calculus AB
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Chemistry"
-          name="AP Honors Chemistry"
-          onChange={(event) => changeAPHonorsChemistry()}
-        />
-        <label htmlFor="AP Honors Chemistry">AP Honors Chemistry</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Calculus BC"
+                name="AP Honors Calculus BC"
+                onChange={(event) => changeAPHonorsCalculusBC()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Calculus BC"
+              >
+                AP Honors Calculus BC
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Physics"
-          name="AP Honors Physics"
-          onChange={(event) => changeAPHonorsPhysics()}
-        />
-        <label htmlFor="AP Honors Physics">AP Honors Physics</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Statistics"
+                name="AP Honors Statistics"
+                onChange={(event) => changeAPHonorsStatistics()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Statistics"
+              >
+                AP Honors Statistics
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Computer Science"
-          name="AP Honors Computer Science"
-          onChange={(event) => changeAPHonorsComputerScience()}
-        />
-        <label htmlFor="AP Honors Computer Science">
-          AP Honors Computer Science
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors English Literature and Composition"
+                name="AP Honors English Literature and Composition"
+                onChange={(event) => changeAPHonorsEnglishLiterature()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors English Literature and Composition"
+              >
+                AP Honors English Literature and Composition
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Calculus AB"
-          name="AP Honors Calculus AB"
-          onChange={(event) => changeAPHonorsCalculusAB()}
-        />
-        <label htmlFor="AP Honors Calculus AB">AP Honors Calculus AB</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors English Language and Composition"
+                name="AP Honors English Language and Composition"
+                onChange={(event) => changeAPHonorsEnglishLanguage()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors English Language and Composition"
+              >
+                AP Honors English Language and Composition
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Calculus BC"
-          name="AP Honors Calculus BC"
-          onChange={(event) => changeAPHonorsCalculusBC()}
-        />
-        <label htmlFor="AP Honors Calculus BC">AP Honors Calculus BC</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Macroeconomics"
+                name="AP Honors Macroeconomics"
+                onChange={(event) => changeAPHonorsMacroeconomics()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Macroeconomics"
+              >
+                AP Honors Macroeconomics
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Statistics"
-          name="AP Honors Statistics"
-          onChange={(event) => changeAPHonorsStatistics()}
-        />
-        <label htmlFor="AP Honors Statistics">AP Honors Statistics</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Microeconomics"
+                name="AP Honors Microeconomics"
+                onChange={(event) => changeAPHonorsMicroeconomics()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Microeconomics"
+              >
+                AP Honors Microeconomics
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors English Literature and Composition"
-          name="AP Honors English Literature and Composition"
-          onChange={(event) => changeAPHonorsEnglishLiterature()}
-        />
-        <label htmlFor="AP Honors English Literature and Composition">
-          AP Honors English Literature and Composition
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Psychology"
+                name="AP Honors Psychology"
+                onChange={(event) => changeAPHonorsPsychology()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Psychology"
+              >
+                AP Honors Psychology
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors English Language and Composition"
-          name="AP Honors English Language and Composition"
-          onChange={(event) => changeAPHonorsEnglishLanguage()}
-        />
-        <label htmlFor="AP Honors English Language and Composition">
-          AP Honors English Language and Composition
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors United States History"
+                name="AP Honors United States History"
+                onChange={(event) => changeAPHonorsUSHistory()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors United States History"
+              >
+                AP Honors United States History
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Macroeconomics"
-          name="AP Honors Macroeconomics"
-          onChange={(event) => changeAPHonorsMacroeconomics()}
-        />
-        <label htmlFor="AP Honors Macroeconomics">
-          AP Honors Macroeconomics
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Government and Politics"
+                name="AP Honors Government and Politics"
+                onChange={(event) => changeAPHonorsGovernmentPolitics()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Government and Politics"
+              >
+                AP Honors Government and Politics
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Microeconomics"
-          name="AP Honors Microeconomics"
-          onChange={(event) => changeAPHonorsMicroeconomics()}
-        />
-        <label htmlFor="AP Honors Microeconomics">
-          AP Honors Microeconomics
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="AP Honors Human Geography"
+                name="AP Honors Human Geography"
+                onChange={(event) => changeAPHonorsHumanGeography()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="AP Honors Human Geography"
+              >
+                AP Honors Human Geography
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Psychology"
-          name="AP Honors Psychology"
-          onChange={(event) => changeAPHonorsPsychology()}
-        />
-        <label htmlFor="AP Honors Psychology">AP Honors Psychology</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="SAT Subject Tests"
+                name="SAT Subject Tests"
+                onChange={(event) => changeSATSubjectTests()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="SAT Subject Tests"
+              >
+                SAT Subject Tests
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors United States History"
-          name="AP Honors United States History"
-          onChange={(event) => changeAPHonorsUSHistory()}
-        />
-        <label htmlFor="AP Honors United States History">
-          AP Honors United States History
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="SAT Prep"
+                name="SAT Prep"
+                onChange={(event) => changeSATPrep()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="SAT Prep"
+              >
+                SAT Prep
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Government and Politics"
-          name="AP Honors Government and Politics"
-          onChange={(event) => changeAPHonorsGovernmentPolitics()}
-        />
-        <label htmlFor="AP Honors Government and Politics">
-          AP Honors Government and Politics
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="ACT Prep"
+                name="ACT Prep"
+                onChange={(event) => changeACTPrep()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="ACT Prep"
+              >
+                ACT Prep
+              </Form.Check.Label>
+            </Form.Check>
+          </div>
+          <div className="formQandA">
+            <p>
+              Are you comfortable tutoring students in a language other than
+              English?
+            </p>
 
-      <div>
-        <input
-          type="checkbox"
-          id="AP Honors Human Geography"
-          name="AP Honors Human Geography"
-          onChange={(event) => changeAPHonorsHumanGeography()}
-        />
-        <label htmlFor="AP Honors Human Geography">
-          AP Honors Human Geography
-        </label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Spanish"
+                name="Spanish"
+                onChange={(event) => changeSpanish()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Spanish"
+              >
+                Spanish
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="SAT Subject Tests"
-          name="SAT Subject Tests"
-          onChange={(event) => changeSATSubjectTests()}
-        />
-        <label htmlFor="SAT Subject Tests">SAT Subject Tests</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Somali"
+                name="Somali"
+                onChange={(event) => changeSomali()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Somali"
+              >
+                Somali
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="SAT Prep"
-          name="SAT Prep"
-          onChange={(event) => changeSATPrep()}
-        />
-        <label htmlFor="SAT Prep">SAT Prep</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Arabic"
+                name="Arabic"
+                onChange={(event) => changeArabic()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Arabic"
+              >
+                Arabic
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <input
-          type="checkbox"
-          id="ACT Prep"
-          name="ACT Prep"
-          onChange={(event) => changeACTPrep()}
-        />
-        <label htmlFor="ACT Prep">ACT Prep</label>
-      </div>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Chinese"
+                name="Chinese"
+                onChange={(event) => changeChinese()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Chinese"
+              >
+                Chinese
+              </Form.Check.Label>
+            </Form.Check>
 
-      <div>
-        <p>
-          Are you comfortable tutoring English Language Learner Students? If so,
-          in what language? If no, just select N/A.
-        </p>
-        {/* <p>{JSON.stringify(Spanish)}</p> */}
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Tagalog"
+                name="Tagalog"
+                onChange={(event) => changeTagalog()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Tagalog"
+              >
+                Tagalog
+              </Form.Check.Label>
+            </Form.Check>
 
-        <div>
-          <input
-            type="checkbox"
-            id="Spanish"
-            name="Spanish"
-            onChange={(event) => changeSpanish()}
-          />
-          <label htmlFor="Spanish">Spanish</label>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="French"
+                name="French"
+                onChange={(event) => changeFrench()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="French"
+              >
+                French
+              </Form.Check.Label>
+            </Form.Check>
+
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Vietnamese"
+                name="Vietnamese"
+                onChange={(event) => changeVietnamese()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Vietnamese"
+              >
+                Vietnamese
+              </Form.Check.Label>
+            </Form.Check>
+
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="Hmong"
+                name="Hmong"
+                onChange={(event) => changeHmong()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Hmong<"
+              >
+                Hmong
+              </Form.Check.Label>
+            </Form.Check>
+          </div>
+
+          <Button
+            className="primaryButton saveAndContinueButton"
+            onClick={AddNewTutorSubjects}
+          >
+            Save and Continue <span className="rightarrow">{rightArrow}</span>
+          </Button>
         </div>
-
-        <div>
-          <input
-            type="checkbox"
-            id="Somali"
-            name="Somali"
-            onChange={(event) => changeSomali()}
-          />
-          <label htmlFor="Somali">Somali</label>
-        </div>
-
-        <div>
-          <input
-            type="checkbox"
-            id="Arabic"
-            name="Arabic"
-            onChange={(event) => changeArabic()}
-          />
-          <label htmlFor="Arabic">Arabic</label>
-        </div>
-
-        <div>
-          <input
-            type="checkbox"
-            id="Chinese"
-            name="Chinese"
-            onChange={(event) => changeChinese()}
-          />
-          <label htmlFor="Chinese">Chinese</label>
-        </div>
-
-        <div>
-          <input
-            type="checkbox"
-            id="Tagalog"
-            name="Tagalog"
-            onChange={(event) => changeTagalog()}
-          />
-          <label htmlFor="Tagalog">Tagalog</label>
-        </div>
-
-        <div>
-          <input
-            type="checkbox"
-            id="French"
-            name="French"
-            onChange={(event) => changeFrench()}
-          />
-          <label htmlFor="French">French</label>
-        </div>
-
-        <div>
-          <input
-            type="checkbox"
-            id="Vietnamese"
-            name="Vietnamese"
-            onChange={(event) => changeVietnamese()}
-          />
-          <label htmlFor="Vietnamese">Vietnamese</label>
-        </div>
-
-        <div>
-          <input
-            type="checkbox"
-            id="Hmong"
-            name="Hmong"
-            onChange={(event) => changeHmong()}
-          />
-          <label htmlFor="Hmong">Hmong</label>
-        </div>
-      </div>
-
-      <Link to="/TutorAdditional">
-        <Button onClick={AddNewTutorSubjects}>Add A New Tutor Info</Button>
-      </Link>
+      </Container>
     </div>
   );
 }

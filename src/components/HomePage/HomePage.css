@@ -18,6 +18,10 @@
   height: 100vh;
 }
 
+.tutorOrTuteeQuestion div {
+  width: 80%;
+}
+
 .registrationTermsContainer {
   width: 600px;
   color: white;
@@ -51,7 +55,7 @@
 }
 
 .tutorOrTuteeQuestion p {
-  font-size: 28px;
+  font-size: 23px;
   font-family: Lato-bold;
   color: #676767;
 }
@@ -110,5 +114,5 @@
 }
 
 .tutorTuteeButtonGroup {
-  width: 89%;
+  width: 100% !important;
 }

@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { Container, Form, Button } from "react-bootstrap";
 import Header from "../Header/Header";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import TutorProgressBar from "../TutorProgressBar/TutorProgressBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
+
 // import Form from 'react-bootstrap/Form';
 
 function TutorInfo(props) {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const store = useSelector((store) => store);
   const newtutorInfo = useSelector((store) => store.newtutorInfo);
 
@@ -30,6 +35,8 @@ function TutorInfo(props) {
 
   const [newTutorSchool, setNewTutorSchool] = useState();
   const [changeOtherField, setOtherField] = useState(false);
+
+  const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   const changeTutorFirstName = () => {
     console.log("in new tutor first name");
@@ -57,8 +64,13 @@ function TutorInfo(props) {
   };
 
   const changeTutorGrade = () => {
-    console.log("in new tutor grade");
-    setNewGrade(event.target.value);
+    console.log("in new tutor grade", event.target.value);
+    if (event.target.value === "") {
+      setNewGrade(undefined);
+      console.log(setNewGrade);
+    } else {
+      setNewGrade(event.target.value);
+    }
   };
 
   // ***** tutor school select and other input *****
@@ -69,7 +81,12 @@ function TutorInfo(props) {
     } else {
       setOtherField(false);
     }
-    setNewTutorSchool(event.target.value);
+
+    if (event.target.value === "") {
+      setNewTutorSchool(undefined);
+    } else {
+      setNewTutorSchool(event.target.value);
+    }
   };
 
   const changeOtherSchool = () => {
@@ -103,105 +120,124 @@ function TutorInfo(props) {
       newTutorInfo.school == "" ||
       newTutorInfo.school == null
     ) {
-      alert("problem!");
+      alert(
+        "At least one required field was empty. Please fill in the required fields before continuing."
+      );
     } else {
       dispatch({ type: "ADD_NEW_TUTOR_INFO", payload: newTutorInfo });
+      history.push("/tutorSubjects");
     }
   };
 
   return (
-    <div>
-      <TutorProgressBar/>
-      <div className="maincard">
-        <Header />
-        <>
-          <h3>What is your name? (First and Last)</h3>
-          <FloatingLabel
-            controlID="FirstName"
-            label="First Name"
-            className="formInput"
-            onChange={(event) => changeTutorFirstName(event)}
-          >
-            <Form.Control type="FirstName" placeholder="First Name" />
-          </FloatingLabel>
-          <FloatingLabel
-            controlID="LastName"
-            label="Last Name"
-            className="formInput"
-            onChange={(event) => changeTutorLastName(event)}
-          >
-            <Form.Control type="LastName" placeholder="Last Name" />
-          </FloatingLabel>
-        </>
+    <div className="formBackground">
+      <Header />
+      <Container className="formContainer">
+        <TutorProgressBar />
+        <div className="formContent">
+          <div className="formQandA">
+            <p>
+              What is your name? <span className="requiredField"> *</span>
+            </p>
+            <FloatingLabel
+              controlID="FirstName"
+              label="First Name"
+              className="formInput"
+              onChange={(event) => changeTutorFirstName(event)}
+            >
+              <Form.Control type="FirstName" placeholder="First Name" />
+            </FloatingLabel>
+            <FloatingLabel
+              controlID="LastName"
+              label="Last Name"
+              className="formInput"
+              onChange={(event) => changeTutorLastName(event)}
+            >
+              <Form.Control type="LastName" placeholder="Last Name" />
+            </FloatingLabel>
+          </div>
 
-        <>
-          <h3>What is your email address?</h3>
-          <p>
-            Please confirm the email address you enter is correct. Email is our
-            primary way of communicating with our tutors and tutees, so it is
-            crucial that the email address that you provide is correct.
-          </p>
-          <FloatingLabel
-            controlID="Email"
-            label="Email"
-            className="formInput"
-            onChange={(event) => changeTutorEmail(event)}
-          >
-            <Form.Control type="Email" placeholder="Email" />
-          </FloatingLabel>
-        </>
+          <div className="formQandA">
+            <p>What are your pronouns?</p>
+            <FloatingLabel
+              controlID="Pronouns"
+              label="Pronouns Ex:She/Her"
+              className="formInput"
+              onChange={(event) => changePronouns(event)}
+            >
+              <Form.Control type="Pronouns" placeholder="Pronouns" />
+            </FloatingLabel>
+          </div>
 
-        <>
-          <h3>What are your pronouns?</h3>
-          <FloatingLabel
-            controlID="Pronouns"
-            label="Pronouns Ex:She/Her"
-            className="formInput"
-            onChange={(event) => changePronouns(event)}
-          >
-            <Form.Control type="Pronouns" placeholder="Pronouns" />
-          </FloatingLabel>
-        </>
+          <div className="formQandA">
+            <p className="pWithSubP">
+              What is your email address?{" "}
+              <span className="requiredField"> *</span>
+            </p>
+            <p className="subP">
+              Please confirm the email address you enter is correct. Email is
+              our primary way of communicating with our tutors and tutees, so it
+              is crucial that the email address that you provide is correct.
+            </p>
+            <FloatingLabel
+              controlID="Email"
+              label="Email"
+              className="formInput"
+              onChange={(event) => changeTutorEmail(event)}
+            >
+              <Form.Control type="Email" placeholder="Email" />
+            </FloatingLabel>
+          </div>
 
-        <>
-          <h3>What is your phone number?</h3>
-          <FloatingLabel
-            controlID="Phone"
-            label="Phone Number"
-            className="formInput"
-            onChange={(event) => changeTutorPhone(event)}
-          >
-            <Form.Control type="Phone" placeholder="Phone" />
-          </FloatingLabel>
-        </>
+          <div className="formQandA">
+            <p>
+              What is your phone number?
+              <span className="requiredField"> *</span>
+            </p>
+            <FloatingLabel
+              controlID="Phone"
+              label="Phone Number"
+              className="formInput"
+              onChange={(event) => changeTutorPhone(event)}
+            >
+              <Form.Control type="Phone" placeholder="Phone" />
+            </FloatingLabel>
+          </div>
 
-        <>
-          <FloatingLabel
-            controlId="gradeLevel"
-            label="Current Grade Level"
-            className="selectInput"
-            onChange={(event) => changeTutorGrade(event)}
-          >
-            <Form.Select aria-label="gradeLevel">
-              <option>What is your current grade level?</option>
+          <div className="formQandA">
+            <label className="customLabel" htmlFor="gradeLevel">
+              What is your current grade level?{" "}
+              <span className="requiredField"> *</span>
+            </label>
+            <Form.Select
+              className="selectGradeDropdown"
+              id="gradeLevel"
+              aria-label="gradeLevel"
+              onChange={(event) => changeTutorGrade(event)}
+            >
+              <option value="">Select your current grade level</option>
               <option value="Freshman">Freshman</option>
               <option value="Sophomore">Sophomore</option>
               <option value="Junior">Junior</option>
               <option value="Senior">Senior</option>
               <option value="College">I'm in College</option>
             </Form.Select>
-          </FloatingLabel>
-        </>
+          </div>
 
-        <>
-          <FloatingLabel
-            controlId="Tutor's Current School"
-            label="Current School"
-            className="selectInput"
-            onChange={(event) => changeTutorSchool(event)}
-          >
-            <Form.Select aria-label="Tutor's Current School">
-              <option>Where do you go to school?</option>
+          <div className="formQandA">
+            <label className="customLabel" htmlFor="schoolAttending">
+              Where do you go to school?
+              <span className="requiredField"> *</span>
+            </label>
+
+            <Form.Select
+              id="schoolAttending"
+              className="selectGradeDropdown"
+              label="Current School"
+              onChange={(event) => changeTutorSchool(event)}
+              aria-label="schoolAttending"
+            >
+              <option value="">Select where you go to school</option>
               <option value="Mayo High School">Mayo High School</option>
               <option value="John Marshall High School">
                 John Marshall High School
@@ -218,29 +254,31 @@ function TutorInfo(props) {
               <option value="College">I'm in College</option>
               <option value="Other">Other</option>
             </Form.Select>
-          </FloatingLabel>
 
-          {changeOtherField ? (
-            <>
-              <FloatingLabel
-                controlID="OtherSchool"
-                label="School Name"
-                className="formInput"
-                onChange={(event) => changeOtherSchool(event)}
-              >
-                <Form.Control type="OtherSchool" placeholder="OtherSchool" />
-              </FloatingLabel>
-            </>
-          ) : (
-            <> </>
-          )}
-        </>
+            {changeOtherField ? (
+              <>
+                <FloatingLabel
+                  controlID="OtherSchool"
+                  label="School Name"
+                  className="formInput"
+                  onChange={(event) => changeOtherSchool(event)}
+                >
+                  <Form.Control type="OtherSchool" placeholder="OtherSchool" />
+                </FloatingLabel>
+              </>
+            ) : (
+              <> </>
+            )}
+          </div>
 
-        <Link to="/tutorSubjects">
-          <Button onClick={AddNewTutorInfo}>Save and Continue</Button>
-        </Link>
-      </div>
-
+          <Button
+            className="primaryButton saveAndContinueButton"
+            onClick={AddNewTutorInfo}
+          >
+            Save and Continue <span className="rightarrow">{rightArrow}</span>
+          </Button>
+        </div>
+      </Container>
     </div>
   );
 }
