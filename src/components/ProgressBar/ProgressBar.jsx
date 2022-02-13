@@ -106,16 +106,12 @@ function ProgressBar(props) {
               </div>
             ) : (
               // <div className="NavItem">
-              <Nav.Link className="navContent">
+              <Nav.Link className="navContent" href="#" disabled>
                 <div className="ProgressStepDiv">1</div>
                 <p className="navText">Student Info</p>
               </Nav.Link>
               // </div>
             )}
-          </Nav.Item>
-
-          <Nav.Item className="NavItem ">
-            <div className="navLine"></div>
           </Nav.Item>
 
           <Nav.Item className="navCol">
@@ -141,11 +137,6 @@ function ProgressBar(props) {
             )}
           </Nav.Item>
 
-          <Nav.Item className="NavItem">
-            {" "}
-            <div className="navLine"></div>
-          </Nav.Item>
-
           <Nav.Item>
             {ProgressBarImageAdditional ? (
               <div className="NavItem">
@@ -167,11 +158,6 @@ function ProgressBar(props) {
                 {/* <div className="navLine"></div> */}
               </div>
             )}
-          </Nav.Item>
-
-          <Nav.Item className="NavItem">
-            {" "}
-            <div className="navLine"></div>
           </Nav.Item>
 
           <Nav.Item>
