@@ -404,7 +404,7 @@ h3 {
   width: 10%;
 }
 
-.nav-link {
+/* .nav-link {
   display: block;
   padding: 0.5rem 1rem;
   color: #1aa5c2;
@@ -413,7 +413,7 @@ h3 {
   display: block;
   padding: 0.5rem 1rem;
   color: #1aa5c2;
-}
+} */
 
 .calenderIcon {
   height: 18px;
@@ -790,42 +790,4 @@ label {
 .form-check-input:checked {
   background-color: #45c6a2;
   border-color: #45c6a2;
-}
-
-/* ----------- Progress Bar-------------- */
-
-.ProgressStepDiv {
-  height: 80px;
-  width: 80px;
-  /* border: 1px solid black; */
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: PublicaSans-Bold;
-  font-size: 30px;
-  padding-top: 7px;
-  background-color: #d0f2fa;
-  color: #22c2e5;
-  text-decoration: none;
-}
-
-.progressTuteeNavLink--active:active {
-  height: 80px;
-  width: 80px;
-  /* border: 1px solid black; */
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: PublicaSans-Bold;
-  font-size: 30px;
-  padding-top: 7px;
-  background-color: #22c2e5;
-  color: white;
-  text-decoration: none;
-}
-
-.progressTuteeNavLink--active:hover {
-  color: white;
 }

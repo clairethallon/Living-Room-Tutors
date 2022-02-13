@@ -344,7 +344,7 @@ function StudentSubjects(props) {
             <div className="formQandA">
               <p className="pWithSubP">
                 Please describe your needs in detail regarding the subject(s)
-                you selected above:
+                you selected above: <span className="requiredField"> *</span>
               </p>
               <p className="subP">
                 The more detailed you are, the better we can find a tutor to fit
