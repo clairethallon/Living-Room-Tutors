@@ -162,7 +162,7 @@ function TutorCard(props) {
 
   return (
     <div>
-      <Accordion className="mb-3" defaultActiveKey="1">
+      <Accordion className="accordionCard" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             {/* <Row> */}

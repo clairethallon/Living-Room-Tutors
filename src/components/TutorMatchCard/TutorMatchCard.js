@@ -257,7 +257,7 @@ function TutorMatchCard(props) {
         props.tutor.tutor_language_tagalog === true) ||
       (languageFilter === "Vietnamese" &&
         props.tutor.tutor_language_vietnamese === true) ? (
-        <Accordion className="mb-3" defaultActiveKey="1">
+        <Accordion className="accordionCard" defaultActiveKey="1">
           <Accordion.Item eventKey="0">
             <Accordion.Header>
               {/* <Row> */}

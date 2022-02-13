@@ -141,7 +141,6 @@ function TuteeMatchCard(props) {
       }
     }
     setPrettyTime(newTime);
-
   };
 
   const languages = [
@@ -159,7 +158,7 @@ function TuteeMatchCard(props) {
   return (
     <div>
       {/* {JSON.stringify(selectedTutee)} */}
-      <Accordion className="mb-3" defaultActiveKey="1">
+      <Accordion className="accordionCard" defaultActiveKey="1">
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             {/* <Row> */}

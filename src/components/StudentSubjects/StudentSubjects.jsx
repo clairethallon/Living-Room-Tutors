@@ -13,11 +13,9 @@ function StudentSubjects(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-
-  useEffect(()=>{ 
-    scrollToTop ();
-    }, []);
-
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const store = useSelector((store) => store);
   const newstudentInfoReducer = useSelector(
@@ -132,7 +130,7 @@ function StudentSubjects(props) {
               <FloatingLabel
                 controlId="primarySubject"
                 label="Student's 1st Choice"
-                className="selectInput mb-3"
+                className="selectInput subjectOptions"
               >
                 <Form.Select
                   onChange={(event) => changePrimarySubject(event)}
@@ -205,7 +203,7 @@ function StudentSubjects(props) {
               <FloatingLabel
                 controlId="secondarySubject"
                 label="Student's 2nd Choice"
-                className="selectInput mb-3"
+                className="selectInput subjectOptions"
                 onChange={(event) => changeSecondarySubject(event)}
               >
                 <Form.Select aria-label="Student's 2nd Choice">
