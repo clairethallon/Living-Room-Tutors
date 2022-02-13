@@ -191,7 +191,9 @@ function TutorInfo(props) {
       newStudentInfo.grade == "" ||
       newStudentInfo.grade == null
     ) {
-      return alert("Please complete all required fields.");
+      return alert(
+        "At least one required field was empty. Please fill in the required fields before continuing."
+      );
     }
     // send it all to a reducer
     else {
@@ -223,7 +225,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeSubmitter(event)}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="student"
               >
                 I am a student
@@ -239,7 +241,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeSubmitter(event)}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="ParentOrGuardian"
               >
                 I am a parent or guardian registering a student
@@ -402,7 +404,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeSpanish()}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="Spanish"
               >
                 Spanish
@@ -417,7 +419,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeSomali()}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="Somali"
               >
                 Somali
@@ -432,7 +434,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeArabic()}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="Arabic"
               >
                 Arabic
@@ -447,7 +449,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeChinese()}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="Chinese"
               >
                 Chinese
@@ -462,7 +464,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeTagalog()}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="Tagalog"
               >
                 Tagalog
@@ -477,7 +479,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeFrench()}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="French"
               >
                 French
@@ -492,7 +494,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeVietnamese()}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="Vietnamese"
               >
                 Vietnamese
@@ -507,7 +509,7 @@ function TutorInfo(props) {
                 onChange={(event) => changeHmong()}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="Hmong"
               >
                 Hmong
@@ -523,7 +525,7 @@ function TutorInfo(props) {
               />
 
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="Other"
               >
                 Other

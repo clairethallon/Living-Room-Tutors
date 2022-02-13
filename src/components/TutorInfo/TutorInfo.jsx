@@ -116,7 +116,9 @@ function TutorInfo(props) {
       newTutorInfo.school == "" ||
       newTutorInfo.school == null
     ) {
-      alert("problem!");
+      alert(
+        "At least one required field was empty. Please fill in the required fields before continuing."
+      );
     } else {
       dispatch({ type: "ADD_NEW_TUTOR_INFO", payload: newTutorInfo });
       history.push("/tutorSubjects");
@@ -223,7 +225,7 @@ function TutorInfo(props) {
               Where do you go to school?
               <span className="requiredField"> *</span>
             </label>
-            {JSON.stringify(newTutorSchool)}
+
             <Form.Select
               id="schoolAttending"
               className="selectGradeDropdown"

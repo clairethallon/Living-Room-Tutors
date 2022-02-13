@@ -99,7 +99,9 @@ function StudentSubjects(props) {
       newStudentSubjects.newDetailedNeeds == "" ||
       newStudentSubjects.newDetailedNeeds == null
     ) {
-      return alert("Please complete all required fields.");
+      return alert(
+        "At least one required field was empty. Please fill in the required fields before continuing."
+      );
     } else {
       dispatch({
         type: "ADD_NEW_STUDENT_SUBJECTS",

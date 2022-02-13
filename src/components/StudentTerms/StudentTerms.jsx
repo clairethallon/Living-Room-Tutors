@@ -117,7 +117,7 @@ function StudentTerms(props) {
                 onChange={() => changeStudentTerms()}
               />
               <Form.Check.Label
-                className="customeCheckandRedioOptions"
+                className="customCheckAndRadioOptions"
                 htmlFor="StudentTerms"
               >
                 I understand <span className="requiredField"> *</span>
