@@ -6,9 +6,6 @@ import Header from "../Header/Header";
 import StudentModal from "../StudentModal/StudentModal";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name StudentTerms with the name for the new component.
 function StudentTerms(props) {
   const dispatch = useDispatch();
 

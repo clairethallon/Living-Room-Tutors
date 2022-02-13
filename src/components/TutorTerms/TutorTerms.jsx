@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+import { Container, Form, Button } from "react-bootstrap";
 import Header from "../Header/Header";
 import TutorModal from "../TutorModal/TutorModal";
 import TutorProgressBar from "../TutorProgressBar/TutorProgressBar";
@@ -15,6 +15,8 @@ function StudentTerms(props) {
     (store) => store.newtutor.newtutorAdditionalReducer
   );
 
+  const [agreedToggle, setAgreedToggle] = useState(false);
+
   const tutorSubjects = useSelector(
     (store) => store.newtutor.newtutorSubjectReducer
   );
@@ -25,12 +27,11 @@ function StudentTerms(props) {
   const changeTutorTerms = () => {
     console.log("in tutor terms");
 
-    if (event.target.value) {
-      setClikcableButton(true);
+    if (agreedToggle === false) {
+      setAgreedToggle(true);
     } else {
-      setClikcableButton(false);
+      setAgreedToggle(false);
     }
-    setTutorTerms(!tutorTerms);
   };
 
   //package up all collected info into object
@@ -120,59 +121,67 @@ function StudentTerms(props) {
   // };
 
   return (
-    <div>
+    <div className="formBackground">
       <Header />
-      <div>
-        <TutorProgressBar />
+      <Container className="formContainer">
         <div className="maincard">
-          <p>
-            Living Room Tutors (LRT) is supporting communities in their efforts
-            to mitigate the immediate impact of school closures by facilitating
-            the connections between volunteer student mentors/ tutors and
-            students/ mentees(tutees) who need support. This matching and
-            tutoring service is offered at no cost. Once a match is made, it is
-            the responsibility of the tutor and tutee to plan a tutoring session
-            via Zoom, Google Hangouts, Skype or any other digital conferencing
-            platform. By agreeing to become a volunteer tutor, you grant
-            permission to allow LRT to share your personal information, such as
-            a telephone number or email, with your tutee in order to facilitate
-            scheduling a tutoring session. Once the match is made, it is the
-            responsibility of the parents of the student mentee to set up and
-            oversee any conferences and determine if the tutoring sessions
-            should occur. We take safety very seriously and are taking all the
-            possible precautions to prioritize the well-being and protection of
-            all who use this service. Living Room Tutors does not perform
-            background checks on potential mentors or mentees. We do not make
-            any guarantees as to the quality of the mentorship/ tutoring
-            provided by our mentors. By using this service, you are agreeing to
-            assume all risks connected to the participation in the Living Room
-            Tutors program match program and agree to not make a claim against
-            Living Room Tutors, its directors and volunteers for damages that
-            result from the use of our services, however caused, as a result of
-            the student participation.
-          </p>
+          <TutorProgressBar />
+          <div className="formContent">
+            <p>
+              Living Room Tutors (LRT) is supporting communities in their
+              efforts to mitigate the immediate impact of school closures by
+              facilitating the connections between volunteer student mentors/
+              tutors and students/ mentees(tutees) who need support. This
+              matching and tutoring service is offered at no cost. Once a match
+              is made, it is the responsibility of the tutor and tutee to plan a
+              tutoring session via Zoom, Google Hangouts, Skype or any other
+              digital conferencing platform. By agreeing to become a volunteer
+              tutor, you grant permission to allow LRT to share your personal
+              information, such as a telephone number or email, with your tutee
+              in order to facilitate scheduling a tutoring session. Once the
+              match is made, it is the responsibility of the parents of the
+              student mentee to set up and oversee any conferences and determine
+              if the tutoring sessions should occur. We take safety very
+              seriously and are taking all the possible precautions to
+              prioritize the well-being and protection of all who use this
+              service. Living Room Tutors does not perform background checks on
+              potential mentors or mentees. We do not make any guarantees as to
+              the quality of the mentorship/ tutoring provided by our mentors.
+              By using this service, you are agreeing to assume all risks
+              connected to the participation in the Living Room Tutors program
+              match program and agree to not make a claim against Living Room
+              Tutors, its directors and volunteers for damages that result from
+              the use of our services, however caused, as a result of the
+              student participation.
+            </p>
 
-          <input
-            type="checkbox"
-            id="Tutor Terms"
-            name="Tutor Terms"
-            onClick={(event) => changeTutorTerms()}
-          />
-          <label for="Tutor Terms">I understand</label>
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="TutorTerms"
+                name="TutorTerms"
+                onClick={(event) => changeTutorTerms()}
+              />
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="TutorTerms"
+              >
+                I understand <span className="requiredField"> *</span>
+              </Form.Check.Label>
+            </Form.Check>
 
-          <div>
-            {ClikcableButton ? (
-              <>
+            <div>
+              {agreedToggle ? (
                 <TutorModal newTutorObject={newTutorObject} />
-              </>
-            ) : (
-              <>
-                <p>Please Agree to continue.</p>
-              </>
-            )}
+              ) : (
+                <Button className="saveAndContinueButton" disabled>
+                  Submit
+                </Button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 }

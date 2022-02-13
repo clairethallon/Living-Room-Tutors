@@ -564,7 +564,10 @@ function TutorSubjects(props) {
         <TutorProgressBar />
         <div className="formContent">
           <div className="formQandA">
-            <p>What grade levels are you comfortable tutoring/mentoring?</p>
+            <p>
+              What grade levels are you comfortable tutoring/mentoring?{" "}
+              <span className="requiredField"> *</span>
+            </p>
 
             <Form.Check type="radio">
               <Form.Check.Input
@@ -763,7 +766,10 @@ function TutorSubjects(props) {
           </div>
 
           <div className="formQandA">
-            <p>What subjects are you comfortable tutoring?</p>
+            <p>
+              What subjects are you comfortable tutoring?{" "}
+              <span className="requiredField"> *</span>
+            </p>
             {/* NEED TO ADD THE ON CHANGE AND HOOKS FOR GRADE onChange={(event)=>changeTutorSujects(event)} */}
             <Form.Check type="radio">
               <Form.Check.Input
@@ -1380,8 +1386,8 @@ function TutorSubjects(props) {
           </div>
           <div className="formQandA">
             <p>
-              Are you comfortable tutoring English Language Learner Students? If
-              so, in what language? If no, just select N/A.
+              Are you comfortable tutoring students in a language other than
+              English?
             </p>
 
             <Form.Check type="radio">
