@@ -68,6 +68,10 @@
   color: #22c2e5;
 }
 
+.nav-link:hover {
+  color: #1da8c7;
+}
+
 .checkedNavLink {
   display: flex;
   flex-direction: column;
