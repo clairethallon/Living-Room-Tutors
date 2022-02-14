@@ -179,7 +179,26 @@ function TutorInfo(props) {
       otherLanguage: otherLanguage,
     };
 
-    // checks that all input feild have student info added!
+    // if (newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === "" ){
+    //   return alert("Please include a Parent or Guardian email.")}
+    //   else if (newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === null ){
+    //     return alert("Please include a Parent or Guardian email.")}
+    //     else if(newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === undefined){
+    //       return alert("Please include a Parent or Guardian email.")}
+
+    
+   
+    // let parent = false
+    // if (newStudentInfo.submitter = "ParentOrGuardian"){
+    //   parent === true }
+
+    // let parentEmail = false
+    // if(newStudentInfo.parentEmail === "" || newStudentInfo.parentEmail === null || newStudentInfo.parentEmail === undefined ){
+    //   parentEmail === true
+    // }
+
+
+
     if (
       newStudentInfo.submitter == "" ||
       newStudentInfo.submitter == null ||
@@ -194,7 +213,9 @@ function TutorInfo(props) {
       newStudentInfo.school == "" ||
       newStudentInfo.school == null ||
       newStudentInfo.grade == "" ||
-      newStudentInfo.grade == null
+      newStudentInfo.grade == null ||
+      (newStudentInfo.submitter == "ParentOrGuardian" && (newStudentInfo.parentEmail === "" || newStudentInfo.parentEmail === null || newStudentInfo.parentEmail === undefined ) ) ||
+      (newStudentInfo.submitter == "Student" && (newStudentInfo.email === "" || newStudentInfo.email === null || newStudentInfo.email === undefined ) )
     ) {
       return alert("Please complete all required fields.");
     }
