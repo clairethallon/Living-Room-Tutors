@@ -567,7 +567,7 @@ INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "F
 VALUES ( false, false, true, false, false, false, false, false);
 
 INSERT INTO "subjects_tutors" ( "K5_Math", "K5_Reading", "K5_English_Writing", "K5_social_studies", "K5_Science", "6th_to_8th_language_arts", "6th_to_8th_science", "6th_to_8th_social_studies", "math_pre_algebra", "math_alg1_linear_alg", "math_alg2", "math_geom", "math_precalc_trig", "sci_bio_life", "sci_chem", "sci_physics", "sci_comp_sci", "lang_chinese", "lang_spanish", "lang_french","lang_german", "hist_world", "hist_us", "ap_bio", "ap_chem", "ap_physics", "ap_calc_AB", "ap_calc_BC", "ap_stats", "ap_comp_sci", "ap_english_lit_comp", "ap_lang_comp", "ap_macro_econ", "ap_micro_econ", "ap_psyc", "ap_hist_us", "ap_gov_politics_us", "ap_human_geog", "sat_subject_tests", "sat_prep", "act_prep")
-	VALUES ( true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, true, true, false, false, false, true, false, false, false, false, true, false, false, false, false, true, false, false, false, false );
+	VALUES ( true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, true, true, false, false, false, true, false, false, false, true, false, false, false, false, false, true, false, false, false, false );
 
 INSERT INTO "mentoring_grade" ( "prek_kindergarten", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th" )
 VALUES ( true, true, true, true, true, true, true, true, true, true, true, true, true );
@@ -582,10 +582,109 @@ NULL, '1/10/2022 19:09:15', true, false );
 --MOCK DATA INSERTS FOR TUTEE
 
 INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
-VALUES ( true, false, false, true, false, false, false, false);
+VALUES ( false, false, true, false, false, false, false, false);
 
 INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
-('Emilis', 'Terrell', 'she/her', 'student', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','prek_kindergarten', 'Central High School', 
+('Emilis', 'Terrell', 'she/her', 'Student', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','prek_kindergarten', 'Central High School', 
 --LANGUAGE TABLE ID GOES HERE,
-7, 9, 1, NULL, NULL, NULL, 
+7, 9, 1, NULL, 'general help', NULL, 
 '1/9/2022 15:15:01', true, false );
+
+--NEXT TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, false, true, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Rita', 'Dai', 'she/her', 'Student', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','3rd', 'Hoover Elementary', 
+--LANGUAGE TABLE ID GOES HERE,
+1,2,3, NULL, 'They need help reviewing multiplication and division of large numbers, and if you could please find a tutor that can practice reading nonfiction and asking comprehension questions with my kid!', NULL, 
+'1/9/2022 15:15:01', true, false );
+
+--NEXT TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, false, false, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Jasmine', 'Cao', 'she/her', 'Student', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','4th', 'Bailey Elementary', 
+--LANGUAGE TABLE ID GOES HERE,
+3,2,1, NULL, 'help', NULL, 
+'1/9/2022 15:07:59', true, false );
+
+--NEXT TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, false, false, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Demetrius', 'Lambert', 'he/him', 'parentOrGuardian', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','5th', 'Washington Elementary', 
+--LANGUAGE TABLE ID GOES HERE,
+9,3,2, NULL, 'My son he low in math and reading and he need tutoring', NULL, 
+'12/13/2021 13:01:32', true, false );
+
+--NEXT TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, false, false, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Raina', 'Summers', 'she/her', 'parentOrGuardian', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','6th', 'Skyview Middle School', 
+--LANGUAGE TABLE ID GOES HERE,
+6,9,7, NULL, 'We only need a tutor to help her with reading. If someone can correct her while she is reading once a week, that will be great.', NULL, 
+'12/16/2021 6:42:44', true, false );
+
+--NEXT TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, true, false, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Molly', 'Randall', 'she/her', 'parentOrGuardian', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','2nd', 'Franklin Elementary School', 
+--LANGUAGE TABLE ID GOES HERE,
+2,1,3, NULL, 'General support with homework', NULL, 
+'12/16/2021 10:29:13', true, false );
+
+--NEXT TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, false, false, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Deanna', 'Collins', 'they/them', 'Student', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','7th', 'St.John Middle School', 
+--LANGUAGE TABLE ID GOES HERE,
+6,8,14, NULL, 'general support with homework', NULL, 
+'10/22/2021 8:56:21', true, false );
+
+--NEXT TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, false, false, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Kyan', 'Patrick', 'he/him', 'Student', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954','9th', 'Century High School', 
+--LANGUAGE TABLE ID GOES HERE,
+20,14,15, NULL, 'I need help understanding Spanish sentences that are more complex than normal phrases', NULL, 
+'10/24/2021 17:19:14', true, false );
+
+--NEXT TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, false, false, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Reagan', 'Hampton', 'they/them', 'parentOrGuardian', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954', '9th', 'Mayo High School', 
+--LANGUAGE TABLE ID GOES HERE,
+31,32,24, NULL, 'They dont know exactly what the teacher is asking for the homework,the theme right now is ANALYZE LITERARY TEXT', NULL, 
+'10/27/2021 13:21:19', true, false );
+
+--NEXT TUTEE
+
+INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
+VALUES ( false, false, false, false, false, false, false, false);
+
+INSERT INTO "tutees" ("student_first_name", "student_last_name", "pronouns", "student_or_guardian", "email_guardian", "email_student", "phone", "grade_level", "school", "language_tutee_id", "subject_1", "subject_2", "subject_3", "subject_other", "subject_details", "misc_info", "submission_timestamp", "active_tutee", "matched"  ) VALUES
+('Isabelle', 'Pearson', 'she/her', 'parentOrGuardian', '123@gmail',  'tutee.lrtmatching@gmail.com', '5075174954', '9th', 'Byron High School', 
+--LANGUAGE TABLE ID GOES HERE,
+10,9,11, NULL, 'Algebra I, getting an F', NULL, 
+'10/27/2021 13:21:19', true, false );
