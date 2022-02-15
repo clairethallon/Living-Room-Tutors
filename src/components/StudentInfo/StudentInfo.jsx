@@ -21,6 +21,7 @@ function TutorInfo(props) {
 
   useEffect(() => {
     scrollToTop();
+    checkSubmitter(newstudentInfo);
   }, []);
 
   const scrollToTop = () => {
@@ -51,6 +52,17 @@ function TutorInfo(props) {
   const [IsLangChecked, setIsLangChecked] = useState(true);
   const [otherLanguage, setotherLanguage] = useState();
   // ******** LANGUAGE CHECK BOXES **************
+
+  const checkSubmitter = (newstudentInfo) => {
+    console.log(newstudentInfo);
+    if (newstudentInfo.submitter == undefined) {
+      console.log('UNDEFINED')
+      return false;
+    }
+    else {
+      setSubmitter(newstudentInfo.submitter);
+    }
+  }
 
   const changeSubmitter = () => {
     console.log("in new submitter", event.target.value);
@@ -155,57 +167,66 @@ function TutorInfo(props) {
   };
   // ******** END END END END END **************
 
-  const AddNewStudentInfo = () => {
-    console.log("in AddNewTutorInfo");
-    //package up new student info in object
-    const newStudentInfo = {
-      submitter: newSubmitter,
-      firstName: newFirstName,
-      lastName: newLastName,
-      parentEmail: newParentEmail,
-      email: newEmail,
-      Pronouns: Pronouns,
-      phone: newPhone,
-      school: newSchool,
-      grade: newGrade,
-      Spanish: Spanish,
-      Somali: Somali,
-      Arabic: Arabic,
-      Chinese: Chinese,
-      Tagalog: Tagalog,
-      French: French,
-      Vietnamese: Vietnamese,
-      Hmong: Hmong,
-      otherLanguage: otherLanguage,
-    };
-
-    // checks that all input feild have student info added!
-    if (
-      newStudentInfo.submitter == "" ||
-      newStudentInfo.submitter == null ||
-      newStudentInfo.firstName == "" ||
-      newStudentInfo.firstName == null ||
-      newStudentInfo.lastName == "" ||
-      newStudentInfo.lastName == null ||
-      newStudentInfo.email == "" ||
-      newStudentInfo.email == null ||
-      newStudentInfo.phone == "" ||
-      newStudentInfo.phone == null ||
-      newStudentInfo.school == "" ||
-      newStudentInfo.school == null ||
-      newStudentInfo.grade == "" ||
-      newStudentInfo.grade == null
-    ) {
-      return alert(
-        "At least one required field was empty. Please fill in the required fields before continuing."
-      );
-    }
-    // send it all to a reducer
-    else {
-      console.log("in AddNewTutorInfo", newStudentInfo);
-      dispatch({ type: "ADD_NEW_STUDENT_INFO", payload: newStudentInfo });
+  const AddNewStudentInfo = (newStudent) => {
+    if (newstudentInfo.firstName != undefined) {
+      console.log("in AddNewStudentInfo", newstudentInfo);
+      dispatch({ type: "ADD_NEW_STUDENT_INFO", payload: newstudentInfo });
       history.push("/StudentSubjects");
+      return true;
     }
+    if (newstudentInfo.firstName === undefined) {
+      //package up new student info in object
+      const newStudentInfo = {
+        submitter: newSubmitter,
+        firstName: newFirstName,
+        lastName: newLastName,
+        parentEmail: newParentEmail,
+        email: newEmail,
+        Pronouns: Pronouns,
+        phone: newPhone,
+        school: newSchool,
+        grade: newGrade,
+        Spanish: Spanish,
+        Somali: Somali,
+        Arabic: Arabic,
+        Chinese: Chinese,
+        Tagalog: Tagalog,
+        French: French,
+        Vietnamese: Vietnamese,
+        Hmong: Hmong,
+        otherLanguage: otherLanguage,
+      };
+
+      // checks that all input feild have student info added!
+      if (
+        newStudentInfo.submitter == "" ||
+        newStudentInfo.submitter == null ||
+        newStudentInfo.firstName == "" ||
+        newStudentInfo.firstName == null ||
+        newStudentInfo.lastName == "" ||
+        newStudentInfo.lastName == null ||
+        newStudentInfo.email == "" ||
+        newStudentInfo.email == null ||
+        newStudentInfo.phone == "" ||
+        newStudentInfo.phone == null ||
+        newStudentInfo.school == "" ||
+        newStudentInfo.school == null ||
+        newStudentInfo.grade == "" ||
+        newStudentInfo.grade == null
+      ) {
+        return alert(
+          "At least one required field was empty. Please fill in the required fields before continuing."
+        );
+      }
+      // send it all to a reducer
+      else {
+        console.log("in AddNewTutorInfo", newStudentInfo);
+
+        dispatch({ type: "ADD_NEW_STUDENT_INFO", payload: newStudentInfo });
+        history.push("/StudentSubjects");
+      }
+    }
+
   };
 
   return (
@@ -221,13 +242,14 @@ function TutorInfo(props) {
               <span className="requiredField"> *</span>
             </p>
 
-            <Form.Check type="radio">
+            <Form.Check type="radio" >
               <Form.Check.Input
                 type="radio"
                 id="student"
                 name="studentOrParent"
                 value="Student"
                 onChange={(event) => changeSubmitter(event)}
+                checked={newstudentInfo.submitter === 'Student' || newSubmitter === 'Student'}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -244,6 +266,8 @@ function TutorInfo(props) {
                 name="studentOrParent"
                 value="ParentOrGuardian"
                 onChange={(event) => changeSubmitter(event)}
+                checked={newstudentInfo.submitter === 'ParentOrGuardian' && newSubmitter === '' || newSubmitter === 'ParentOrGuardian'}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -265,7 +289,8 @@ function TutorInfo(props) {
               className="formInput"
               onChange={(event) => changeParentEmail(event)}
             >
-              <Form.Control type="GuardianEmail" placeholder="GuardianEmail" />
+              <Form.Control type="GuardianEmail" placeholder="GuardianEmail" defaultValue={newstudentInfo.parentEmail}
+              />
             </FloatingLabel>
           </div>
 
@@ -285,7 +310,7 @@ function TutorInfo(props) {
               className="formInput"
               onChange={(event) => changeEmail(event)}
             >
-              <Form.Control type="StudentEmail" placeholder="Student Email" />
+              <Form.Control type="StudentEmail" placeholder="Student Email" defaultValue={newstudentInfo.email} />
             </FloatingLabel>
           </div>
 
@@ -303,6 +328,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentPhone"
                 placeholder="Student's Phone Number"
+                defaultValue={newstudentInfo.phone}
               />
             </FloatingLabel>
           </div>
@@ -321,6 +347,8 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentFirstName"
                 placeholder="Student First Name"
+                defaultValue={newstudentInfo.firstName}
+
               />
             </FloatingLabel>
             <FloatingLabel
@@ -332,6 +360,8 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentLastName"
                 placeholder="Student Last Name"
+                defaultValue={newstudentInfo.lastName}
+
               />
             </FloatingLabel>
           </div>
@@ -344,7 +374,8 @@ function TutorInfo(props) {
               className="formInput"
               onChange={(event) => changePronouns(event)}
             >
-              <Form.Control type="Pronouns" placeholder="Pronouns" />
+              <Form.Control type="Pronouns" placeholder="Pronouns"
+                defaultValue={newstudentInfo.Pronouns} />
             </FloatingLabel>
           </div>
 
@@ -362,6 +393,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentSchool"
                 placeholder="Student's School"
+                defaultValue={newstudentInfo.school}
               />
             </FloatingLabel>
           </div>
@@ -377,6 +409,8 @@ function TutorInfo(props) {
               className="selectGradeDropdown"
               aria-label="gradeLevel"
               onChange={(event) => changeGrade(event)}
+              defaultValue={newstudentInfo.grade}
+
             >
               <option value="">Select Student's Current Grade Level</option>
               <option value="prek_kindergarten">Pre-K/Kindergarten</option>
@@ -406,7 +440,10 @@ function TutorInfo(props) {
                 type="checkbox"
                 id="Spanish"
                 name="Spanish"
+                defaultValue={newstudentInfo.Spanish}
                 onChange={(event) => changeSpanish()}
+                checked={newstudentInfo.Spanish === true || Spanish == true}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
