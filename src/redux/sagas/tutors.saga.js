@@ -18,6 +18,10 @@ function* postNewTutor(action) {
   //language, subject_tutor, and mentoring_grade
   try {
     const response = yield axios.post("/api/tutors", action.payload);
+    yield put({ type: "UNSET_ADD_NEW_TUTOR_INFO" });
+    yield put({ type: "UNSET_ADD_NEW_TUTOR_SUBJECTS" });
+    yield put({ type: "UNSET_ADD_TUTOR_ADITIONAL_INFO" });
+    yield put({ type: "UNSET_ADD_TUTOR_TERMS" });
     try {
       const response2 = yield axios.post("/api/mail", {
         email: action.payload.email,

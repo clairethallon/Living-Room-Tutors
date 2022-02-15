@@ -11,13 +11,13 @@ function StudentTerms(props) {
 
   const tutorInfo = useSelector((store) => store.newtutor.newtutorInfoReducer);
 
-  useEffect(()=>{ 
-    scrollToTop ();
-    }, []);
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
-    const scrollToTop = () => {
-      window.scrollTo(0, 0);
-    };
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   const tutorAdditional = useSelector(
     (store) => store.newtutor.newtutorAdditionalReducer
@@ -118,13 +118,6 @@ function StudentTerms(props) {
   };
 
   // const sendNewTutor = () => {
-  //   let termserrors = false;
-  //   if (tutorTerms == false) {
-  //     termserrors = true;
-  //   }
-  //   if (termserrors) {
-  //     alert("Please agree to the terms to submit your application.");
-  //   }
   //   dispatch({ type: "SEND_NEW_TUTOR", payload: newTutorObject });
   // };
 

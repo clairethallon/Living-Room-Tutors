@@ -4,7 +4,7 @@ const newstudentInfoReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_NEW_STUDENT_INFO":
       return action.payload;
-    case "UNSET_ADD_NEW_TUTOR_INFO":
+    case "UNSET_ADD_NEW_SUBJECTS_INFO":
       return [];
     default:
       return state;

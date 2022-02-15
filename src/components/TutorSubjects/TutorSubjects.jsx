@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
 import Header from "../Header/Header";
 import TutorProgressBar from "../TutorProgressBar/TutorProgressBar";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
@@ -12,15 +14,13 @@ function TutorSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
 
-
   const history = useHistory();
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
-  useEffect(()=>{ 
-    scrollToTop ();
-    }, []);
-
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -99,6 +99,8 @@ function TutorSubjects(props) {
   const [French, setFrench] = useState(false);
   const [Vietnamese, setVietnamese] = useState(false);
   const [Hmong, setHmong] = useState(false);
+  const [IsLangChecked, setIsLangChecked] = useState(true);
+  const [otherLanguage, setotherLanguage] = useState();
   // ******** LANGUAGE CHECK BOXES **************
 
   // *********** TUTOR GRADE LEVELS ****************
@@ -414,6 +416,16 @@ function TutorSubjects(props) {
   const changeHmong = () => {
     setHmong(!Hmong);
     console.log("Hmong", Hmong);
+  };
+
+  const changeIsLangChecked = () => {
+    setIsLangChecked(!IsLangChecked);
+    console.log("is other checked?", IsLangChecked);
+  };
+
+  const changeotherLangauge = () => {
+    console.log("in other langauge", otherLanguage);
+    setotherLanguage(event.target.value);
   };
 
   // ******** END LANGUAGE CHECK BOXES **************
@@ -1514,6 +1526,36 @@ function TutorSubjects(props) {
               >
                 Hmong
               </Form.Check.Label>
+            </Form.Check>
+
+            <Form.Check type="radio">
+              <Form.Check.Input
+                type="checkbox"
+                id="OtherLanguage"
+                name="OtherLanguage"
+                onChange={(e) => changeIsLangChecked(event.target.checked)}
+              />
+
+              <Form.Check.Label
+                className="customCheckAndRadioOptions"
+                htmlFor="Other"
+              >
+                Other
+              </Form.Check.Label>
+
+              <fieldset disabled={IsLangChecked}>
+                <FloatingLabel
+                  controlID="OtherLanguage"
+                  label="Other Language"
+                  className="formInput"
+                  onChange={(event) => changeotherLangauge(event)}
+                >
+                  <Form.Control
+                    type="OtherLanguage"
+                    placeholder="Other Language"
+                  />
+                </FloatingLabel>
+              </fieldset>
             </Form.Check>
           </div>
 
