@@ -77,7 +77,6 @@ function TutorInfo(props) {
 
   const setDefaults = () => {
     if (presenting) {
-      console.log("in setDefaults");
       setSubmitter("parentOrGuardian");
       setNewFirstName("Molly");
       setNewLastName("Randall");
@@ -87,14 +86,6 @@ function TutorInfo(props) {
       setNewPhone("1234567890");
       setNewSchool("Franklin Elementary School");
       setNewGrade("2nd");
-      // setSpanish();
-      // setSomali();
-      setArabic(true);
-      // setChinese();
-      // setTagalog();
-      // setFrench();
-      // setVietnamese();
-      // setHmong();
     }
   };
 
