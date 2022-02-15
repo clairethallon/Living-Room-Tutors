@@ -10,7 +10,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useHistory } from "react-router-dom";
 
-
 function TutorInfo(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
@@ -18,6 +17,8 @@ function TutorInfo(props) {
     (store) => store.newStudent.newstudentInfoReducer
   );
   const history = useHistory();
+
+  const presenting = true;
 
   useEffect(() => {
     scrollToTop();
@@ -30,7 +31,7 @@ function TutorInfo(props) {
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   const [newSubmitter, setSubmitter] = useState();
-  const [newFirstName, setNewFirstName] = useState();
+  const [newFirstName, setNewFirstName] = useState("");
   const [newLastName, setNewLastName] = useState();
   const [newParentEmail, setNewParentEmail] = useState();
   const [newEmail, setNewEmail] = useState();
@@ -51,6 +52,51 @@ function TutorInfo(props) {
   const [IsLangChecked, setIsLangChecked] = useState(true);
   const [otherLanguage, setotherLanguage] = useState();
   // ******** LANGUAGE CHECK BOXES **************
+
+  // ******** NEWSTUDENTINFO OBJECT **************
+  const newStudentInfo = {
+    submitter: newSubmitter,
+    firstName: newFirstName,
+    lastName: newLastName,
+    parentEmail: newParentEmail,
+    email: newEmail,
+    Pronouns: Pronouns,
+    phone: newPhone,
+    school: newSchool,
+    grade: newGrade,
+    Spanish: Spanish,
+    Somali: Somali,
+    Arabic: Arabic,
+    Chinese: Chinese,
+    Tagalog: Tagalog,
+    French: French,
+    Vietnamese: Vietnamese,
+    Hmong: Hmong,
+    otherLanguage: otherLanguage,
+  };
+
+  const setDefaults = () => {
+    if (presenting) {
+      console.log("in setDefaults");
+      setSubmitter("parentOrGuardian");
+      setNewFirstName("Molly");
+      setNewLastName("Randall");
+      // setNewParentEmail();
+      // setNewEmail();
+      // setPronouns();
+      // setNewPhone();
+      // setNewSchool();
+      // setNewGrade();
+      // setSpanish();
+      // setSomali();
+      // setArabic();
+      // setChinese();
+      // setTagalog();
+      // setFrench();
+      // setVietnamese();
+      // setHmong();
+    }
+  };
 
   const changeSubmitter = () => {
     console.log("in new submitter", event.target.value);
@@ -157,27 +203,6 @@ function TutorInfo(props) {
 
   const AddNewStudentInfo = () => {
     console.log("in AddNewTutorInfo");
-    //package up new student info in object
-    const newStudentInfo = {
-      submitter: newSubmitter,
-      firstName: newFirstName,
-      lastName: newLastName,
-      parentEmail: newParentEmail,
-      email: newEmail,
-      Pronouns: Pronouns,
-      phone: newPhone,
-      school: newSchool,
-      grade: newGrade,
-      Spanish: Spanish,
-      Somali: Somali,
-      Arabic: Arabic,
-      Chinese: Chinese,
-      Tagalog: Tagalog,
-      French: French,
-      Vietnamese: Vietnamese,
-      Hmong: Hmong,
-      otherLanguage: otherLanguage,
-    };
 
     // if (newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === "" ){
     //   return alert("Please include a Parent or Guardian email.")}
@@ -186,8 +211,6 @@ function TutorInfo(props) {
     //     else if(newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === undefined){
     //       return alert("Please include a Parent or Guardian email.")}
 
-    
-   
     // let parent = false
     // if (newStudentInfo.submitter = "ParentOrGuardian"){
     //   parent === true }
@@ -196,8 +219,6 @@ function TutorInfo(props) {
     // if(newStudentInfo.parentEmail === "" || newStudentInfo.parentEmail === null || newStudentInfo.parentEmail === undefined ){
     //   parentEmail === true
     // }
-
-
 
     if (
       newStudentInfo.submitter == "" ||
@@ -214,8 +235,14 @@ function TutorInfo(props) {
       newStudentInfo.school == null ||
       newStudentInfo.grade == "" ||
       newStudentInfo.grade == null ||
-      (newStudentInfo.submitter == "ParentOrGuardian" && (newStudentInfo.parentEmail === "" || newStudentInfo.parentEmail === null || newStudentInfo.parentEmail === undefined ) ) ||
-      (newStudentInfo.submitter == "Student" && (newStudentInfo.email === "" || newStudentInfo.email === null || newStudentInfo.email === undefined ) )
+      (newStudentInfo.submitter == "ParentOrGuardian" &&
+        (newStudentInfo.parentEmail === "" ||
+          newStudentInfo.parentEmail === null ||
+          newStudentInfo.parentEmail === undefined)) ||
+      (newStudentInfo.submitter == "Student" &&
+        (newStudentInfo.email === "" ||
+          newStudentInfo.email === null ||
+          newStudentInfo.email === undefined))
     ) {
       return alert(
         "At least one required field was empty. Please fill in the required fields before continuing."
@@ -235,7 +262,7 @@ function TutorInfo(props) {
       <Container className="formContainer">
         <ProgressBar />
         <div className="formContent">
-          <div className="formQandA">
+          <div className="formQandA" onClick={setDefaults}>
             <p>
               Please indicate if you are you a student registering yourself or
               are a parent/guardian/teacher registering on behalf of a student:
@@ -247,7 +274,7 @@ function TutorInfo(props) {
                 type="radio"
                 id="student"
                 name="studentOrParent"
-                value="Student"
+                value={newSubmitter}
                 onChange={(event) => changeSubmitter(event)}
               />
               <Form.Check.Label
@@ -342,6 +369,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentFirstName"
                 placeholder="Student First Name"
+                value={newFirstName}
               />
             </FloatingLabel>
             <FloatingLabel
