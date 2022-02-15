@@ -30,15 +30,15 @@ function TutorInfo(props) {
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
-  const [newSubmitter, setSubmitter] = useState();
+  const [newSubmitter, setSubmitter] = useState("");
   const [newFirstName, setNewFirstName] = useState("");
-  const [newLastName, setNewLastName] = useState();
-  const [newParentEmail, setNewParentEmail] = useState();
-  const [newEmail, setNewEmail] = useState();
-  const [Pronouns, setPronouns] = useState(null);
-  const [newPhone, setNewPhone] = useState();
-  const [newSchool, setNewSchool] = useState();
-  const [newGrade, setNewGrade] = useState();
+  const [newLastName, setNewLastName] = useState("");
+  const [newParentEmail, setNewParentEmail] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [Pronouns, setPronouns] = useState("");
+  const [newPhone, setNewPhone] = useState("");
+  const [newSchool, setNewSchool] = useState("");
+  const [newGrade, setNewGrade] = useState("");
 
   // ******** LANGUAGE CHECK BOXES **************
   const [Spanish, setSpanish] = useState(false);
@@ -81,15 +81,15 @@ function TutorInfo(props) {
       setSubmitter("parentOrGuardian");
       setNewFirstName("Molly");
       setNewLastName("Randall");
-      // setNewParentEmail();
-      // setNewEmail();
-      // setPronouns();
-      // setNewPhone();
-      // setNewSchool();
-      // setNewGrade();
+      setNewParentEmail("miriammcnamara@icloud.com");
+      setNewEmail("miriammcnamara@icloud.com");
+      setPronouns("she/her");
+      setNewPhone("1234567890");
+      setNewSchool("Franklin Elementary School");
+      setNewGrade("2nd");
       // setSpanish();
       // setSomali();
-      // setArabic();
+      setArabic(true);
       // setChinese();
       // setTagalog();
       // setFrench();
@@ -274,7 +274,7 @@ function TutorInfo(props) {
                 type="radio"
                 id="student"
                 name="studentOrParent"
-                value={newSubmitter}
+                value="Student"
                 onChange={(event) => changeSubmitter(event)}
               />
               <Form.Check.Label
@@ -313,7 +313,11 @@ function TutorInfo(props) {
               className="formInput"
               onChange={(event) => changeParentEmail(event)}
             >
-              <Form.Control type="GuardianEmail" placeholder="GuardianEmail" />
+              <Form.Control
+                type="GuardianEmail"
+                placeholder="GuardianEmail"
+                value={newParentEmail}
+              />
             </FloatingLabel>
           </div>
 
@@ -333,7 +337,11 @@ function TutorInfo(props) {
               className="formInput"
               onChange={(event) => changeEmail(event)}
             >
-              <Form.Control type="StudentEmail" placeholder="Student Email" />
+              <Form.Control
+                type="StudentEmail"
+                placeholder="Student Email"
+                value={newEmail}
+              />
             </FloatingLabel>
           </div>
 
@@ -351,6 +359,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentPhone"
                 placeholder="Student's Phone Number"
+                value={newPhone}
               />
             </FloatingLabel>
           </div>
@@ -381,6 +390,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentLastName"
                 placeholder="Student Last Name"
+                value={newLastName}
               />
             </FloatingLabel>
           </div>
@@ -393,7 +403,11 @@ function TutorInfo(props) {
               className="formInput"
               onChange={(event) => changePronouns(event)}
             >
-              <Form.Control type="Pronouns" placeholder="Pronouns" />
+              <Form.Control
+                type="Pronouns"
+                placeholder="Pronouns"
+                value={Pronouns}
+              />
             </FloatingLabel>
           </div>
 
@@ -411,6 +425,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentSchool"
                 placeholder="Student's School"
+                value={newSchool}
               />
             </FloatingLabel>
           </div>
@@ -425,6 +440,7 @@ function TutorInfo(props) {
               id="gradeLevel"
               className="selectGradeDropdown"
               aria-label="gradeLevel"
+              value={newGrade}
               onChange={(event) => changeGrade(event)}
             >
               <option value="">Select Student's Current Grade Level</option>
