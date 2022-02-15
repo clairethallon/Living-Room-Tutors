@@ -158,6 +158,7 @@ input {
 
 .flaggedSubjectLanguage {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .flag {
