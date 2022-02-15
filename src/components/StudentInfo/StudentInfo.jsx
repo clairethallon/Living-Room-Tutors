@@ -21,12 +21,33 @@ function TutorInfo(props) {
 
   useEffect(() => {
     scrollToTop();
+    checkReducer(newstudentInfo);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
-
+  const checkReducer = (newstudentInfo) => {
+    console.log('in checkReducer', newstudentInfo);
+    if (newstudentInfo.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setSubmitter(newstudentInfo.submitter);
+      setNewFirstName(newstudentInfo.firstName);
+      setNewLastName(newstudentInfo.lastName);
+      setNewParentEmail(newstudentInfo.parentEmail);
+      setNewEmail(newstudentInfo.email);
+      setPronouns(newstudentInfo.Pronouns);
+      setNewPhone(newstudentInfo.phone);
+      setNewSchool(newstudentInfo.school);
+      setNewGrade(newstudentInfo.grade);
+      setSpanish(newstudentInfo.Spanish);
+      setSomali(newstudentInfo.Somali);
+      return true;
+    }
+  }
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   const [newSubmitter, setSubmitter] = useState();
@@ -58,7 +79,7 @@ function TutorInfo(props) {
   };
 
   const changefirstName = () => {
-    console.log("in new name");
+    console.log("in new name", event.target.value);
     setNewFirstName(event.target.value);
   };
 
@@ -186,8 +207,8 @@ function TutorInfo(props) {
     //     else if(newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === undefined){
     //       return alert("Please include a Parent or Guardian email.")}
 
-    
-   
+
+
     // let parent = false
     // if (newStudentInfo.submitter = "ParentOrGuardian"){
     //   parent === true }
@@ -214,8 +235,8 @@ function TutorInfo(props) {
       newStudentInfo.school == null ||
       newStudentInfo.grade == "" ||
       newStudentInfo.grade == null ||
-      (newStudentInfo.submitter == "ParentOrGuardian" && (newStudentInfo.parentEmail === "" || newStudentInfo.parentEmail === null || newStudentInfo.parentEmail === undefined ) ) ||
-      (newStudentInfo.submitter == "Student" && (newStudentInfo.email === "" || newStudentInfo.email === null || newStudentInfo.email === undefined ) )
+      (newStudentInfo.submitter == "ParentOrGuardian" && (newStudentInfo.parentEmail === "" || newStudentInfo.parentEmail === null || newStudentInfo.parentEmail === undefined)) ||
+      (newStudentInfo.submitter == "Student" && (newStudentInfo.email === "" || newStudentInfo.email === null || newStudentInfo.email === undefined))
     ) {
       return alert(
         "At least one required field was empty. Please fill in the required fields before continuing."
@@ -249,6 +270,7 @@ function TutorInfo(props) {
                 name="studentOrParent"
                 value="Student"
                 onChange={(event) => changeSubmitter(event)}
+                checked={newSubmitter == 'Student'}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -428,6 +450,8 @@ function TutorInfo(props) {
                 id="Spanish"
                 name="Spanish"
                 onChange={(event) => changeSpanish()}
+                checked={Spanish}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -443,6 +467,8 @@ function TutorInfo(props) {
                 id="Somali"
                 name="Somali"
                 onChange={(event) => changeSomali()}
+                checked={Somali}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -458,6 +484,8 @@ function TutorInfo(props) {
                 id="Arabic"
                 name="Arabic"
                 onChange={(event) => changeArabic()}
+                checked={Arabic}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
