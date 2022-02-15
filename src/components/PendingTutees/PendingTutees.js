@@ -13,11 +13,13 @@ function PendingTutees(props) {
   const activeTutees = useSelector((store) => store.activeTutees);
 
   return (
-    <div>
+    <div className="tabContainer">
       <div className="tuteeInfoSubjectsAndLanguages">
         <h1>Tutees Pending Matches</h1>
       </div>
-      <p>{activeTutees.length} pending tutee(s)</p>
+      <p>
+        <strong>{activeTutees.length}</strong> pending tutee(s)
+      </p>
       <div className="subjectAndLanguageDiv">
         <div className="subjectAndLanguage">
           <p>

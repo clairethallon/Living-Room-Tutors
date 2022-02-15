@@ -16,9 +16,11 @@ function DeactivatedTutors(props) {
   const deactiveTutors = useSelector((store) => store.deactiveTutors);
 
   return (
-    <div>
+    <div className="tabContainer">
       <h1>Deactivated Tutors</h1>
-      <p>{deactiveTutors.length} deactivated tutor(s)</p>
+      <p>
+        <strong>{deactiveTutors.length}</strong> deactivated tutor(s)
+      </p>
       <div className="subjectAndLanguageDiv">
         <div className="subjectAndLanguage">
           <p>
