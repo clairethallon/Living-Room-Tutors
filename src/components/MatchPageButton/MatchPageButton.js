@@ -14,9 +14,9 @@ function MatchPageButton(props) {
 
   const dispatch = useDispatch();
 
-  const navigateToMatchPage = () => {
-    dispatch({ type: "FETCH_POSSIBLE_MATCHES", payload: props.tutee });
-    history.push(`/match`);
+  const navigateToMatchPage = async () => {
+    await dispatch({ type: "FETCH_POSSIBLE_MATCHES", payload: props.tutee });
+    await history.push(`/match`);
   };
 
   return (
