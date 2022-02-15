@@ -1522,7 +1522,7 @@ function TutorSubjects(props) {
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
-                htmlFor="Hmong<"
+                htmlFor="Hmong"
               >
                 Hmong
               </Form.Check.Label>
@@ -1538,7 +1538,7 @@ function TutorSubjects(props) {
 
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
-                htmlFor="Other"
+                htmlFor="OtherLanguage"
               >
                 Other
               </Form.Check.Label>
