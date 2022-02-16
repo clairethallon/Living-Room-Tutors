@@ -22,12 +22,44 @@ function TutorInfo(props) {
 
   useEffect(() => {
     scrollToTop();
+    checkReducer(newstudentInfo);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+  const checkReducer = (newstudentInfo) => {
+    console.log('in checkReducer', newstudentInfo);
+    if (newstudentInfo.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setSubmitter(newstudentInfo.submitter);
+      setNewFirstName(newstudentInfo.firstName);
+      setNewLastName(newstudentInfo.lastName);
+      setNewParentEmail(newstudentInfo.parentEmail);
+      setNewEmail(newstudentInfo.email);
+      setPronouns(newstudentInfo.Pronouns);
+      setNewPhone(newstudentInfo.phone);
+      setNewSchool(newstudentInfo.school);
+      setNewGrade(newstudentInfo.grade);
+      setSpanish(newstudentInfo.Spanish);
+      setSomali(newstudentInfo.Somali);
+      setArabic(newstudentInfo.Arabic);
+      setChinese(newstudentInfo.Chinese);
+      setHmong(newstudentInfo.Hmong);
+      setFrench(newstudentInfo.French);
+      setVietnamese(newstudentInfo.Vietnamese);
+      setotherLanguage(newstudentInfo.otherLanguage);
+      setTagalog(newstudentInfo.Tagalog);
+      if (newstudentInfo.otherLanguage != undefined && newstudentInfo.otherLanguage != "") {
+        console.log('WE IN HERE')
+        setIsLangChecked(true);
+      }
 
+    }
+  }
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   const [newSubmitter, setSubmitter] = useState("");
@@ -49,7 +81,7 @@ function TutorInfo(props) {
   const [French, setFrench] = useState(false);
   const [Vietnamese, setVietnamese] = useState(false);
   const [Hmong, setHmong] = useState(false);
-  const [IsLangChecked, setIsLangChecked] = useState(true);
+  const [IsLangChecked, setIsLangChecked] = useState(false);
   const [otherLanguage, setotherLanguage] = useState();
   // ******** LANGUAGE CHECK BOXES **************
 
@@ -96,7 +128,7 @@ function TutorInfo(props) {
   };
 
   const changefirstName = () => {
-    console.log("in new name");
+    console.log("in new name", event.target.value);
     setNewFirstName(event.target.value);
   };
 
@@ -227,6 +259,7 @@ function TutorInfo(props) {
       newStudentInfo.school == null ||
       newStudentInfo.grade == "" ||
       newStudentInfo.grade == null ||
+
       (newStudentInfo.submitter == "ParentOrGuardian" &&
         (newStudentInfo.parentEmail === "" ||
           newStudentInfo.parentEmail === null ||
@@ -235,6 +268,7 @@ function TutorInfo(props) {
         (newStudentInfo.email === "" ||
           newStudentInfo.email === null ||
           newStudentInfo.email === undefined))
+
     ) {
       return alert(
         "At least one required field was empty. Please fill in the required fields before continuing."
@@ -268,6 +302,7 @@ function TutorInfo(props) {
                 name="studentOrParent"
                 value="Student"
                 onChange={(event) => changeSubmitter(event)}
+                checked={newSubmitter == 'Student'}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -284,6 +319,8 @@ function TutorInfo(props) {
                 name="studentOrParent"
                 value="ParentOrGuardian"
                 onChange={(event) => changeSubmitter(event)}
+                checked={newSubmitter == 'ParentOrGuardian'}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -304,10 +341,12 @@ function TutorInfo(props) {
               label="Parent/Guardian's Email"
               className="formInput"
             >
+
               <Form.Control
                 type="GuardianEmail"
                 placeholder="GuardianEmail"
                 value={newParentEmail}
+                defaultValue={newParentEmail}
                 onChange={(event) => changeParentEmail(event)}
               />
             </FloatingLabel>
@@ -328,12 +367,15 @@ function TutorInfo(props) {
               label="Student's Email"
               className="formInput"
             >
+
               <Form.Control
                 type="StudentEmail"
                 placeholder="Student Email"
                 value={newEmail}
+                defaultValue={newEmail}
                 onChange={(event) => changeEmail(event)}
               />
+
             </FloatingLabel>
           </div>
 
@@ -350,9 +392,12 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentPhone"
                 placeholder="Student's Phone Number"
+
+              defaultValue={newPhone}
                 value={newPhone}
                 onChange={(event) => changePhone(event)}
               />
+
             </FloatingLabel>
           </div>
 
@@ -369,6 +414,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentFirstName"
                 placeholder="Student First Name"
+                defaultValue={newFirstName} 
                 value={newFirstName}
                 onChange={(event) => changefirstName(event)}
               />
@@ -381,6 +427,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentLastName"
                 placeholder="Student Last Name"
+                defaultValue={newLastName}
                 value={newLastName}
                 onChange={(event) => changelastName(event)}
               />
@@ -394,9 +441,11 @@ function TutorInfo(props) {
               label="Student's Pronouns Ex:She/Her"
               className="formInput"
             >
+
               <Form.Control
                 type="Pronouns"
                 placeholder="Pronouns"
+defaultValue={Pronouns} 
                 value={Pronouns}
                 onChange={(event) => changePronouns(event)}
               />
@@ -416,6 +465,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentSchool"
                 placeholder="Student's School"
+              defaultValue={newSchool}
                 value={newSchool}
                 onChange={(event) => changeSchool(event)}
               />
@@ -434,6 +484,7 @@ function TutorInfo(props) {
               aria-label="gradeLevel"
               value={newGrade}
               onChange={(event) => changeGrade(event)}
+              defaultValue={newGrade}
             >
               <option value="">Select Student's Current Grade Level</option>
               <option value="prek_kindergarten">Pre-K/Kindergarten</option>
@@ -464,6 +515,8 @@ function TutorInfo(props) {
                 id="Spanish"
                 name="Spanish"
                 onChange={(event) => changeSpanish()}
+                checked={Spanish}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -479,6 +532,8 @@ function TutorInfo(props) {
                 id="Somali"
                 name="Somali"
                 onChange={(event) => changeSomali()}
+                checked={Somali}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -495,6 +550,8 @@ function TutorInfo(props) {
                 name="Arabic"
                 checked={Arabic}
                 onChange={(event) => changeArabic()}
+                checked={Arabic}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -510,6 +567,8 @@ function TutorInfo(props) {
                 id="Chinese"
                 name="Chinese"
                 onChange={(event) => changeChinese()}
+                checked={Chinese}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -525,6 +584,8 @@ function TutorInfo(props) {
                 id="Tagalog"
                 name="Tagalog"
                 onChange={(event) => changeTagalog()}
+                checked={Tagalog}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -540,6 +601,8 @@ function TutorInfo(props) {
                 id="French"
                 name="French"
                 onChange={(event) => changeFrench()}
+                checked={French}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -555,6 +618,8 @@ function TutorInfo(props) {
                 id="Vietnamese"
                 name="Vietnamese"
                 onChange={(event) => changeVietnamese()}
+                checked={Vietnamese}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -570,6 +635,8 @@ function TutorInfo(props) {
                 id="Hmong"
                 name="Hmong"
                 onChange={(event) => changeHmong()}
+                checked={Hmong}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -585,6 +652,8 @@ function TutorInfo(props) {
                 id="OtherLanguage"
                 name="OtherLanguage"
                 onChange={(e) => changeIsLangChecked(event.target.checked)}
+                checked={IsLangChecked}
+
               />
 
               <Form.Check.Label
@@ -594,7 +663,7 @@ function TutorInfo(props) {
                 Other
               </Form.Check.Label>
 
-              <fieldset disabled={IsLangChecked}>
+              <fieldset disabled={IsLangChecked == false}>
                 <FloatingLabel
                   controlID="OtherLanguage"
                   label="Other Language"
@@ -604,7 +673,7 @@ function TutorInfo(props) {
                   <Form.Control
                     type="OtherLanguage"
                     placeholder="Other Language"
-                  />
+                    defaultValue={otherLanguage} />
                 </FloatingLabel>
               </fieldset>
             </Form.Check>
@@ -618,7 +687,7 @@ function TutorInfo(props) {
           </Button>
         </div>
       </Container>
-    </div>
+    </div >
   );
 }
 
