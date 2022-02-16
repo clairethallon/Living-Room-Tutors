@@ -411,7 +411,7 @@ h3 {
 }
 
 .languageFilterDropdown {
-  width: 10%;
+  width: 180px !important;
 }
 
 /* .nav-link {
