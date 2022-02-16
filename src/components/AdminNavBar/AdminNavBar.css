@@ -25,6 +25,10 @@
   width: 280px;
 }
 
+.navTitleSpan {
+  margin-top: 2px;
+}
+
 .LRTHeaderContainer {
   display: flex;
   justify-content: center;

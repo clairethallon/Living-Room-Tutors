@@ -43,7 +43,7 @@ function AdminNavBar() {
               <div className="middleDivBackground">
                 <div className="middleNavDiv">
                   <div className="tuteeIcon"></div>
-                  Tutees
+                  <span className="navTitleSpan">Tutees</span>
                 </div>
               </div>
               <div className="bottomNavDiv"></div>
@@ -58,7 +58,7 @@ function AdminNavBar() {
               <div className="middleDivBackground">
                 <div className="middleNavDiv">
                   <div className="tutorIcon"></div>
-                  Tutors
+                  <span className="navTitleSpan">Tutors</span>
                 </div>
               </div>
               <div className="bottomNavDiv"></div>
@@ -73,7 +73,7 @@ function AdminNavBar() {
               <div className="middleDivBackground">
                 <div className="middleNavDiv">
                   <div className="recordsIcon"></div>
-                  Records
+                  <span className="navTitleSpan">Records</span>
                 </div>
               </div>
               <div className="bottomNavDiv"></div>
