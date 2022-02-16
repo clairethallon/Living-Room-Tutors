@@ -218,12 +218,11 @@ function StudentSubjects(props) {
                 controlId="secondarySubject"
                 label="Student's 2nd Choice"
                 className="selectInput subjectOptions"
-                onChange={(event) => changeSecondarySubject(event)}
-                value={newSecondarySubject}
               >
                 <Form.Select
                   aria-label="Student's 2nd Choice"
                   value={newSecondarySubject}
+                  onChange={(event) => changeSecondarySubject(event)}
                 >
                   <option value="">Select</option>
                   <option value="1">K-5 Math</option>
@@ -381,7 +380,6 @@ function StudentSubjects(props) {
                 controlId="DetailedNeeds"
                 label="Details of tutoring needs"
                 className="textInput"
-                onChange={(event) => changeDetailedNeeds(event)}
               >
                 <Form.Control
                   className="textArea"
@@ -389,6 +387,7 @@ function StudentSubjects(props) {
                   placeholder="Details of tutoring needs"
                   style={{ height: "100px" }}
                   value={newDetailedNeeds}
+                  onChange={(event) => changeDetailedNeeds(event)}
                 />
               </FloatingLabel>
             </div>

@@ -86,6 +86,7 @@ function TutorInfo(props) {
       setNewPhone("1234567890");
       setNewSchool("Franklin Elementary School");
       setNewGrade("2nd");
+      setArabic(true);
     }
   };
 
@@ -302,12 +303,12 @@ function TutorInfo(props) {
               controlID="GuardianEmail"
               label="Parent/Guardian's Email"
               className="formInput"
-              onChange={(event) => changeParentEmail(event)}
             >
               <Form.Control
                 type="GuardianEmail"
                 placeholder="GuardianEmail"
                 value={newParentEmail}
+                onChange={(event) => changeParentEmail(event)}
               />
             </FloatingLabel>
           </div>
@@ -326,12 +327,12 @@ function TutorInfo(props) {
               controlID="StudentEmail"
               label="Student's Email"
               className="formInput"
-              onChange={(event) => changeEmail(event)}
             >
               <Form.Control
                 type="StudentEmail"
                 placeholder="Student Email"
                 value={newEmail}
+                onChange={(event) => changeEmail(event)}
               />
             </FloatingLabel>
           </div>
@@ -345,12 +346,12 @@ function TutorInfo(props) {
               controlID="StudentPhone"
               label="Student/Guardian Phone Number"
               className="formInput"
-              onChange={(event) => changePhone(event)}
             >
               <Form.Control
                 type="StudentPhone"
                 placeholder="Student's Phone Number"
                 value={newPhone}
+                onChange={(event) => changePhone(event)}
               />
             </FloatingLabel>
           </div>
@@ -364,24 +365,24 @@ function TutorInfo(props) {
               controlID="StudentFirstName"
               label="Student's First Name"
               className="formInput firstName"
-              onChange={(event) => changefirstName(event)}
             >
               <Form.Control
                 type="StudentFirstName"
                 placeholder="Student First Name"
                 value={newFirstName}
+                onChange={(event) => changefirstName(event)}
               />
             </FloatingLabel>
             <FloatingLabel
               controlID="StudentLastName"
               label="Student's Last Name"
               className="formInput"
-              onChange={(event) => changelastName(event)}
             >
               <Form.Control
                 type="StudentLastName"
                 placeholder="Student Last Name"
                 value={newLastName}
+                onChange={(event) => changelastName(event)}
               />
             </FloatingLabel>
           </div>
@@ -392,12 +393,12 @@ function TutorInfo(props) {
               controlID="Pronouns"
               label="Student's Pronouns Ex:She/Her"
               className="formInput"
-              onChange={(event) => changePronouns(event)}
             >
               <Form.Control
                 type="Pronouns"
                 placeholder="Pronouns"
                 value={Pronouns}
+                onChange={(event) => changePronouns(event)}
               />
             </FloatingLabel>
           </div>
@@ -411,12 +412,12 @@ function TutorInfo(props) {
               controlID="StudentSchool"
               label="Student's School"
               className="formInput"
-              onChange={(event) => changeSchool(event)}
             >
               <Form.Control
                 type="StudentSchool"
                 placeholder="Student's School"
                 value={newSchool}
+                onChange={(event) => changeSchool(event)}
               />
             </FloatingLabel>
           </div>
@@ -492,6 +493,7 @@ function TutorInfo(props) {
                 type="checkbox"
                 id="Arabic"
                 name="Arabic"
+                checked={Arabic}
                 onChange={(event) => changeArabic()}
               />
               <Form.Check.Label

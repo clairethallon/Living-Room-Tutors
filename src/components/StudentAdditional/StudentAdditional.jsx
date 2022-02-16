@@ -17,13 +17,13 @@ function StudentAdditional(props) {
   const [newAdditionalInfo, setNewAdditionalInfo] = useState();
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
-  useEffect(()=>{ 
-    scrollToTop ();
-    }, []);
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
-    const scrollToTop = () => {
-      window.scrollTo(0, 0);
-    };
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   const changeAdditionalInfo = () => {
     console.log("in any additional info");
@@ -57,12 +57,12 @@ function StudentAdditional(props) {
                 controlId="AdditionalInfo"
                 label="Additional Info"
                 className="textInput"
-                onChange={(event) => changeAdditionalInfo(event)}
               >
                 <Form.Control
                   as="textarea"
                   className="additionalTextArea"
                   placeholder="Additional Info"
+                  onChange={(event) => changeAdditionalInfo(event)}
                 />
               </FloatingLabel>
             </div>

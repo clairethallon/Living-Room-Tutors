@@ -15,6 +15,8 @@ function StudentAdditional(props) {
   const [heading, setHeading] = useState("Tutor Additional Info");
   const history = useHistory();
 
+  const presenting = true;
+
   const [newutorAdditionalInfo, setNewTutorAdditionalInfo] = useState();
 
   useEffect(() => {
@@ -23,6 +25,14 @@ function StudentAdditional(props) {
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
+  };
+
+  const setDefaults = () => {
+    if (presenting) {
+      setNewTutorAdditionalInfo(
+        "I took AP US History last year and scored a 4 on the test, so I would be useful in providing thorough explanations and tips on how the test will go. I am verbally fluent in Arabic and can communicate with multiple dialects. If I do run into some difficulty somehow, my mother is 100% fluent in Arabic (verbal/reading/writing), so there will always be help."
+      );
+    }
   };
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
@@ -49,7 +59,7 @@ function StudentAdditional(props) {
           <TutorProgressBar />
           <div className="formContent">
             <div className="formQandA">
-              <p>
+              <p onClick={setDefaults}>
                 Is there any additional information you would like to provide?
               </p>
               <FloatingLabel
@@ -62,6 +72,7 @@ function StudentAdditional(props) {
                   as="textarea"
                   placeholder="Additional Info"
                   className="additionalTextArea"
+                  value={newutorAdditionalInfo}
                 />
               </FloatingLabel>
             </div>
