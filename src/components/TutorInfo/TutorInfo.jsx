@@ -18,22 +18,24 @@ function TutorInfo(props) {
   const store = useSelector((store) => store);
   const newtutorInfo = useSelector((store) => store.newtutorInfo);
 
-  useEffect(()=>{ 
-    scrollToTop ();
-    }, []);
+  const presenting = true;
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
 
-  const [newTutorFirstName, setNewTutorFirstName] = useState();
-  const [newTutorLastName, setNewTutorLastName] = useState();
-  const [newTutorEmail, setNewEmail] = useState();
+  const [newTutorFirstName, setNewTutorFirstName] = useState("");
+  const [newTutorLastName, setNewTutorLastName] = useState("");
+  const [newTutorEmail, setNewEmail] = useState("");
   const [Pronouns, setPronouns] = useState("");
-  const [newTutorPhone, setNewTutorPhone] = useState();
-  const [newGrade, setNewGrade] = useState();
+  const [newTutorPhone, setNewTutorPhone] = useState("");
+  const [newGrade, setNewGrade] = useState("");
 
-  const [newTutorSchool, setNewTutorSchool] = useState();
+  const [newTutorSchool, setNewTutorSchool] = useState("");
   const [changeOtherField, setOtherField] = useState(false);
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
@@ -94,18 +96,30 @@ function TutorInfo(props) {
     setNewTutorSchool(event.target.value);
   };
 
-  const AddNewTutorInfo = () => {
-    //package up new info in object
-    const newTutorInfo = {
-      firstName: newTutorFirstName,
-      lastName: newTutorLastName,
-      email: newTutorEmail,
-      pronouns: Pronouns,
-      phone: newTutorPhone,
-      grade: newGrade,
-      school: newTutorSchool,
-    };
+  const setDefaults = () => {
+    if (presenting) {
+      setNewTutorFirstName("Adeline");
+      setNewTutorLastName("Chapman");
+      setNewEmail("miriammcnamara@icloud.com");
+      setPronouns("she/they");
+      setNewTutorPhone("1234567890");
+      setNewGrade("Junior");
+      setNewTutorSchool("Century High School");
+    }
+  };
 
+  //package up new info in object
+  const newTutorInfo = {
+    firstName: newTutorFirstName,
+    lastName: newTutorLastName,
+    email: newTutorEmail,
+    pronouns: Pronouns,
+    phone: newTutorPhone,
+    grade: newGrade,
+    school: newTutorSchool,
+  };
+
+  const AddNewTutorInfo = () => {
     if (
       newTutorInfo.firstName == "" ||
       newTutorInfo.firstName == null ||
@@ -136,24 +150,32 @@ function TutorInfo(props) {
         <TutorProgressBar />
         <div className="formContent">
           <div className="formQandA">
-            <p>
+            <p onClick={setDefaults}>
               What is your name? <span className="requiredField"> *</span>
             </p>
             <FloatingLabel
               controlID="FirstName"
               label="First Name"
               className="formInput"
-              onChange={(event) => changeTutorFirstName(event)}
             >
-              <Form.Control type="FirstName" placeholder="First Name" />
+              <Form.Control
+                type="FirstName"
+                placeholder="First Name"
+                value={newTutorFirstName}
+                onChange={(event) => changeTutorFirstName(event)}
+              />
             </FloatingLabel>
             <FloatingLabel
               controlID="LastName"
               label="Last Name"
               className="formInput"
-              onChange={(event) => changeTutorLastName(event)}
             >
-              <Form.Control type="LastName" placeholder="Last Name" />
+              <Form.Control
+                type="LastName"
+                placeholder="Last Name"
+                value={newTutorLastName}
+                onChange={(event) => changeTutorLastName(event)}
+              />
             </FloatingLabel>
           </div>
 
@@ -163,9 +185,13 @@ function TutorInfo(props) {
               controlID="Pronouns"
               label="Pronouns Ex:She/Her"
               className="formInput"
-              onChange={(event) => changePronouns(event)}
             >
-              <Form.Control type="Pronouns" placeholder="Pronouns" />
+              <Form.Control
+                type="Pronouns"
+                placeholder="Pronouns"
+                value={Pronouns}
+                onChange={(event) => changePronouns(event)}
+              />
             </FloatingLabel>
           </div>
 
@@ -183,9 +209,13 @@ function TutorInfo(props) {
               controlID="Email"
               label="Email"
               className="formInput"
-              onChange={(event) => changeTutorEmail(event)}
             >
-              <Form.Control type="Email" placeholder="Email" />
+              <Form.Control
+                type="Email"
+                placeholder="Email"
+                value={newTutorEmail}
+                onChange={(event) => changeTutorEmail(event)}
+              />
             </FloatingLabel>
           </div>
 
@@ -198,9 +228,13 @@ function TutorInfo(props) {
               controlID="Phone"
               label="Phone Number"
               className="formInput"
-              onChange={(event) => changeTutorPhone(event)}
             >
-              <Form.Control type="Phone" placeholder="Phone" />
+              <Form.Control
+                type="Phone"
+                placeholder="Phone"
+                value={newTutorPhone}
+                onChange={(event) => changeTutorPhone(event)}
+              />
             </FloatingLabel>
           </div>
 
@@ -213,6 +247,7 @@ function TutorInfo(props) {
               className="selectGradeDropdown"
               id="gradeLevel"
               aria-label="gradeLevel"
+              value={newGrade}
               onChange={(event) => changeTutorGrade(event)}
             >
               <option value="">Select your current grade level</option>
@@ -234,6 +269,7 @@ function TutorInfo(props) {
               id="schoolAttending"
               className="selectGradeDropdown"
               label="Current School"
+              value={newTutorSchool}
               onChange={(event) => changeTutorSchool(event)}
               aria-label="schoolAttending"
             >
@@ -261,9 +297,12 @@ function TutorInfo(props) {
                   controlID="OtherSchool"
                   label="School Name"
                   className="formInput"
-                  onChange={(event) => changeOtherSchool(event)}
                 >
-                  <Form.Control type="OtherSchool" placeholder="OtherSchool" />
+                  <Form.Control
+                    type="OtherSchool"
+                    placeholder="OtherSchool"
+                    onChange={(event) => changeOtherSchool(event)}
+                  />
                 </FloatingLabel>
               </>
             ) : (

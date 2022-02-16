@@ -10,7 +10,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useHistory } from "react-router-dom";
 
-
 function TutorInfo(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
@@ -18,6 +17,8 @@ function TutorInfo(props) {
     (store) => store.newStudent.newstudentInfoReducer
   );
   const history = useHistory();
+
+  const presenting = true;
 
   useEffect(() => {
     scrollToTop();
@@ -61,15 +62,15 @@ function TutorInfo(props) {
   }
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
-  const [newSubmitter, setSubmitter] = useState();
-  const [newFirstName, setNewFirstName] = useState();
-  const [newLastName, setNewLastName] = useState();
-  const [newParentEmail, setNewParentEmail] = useState();
-  const [newEmail, setNewEmail] = useState();
-  const [Pronouns, setPronouns] = useState(null);
-  const [newPhone, setNewPhone] = useState();
-  const [newSchool, setNewSchool] = useState();
-  const [newGrade, setNewGrade] = useState();
+  const [newSubmitter, setSubmitter] = useState("");
+  const [newFirstName, setNewFirstName] = useState("");
+  const [newLastName, setNewLastName] = useState("");
+  const [newParentEmail, setNewParentEmail] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [Pronouns, setPronouns] = useState("");
+  const [newPhone, setNewPhone] = useState("");
+  const [newSchool, setNewSchool] = useState("");
+  const [newGrade, setNewGrade] = useState("");
 
   // ******** LANGUAGE CHECK BOXES **************
   const [Spanish, setSpanish] = useState(false);
@@ -83,6 +84,43 @@ function TutorInfo(props) {
   const [IsLangChecked, setIsLangChecked] = useState(false);
   const [otherLanguage, setotherLanguage] = useState();
   // ******** LANGUAGE CHECK BOXES **************
+
+  // ******** NEWSTUDENTINFO OBJECT **************
+  const newStudentInfo = {
+    submitter: newSubmitter,
+    firstName: newFirstName,
+    lastName: newLastName,
+    parentEmail: newParentEmail,
+    email: newEmail,
+    Pronouns: Pronouns,
+    phone: newPhone,
+    school: newSchool,
+    grade: newGrade,
+    Spanish: Spanish,
+    Somali: Somali,
+    Arabic: Arabic,
+    Chinese: Chinese,
+    Tagalog: Tagalog,
+    French: French,
+    Vietnamese: Vietnamese,
+    Hmong: Hmong,
+    otherLanguage: otherLanguage,
+  };
+
+  const setDefaults = () => {
+    if (presenting) {
+      setSubmitter("parentOrGuardian");
+      setNewFirstName("Molly");
+      setNewLastName("Randall");
+      setNewParentEmail("miriammcnamara@icloud.com");
+      setNewEmail("miriammcnamara@icloud.com");
+      setPronouns("she/her");
+      setNewPhone("1234567890");
+      setNewSchool("Franklin Elementary School");
+      setNewGrade("2nd");
+      setArabic(true);
+    }
+  };
 
   const changeSubmitter = () => {
     console.log("in new submitter", event.target.value);
@@ -189,27 +227,6 @@ function TutorInfo(props) {
 
   const AddNewStudentInfo = () => {
     console.log("in AddNewTutorInfo");
-    //package up new student info in object
-    const newStudentInfo = {
-      submitter: newSubmitter,
-      firstName: newFirstName,
-      lastName: newLastName,
-      parentEmail: newParentEmail,
-      email: newEmail,
-      Pronouns: Pronouns,
-      phone: newPhone,
-      school: newSchool,
-      grade: newGrade,
-      Spanish: Spanish,
-      Somali: Somali,
-      Arabic: Arabic,
-      Chinese: Chinese,
-      Tagalog: Tagalog,
-      French: French,
-      Vietnamese: Vietnamese,
-      Hmong: Hmong,
-      otherLanguage: otherLanguage,
-    };
 
     // if (newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === "" ){
     //   return alert("Please include a Parent or Guardian email.")}
@@ -217,8 +234,6 @@ function TutorInfo(props) {
     //     return alert("Please include a Parent or Guardian email.")}
     //     else if(newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === undefined){
     //       return alert("Please include a Parent or Guardian email.")}
-
-
 
     // let parent = false
     // if (newStudentInfo.submitter = "ParentOrGuardian"){
@@ -228,8 +243,6 @@ function TutorInfo(props) {
     // if(newStudentInfo.parentEmail === "" || newStudentInfo.parentEmail === null || newStudentInfo.parentEmail === undefined ){
     //   parentEmail === true
     // }
-
-
 
     if (
       newStudentInfo.submitter == "" ||
@@ -246,8 +259,16 @@ function TutorInfo(props) {
       newStudentInfo.school == null ||
       newStudentInfo.grade == "" ||
       newStudentInfo.grade == null ||
-      (newStudentInfo.submitter == "ParentOrGuardian" && (newStudentInfo.parentEmail === "" || newStudentInfo.parentEmail === null || newStudentInfo.parentEmail === undefined)) ||
-      (newStudentInfo.submitter == "Student" && (newStudentInfo.email === "" || newStudentInfo.email === null || newStudentInfo.email === undefined))
+
+      (newStudentInfo.submitter == "ParentOrGuardian" &&
+        (newStudentInfo.parentEmail === "" ||
+          newStudentInfo.parentEmail === null ||
+          newStudentInfo.parentEmail === undefined)) ||
+      (newStudentInfo.submitter == "Student" &&
+        (newStudentInfo.email === "" ||
+          newStudentInfo.email === null ||
+          newStudentInfo.email === undefined))
+
     ) {
       return alert(
         "At least one required field was empty. Please fill in the required fields before continuing."
@@ -267,7 +288,7 @@ function TutorInfo(props) {
       <Container className="formContainer">
         <ProgressBar />
         <div className="formContent">
-          <div className="formQandA">
+          <div className="formQandA" onClick={setDefaults}>
             <p>
               Please indicate if you are you a student registering yourself or
               are a parent/guardian/teacher registering on behalf of a student:
@@ -319,10 +340,15 @@ function TutorInfo(props) {
               controlID="GuardianEmail"
               label="Parent/Guardian's Email"
               className="formInput"
-              onChange={(event) => changeParentEmail(event)}
             >
-              <Form.Control type="GuardianEmail" placeholder="GuardianEmail"
-                defaultValue={newParentEmail} />
+
+              <Form.Control
+                type="GuardianEmail"
+                placeholder="GuardianEmail"
+                value={newParentEmail}
+                defaultValue={newParentEmail}
+                onChange={(event) => changeParentEmail(event)}
+              />
             </FloatingLabel>
           </div>
 
@@ -340,10 +366,16 @@ function TutorInfo(props) {
               controlID="StudentEmail"
               label="Student's Email"
               className="formInput"
-              onChange={(event) => changeEmail(event)}
             >
-              <Form.Control type="StudentEmail" placeholder="Student Email"
-                defaultValue={newEmail} />
+
+              <Form.Control
+                type="StudentEmail"
+                placeholder="Student Email"
+                value={newEmail}
+                defaultValue={newEmail}
+                onChange={(event) => changeEmail(event)}
+              />
+
             </FloatingLabel>
           </div>
 
@@ -356,12 +388,16 @@ function TutorInfo(props) {
               controlID="StudentPhone"
               label="Student/Guardian Phone Number"
               className="formInput"
-              onChange={(event) => changePhone(event)}
             >
               <Form.Control
                 type="StudentPhone"
                 placeholder="Student's Phone Number"
-                defaultValue={newPhone} />
+
+              defaultValue={newPhone}
+                value={newPhone}
+                onChange={(event) => changePhone(event)}
+              />
+
             </FloatingLabel>
           </div>
 
@@ -374,23 +410,27 @@ function TutorInfo(props) {
               controlID="StudentFirstName"
               label="Student's First Name"
               className="formInput firstName"
-              onChange={(event) => changefirstName(event)}
             >
               <Form.Control
                 type="StudentFirstName"
                 placeholder="Student First Name"
-                defaultValue={newFirstName} />
+                defaultValue={newFirstName} 
+                value={newFirstName}
+                onChange={(event) => changefirstName(event)}
+              />
             </FloatingLabel>
             <FloatingLabel
               controlID="StudentLastName"
               label="Student's Last Name"
               className="formInput"
-              onChange={(event) => changelastName(event)}
             >
               <Form.Control
                 type="StudentLastName"
                 placeholder="Student Last Name"
-                defaultValue={newLastName} />
+                defaultValue={newLastName}
+                value={newLastName}
+                onChange={(event) => changelastName(event)}
+              />
             </FloatingLabel>
           </div>
 
@@ -400,10 +440,15 @@ function TutorInfo(props) {
               controlID="Pronouns"
               label="Student's Pronouns Ex:She/Her"
               className="formInput"
-              onChange={(event) => changePronouns(event)}
             >
-              <Form.Control type="Pronouns" placeholder="Pronouns"
-                defaultValue={Pronouns} />
+
+              <Form.Control
+                type="Pronouns"
+                placeholder="Pronouns"
+defaultValue={Pronouns} 
+                value={Pronouns}
+                onChange={(event) => changePronouns(event)}
+              />
             </FloatingLabel>
           </div>
 
@@ -416,12 +461,14 @@ function TutorInfo(props) {
               controlID="StudentSchool"
               label="Student's School"
               className="formInput"
-              onChange={(event) => changeSchool(event)}
             >
               <Form.Control
                 type="StudentSchool"
                 placeholder="Student's School"
-                defaultValue={newSchool} />
+              defaultValue={newSchool}
+                value={newSchool}
+                onChange={(event) => changeSchool(event)}
+              />
             </FloatingLabel>
           </div>
 
@@ -435,6 +482,7 @@ function TutorInfo(props) {
               id="gradeLevel"
               className="selectGradeDropdown"
               aria-label="gradeLevel"
+              value={newGrade}
               onChange={(event) => changeGrade(event)}
               defaultValue={newGrade}
             >
@@ -500,6 +548,7 @@ function TutorInfo(props) {
                 type="checkbox"
                 id="Arabic"
                 name="Arabic"
+                checked={Arabic}
                 onChange={(event) => changeArabic()}
                 checked={Arabic}
 

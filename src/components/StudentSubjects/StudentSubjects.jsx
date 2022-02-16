@@ -13,6 +13,8 @@ function StudentSubjects(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const presenting = true;
+
   useEffect(() => {
     scrollToTop();
   }, []);
@@ -34,6 +36,17 @@ function StudentSubjects(props) {
   const [newTertiarySubject, setNewTertiarySubject] = useState(null);
 
   const [newDetailedNeeds, setNewDetailedNeeds] = useState("");
+
+  const setDefaults = () => {
+    if (presenting) {
+      console.log("in setDefaults");
+      // setSubmitter("parentOrGuardian");
+      setNewPrimarySubject("2");
+      setNewSecondarySubject("1");
+      setNewTertiarySubject("3");
+      setNewDetailedNeeds("general support with homework");
+    }
+  };
 
   // ************ Primary Subject Change ************
   const changePrimarySubject = () => {
@@ -123,7 +136,7 @@ function StudentSubjects(props) {
           <ProgressBar />
           <div className="formContent">
             <div className="formQandA">
-              <p>
+              <p onClick={setDefaults}>
                 In what subjects does the student need support?{" "}
                 <span className="requiredField"> *</span>
               </p>
@@ -135,6 +148,7 @@ function StudentSubjects(props) {
                 <Form.Select
                   onChange={(event) => changePrimarySubject(event)}
                   aria-label="Student's 1st Choice"
+                  value={newPrimarySubject}
                 >
                   <option value="">Select</option>
                   <option value="1">K-5 Math</option>
@@ -204,9 +218,12 @@ function StudentSubjects(props) {
                 controlId="secondarySubject"
                 label="Student's 2nd Choice"
                 className="selectInput subjectOptions"
-                onChange={(event) => changeSecondarySubject(event)}
               >
-                <Form.Select aria-label="Student's 2nd Choice">
+                <Form.Select
+                  aria-label="Student's 2nd Choice"
+                  value={newSecondarySubject}
+                  onChange={(event) => changeSecondarySubject(event)}
+                >
                   <option value="">Select</option>
                   <option value="1">K-5 Math</option>
                   <option value="2">K-5 Reading</option>
@@ -279,6 +296,7 @@ function StudentSubjects(props) {
                 <Form.Select
                   onChange={(event) => changeTertiarySubject(event)}
                   aria-label="Student's 3rd Choice"
+                  value={newTertiarySubject}
                 >
                   <option value="">Select</option>
                   <option value="1">K-5 Math</option>
@@ -362,13 +380,14 @@ function StudentSubjects(props) {
                 controlId="DetailedNeeds"
                 label="Details of tutoring needs"
                 className="textInput"
-                onChange={(event) => changeDetailedNeeds(event)}
               >
                 <Form.Control
                   className="textArea"
                   as="textarea"
                   placeholder="Details of tutoring needs"
                   style={{ height: "100px" }}
+                  value={newDetailedNeeds}
+                  onChange={(event) => changeDetailedNeeds(event)}
                 />
               </FloatingLabel>
             </div>

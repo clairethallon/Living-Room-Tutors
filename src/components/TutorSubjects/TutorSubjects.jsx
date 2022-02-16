@@ -14,6 +14,36 @@ function TutorSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
 
+  const presenting = true;
+
+  const setDefaults = () => {
+    if (presenting) {
+      setPreK(true);
+      setFirstGrade(true);
+      setSecondGrade(true);
+      setThirdGrade(true);
+      setFourthGrade(true);
+      setFifthGrade(true);
+      setSixthGrade(true);
+      setSeventhGrade(true);
+      setEighthGrade(true);
+      setNinthGrade(true);
+      setTenthGrade(true);
+      setEleventhGrade(true);
+      setTwelfthGrade(true);
+      setK5Math(true);
+      setK5Reading(true);
+      setK5EnglishWriting(true);
+      setK5SocialStudies(true);
+      setK5Science(true);
+      setSixToEightLanguageArts(true);
+      setSixToEightScience(true);
+      setSixToEightSocialStudies(true);
+      setAPHonorsUSHistory(true);
+      setArabic(true);
+    }
+  };
+
   const history = useHistory();
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
@@ -582,7 +612,7 @@ function TutorSubjects(props) {
         <TutorProgressBar />
         <div className="formContent">
           <div className="formQandA">
-            <p>
+            <p onClick={setDefaults}>
               What grade levels are you comfortable tutoring/mentoring?{" "}
               <span className="requiredField"> *</span>
             </p>
@@ -593,6 +623,7 @@ function TutorSubjects(props) {
                 id="Pre-K/Kindergarten"
                 name="Pre-K/Kindergarten"
                 onChange={(event) => changePreK()}
+                checked={PreK}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -608,6 +639,7 @@ function TutorSubjects(props) {
                 id="1st Grade"
                 name="1st Grade"
                 onChange={(event) => changeFirstGrade()}
+                checked={FirstGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -623,6 +655,7 @@ function TutorSubjects(props) {
                 id="2nd Grade"
                 name="2nd Grade"
                 onChange={(event) => changeSecondGrade()}
+                checked={SecondGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -638,6 +671,7 @@ function TutorSubjects(props) {
                 id="3rd Grade"
                 name="3rd Grade"
                 onChange={(event) => changeThirdGrade()}
+                checked={ThirdGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -653,6 +687,7 @@ function TutorSubjects(props) {
                 id="4th Grade"
                 name="4th Grade"
                 onChange={(event) => changeFourthGrade()}
+                checked={FourthGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -668,6 +703,7 @@ function TutorSubjects(props) {
                 id="5th Grade"
                 name="5th Grade"
                 onChange={(event) => changeFifthGrade()}
+                checked={FifthGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -683,6 +719,7 @@ function TutorSubjects(props) {
                 id="6th Grade"
                 name="6th Grade"
                 onChange={(event) => changeSixthGrade()}
+                checked={SixthGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -698,6 +735,7 @@ function TutorSubjects(props) {
                 id="7th Grade"
                 name="7th Grade"
                 onChange={(event) => changeSeventhGrade()}
+                checked={SeventhGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -713,6 +751,7 @@ function TutorSubjects(props) {
                 id="8th Grade"
                 name="8th Grade"
                 onChange={(event) => changeEighthGrade()}
+                checked={EighthGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -728,6 +767,7 @@ function TutorSubjects(props) {
                 id="9th Grade"
                 name="9th Grade"
                 onChange={(event) => changeNinthGrade()}
+                checked={NinthGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -743,6 +783,7 @@ function TutorSubjects(props) {
                 id="10th Grade"
                 name="10th Grade"
                 onChange={(event) => changeTenthGrade()}
+                checked={TenthGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -758,6 +799,7 @@ function TutorSubjects(props) {
                 id="11th Grade"
                 name="11th Grade"
                 onChange={(event) => changeEleventhGrade()}
+                checked={EleventhGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -773,6 +815,7 @@ function TutorSubjects(props) {
                 id="12th Grade"
                 name="12th Grade"
                 onChange={(event) => changeTwelfthGrade()}
+                checked={TwelfthGrade}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -795,6 +838,7 @@ function TutorSubjects(props) {
                 id="K-5 Math"
                 name="K-5 Math"
                 onChange={(event) => changeK5Math()}
+                checked={K5Math}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -809,6 +853,7 @@ function TutorSubjects(props) {
                 id="K-5 Reading"
                 name="K-5 Reading"
                 onChange={(event) => changeK5Reading()}
+                checked={K5Reading}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -823,6 +868,7 @@ function TutorSubjects(props) {
                 id="K-5 English/Writing"
                 name="K-5 English/Writing"
                 onChange={(event) => changeK5EnglishWriting()}
+                checked={K5EnglishWriting}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -838,6 +884,7 @@ function TutorSubjects(props) {
                 id="K-5 Social Studies"
                 name="K-5 Social Studies"
                 onChange={(event) => changeK5SocialStudies()}
+                checked={K5SocialStudies}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -853,6 +900,7 @@ function TutorSubjects(props) {
                 id="K-5 Science"
                 name="K-5 Science"
                 onChange={(event) => changeK5Science()}
+                checked={K5Science}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -868,6 +916,7 @@ function TutorSubjects(props) {
                 id="6-8th Language Arts"
                 name="6-8th Language Arts"
                 onChange={(event) => changeSixToEightLanguageArts()}
+                checked={SixToEightLanguageArts}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -883,6 +932,7 @@ function TutorSubjects(props) {
                 id="6-8th Science"
                 name="6-8th Science"
                 onChange={(event) => changeSixToEightScience()}
+                checked={SixToEightScience}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -898,6 +948,7 @@ function TutorSubjects(props) {
                 id="6-8th Social Studies"
                 name="6-8th Social Studies"
                 onChange={(event) => changeSixToEightSocialStudies()}
+                checked={SixToEightSocialStudies}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -911,8 +962,9 @@ function TutorSubjects(props) {
               <Form.Check.Input
                 type="checkbox"
                 id="Math: Pre-Algebra"
-                name="K-5 Science"
+                name="Math: Pre-Algebra"
                 onChange={(event) => changeMathPreAlgebra()}
+                checked={MathPreAlgebra}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -928,6 +980,7 @@ function TutorSubjects(props) {
                 id="Math: Algebra 1/Linear Algebra"
                 name="Math: Algebra 1/Linear Algebra"
                 onChange={(event) => changeMathLinearAlgebra()}
+                checked={MathLinearAlgebra}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -943,6 +996,7 @@ function TutorSubjects(props) {
                 id="Math: Algebra II"
                 name="Math: Algebra II"
                 onChange={(event) => changeMathAlgebraII()}
+                checked={MathAlgebraII}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -958,6 +1012,7 @@ function TutorSubjects(props) {
                 id="Math: Geometry"
                 name="Math: Geometry"
                 onChange={(event) => changeMathGeometry()}
+                checked={MathGeometry}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -973,6 +1028,7 @@ function TutorSubjects(props) {
                 id="Math: Precalculus/Trigonometry"
                 name="Math: Precalculus/Trigonometry"
                 onChange={(event) => changeMathPrecalculusTrigonometry()}
+                checked={MathPrecalculusTrigonometry}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -988,6 +1044,7 @@ function TutorSubjects(props) {
                 id="Science: Biology/Life Sciences"
                 name="Science: Biology/Life Sciences"
                 onChange={(event) => changeBiologyLifeSciences()}
+                checked={BiologyLifeSciences}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1003,6 +1060,7 @@ function TutorSubjects(props) {
                 id="Science: Chemistry"
                 name="Science: Chemistry"
                 onChange={(event) => changeScienceChemistry()}
+                checked={ScienceChemistry}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1018,6 +1076,7 @@ function TutorSubjects(props) {
                 id="Science: Physics"
                 name="Science: Physics"
                 onChange={(event) => changeSciencePhysics()}
+                checked={SciencePhysics}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1033,6 +1092,7 @@ function TutorSubjects(props) {
                 id="Science: Computer Science"
                 name="Science: Computer Science"
                 onChange={(event) => changeComputerScience()}
+                checked={ComputerScience}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1047,7 +1107,7 @@ function TutorSubjects(props) {
                 type="checkbox"
                 id="Language: Chinese"
                 name="Language: Chinese"
-                onChange={(event) => changeLanguageChinese()}
+                checked={LanguageChinese}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1063,6 +1123,7 @@ function TutorSubjects(props) {
                 id="Language: Spanish"
                 name="Language: Spanish"
                 onChange={(event) => changeLanguageSpanish()}
+                checked={LanguageSpanish}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1078,6 +1139,7 @@ function TutorSubjects(props) {
                 id="Language: French"
                 name="Language: French"
                 onChange={(event) => changeLanguageFrench()}
+                checked={LanguageFrench}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1093,6 +1155,7 @@ function TutorSubjects(props) {
                 id="Language: German"
                 name="Language: German"
                 onChange={(event) => changeLanguageGerman()}
+                checked={LanguageGerman}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1108,6 +1171,7 @@ function TutorSubjects(props) {
                 id="History: World History"
                 name="History: World History"
                 onChange={(event) => changeWorldHistory()}
+                checked={WorldHistory}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1120,9 +1184,10 @@ function TutorSubjects(props) {
             <Form.Check type="radio">
               <Form.Check.Input
                 type="checkbox"
-                id="History: U.S. Historyn"
+                id="History: U.S. History"
                 name="History: U.S. History"
                 onChange={(event) => changeUSHistory()}
+                checked={USHistory}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1138,6 +1203,7 @@ function TutorSubjects(props) {
                 id="AP Honors Biology"
                 name="AP Honors Biology"
                 onChange={(event) => changeAPHonorsBiology()}
+                checked={APHonorsBiology}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1153,6 +1219,7 @@ function TutorSubjects(props) {
                 id="AP Honors Chemistry"
                 name="AP Honors Chemistry"
                 onChange={(event) => changeAPHonorsChemistry()}
+                checked={APHonorsChemistry}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1168,6 +1235,7 @@ function TutorSubjects(props) {
                 id="AP Honors Physics"
                 name="AP Honors Physics"
                 onChange={(event) => changeAPHonorsPhysics()}
+                checked={APHonorsPhysics}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1183,6 +1251,7 @@ function TutorSubjects(props) {
                 id="AP Honors Computer Science"
                 name="AP Honors Computer Science"
                 onChange={(event) => changeAPHonorsComputerScience()}
+                checked={APHonorsComputerScience}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1198,6 +1267,7 @@ function TutorSubjects(props) {
                 id="AP Honors Calculus AB"
                 name="AP Honors Calculus AB"
                 onChange={(event) => changeAPHonorsCalculusAB()}
+                checked={APHonorsCalculusAB}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1213,6 +1283,7 @@ function TutorSubjects(props) {
                 id="AP Honors Calculus BC"
                 name="AP Honors Calculus BC"
                 onChange={(event) => changeAPHonorsCalculusBC()}
+                checked={APHonorsCalculusBC}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1228,6 +1299,7 @@ function TutorSubjects(props) {
                 id="AP Honors Statistics"
                 name="AP Honors Statistics"
                 onChange={(event) => changeAPHonorsStatistics()}
+                checked={APHonorsStatistics}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1243,6 +1315,7 @@ function TutorSubjects(props) {
                 id="AP Honors English Literature and Composition"
                 name="AP Honors English Literature and Composition"
                 onChange={(event) => changeAPHonorsEnglishLiterature()}
+                checked={APHonorsEnglishLiterature}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1258,6 +1331,7 @@ function TutorSubjects(props) {
                 id="AP Honors English Language and Composition"
                 name="AP Honors English Language and Composition"
                 onChange={(event) => changeAPHonorsEnglishLanguage()}
+                checked={APHonorsEnglishLanguage}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1273,6 +1347,7 @@ function TutorSubjects(props) {
                 id="AP Honors Macroeconomics"
                 name="AP Honors Macroeconomics"
                 onChange={(event) => changeAPHonorsMacroeconomics()}
+                checked={APHonorsMacroeconomics}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1288,6 +1363,7 @@ function TutorSubjects(props) {
                 id="AP Honors Microeconomics"
                 name="AP Honors Microeconomics"
                 onChange={(event) => changeAPHonorsMicroeconomics()}
+                checked={APHonorsMicroeconomics}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1303,6 +1379,7 @@ function TutorSubjects(props) {
                 id="AP Honors Psychology"
                 name="AP Honors Psychology"
                 onChange={(event) => changeAPHonorsPsychology()}
+                checked={APHonorsPsychology}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1318,6 +1395,7 @@ function TutorSubjects(props) {
                 id="AP Honors United States History"
                 name="AP Honors United States History"
                 onChange={(event) => changeAPHonorsUSHistory()}
+                checked={APHonorsUSHistory}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1333,6 +1411,7 @@ function TutorSubjects(props) {
                 id="AP Honors Government and Politics"
                 name="AP Honors Government and Politics"
                 onChange={(event) => changeAPHonorsGovernmentPolitics()}
+                checked={APHonorsGovernmentPolitics}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1348,6 +1427,7 @@ function TutorSubjects(props) {
                 id="AP Honors Human Geography"
                 name="AP Honors Human Geography"
                 onChange={(event) => changeAPHonorsHumanGeography()}
+                checked={APHonorsHumanGeography}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1363,6 +1443,7 @@ function TutorSubjects(props) {
                 id="SAT Subject Tests"
                 name="SAT Subject Tests"
                 onChange={(event) => changeSATSubjectTests()}
+                checked={SATSubjectTests}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1378,6 +1459,7 @@ function TutorSubjects(props) {
                 id="SAT Prep"
                 name="SAT Prep"
                 onChange={(event) => changeSATPrep()}
+                checked={SATPrep}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1393,6 +1475,7 @@ function TutorSubjects(props) {
                 id="ACT Prep"
                 name="ACT Prep"
                 onChange={(event) => changeACTPrep()}
+                checked={ACTPrep}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1444,6 +1527,7 @@ function TutorSubjects(props) {
                 id="Arabic"
                 name="Arabic"
                 onChange={(event) => changeArabic()}
+                checked={Arabic}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
