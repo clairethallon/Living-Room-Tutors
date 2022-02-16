@@ -52,10 +52,11 @@ function TutorInfo(props) {
       setVietnamese(newstudentInfo.Vietnamese);
       setotherLanguage(newstudentInfo.otherLanguage);
       setTagalog(newstudentInfo.Tagalog);
+      if (newstudentInfo.otherLanguage != undefined && newstudentInfo.otherLanguage != "") {
+        console.log('WE IN HERE')
+        setIsLangChecked(true);
+      }
 
-
-
-      return true;
     }
   }
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
@@ -79,7 +80,7 @@ function TutorInfo(props) {
   const [French, setFrench] = useState(false);
   const [Vietnamese, setVietnamese] = useState(false);
   const [Hmong, setHmong] = useState(false);
-  const [IsLangChecked, setIsLangChecked] = useState(true);
+  const [IsLangChecked, setIsLangChecked] = useState(false);
   const [otherLanguage, setotherLanguage] = useState();
   // ******** LANGUAGE CHECK BOXES **************
 
@@ -435,7 +436,8 @@ function TutorInfo(props) {
               className="selectGradeDropdown"
               aria-label="gradeLevel"
               onChange={(event) => changeGrade(event)}
-              defaultValue={newGrade} >
+              defaultValue={newGrade}
+            >
               <option value="">Select Student's Current Grade Level</option>
               <option value="prek_kindergarten">Pre-K/Kindergarten</option>
               <option value="1st">1st Grade</option>
@@ -601,7 +603,7 @@ function TutorInfo(props) {
                 id="OtherLanguage"
                 name="OtherLanguage"
                 onChange={(e) => changeIsLangChecked(event.target.checked)}
-                checked={otherLanguage}
+                checked={IsLangChecked}
 
               />
 
@@ -612,7 +614,7 @@ function TutorInfo(props) {
                 Other
               </Form.Check.Label>
 
-              <fieldset disabled={IsLangChecked}>
+              <fieldset disabled={IsLangChecked == false}>
                 <FloatingLabel
                   controlID="OtherLanguage"
                   label="Other Language"
@@ -622,7 +624,7 @@ function TutorInfo(props) {
                   <Form.Control
                     type="OtherLanguage"
                     placeholder="Other Language"
-                  />
+                    defaultValue={otherLanguage} />
                 </FloatingLabel>
               </fieldset>
             </Form.Check>
