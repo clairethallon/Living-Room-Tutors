@@ -17,7 +17,7 @@ function StudentAdditional(props) {
 
   const presenting = true;
 
-  const [newutorAdditionalInfo, setNewTutorAdditionalInfo] = useState();
+  const [newutorAdditionalInfo, setNewTutorAdditionalInfo] = useState(" ");
 
   useEffect(() => {
     scrollToTop();
