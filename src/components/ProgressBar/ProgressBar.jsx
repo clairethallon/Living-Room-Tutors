@@ -31,6 +31,11 @@ function ProgressBar(props) {
   const newStudentAdditional = useSelector(
     (store) => store.newStudent.newstudentAdditionalReducer
   );
+  const studentTerms = useSelector(
+    (store) => store.newStudent.newstudentTermsReducer,
+
+  );
+
 
   // const newstudentInfoReducer = useSelector((store)=> store.newstudentInfoReducer);
   const [heading, setHeading] = useState("Functional Component");
@@ -83,7 +88,8 @@ function ProgressBar(props) {
   };
 
   const changeProgressBarImageTerms = () => {
-    console.log("in changeProgressBarImage");
+    console.log("in changeProgressBarImageTerms");
+
     setProgressBarImageTerms(ProgressBarImageTerms);
   };
 
@@ -105,13 +111,13 @@ function ProgressBar(props) {
                 {/* <div className="navLine"></div> */}
               </div>
             ) : (
-              // <div className="NavItem">
-              <Nav.Link className="navContent" href="#" disabled>
-                <div className="ProgressStepDiv">1</div>
-                <p className="navText">Student Info</p>
-              </Nav.Link>
-              // </div>
-            )}
+                // <div className="NavItem">
+                <Nav.Link className="navContent" href="#" disabled>
+                  <div className="ProgressStepDiv">1</div>
+                  <p className="navText">Student Info</p>
+                </Nav.Link>
+                // </div>
+              )}
           </Nav.Item>
 
           <Nav.Item className="navCol">
@@ -127,14 +133,14 @@ function ProgressBar(props) {
                 {/* <div className="navLine"></div> */}
               </div>
             ) : (
-              <div className="NavItem">
-                <Nav.Link className="navContent" href="#" disabled>
-                  <div className="ProgressStepDiv">2</div>
-                  <p>Subjects</p>
-                </Nav.Link>
-                {/* <div className="navLine"></div> */}
-              </div>
-            )}
+                <div className="NavItem">
+                  <Nav.Link className="navContent" href="#" disabled>
+                    <div className="ProgressStepDiv">2</div>
+                    <p>Subjects</p>
+                  </Nav.Link>
+                  {/* <div className="navLine"></div> */}
+                </div>
+              )}
           </Nav.Item>
 
           <Nav.Item>
@@ -150,18 +156,18 @@ function ProgressBar(props) {
                 {/* <div className="navLine"></div> */}
               </div>
             ) : (
-              <div className="NavItem">
-                <Nav.Link className="navContent" to="#" disabled>
-                  <div className="ProgressStepDiv">3</div>
-                  <p>Additional Info</p>
-                </Nav.Link>
-                {/* <div className="navLine"></div> */}
-              </div>
-            )}
+                <div className="NavItem">
+                  <Nav.Link className="navContent" to="#" disabled>
+                    <div className="ProgressStepDiv">3</div>
+                    <p>Additional Info</p>
+                  </Nav.Link>
+                  {/* <div className="navLine"></div> */}
+                </div>
+              )}
           </Nav.Item>
 
           <Nav.Item>
-            {ProgressBarImageTerms ? (
+            {studentTerms ? (
               <Nav.Link
                 className="checkedNavLink navContent"
                 href="#studentterms"
@@ -170,11 +176,11 @@ function ProgressBar(props) {
                 <p>Terms</p>
               </Nav.Link>
             ) : (
-              <Nav.Link className="navContent" to="#" disabled>
-                <div className="ProgressStepDiv">4</div>
-                <p>Terms</p>
-              </Nav.Link>
-            )}
+                <Nav.Link className="navContent" to="#" disabled>
+                  <div className="ProgressStepDiv">4</div>
+                  <p>Terms</p>
+                </Nav.Link>
+              )}
           </Nav.Item>
         </Nav>
       </Container>

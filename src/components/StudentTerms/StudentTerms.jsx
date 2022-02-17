@@ -65,7 +65,7 @@ function StudentTerms(props) {
       setAgreedToggle(false);
       dispatch({
         type: "ADD_STUDENT_TERMS",
-        payload: true,
+        payload: false,
       });
     }
   };
