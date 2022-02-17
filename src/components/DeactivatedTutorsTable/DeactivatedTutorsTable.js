@@ -37,7 +37,7 @@ function DeactivatedTutorsTable(props) {
             <p className="tableHeads">Grade</p>
           </Col>
           <Col xs="2" className="cardHeadCol">
-            <p className="tableHeads">Flagged</p>
+            <p className="tableHeads">Special Subjects & Languages</p>
           </Col>
           <Col xs="2" className="cardHeadCol">
             <p className="tableHeads">Action</p>

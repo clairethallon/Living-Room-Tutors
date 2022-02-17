@@ -6,12 +6,12 @@ import MatchPageButton from "../MatchPageButton/MatchPageButton";
 import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone, faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 
 function RecordsCard(props) {
   const emailIcon = <FontAwesomeIcon icon={faEnvelope} />;
   const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
-  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+  const flagIcon = <FontAwesomeIcon icon={faStar} />;
   const [tuteeLanguages, setTuteeLanguages] = useState([]);
   const [tutorLanguages, setTutorLanguages] = useState([]);
   const [mentorChosenGrade, setMentorChosenGrade] = useState([]);

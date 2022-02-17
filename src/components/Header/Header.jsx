@@ -15,7 +15,7 @@ function Header(props) {
     <div className="headerDiv">
       <Container className="headerContainer">
         <div className="brandNameHeader">
-          <img style={{ maxWidth: "65px" }} src={Logo} />
+          <img alt="logo" style={{ maxWidth: "65px" }} src={Logo} />
           <h1 className="headingLRT">LIVING ROOM TUTORS</h1>
         </div>
         <div className="LTRRegFormHeader">

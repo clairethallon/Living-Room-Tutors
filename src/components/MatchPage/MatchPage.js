@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdminNavBar from "../AdminNavBar/AdminNavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import TuteeMatchCard from "../TuteeMatchCard/TuteeMatchCard";
 import TutorMatchCard from "../TutorMatchCard/TutorMatchCard";
 import TutorMatchTable from "../TutorMatchTable/TutorMatchTable";
@@ -16,7 +16,7 @@ function MatchPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
 
-  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+  const flagIcon = <FontAwesomeIcon icon={faStar} />;
 
   const dispatch = useDispatch();
 

@@ -7,12 +7,12 @@ import LanguageFlag from "../LanguageFlag/LanguageFlag";
 import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TuteeProfile from "../TuteeProfile/TuteeProfile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone, faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 
 function TuteeMatchCard(props) {
   const selectedTutee = useSelector((store) => store.selected_tutee);
 
-  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+  const flagIcon = <FontAwesomeIcon icon={faStar} />;
   const [subject1, setSubject1] = useState("");
   const [subject2, setSubject2] = useState("");
   const [subject3, setSubject3] = useState("");
