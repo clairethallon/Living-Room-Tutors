@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ActiveTuteesTable from "../ActiveTuteesTable/ActiveTuteesTable";
 import DeactivatedTuteesTable from "../DeactivatedTuteesTable/DeactivatedTuteesTable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function DeactivatedTutees(props) {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ function DeactivatedTutees(props) {
     dispatch({ type: "FETCH_DEACTIVE_TUTEES" });
   }, []);
 
-  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+  const flagIcon = <FontAwesomeIcon icon={faStar} />;
   const deactiveTutees = useSelector((store) => store.deactiveTutees);
 
   return (

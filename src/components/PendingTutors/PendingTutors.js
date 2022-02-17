@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import ActiveTutorsTable from "../ActiveTutorsTable/ActiveTutorsTable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function PendingTutors(props) {
-  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+  const flagIcon = <FontAwesomeIcon icon={faStar} />;
 
   const [heading, setHeading] = useState("Functional Component");
   const activeTutors = useSelector((store) => store.activeTutors);
