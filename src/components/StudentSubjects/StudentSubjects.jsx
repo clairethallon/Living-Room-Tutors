@@ -134,7 +134,6 @@ function StudentSubjects(props) {
 
   return (
     <div className="formBackground">
-      {JSON.stringify(newStudentSubjects)}
       <Header />
       <Container className="formContainer">
         <div className="maincard">
