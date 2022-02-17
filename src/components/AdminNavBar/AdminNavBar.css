@@ -13,15 +13,20 @@
   overflow: hidden;
   /* padding: 15px 0px 15px 50px; */
   width: 300px;
+  padding-bottom: 25px;
 }
 
 .AdminNavLink {
   font-size: 32px;
-  margin-top: 10px;
-  font-family: Lato-Regular;
+  margin-top: 0px;
+  font-family: PublicaSans-Light;
   text-decoration: none;
   color: white;
   width: 280px;
+}
+
+.navTitleSpan {
+  margin-top: 2px;
 }
 
 .LRTHeaderContainer {
@@ -61,24 +66,24 @@
 }
 
 .tuteeIcon {
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   margin-right: 20px;
   background-image: url("../../images/tuteeIconWhite.svg");
   background-size: cover;
 }
 
 .tutorIcon {
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   margin-right: 20px;
   background-image: url("../../images/tutorIconWhite.svg");
   background-size: cover;
 }
 
 .recordsIcon {
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   margin-right: 20px;
   background-image: url("../../images/recordsIconWhite.svg");
   background-size: cover;
@@ -127,7 +132,7 @@
   background-color: #1aa4c2;
   color: white;
   display: flex;
-  padding: 15px;
+  padding: 10px;
   padding-left: 35px;
   border-radius: 50px;
 }

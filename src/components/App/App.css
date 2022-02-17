@@ -158,6 +158,7 @@ input {
 
 .flaggedSubjectLanguage {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .flag {
@@ -240,14 +241,15 @@ h3 {
 }
 
 .signOutIcon {
-  font-size: 40px;
+  font-size: 27px;
 }
 
 .signOutName {
-  font-size: 27px;
+  font-size: 23px;
   margin-right: 8px;
-
-  font-family: Lato-Regular;
+  margin-top: 3px;
+  text-transform: lowercase;
+  font-family: PublicaSans-Light;
 }
 
 .profileAnswer {
@@ -409,7 +411,7 @@ h3 {
 }
 
 .languageFilterDropdown {
-  width: 10%;
+  width: 180px !important;
 }
 
 /* .nav-link {
@@ -669,6 +671,7 @@ label {
   height: 50px;
   text-transform: none;
   font-size: 20px;
+  margin-top: 20px;
 }
 
 .saveAndContinueButton:disabled {
@@ -750,6 +753,10 @@ label {
   color: black;
   font-size: 18px;
   margin-bottom: 16px;
+}
+
+.tabContainer {
+  padding-top: 20px;
 }
 
 /* ------radio buttons--------- */

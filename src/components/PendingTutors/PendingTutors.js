@@ -11,10 +11,12 @@ function PendingTutors(props) {
   const activeTutors = useSelector((store) => store.activeTutors);
 
   return (
-    <div className="tabPageContainer">
+    <div className="tabPageContainer tabContainer">
       <h1>Tutors Pending Matches</h1>
 
-      <p>{activeTutors.length} pending tutor(s)</p>
+      <p>
+        <strong>{activeTutors.length}</strong> pending tutor(s)
+      </p>
       <div className="subjectAndLanguageDiv">
         <div className="subjectAndLanguage">
           <p>

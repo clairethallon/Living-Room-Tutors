@@ -16,10 +16,13 @@ function DeactivatedTutees(props) {
   const deactiveTutees = useSelector((store) => store.deactiveTutees);
 
   return (
-    <div>
+    <div className="tabContainer">
       <h1>Deactivated Tutees</h1>
       {/* number will be replaced with an actual count from the db */}
-      <p> {deactiveTutees.length} deactivated tutee(s)</p>
+      <p>
+        {" "}
+        <strong>{deactiveTutees.length} </strong>deactivated tutee(s)
+      </p>
       <div className="subjectAndLanguageDiv">
         <div className="subjectAndLanguage">
           <p>
