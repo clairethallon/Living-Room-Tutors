@@ -12,6 +12,7 @@ function StudentTerms(props) {
 
   useEffect(() => {
     scrollToTop();
+    checkReducer(studentTerms);
 
   }, []);
 
@@ -19,7 +20,21 @@ function StudentTerms(props) {
     window.scrollTo(0, 0);
   };
 
+  const checkReducer = (studentTerms) => {
+    console.log('in checkReducer', studentTerms);
+    if (studentTerms.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setAgreedToggle(studentTerms);
+    }
+  }
 
+  const studentTerms = useSelector(
+    (store) => store.newStudent.newstudentTermsReducer,
+
+  );
 
   const studentInfo = useSelector(
     (store) => store.newStudent.newstudentInfoReducer
@@ -40,9 +55,18 @@ function StudentTerms(props) {
   const changeStudentTerms = () => {
     console.log("in tutor terms");
     if (agreedToggle === false) {
+      dispatch({
+        type: "ADD_STUDENT_TERMS",
+        payload: true,
+      });
       setAgreedToggle(true);
+
     } else {
       setAgreedToggle(false);
+      dispatch({
+        type: "ADD_STUDENT_TERMS",
+        payload: true,
+      });
     }
   };
 
@@ -125,6 +149,7 @@ function StudentTerms(props) {
                 id="StudentTerms"
                 name="StudentTerms"
                 onChange={() => changeStudentTerms()}
+                checked={agreedToggle}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
