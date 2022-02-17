@@ -9,14 +9,13 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 function StudentTerms(props) {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
-  useEffect(()=>{ 
-    scrollToTop ();
-    }, []);
-
-    const scrollToTop = () => {
-      window.scrollTo(0, 0);
-    };
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   const studentInfo = useSelector(
     (store) => store.newStudent.newstudentInfoReducer

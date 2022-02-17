@@ -14,6 +14,7 @@ function StudentAdditional(props) {
   const store = useSelector((store) => store);
   const history = useHistory();
 
+  //useState is get to " " to display a check mark if the user doesn't fill out the additional info form since it's not required
   const [newAdditionalInfo, setNewAdditionalInfo] = useState(" ");
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
@@ -26,12 +27,8 @@ function StudentAdditional(props) {
   };
 
   const changeAdditionalInfo = () => {
-    if (event.target.value === "") {
-      setNewAdditionalInfo("N/A");
-    } else {
-      console.log("in any additional info");
-      setNewAdditionalInfo(event.target.value);
-    }
+    console.log("in any additional info");
+    setNewAdditionalInfo(event.target.value);
   };
 
   const AddNewStudentAdditional = () => {
