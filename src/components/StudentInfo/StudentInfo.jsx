@@ -29,12 +29,11 @@ function TutorInfo(props) {
     window.scrollTo(0, 0);
   };
   const checkReducer = (newstudentInfo) => {
-    console.log('in checkReducer', newstudentInfo);
+    console.log("in checkReducer", newstudentInfo);
     if (newstudentInfo.length == 0) {
-      console.log('EMPTY');
+      console.log("EMPTY");
       return false;
-    }
-    else {
+    } else {
       setSubmitter(newstudentInfo.submitter);
       setNewFirstName(newstudentInfo.firstName);
       setNewLastName(newstudentInfo.lastName);
@@ -53,13 +52,15 @@ function TutorInfo(props) {
       setVietnamese(newstudentInfo.Vietnamese);
       setotherLanguage(newstudentInfo.otherLanguage);
       setTagalog(newstudentInfo.Tagalog);
-      if (newstudentInfo.otherLanguage != undefined && newstudentInfo.otherLanguage != "") {
-        console.log('WE IN HERE')
+      if (
+        newstudentInfo.otherLanguage != undefined &&
+        newstudentInfo.otherLanguage != ""
+      ) {
+        console.log("WE IN HERE");
         setIsLangChecked(true);
       }
-
     }
-  }
+  };
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   const [newSubmitter, setSubmitter] = useState("");
@@ -251,15 +252,14 @@ function TutorInfo(props) {
       newStudentInfo.firstName == null ||
       newStudentInfo.lastName == "" ||
       newStudentInfo.lastName == null ||
-      newStudentInfo.email == "" ||
-      newStudentInfo.email == null ||
+      // newStudentInfo.email == "" ||
+      // newStudentInfo.email == null ||
       newStudentInfo.phone == "" ||
       newStudentInfo.phone == null ||
       newStudentInfo.school == "" ||
       newStudentInfo.school == null ||
       newStudentInfo.grade == "" ||
       newStudentInfo.grade == null ||
-
       (newStudentInfo.submitter == "ParentOrGuardian" &&
         (newStudentInfo.parentEmail === "" ||
           newStudentInfo.parentEmail === null ||
@@ -268,7 +268,6 @@ function TutorInfo(props) {
         (newStudentInfo.email === "" ||
           newStudentInfo.email === null ||
           newStudentInfo.email === undefined))
-
     ) {
       return alert(
         "At least one required field was empty. Please fill in the required fields before continuing."
@@ -302,7 +301,7 @@ function TutorInfo(props) {
                 name="studentOrParent"
                 value="Student"
                 onChange={(event) => changeSubmitter(event)}
-                checked={newSubmitter == 'Student'}
+                checked={newSubmitter == "Student"}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -319,8 +318,7 @@ function TutorInfo(props) {
                 name="studentOrParent"
                 value="ParentOrGuardian"
                 onChange={(event) => changeSubmitter(event)}
-                checked={newSubmitter == 'ParentOrGuardian'}
-
+                checked={newSubmitter == "ParentOrGuardian"}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -341,7 +339,6 @@ function TutorInfo(props) {
               label="Parent/Guardian's Email"
               className="formInput"
             >
-
               <Form.Control
                 type="GuardianEmail"
                 placeholder="GuardianEmail"
@@ -367,7 +364,6 @@ function TutorInfo(props) {
               label="Student's Email"
               className="formInput"
             >
-
               <Form.Control
                 type="StudentEmail"
                 placeholder="Student Email"
@@ -375,7 +371,6 @@ function TutorInfo(props) {
                 defaultValue={newEmail}
                 onChange={(event) => changeEmail(event)}
               />
-
             </FloatingLabel>
           </div>
 
@@ -392,12 +387,10 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentPhone"
                 placeholder="Student's Phone Number"
-
-              defaultValue={newPhone}
+                defaultValue={newPhone}
                 value={newPhone}
                 onChange={(event) => changePhone(event)}
               />
-
             </FloatingLabel>
           </div>
 
@@ -414,7 +407,7 @@ function TutorInfo(props) {
               <Form.Control
                 type="StudentFirstName"
                 placeholder="Student First Name"
-                defaultValue={newFirstName} 
+                defaultValue={newFirstName}
                 value={newFirstName}
                 onChange={(event) => changefirstName(event)}
               />
@@ -441,11 +434,10 @@ function TutorInfo(props) {
               label="Student's Pronouns Ex:She/Her"
               className="formInput"
             >
-
               <Form.Control
                 type="Pronouns"
                 placeholder="Pronouns"
-defaultValue={Pronouns} 
+                defaultValue={Pronouns}
                 value={Pronouns}
                 onChange={(event) => changePronouns(event)}
               />
@@ -465,7 +457,7 @@ defaultValue={Pronouns}
               <Form.Control
                 type="StudentSchool"
                 placeholder="Student's School"
-              defaultValue={newSchool}
+                defaultValue={newSchool}
                 value={newSchool}
                 onChange={(event) => changeSchool(event)}
               />
@@ -516,7 +508,6 @@ defaultValue={Pronouns}
                 name="Spanish"
                 onChange={(event) => changeSpanish()}
                 checked={Spanish}
-
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -533,7 +524,6 @@ defaultValue={Pronouns}
                 name="Somali"
                 onChange={(event) => changeSomali()}
                 checked={Somali}
-
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -551,7 +541,6 @@ defaultValue={Pronouns}
                 checked={Arabic}
                 onChange={(event) => changeArabic()}
                 checked={Arabic}
-
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -568,7 +557,6 @@ defaultValue={Pronouns}
                 name="Chinese"
                 onChange={(event) => changeChinese()}
                 checked={Chinese}
-
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -585,7 +573,6 @@ defaultValue={Pronouns}
                 name="Tagalog"
                 onChange={(event) => changeTagalog()}
                 checked={Tagalog}
-
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -602,7 +589,6 @@ defaultValue={Pronouns}
                 name="French"
                 onChange={(event) => changeFrench()}
                 checked={French}
-
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -619,7 +605,6 @@ defaultValue={Pronouns}
                 name="Vietnamese"
                 onChange={(event) => changeVietnamese()}
                 checked={Vietnamese}
-
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -636,7 +621,6 @@ defaultValue={Pronouns}
                 name="Hmong"
                 onChange={(event) => changeHmong()}
                 checked={Hmong}
-
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -653,7 +637,6 @@ defaultValue={Pronouns}
                 name="OtherLanguage"
                 onChange={(e) => changeIsLangChecked(event.target.checked)}
                 checked={IsLangChecked}
-
               />
 
               <Form.Check.Label
@@ -673,7 +656,8 @@ defaultValue={Pronouns}
                   <Form.Control
                     type="OtherLanguage"
                     placeholder="Other Language"
-                    defaultValue={otherLanguage} />
+                    defaultValue={otherLanguage}
+                  />
                 </FloatingLabel>
               </fieldset>
             </Form.Check>
@@ -687,7 +671,7 @@ defaultValue={Pronouns}
           </Button>
         </div>
       </Container>
-    </div >
+    </div>
   );
 }
 
