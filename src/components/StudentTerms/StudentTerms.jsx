@@ -10,13 +10,16 @@ function StudentTerms(props) {
   const dispatch = useDispatch();
 
 
-  useEffect(()=>{ 
-    scrollToTop ();
-    }, []);
+  useEffect(() => {
+    scrollToTop();
 
-    const scrollToTop = () => {
-      window.scrollTo(0, 0);
-    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+
 
   const studentInfo = useSelector(
     (store) => store.newStudent.newstudentInfoReducer
@@ -29,6 +32,7 @@ function StudentTerms(props) {
   const studentSubjects = useSelector(
     (store) => store.newStudent.newstudentSubjectReducer
   );
+
 
   // const [studentterms, setStudentTerms] = useState(false);
   const [agreedToggle, setAgreedToggle] = useState(false);
@@ -134,10 +138,10 @@ function StudentTerms(props) {
               {agreedToggle ? (
                 <StudentModal newStudentObject={newStudentObject} />
               ) : (
-                <Button className="saveAndContinueButton" disabled>
-                  Submit
-                </Button>
-              )}
+                  <Button className="saveAndContinueButton" disabled>
+                    Submit
+                  </Button>
+                )}
             </div>
           </div>
         </div>
