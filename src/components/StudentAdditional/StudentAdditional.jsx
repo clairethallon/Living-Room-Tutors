@@ -14,7 +14,7 @@ function StudentAdditional(props) {
   const store = useSelector((store) => store);
   const history = useHistory();
 
-  const [newAdditionalInfo, setNewAdditionalInfo] = useState();
+  const [newAdditionalInfo, setNewAdditionalInfo] = useState(" ");
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   useEffect(() => {
@@ -26,8 +26,12 @@ function StudentAdditional(props) {
   };
 
   const changeAdditionalInfo = () => {
-    console.log("in any additional info");
-    setNewAdditionalInfo(event.target.value);
+    if (event.target.value === "") {
+      setNewAdditionalInfo("N/A");
+    } else {
+      console.log("in any additional info");
+      setNewAdditionalInfo(event.target.value);
+    }
   };
 
   const AddNewStudentAdditional = () => {
@@ -35,6 +39,7 @@ function StudentAdditional(props) {
     const newStudentAdditional = {
       newAdditionalInfo: newAdditionalInfo,
     };
+    console.log();
     dispatch({
       type: "ADD_NEW_STUDENT_ADDITIONAL",
       payload: newStudentAdditional,

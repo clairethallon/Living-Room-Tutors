@@ -11,7 +11,7 @@ function LoginPage() {
   return (
     <div className="loginPage">
       <div className="brandNameHeader adminLoginHeader">
-        <img style={{ maxWidth: "65px" }} src={Logo} />
+        <img alt="logo" style={{ maxWidth: "65px" }} src={Logo} />
         <h1 className="headingLRT">LIVING ROOM TUTORS</h1>
       </div>
       <Col lg="6">
