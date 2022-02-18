@@ -13,6 +13,9 @@ function StudentAdditional(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
   const history = useHistory();
+  const newStudentAdditional = useSelector(
+    (store) => store.newStudent.newstudentAdditionalReducer
+  );
 
   //useState is get to " " to display a check mark if the user doesn't fill out the additional info form since it's not required
   const [newAdditionalInfo, setNewAdditionalInfo] = useState(" ");
@@ -20,7 +23,20 @@ function StudentAdditional(props) {
 
   useEffect(() => {
     scrollToTop();
+    checkReducer(newStudentAdditional);
   }, []);
+
+
+  const checkReducer = (newStudentAdditional) => {
+    console.log('in checkReducer', newStudentAdditional);
+    if (newStudentAdditional.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setNewAdditionalInfo(newStudentAdditional.newAdditionalInfo);
+    }
+  }
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -65,6 +81,7 @@ function StudentAdditional(props) {
                   className="additionalTextArea"
                   placeholder="Additional Info"
                   onChange={(event) => changeAdditionalInfo(event)}
+                  defaultValue={newAdditionalInfo}
                 />
               </FloatingLabel>
             </div>

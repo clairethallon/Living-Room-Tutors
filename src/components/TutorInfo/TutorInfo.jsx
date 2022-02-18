@@ -16,17 +16,52 @@ function TutorInfo(props) {
   const history = useHistory();
 
   const store = useSelector((store) => store);
-  const newtutorInfo = useSelector((store) => store.newtutorInfo);
+  const newtutorInfo = useSelector((store) => store.newtutor.newtutorInfoReducer);
 
   const presenting = true;
 
   useEffect(() => {
     scrollToTop();
+    checkReducer(newtutorInfo);
+
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+  const checkReducer = (newtutorInfo) => {
+    console.log('in checkReducer', newtutorInfo);
+    if (newtutorInfo.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setNewTutorFirstName(newtutorInfo.firstName);
+      setNewTutorLastName(newtutorInfo.lastName);
+      setNewEmail(newtutorInfo.email);
+      setPronouns(newtutorInfo.pronouns);
+      setNewTutorPhone(newtutorInfo.phone);
+      setNewGrade(newtutorInfo.grade);
+      setNewTutorSchool(newtutorInfo.school);
+      if (newtutorInfo.school === 'Mayo High School' ||
+        newtutorInfo.school === 'John Marshall High School' ||
+        newtutorInfo.school === 'Century High School' ||
+        newtutorInfo.school === 'Lourdes High School' ||
+        newtutorInfo.school === 'Byron High School' ||
+        newtutorInfo.school === 'Dover-Eyota High School' ||
+        newtutorInfo.school === 'Stewertville High School' ||
+        newtutorInfo.school === 'College') {
+        setdefaultSchoolVal(newtutorInfo.school);
+        setNewTutorSchool(newtutorInfo.school);
+      }
+      else {
+        setOtherField(true);
+        setdefaultSchoolVal("Other");
+        setOtherSchool(newtutorInfo.school);
+      }
+    }
+  }
 
   const [newTutorFirstName, setNewTutorFirstName] = useState("");
   const [newTutorLastName, setNewTutorLastName] = useState("");
@@ -36,6 +71,9 @@ function TutorInfo(props) {
   const [newGrade, setNewGrade] = useState("");
 
   const [newTutorSchool, setNewTutorSchool] = useState("");
+  const [defaultSchoolVal, setdefaultSchoolVal] = useState("");
+  const [otherSchooldefault, setOtherSchool] = useState("");
+
   const [changeOtherField, setOtherField] = useState(false);
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
@@ -80,14 +118,22 @@ function TutorInfo(props) {
     console.log("in new tutor school");
     if (event.target.value == "Other") {
       setOtherField(true);
+      setdefaultSchoolVal(event.target.value);
+      setNewTutorSchool('');
+      setOtherSchool('');
+      return;
     } else {
       setOtherField(false);
     }
 
     if (event.target.value === "") {
       setNewTutorSchool(undefined);
+      setdefaultSchoolVal(event.target.value);
+
     } else {
       setNewTutorSchool(event.target.value);
+      setdefaultSchoolVal(event.target.value);
+
     }
   };
 
@@ -105,6 +151,7 @@ function TutorInfo(props) {
       setNewTutorPhone("1234567890");
       setNewGrade("Junior");
       setNewTutorSchool("Century High School");
+      setdefaultSchoolVal("Century High School")
     }
   };
 
@@ -163,6 +210,7 @@ function TutorInfo(props) {
                 placeholder="First Name"
                 value={newTutorFirstName}
                 onChange={(event) => changeTutorFirstName(event)}
+                defaultValue={newTutorFirstName}
               />
             </FloatingLabel>
             <FloatingLabel
@@ -175,6 +223,8 @@ function TutorInfo(props) {
                 placeholder="Last Name"
                 value={newTutorLastName}
                 onChange={(event) => changeTutorLastName(event)}
+                defaultValue={newTutorLastName}
+
               />
             </FloatingLabel>
           </div>
@@ -191,6 +241,8 @@ function TutorInfo(props) {
                 placeholder="Pronouns"
                 value={Pronouns}
                 onChange={(event) => changePronouns(event)}
+                defaultValue={Pronouns}
+
               />
             </FloatingLabel>
           </div>
@@ -215,6 +267,8 @@ function TutorInfo(props) {
                 placeholder="Email"
                 value={newTutorEmail}
                 onChange={(event) => changeTutorEmail(event)}
+                defaultValue={newTutorEmail}
+
               />
             </FloatingLabel>
           </div>
@@ -234,6 +288,8 @@ function TutorInfo(props) {
                 placeholder="Phone"
                 value={newTutorPhone}
                 onChange={(event) => changeTutorPhone(event)}
+                defaultValue={newTutorPhone}
+
               />
             </FloatingLabel>
           </div>
@@ -249,6 +305,8 @@ function TutorInfo(props) {
               aria-label="gradeLevel"
               value={newGrade}
               onChange={(event) => changeTutorGrade(event)}
+              defaultValue={newGrade}
+
             >
               <option value="">Select your current grade level</option>
               <option value="Freshman">Freshman</option>
@@ -269,10 +327,13 @@ function TutorInfo(props) {
               id="schoolAttending"
               className="selectGradeDropdown"
               label="Current School"
-              value={newTutorSchool}
+              value={defaultSchoolVal}
               onChange={(event) => changeTutorSchool(event)}
               aria-label="schoolAttending"
+              defaultValue={defaultSchoolVal}
             >
+
+
               <option value="">Select where you go to school</option>
               <option value="Mayo High School">Mayo High School</option>
               <option value="John Marshall High School">
@@ -302,12 +363,13 @@ function TutorInfo(props) {
                     type="OtherSchool"
                     placeholder="OtherSchool"
                     onChange={(event) => changeOtherSchool(event)}
+                    defaultValue={otherSchooldefault}
                   />
                 </FloatingLabel>
               </>
             ) : (
-              <> </>
-            )}
+                <> </>
+              )}
           </div>
 
           <Button
@@ -317,8 +379,8 @@ function TutorInfo(props) {
             Save and Continue <span className="rightarrow">{rightArrow}</span>
           </Button>
         </div>
-      </Container>
-    </div>
+      </Container >
+    </div >
   );
 }
 

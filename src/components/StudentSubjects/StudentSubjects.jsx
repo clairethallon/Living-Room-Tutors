@@ -13,16 +13,31 @@ function StudentSubjects(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const presenting = true;
-
   useEffect(() => {
     scrollToTop();
+    checkReducer(newStudentSubjects);
+
   }, []);
 
   const store = useSelector((store) => store);
-  const newstudentInfoReducer = useSelector(
-    (store) => store.newstudentInfoReducer
+  const newStudentSubjects = useSelector(
+    (store) => store.newStudent.newstudentSubjectReducer
   );
+
+  const checkReducer = (newStudentSubjects) => {
+    console.log('in checkReducer', newStudentSubjects);
+    if (newStudentSubjects.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setNewPrimarySubject(newStudentSubjects.newPrimarySubject);
+      setNewSecondarySubject(newStudentSubjects.newSecondarySubject);
+      setNewTertiarySubject(newStudentSubjects.newTertiarySubject);
+      setNewDetailedNeeds(newStudentSubjects.newDetailedNeeds);
+
+    }
+  }
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   const scrollToTop = () => {
@@ -36,17 +51,6 @@ function StudentSubjects(props) {
   const [newTertiarySubject, setNewTertiarySubject] = useState(null);
 
   const [newDetailedNeeds, setNewDetailedNeeds] = useState("");
-
-  const setDefaults = () => {
-    if (presenting) {
-      console.log("in setDefaults");
-      // setSubmitter("parentOrGuardian");
-      setNewPrimarySubject("2");
-      setNewSecondarySubject("1");
-      setNewTertiarySubject("3");
-      setNewDetailedNeeds("general support with homework");
-    }
-  };
 
   // ************ Primary Subject Change ************
   const changePrimarySubject = () => {
@@ -136,7 +140,7 @@ function StudentSubjects(props) {
           <ProgressBar />
           <div className="formContent">
             <div className="formQandA">
-              <p onClick={setDefaults}>
+              <p>
                 In what subjects does the student need support?{" "}
                 <span className="requiredField"> *</span>
               </p>
@@ -148,7 +152,9 @@ function StudentSubjects(props) {
                 <Form.Select
                   onChange={(event) => changePrimarySubject(event)}
                   aria-label="Student's 1st Choice"
+                  defaultValue={newPrimarySubject}
                   value={newPrimarySubject}
+
                 >
                   <option value="">Select</option>
                   <option value="1">K-5 Math</option>
@@ -218,11 +224,11 @@ function StudentSubjects(props) {
                 controlId="secondarySubject"
                 label="Student's 2nd Choice"
                 className="selectInput subjectOptions"
+                onChange={(event) => changeSecondarySubject(event)}
               >
-                <Form.Select
-                  aria-label="Student's 2nd Choice"
+                <Form.Select aria-label="Student's 2nd Choice"
+                  defaultValue={newSecondarySubject}
                   value={newSecondarySubject}
-                  onChange={(event) => changeSecondarySubject(event)}
                 >
                   <option value="">Select</option>
                   <option value="1">K-5 Math</option>
@@ -296,6 +302,7 @@ function StudentSubjects(props) {
                 <Form.Select
                   onChange={(event) => changeTertiarySubject(event)}
                   aria-label="Student's 3rd Choice"
+                  defaultValue={newTertiarySubject}
                   value={newTertiarySubject}
                 >
                   <option value="">Select</option>
@@ -380,14 +387,15 @@ function StudentSubjects(props) {
                 controlId="DetailedNeeds"
                 label="Details of tutoring needs"
                 className="textInput"
+                onChange={(event) => changeDetailedNeeds(event)}
               >
                 <Form.Control
                   className="textArea"
                   as="textarea"
                   placeholder="Details of tutoring needs"
                   style={{ height: "100px" }}
-                  value={newDetailedNeeds}
-                  onChange={(event) => changeDetailedNeeds(event)}
+                  defaultValue={newDetailedNeeds}
+
                 />
               </FloatingLabel>
             </div>

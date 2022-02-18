@@ -11,7 +11,10 @@ import { useHistory } from "react-router-dom";
 
 function StudentAdditional(props) {
   const dispatch = useDispatch();
+
   const store = useSelector((store) => store);
+  const newtutorAdditional = useSelector((store) => store.newtutor.newtutorAdditionalReducer);
+
   const [heading, setHeading] = useState("Tutor Additional Info");
   const history = useHistory();
 
@@ -22,11 +25,25 @@ function StudentAdditional(props) {
 
   useEffect(() => {
     scrollToTop();
+    checkReducer(newtutorAdditional);
+
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+
+  const checkReducer = (newtutorAdditional) => {
+    console.log('in checkReducer', newtutorAdditional);
+    if (newtutorAdditional.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setNewTutorAdditionalInfo(newtutorAdditional.tutorAdditionalInfo);
+    }
+  }
 
   const setDefaults = () => {
     if (presenting) {
@@ -35,6 +52,7 @@ function StudentAdditional(props) {
       );
     }
   };
+
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
@@ -74,6 +92,7 @@ function StudentAdditional(props) {
                   placeholder="Additional Info"
                   className="additionalTextArea"
                   value={newutorAdditionalInfo}
+                  defaultValue={newutorAdditionalInfo}
                 />
               </FloatingLabel>
             </div>

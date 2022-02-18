@@ -9,10 +9,10 @@ import TutorProgressBar from "../TutorProgressBar/TutorProgressBar";
 function StudentTerms(props) {
   const dispatch = useDispatch();
 
-  const tutorInfo = useSelector((store) => store.newtutor.newtutorInfoReducer);
 
   useEffect(() => {
     scrollToTop();
+
   }, []);
 
   const scrollToTop = () => {
@@ -22,14 +22,19 @@ function StudentTerms(props) {
   const tutorAdditional = useSelector(
     (store) => store.newtutor.newtutorAdditionalReducer
   );
+  const tutorSubjects = useSelector((store) => store.newtutor.newtutorSubjectReducer);
+
+  const tutorInfo = useSelector((store) => store.newtutor.newtutorInfoReducer);
+
+  const newTutorTerms = useSelector(
+    (store) => store.newtutor.newtutorTermsReducer
+  );
 
   const [agreedToggle, setAgreedToggle] = useState(false);
 
-  const tutorSubjects = useSelector(
-    (store) => store.newtutor.newtutorSubjectReducer
-  );
 
-  const [tutorTerms, setTutorTerms] = useState(false);
+
+
   const [ClikcableButton, setClikcableButton] = useState(false);
 
   const changeTutorTerms = () => {
@@ -37,8 +42,16 @@ function StudentTerms(props) {
 
     if (agreedToggle === false) {
       setAgreedToggle(true);
+      dispatch({
+        type: "ADD_TUTOR_TERMS",
+        payload: true,
+      });
     } else {
       setAgreedToggle(false);
+      dispatch({
+        type: "ADD_TUTOR_TERMS",
+        payload: false,
+      });
     }
   };
 
@@ -162,6 +175,7 @@ function StudentTerms(props) {
                 id="TutorTerms"
                 name="TutorTerms"
                 onClick={(event) => changeTutorTerms()}
+                checked={agreedToggle}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -175,10 +189,10 @@ function StudentTerms(props) {
               {agreedToggle ? (
                 <TutorModal newTutorObject={newTutorObject} />
               ) : (
-                <Button className="saveAndContinueButton" disabled>
-                  Submit
-                </Button>
-              )}
+                  <Button className="saveAndContinueButton" disabled>
+                    Submit
+                  </Button>
+                )}
             </div>
           </div>
         </div>

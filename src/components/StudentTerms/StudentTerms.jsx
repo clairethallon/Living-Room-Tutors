@@ -9,13 +9,33 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 function StudentTerms(props) {
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     scrollToTop();
+    checkReducer(studentTerms);
+
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+  const checkReducer = (studentTerms) => {
+    console.log('in checkReducer', studentTerms);
+    if (studentTerms.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setAgreedToggle(studentTerms);
+    }
+  }
+
+  const studentTerms = useSelector(
+    (store) => store.newStudent.newstudentTermsReducer,
+
+  );
+
 
   const studentInfo = useSelector(
     (store) => store.newStudent.newstudentInfoReducer
@@ -29,15 +49,25 @@ function StudentTerms(props) {
     (store) => store.newStudent.newstudentSubjectReducer
   );
 
+
   // const [studentterms, setStudentTerms] = useState(false);
   const [agreedToggle, setAgreedToggle] = useState(false);
 
   const changeStudentTerms = () => {
     console.log("in tutor terms");
     if (agreedToggle === false) {
+      dispatch({
+        type: "ADD_STUDENT_TERMS",
+        payload: true,
+      });
       setAgreedToggle(true);
+
     } else {
       setAgreedToggle(false);
+      dispatch({
+        type: "ADD_STUDENT_TERMS",
+        payload: false,
+      });
     }
   };
 
@@ -120,6 +150,7 @@ function StudentTerms(props) {
                 id="StudentTerms"
                 name="StudentTerms"
                 onChange={() => changeStudentTerms()}
+                checked={agreedToggle}
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -133,10 +164,10 @@ function StudentTerms(props) {
               {agreedToggle ? (
                 <StudentModal newStudentObject={newStudentObject} />
               ) : (
-                <Button className="saveAndContinueButton" disabled>
-                  Submit
-                </Button>
-              )}
+                  <Button className="saveAndContinueButton" disabled>
+                    Submit
+                  </Button>
+                )}
             </div>
           </div>
         </div>
