@@ -113,11 +113,10 @@ function TutorInfo(props) {
       setSubmitter("parentOrGuardian");
       setNewFirstName("Molly");
       setNewLastName("Randall");
-      setNewParentEmail("miriammcnamara@icloud.com");
-      setNewEmail("miriammcnamara@icloud.com");
+      setNewParentEmail("mollysmom@molly.com");
       setPronouns("she/her");
       setNewPhone("1234567890");
-      setNewSchool("Franklin Elementary School");
+      setNewSchool("franklin elementary school");
       setNewGrade("2nd");
       setArabic(true);
     }

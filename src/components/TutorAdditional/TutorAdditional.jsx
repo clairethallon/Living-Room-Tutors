@@ -48,7 +48,7 @@ function StudentAdditional(props) {
   const setDefaults = () => {
     if (presenting) {
       setNewTutorAdditionalInfo(
-        "I took AP US History last year and scored a 4 on the test, so I would be useful in providing thorough explanations and tips on how the test will go. I am verbally fluent in Arabic and can communicate with multiple dialects. If I do run into some difficulty somehow, my mother is 100% fluent in Arabic (verbal/reading/writing), so there will always be help."
+        "I took AP US History last year and scored a 4 on the test, so I feel comfortable teaching that to other high schoolers. I am verbally fluent in Arabic and can communicate with multiple dialects. And my mother is 100% fluent in Arabic (verbal/reading/writing), so there will always be help."
       );
     }
   };

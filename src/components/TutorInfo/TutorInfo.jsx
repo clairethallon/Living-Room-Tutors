@@ -146,7 +146,7 @@ function TutorInfo(props) {
     if (presenting) {
       setNewTutorFirstName("Adeline");
       setNewTutorLastName("Chapman");
-      setNewEmail("miriammcnamara@icloud.com");
+      setNewEmail("adeline@adeline.com");
       setPronouns("she/they");
       setNewTutorPhone("1234567890");
       setNewGrade("Junior");
