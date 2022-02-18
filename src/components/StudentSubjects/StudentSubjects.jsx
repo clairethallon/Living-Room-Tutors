@@ -13,10 +13,11 @@ function StudentSubjects(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const presenting = true;
+
   useEffect(() => {
     scrollToTop();
     checkReducer(newStudentSubjects);
-
   }, []);
 
   const store = useSelector((store) => store);
@@ -25,23 +26,30 @@ function StudentSubjects(props) {
   );
 
   const checkReducer = (newStudentSubjects) => {
-    console.log('in checkReducer', newStudentSubjects);
+    console.log("in checkReducer", newStudentSubjects);
     if (newStudentSubjects.length == 0) {
-      console.log('EMPTY');
+      console.log("EMPTY");
       return false;
-    }
-    else {
+    } else {
       setNewPrimarySubject(newStudentSubjects.newPrimarySubject);
       setNewSecondarySubject(newStudentSubjects.newSecondarySubject);
       setNewTertiarySubject(newStudentSubjects.newTertiarySubject);
       setNewDetailedNeeds(newStudentSubjects.newDetailedNeeds);
-
     }
-  }
+  };
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
+  };
+
+  const setDefaults = () => {
+    if (presenting) {
+      setNewPrimarySubject("2");
+      setNewSecondarySubject("1");
+      setNewTertiarySubject("3");
+      setNewDetailedNeeds("general support with homework");
+    }
   };
 
   const [newPrimarySubject, setNewPrimarySubject] = useState(null);
@@ -140,7 +148,7 @@ function StudentSubjects(props) {
           <ProgressBar />
           <div className="formContent">
             <div className="formQandA">
-              <p>
+              <p onClick={setDefaults}>
                 In what subjects does the student need support?{" "}
                 <span className="requiredField"> *</span>
               </p>
@@ -154,7 +162,6 @@ function StudentSubjects(props) {
                   aria-label="Student's 1st Choice"
                   defaultValue={newPrimarySubject}
                   value={newPrimarySubject}
-
                 >
                   <option value="">Select</option>
                   <option value="1">K-5 Math</option>
@@ -226,7 +233,8 @@ function StudentSubjects(props) {
                 className="selectInput subjectOptions"
                 onChange={(event) => changeSecondarySubject(event)}
               >
-                <Form.Select aria-label="Student's 2nd Choice"
+                <Form.Select
+                  aria-label="Student's 2nd Choice"
                   defaultValue={newSecondarySubject}
                   value={newSecondarySubject}
                 >
@@ -395,7 +403,6 @@ function StudentSubjects(props) {
                   placeholder="Details of tutoring needs"
                   style={{ height: "100px" }}
                   defaultValue={newDetailedNeeds}
-
                 />
               </FloatingLabel>
             </div>
