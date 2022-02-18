@@ -127,8 +127,10 @@ function TutorSubjects(props) {
       setFrench(newtutorSubj.French)
       setVietnamese(newtutorSubj.Vietnamese)
       setHmong(newtutorSubj.Hmong)
-      setIsLangChecked(newtutorSubj.IsLangChecked)
-      setotherLanguage(newtutorSubj.otherLanguage)
+      if (newtutorSubj.otherLanguage) {
+        setIsLangChecked(true);
+        setotherLanguage(newtutorSubj.otherLanguage);
+      }
     }
   }
 
@@ -529,7 +531,16 @@ function TutorSubjects(props) {
   };
 
   const changeIsLangChecked = () => {
-    setIsLangChecked(!IsLangChecked);
+    console.log("is other checked?", IsLangChecked);
+
+    if (IsLangChecked == true) {
+      setotherLanguage('');
+      setIsLangChecked(!IsLangChecked);
+      return;
+    }
+    else {
+      setIsLangChecked(!IsLangChecked);
+    }
     console.log("is other checked?", IsLangChecked);
   };
 
