@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../HomePage/HomePage.css";
 import { Table, Card, Col, Row, Button, ButtonGroup } from "react-bootstrap";
 import logo from "../../images/logoCrop.png";
@@ -8,6 +8,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function HomePage(props) {
+
+  useEffect(() => {
+    dispatch({
+      type: "UNSET_ADD_NEW_TUTOR_INFO",
+    });
+    dispatch({
+      type: "UNSET_ADD_NEW_TUTOR_SUBJECTS",
+    });
+    dispatch({
+      type: "UNSET_ADD_TUTOR_ADITIONAL_INFO",
+    });
+    dispatch({
+      type: "ADD_TUTOR_TERMS", payload: false
+    });
+    dispatch({
+      type: "UNSET_ADD_NEW_SUBJECTS_INFO",
+    });
+    dispatch({
+      type: "UNSET_ADD_NEW_STUDENT_SUBJECTS",
+    });
+    dispatch({
+      type: "UNSET_ADD_NEW_STUDENT_ADDITIONAL",
+    });
+    dispatch({
+      type: "ADD_STUDENT_TERMS", payload: false
+    });
+
+  }, []);
+
+  const dispatch = useDispatch();
+
   const store = useSelector((store) => store);
   const history = useHistory();
 

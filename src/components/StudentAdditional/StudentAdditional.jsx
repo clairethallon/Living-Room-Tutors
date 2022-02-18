@@ -23,7 +23,6 @@ function StudentAdditional(props) {
   useEffect(() => {
     scrollToTop();
     checkReducer(newStudentAdditional);
-
   }, []);
 
 

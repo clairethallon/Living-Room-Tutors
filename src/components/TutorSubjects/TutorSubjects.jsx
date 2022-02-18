@@ -209,7 +209,7 @@ function TutorSubjects(props) {
   const [French, setFrench] = useState(false);
   const [Vietnamese, setVietnamese] = useState(false);
   const [Hmong, setHmong] = useState(false);
-  const [IsLangChecked, setIsLangChecked] = useState(true);
+  const [IsLangChecked, setIsLangChecked] = useState(false);
   const [otherLanguage, setotherLanguage] = useState('');
   // ******** LANGUAGE CHECK BOXES **************
 
@@ -1719,7 +1719,7 @@ function TutorSubjects(props) {
                 Other
               </Form.Check.Label>
 
-              <fieldset disabled={IsLangChecked}>
+              <fieldset disabled={!IsLangChecked}>
                 <FloatingLabel
                   controlID="OtherLanguage"
                   label="Other Language"
