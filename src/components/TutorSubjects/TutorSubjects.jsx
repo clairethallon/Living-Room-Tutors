@@ -29,8 +29,6 @@ function TutorSubjects(props) {
       setEighthGrade(true);
       setNinthGrade(true);
       setTenthGrade(true);
-      setEleventhGrade(true);
-      setTwelfthGrade(true);
       setK5Math(true);
       setK5Reading(true);
       setK5EnglishWriting(true);

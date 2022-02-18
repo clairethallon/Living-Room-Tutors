@@ -14,6 +14,8 @@ function StudentAdditional(props) {
   const store = useSelector((store) => store);
   const history = useHistory();
 
+  const presenting = true;
+
   //useState is get to " " to display a check mark if the user doesn't fill out the additional info form since it's not required
   const [newAdditionalInfo, setNewAdditionalInfo] = useState(" ");
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
@@ -44,6 +46,14 @@ function StudentAdditional(props) {
     history.push("/StudentTerms");
   };
 
+  const setDefaults = () => {
+    if (presenting) {
+      setNewAdditionalInfo(
+        "Molly is very excited to learn! She just needs some support in Arabic until she becomes more fluent in English."
+      );
+    }
+  };
+
   return (
     <div className="formBackground">
       <Header />
@@ -52,7 +62,7 @@ function StudentAdditional(props) {
           <ProgressBar />
           <div className="formContent">
             <div className="formQandA">
-              <p>
+              <p onClick={setDefaults}>
                 Is there anything else you want us to know about the Student?
               </p>
               <FloatingLabel
@@ -64,6 +74,7 @@ function StudentAdditional(props) {
                   as="textarea"
                   className="additionalTextArea"
                   placeholder="Additional Info"
+                  value={newAdditionalInfo}
                   onChange={(event) => changeAdditionalInfo(event)}
                 />
               </FloatingLabel>
