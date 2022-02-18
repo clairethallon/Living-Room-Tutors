@@ -18,7 +18,7 @@ function AdminNavBar() {
     <div className="AdminNav">
       <div className="LRTHeaderContainer">
         <Link to="/admin">
-          <img src={LRTHeader} className="LRTHeader" />
+          <img alt="header" src={LRTHeader} className="LRTHeader" />
         </Link>
       </div>
 

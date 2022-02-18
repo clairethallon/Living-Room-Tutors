@@ -17,7 +17,8 @@ function StudentAdditional(props) {
     (store) => store.newStudent.newstudentAdditionalReducer
   );
 
-  const [newAdditionalInfo, setNewAdditionalInfo] = useState();
+  //useState is get to " " to display a check mark if the user doesn't fill out the additional info form since it's not required
+  const [newAdditionalInfo, setNewAdditionalInfo] = useState(" ");
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
 
   useEffect(() => {
@@ -51,6 +52,7 @@ function StudentAdditional(props) {
     const newStudentAdditional = {
       newAdditionalInfo: newAdditionalInfo,
     };
+    console.log();
     dispatch({
       type: "ADD_NEW_STUDENT_ADDITIONAL",
       payload: newStudentAdditional,

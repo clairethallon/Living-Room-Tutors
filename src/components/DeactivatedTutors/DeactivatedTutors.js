@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DeactivatedTutorsTable from "../DeactivatedTutorsTable/DeactivatedTutorsTable";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function DeactivatedTutors(props) {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ function DeactivatedTutors(props) {
     dispatch({ type: "FETCH_DEACTIVE_TUTORS" });
   }, []);
 
-  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+  const flagIcon = <FontAwesomeIcon icon={faStar} />;
 
   const deactiveTutors = useSelector((store) => store.deactiveTutors);
 

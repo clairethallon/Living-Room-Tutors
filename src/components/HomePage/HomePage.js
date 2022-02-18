@@ -46,7 +46,7 @@ function HomePage(props) {
 
   return (
     <div className="homePage">
-      <img className="homeLogo" src={logo} />
+      <img alt="home logo" className="homeLogo" src={logo} />
       <Row>
         <Col lg="6" xs="12" className="registrationTermsCol">
           <div className="registrationTermsContainer">

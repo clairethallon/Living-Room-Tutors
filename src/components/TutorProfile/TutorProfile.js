@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone, faFlag } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone, faStar } from "@fortawesome/free-solid-svg-icons";
 
 function TutorProfile(props) {
   const emailIcon = <FontAwesomeIcon icon={faEnvelope} />;
   const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
-  const flagIcon = <FontAwesomeIcon icon={faFlag} />;
+  const flagIcon = <FontAwesomeIcon icon={faStar} />;
 
   const store = useSelector((store) => store);
   const [tutorLanguages, setTutorLanguages] = useState([]);

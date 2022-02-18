@@ -23,8 +23,8 @@ function RecordsPage(props) {
       <AdminNavBar />
       <h1>Matched Tutors & Tutees</h1>
       <label htmlFor="yearFilter">
-        <img className="calenderIcon" src={calenderIcon} /> Filter Matches by
-        Year
+        <img alt="calender" className="calenderIcon" src={calenderIcon} />{" "}
+        Filter Matches by Year
       </label>
 
       <Form.Select

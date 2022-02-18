@@ -36,6 +36,7 @@ function StudentTerms(props) {
 
   );
 
+
   const studentInfo = useSelector(
     (store) => store.newStudent.newstudentInfoReducer
   );
