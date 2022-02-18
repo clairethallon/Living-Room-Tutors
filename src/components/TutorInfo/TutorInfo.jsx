@@ -151,6 +151,7 @@ function TutorInfo(props) {
       setNewTutorPhone("1234567890");
       setNewGrade("Junior");
       setNewTutorSchool("Century High School");
+      setdefaultSchoolVal("Century High School")
     }
   };
 
