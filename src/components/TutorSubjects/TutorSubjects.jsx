@@ -45,10 +45,92 @@ function TutorSubjects(props) {
   const history = useHistory();
 
   const rightArrow = <FontAwesomeIcon icon={faArrowRight} />;
+  const newtutorSubj = useSelector((store) => store.newtutor.newtutorSubjectReducer);
+
 
   useEffect(() => {
     scrollToTop();
+    checkReducer(newtutorSubj);
   }, []);
+
+  const checkReducer = (newtutorSubj) => {
+    console.log('in checkReducer', newtutorSubj);
+    if (newtutorSubj.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setPreK(newtutorSubj.PreK)
+      setFirstGrade(newtutorSubj.FirstGrade)
+      setSecondGrade(newtutorSubj.SecondGrade)
+      setThirdGrade(newtutorSubj.ThirdGrade)
+      setFourthGrade(newtutorSubj.FourthGrade)
+      setFifthGrade(newtutorSubj.FifthGrade)
+      setSixthGrade(newtutorSubj.SixthGrade)
+      setSeventhGrade(newtutorSubj.SeventhGrade)
+      setEighthGrade(newtutorSubj.EighthGrade)
+      setNinthGrade(newtutorSubj.NinthGrade)
+      setTenthGrade(newtutorSubj.TenthGrade)
+      setEleventhGrade(newtutorSubj.EleventhGrade)
+      setTwelfthGrade(newtutorSubj.TwelfthGrade)
+
+      setK5Math(newtutorSubj.K5Math)
+      setK5Reading(newtutorSubj.K5Reading)
+      setK5EnglishWriting(newtutorSubj.K5EnglishWriting)
+      setK5SocialStudies(newtutorSubj.K5SocialStudies)
+      setK5Science(newtutorSubj.K5Science)
+      setSixToEightLanguageArts(newtutorSubj.SixToEightLanguageArts)
+      setSixToEightScience(newtutorSubj.SixToEightScience)
+      setSixToEightSocialStudies(newtutorSubj.SixToEightSocialStudies)
+      setMathPreAlgebra(newtutorSubj.MathPreAlgebra)
+      setMathLinearAlgebra(newtutorSubj.MathLinearAlgebra)
+      setMathGeometry(newtutorSubj.MathGeometry)
+      setMathAlgebraII(newtutorSubj.MathAlgebraII)
+      setMathPrecalculusTrigonometry(newtutorSubj.MathPrecalculusTrigonometry)
+      setBiologyLifeSciences(newtutorSubj.BiologyLifeSciences)
+      setScienceChemistry(newtutorSubj.ScienceChemistry)
+      setSciencePhysics(newtutorSubj.SciencePhysics)
+      setComputerScience(newtutorSubj.ComputerScience)
+      setLanguageChinese(newtutorSubj.LanguageChinese)
+      setLanguageSpanish(newtutorSubj.LanguageSpanish)
+      setLanguageFrench(newtutorSubj.LanguageFrench)
+      setLanguageGerman(newtutorSubj.LanguageGerman)
+      setWorldHistory(newtutorSubj.WorldHistory)
+      setUSHistory(newtutorSubj.USHistory)
+      setAPHonorsBiology(newtutorSubj.APHonorsBiology)
+      setAPHonorsChemistry(newtutorSubj.APHonorsChemistry)
+      setAPHonorsPhysics(newtutorSubj.APHonorsPhysics)
+      setAPHonorsComputerScience(newtutorSubj.APHonorsComputerScience)
+      setAPHonorsCalculusAB(newtutorSubj.APHonorsCalculusAB)
+      setAPHonorsCalculusBC(newtutorSubj.APHonorsCalculusBC)
+      setAPHonorsStatistics(newtutorSubj.APHonorsStatistics)
+      setAPHonorsEnglishLiterature(newtutorSubj.APHonorsEnglishLiterature)
+      setAPHonorsEnglishLanguage(newtutorSubj.APHonorsEnglishLanguage)
+      setAPHonorsMacroeconomics(newtutorSubj.APHonorsMacroeconomics)
+      setAPHonorsMicroeconomics(newtutorSubj.APHonorsMicroeconomics)
+      setAPHonorsPsychology(newtutorSubj.APHonorsPsychology)
+      setAPHonorsUSHistory(newtutorSubj.APHonorsUSHistory)
+      setAPHonorsGovernmentPolitics(newtutorSubj.APHonorsGovernmentPolitics)
+      setAPHonorsHumanGeography(newtutorSubj.APHonorsHumanGeography)
+      setSATSubjectTests(newtutorSubj.SATSubjectTests)
+      setSATPrep(newtutorSubj.SATPrep)
+      setACTPrep(newtutorSubj.ACTPrep)
+      setOther(newtutorSubj.Other)
+
+      setSpanish(newtutorSubj.Spanish)
+      setSomali(newtutorSubj.Somali)
+      setArabic(newtutorSubj.Arabic)
+      setChinese(newtutorSubj.Chinese)
+      setTagalog(newtutorSubj.Tagalog)
+      setFrench(newtutorSubj.French)
+      setVietnamese(newtutorSubj.Vietnamese)
+      setHmong(newtutorSubj.Hmong)
+      if (newtutorSubj.otherLanguage) {
+        setIsLangChecked(true);
+        setotherLanguage(newtutorSubj.otherLanguage);
+      }
+    }
+  }
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -127,8 +209,8 @@ function TutorSubjects(props) {
   const [French, setFrench] = useState(false);
   const [Vietnamese, setVietnamese] = useState(false);
   const [Hmong, setHmong] = useState(false);
-  const [IsLangChecked, setIsLangChecked] = useState(true);
-  const [otherLanguage, setotherLanguage] = useState();
+  const [IsLangChecked, setIsLangChecked] = useState(false);
+  const [otherLanguage, setotherLanguage] = useState('');
   // ******** LANGUAGE CHECK BOXES **************
 
   // *********** TUTOR GRADE LEVELS ****************
@@ -447,7 +529,16 @@ function TutorSubjects(props) {
   };
 
   const changeIsLangChecked = () => {
-    setIsLangChecked(!IsLangChecked);
+    console.log("is other checked?", IsLangChecked);
+
+    if (IsLangChecked == true) {
+      setotherLanguage('');
+      setIsLangChecked(!IsLangChecked);
+      return;
+    }
+    else {
+      setIsLangChecked(!IsLangChecked);
+    }
     console.log("is other checked?", IsLangChecked);
   };
 
@@ -525,6 +616,7 @@ function TutorSubjects(props) {
       French: French,
       Vietnamese: Vietnamese,
       Hmong: Hmong,
+      otherLanguage: otherLanguage
     };
 
     let gradesErrors = false;
@@ -1105,6 +1197,8 @@ function TutorSubjects(props) {
                 type="checkbox"
                 id="Language: Chinese"
                 name="Language: Chinese"
+                onChange={(event) => changeLanguageChinese()}
+
                 checked={LanguageChinese}
               />
               <Form.Check.Label
@@ -1495,6 +1589,8 @@ function TutorSubjects(props) {
                 id="Spanish"
                 name="Spanish"
                 onChange={(event) => changeSpanish()}
+                checked={Spanish}
+
               />
               <Form.Check.Label
                 className="customCheckAndRadioOptions"
@@ -1509,6 +1605,7 @@ function TutorSubjects(props) {
                 type="checkbox"
                 id="Somali"
                 name="Somali"
+                checked={Somali}
                 onChange={(event) => changeSomali()}
               />
               <Form.Check.Label
@@ -1540,6 +1637,7 @@ function TutorSubjects(props) {
                 type="checkbox"
                 id="Chinese"
                 name="Chinese"
+                checked={Chinese}
                 onChange={(event) => changeChinese()}
               />
               <Form.Check.Label
@@ -1555,6 +1653,7 @@ function TutorSubjects(props) {
                 type="checkbox"
                 id="Tagalog"
                 name="Tagalog"
+                checked={Tagalog}
                 onChange={(event) => changeTagalog()}
               />
               <Form.Check.Label
@@ -1570,6 +1669,7 @@ function TutorSubjects(props) {
                 type="checkbox"
                 id="French"
                 name="French"
+                checked={French}
                 onChange={(event) => changeFrench()}
               />
               <Form.Check.Label
@@ -1585,6 +1685,7 @@ function TutorSubjects(props) {
                 type="checkbox"
                 id="Vietnamese"
                 name="Vietnamese"
+                checked={Vietnamese}
                 onChange={(event) => changeVietnamese()}
               />
               <Form.Check.Label
@@ -1600,6 +1701,7 @@ function TutorSubjects(props) {
                 type="checkbox"
                 id="Hmong"
                 name="Hmong"
+                checked={Hmong}
                 onChange={(event) => changeHmong()}
               />
               <Form.Check.Label
@@ -1615,6 +1717,7 @@ function TutorSubjects(props) {
                 type="checkbox"
                 id="OtherLanguage"
                 name="OtherLanguage"
+                checked={IsLangChecked}
                 onChange={(e) => changeIsLangChecked(event.target.checked)}
               />
 
@@ -1625,7 +1728,7 @@ function TutorSubjects(props) {
                 Other
               </Form.Check.Label>
 
-              <fieldset disabled={IsLangChecked}>
+              <fieldset disabled={!IsLangChecked}>
                 <FloatingLabel
                   controlID="OtherLanguage"
                   label="Other Language"
@@ -1635,6 +1738,8 @@ function TutorSubjects(props) {
                   <Form.Control
                     type="OtherLanguage"
                     placeholder="Other Language"
+                    defaultValue={otherLanguage}
+
                   />
                 </FloatingLabel>
               </fieldset>

@@ -33,7 +33,7 @@ const newstudentAdditionalReducer = (state = [], action) => {
   }
 };
 
-const newstudentTermsReducer = (state = [], action) => {
+const newstudentTermsReducer = (state = false, action) => {
   switch (action.type) {
     case "ADD_STUDENT_TERMS":
       return action.payload;

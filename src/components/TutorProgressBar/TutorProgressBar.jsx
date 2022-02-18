@@ -18,9 +18,12 @@ function ProgressBar(props) {
     changeImageTutorTerms();
   }, []);
 
+
+
   const checkIcon = <FontAwesomeIcon icon={faCheck} />;
 
   const store = useSelector((store) => store);
+
   const newTutorInfo = useSelector(
     (store) => store.newtutor.newtutorInfoReducer
   );
@@ -31,6 +34,9 @@ function ProgressBar(props) {
     (store) => store.newtutor.newtutorAdditionalReducer
   );
 
+  const newTutorTerms = useSelector(
+    (store) => store.newtutor.newtutorTermsReducer
+  );
   // const newstudentInfoReducer = useSelector((store)=> store.newstudentInfoReducer);
   const [heading, setHeading] = useState("Functional Component");
 
@@ -139,7 +145,7 @@ function ProgressBar(props) {
 
   const changeImageTutorTerms = () => {
     console.log("in changeProgressBarImage");
-    setProgressBarImageTerms(ProgressBarImageTerms);
+    setProgressBarImageTerms(newTutorTerms);
   };
 
   return (
@@ -159,11 +165,11 @@ function ProgressBar(props) {
                 </Nav.Link>
               </div>
             ) : (
-              <Nav.Link className="navContent" href="#" disabled>
-                <div className="ProgressStepDiv">1</div>
-                <p className="navText">Tutor Info</p>
-              </Nav.Link>
-            )}
+                <Nav.Link className="navContent" href="#" disabled>
+                  <div className="ProgressStepDiv">1</div>
+                  <p className="navText">Tutor Info</p>
+                </Nav.Link>
+              )}
           </Nav.Item>
 
           <Nav.Item className="navCol">
@@ -178,14 +184,14 @@ function ProgressBar(props) {
                 </Nav.Link>
               </div>
             ) : (
-              <div className="NavItem">
-                <Nav.Link className="navContent" href="#" disabled>
-                  <div className="ProgressStepDiv">2</div>
-                  <p>Subjects</p>
-                </Nav.Link>
-                {/* <div className="navLine"></div> */}
-              </div>
-            )}
+                <div className="NavItem">
+                  <Nav.Link className="navContent" href="#" disabled>
+                    <div className="ProgressStepDiv">2</div>
+                    <p>Subjects</p>
+                  </Nav.Link>
+                  {/* <div className="navLine"></div> */}
+                </div>
+              )}
           </Nav.Item>
 
           <Nav.Item>
@@ -193,25 +199,25 @@ function ProgressBar(props) {
               <div className="NavItem">
                 <Nav.Link
                   className="checkedNavLink navContent"
-                  href="#studentadditional"
+                  href="#tutoradditional"
                 >
                   <div className="ProgressStepDiv">{checkIcon}</div>
                   <p>Additional Info</p>
                 </Nav.Link>
               </div>
             ) : (
-              <div className="NavItem">
-                <Nav.Link className="navContent" href="#" disabled>
-                  <div className="ProgressStepDiv">3</div>
-                  <p>Additional Info</p>
-                </Nav.Link>
-                {/* <div className="navLine"></div> */}
-              </div>
-            )}
+                <div className="NavItem">
+                  <Nav.Link className="navContent" href="#" disabled>
+                    <div className="ProgressStepDiv">3</div>
+                    <p>Additional Info</p>
+                  </Nav.Link>
+                  {/* <div className="navLine"></div> */}
+                </div>
+              )}
           </Nav.Item>
 
           <Nav.Item>
-            {ProgressBarImageTerms ? (
+            {newTutorTerms ? (
               <Nav.Link
                 className="checkedNavLink navContent"
                 href="#studentterms"
@@ -220,11 +226,11 @@ function ProgressBar(props) {
                 <p>Terms</p>
               </Nav.Link>
             ) : (
-              <Nav.Link className="navContent" to="#" disabled>
-                <div className="ProgressStepDiv">4</div>
-                <p>Terms</p>
-              </Nav.Link>
-            )}
+                <Nav.Link className="navContent" to="#" disabled>
+                  <div className="ProgressStepDiv">4</div>
+                  <p>Terms</p>
+                </Nav.Link>
+              )}
           </Nav.Item>
         </Nav>
       </Container>

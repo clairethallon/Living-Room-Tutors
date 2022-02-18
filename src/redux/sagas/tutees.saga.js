@@ -30,7 +30,7 @@ function* postNewStudent(action) {
     yield put({ type: "UNSET_ADD_NEW_SUBJECTS_INFO" });
     yield put({ type: "UNSET_ADD_NEW_STUDENT_SUBJECTS" });
     yield put({ type: "UNSET_ADD_NEW_STUDENT_ADDITIONAL" });
-    yield put({ type: "UNSET_ADD_STUDENT_TERMS" });
+    yield put({ type: "ADD_STUDENT_TERMS", payload: false });
     try {
       const response2 = yield axios.post("/api/mail", {
         email: emailToSend,

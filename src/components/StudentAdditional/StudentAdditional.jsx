@@ -13,6 +13,9 @@ function StudentAdditional(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
   const history = useHistory();
+  const newStudentAdditional = useSelector(
+    (store) => store.newStudent.newstudentAdditionalReducer
+  );
 
   const presenting = true;
 
@@ -22,7 +25,20 @@ function StudentAdditional(props) {
 
   useEffect(() => {
     scrollToTop();
+    checkReducer(newStudentAdditional);
   }, []);
+
+
+  const checkReducer = (newStudentAdditional) => {
+    console.log('in checkReducer', newStudentAdditional);
+    if (newStudentAdditional.length == 0) {
+      console.log('EMPTY');
+      return false;
+    }
+    else {
+      setNewAdditionalInfo(newStudentAdditional.newAdditionalInfo);
+    }
+  }
 
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -76,6 +92,7 @@ function StudentAdditional(props) {
                   placeholder="Additional Info"
                   value={newAdditionalInfo}
                   onChange={(event) => changeAdditionalInfo(event)}
+                  defaultValue={newAdditionalInfo}
                 />
               </FloatingLabel>
             </div>
