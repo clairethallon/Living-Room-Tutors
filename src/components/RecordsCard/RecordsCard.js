@@ -29,15 +29,15 @@ function RecordsCard(props) {
   const specialSubjects = useSelector((store) => store.specialSubjects);
 
   useEffect(() => {
-    tuteeLanguageFinder(languages);
-    tutorLanguageFinder(languages);
+    tuteeLanguageFinder(languageTutee);
+    tutorLanguageFinder(languageTutor);
     gradeFinder(grades);
     subjectFinder(tuteeSubjects);
     tutorSubjectFinder(subjects);
     makePrettyTime(props.match.match_timestamp);
   }, []);
 
-  const languages = [
+  const languageTutee = [
     { name: "Arabic ", status: props.match.tutee_language_arabic },
     { name: "Chinese ", status: props.match.tutee_language_chinese },
     { name: "French ", status: props.match.tutee_language_french },
@@ -46,6 +46,19 @@ function RecordsCard(props) {
     { name: "Tagalog ", status: props.match.tutee_language_tagalog },
     { name: "Vietnamese ", status: props.match.tutee_language_vietnamese },
     { name: "Spanish ", status: props.match.tutee_language_spanish },
+    { name: props.match.tutee_language_other, status: false },
+  ];
+
+  const languageTutor = [
+    { name: "Arabic ", status: props.match.tutor_language_arabic },
+    { name: "Chinese ", status: props.match.tutor_language_chinese },
+    { name: "French ", status: props.match.tutor_language_french },
+    { name: "Hmong ", status: props.match.tutor_language_hmong },
+    { name: "Somali ", status: props.match.tutor_language_somali },
+    { name: "Tagalog ", status: props.match.tutor_language_tagalog },
+    { name: "Vietnamese ", status: props.match.tutor_language_vietnamese },
+    { name: "Spanish ", status: props.match.tutor_language_spanish },
+    { name: props.match.tutor_language_other, status: false },
   ];
 
   const grades = [
@@ -159,8 +172,8 @@ function RecordsCard(props) {
     { name: "AP/Honors Biology ", status: props.match.tutor_ap_bio },
     { name: "AP/Honors Chemistry ", status: props.match.tutor_ap_chem },
     { name: "AP/Honors Physics ", status: props.match.tutor_ap_physics },
-    { name: "AP/Honors Calculus AB ", status: props.match.tutor_ap_calc_AB },
-    { name: "AP/Honors Calculus BC ", status: props.match.tutor_ap_calc_BC },
+    { name: "AP/Honors Calculus AB ", status: props.match.tutor_ap_calc_ab },
+    { name: "AP/Honors Calculus BC ", status: props.match.tutor_ap_calc_bc },
     { name: "AP/Honors Statistics ", status: props.match.tutor_ap_stats },
     {
       name: "AP/Honors Computer Science ",
@@ -208,6 +221,9 @@ function RecordsCard(props) {
         currentLanguages.push(languages[i].name);
       }
     }
+    if (props.match.tutee_language_other !== null) {
+      currentLanguages.push(props.match.tutee_language_other);
+    }
     console.log("CURRENT LANGUAGES", currentLanguages);
     setTuteeLanguages(currentLanguages);
     return currentLanguages;
@@ -220,6 +236,9 @@ function RecordsCard(props) {
       if (languages[i].status === true) {
         currentLanguages.push(languages[i].name);
       }
+    }
+    if (props.match.tutor_language_other !== null) {
+      currentLanguages.push(props.match.tutor_language_other);
     }
     console.log("CURRENT LANGUAGES", currentLanguages);
     setTutorLanguages(currentLanguages);
@@ -287,6 +306,7 @@ function RecordsCard(props) {
 
   return (
     <div>
+      {/* {JSON.stringify(props.match)} */}
       {props.year == "all" || !props.year || props.year == prettyTime.year ? (
         <Accordion className="accordionCard" defaultActiveKey="1">
           <Accordion.Item eventKey="0">
@@ -375,14 +395,14 @@ function RecordsCard(props) {
                     <div>
                       <p className="profileQuestion">Language preference:</p>
                       <div className="languagePillContainer">
-                        {tuteeLanguages.map((language) => {
+                        {tuteeLanguages.map((languageTutee) => {
                           return (
                             <div className="languagePill">
                               {" "}
                               <span className="languageFlag">
                                 {flagIcon}
                               </span>{" "}
-                              {language}
+                              {languageTutee}
                             </div>
                           );
                         })}
@@ -596,11 +616,11 @@ function RecordsCard(props) {
                           Languages comfortable tutoring in:
                         </p>
                         <div className="languagePillContainer">
-                          {tutorLanguages.map((language) => {
+                          {tutorLanguages.map((languageTutor) => {
                             return (
                               <div className="languagePill">
                                 <span className="languageFlag">{flagIcon}</span>{" "}
-                                {language}
+                                {languageTutor}
                               </div>
                             );
                           })}
@@ -632,6 +652,7 @@ function RecordsCard(props) {
                           {tutorSubjects.map((subject) => {
                             if (
                               subject === "Precalculus/Trigonometry " ||
+                              subject === "Biology/Life Sciences " ||
                               subject === "Chemistry " ||
                               subject === "Physics " ||
                               subject === "Computer Science " ||

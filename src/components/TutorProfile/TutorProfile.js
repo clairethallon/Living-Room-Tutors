@@ -77,8 +77,8 @@ function TutorProfile(props) {
     { name: "AP/Honors Biology ", status: props.tutor.tutor_ap_bio },
     { name: "AP/Honors Chemistry ", status: props.tutor.tutor_ap_chem },
     { name: "AP/Honors Physics ", status: props.tutor.tutor_ap_physics },
-    { name: "AP/Honors Calculus AB ", status: props.tutor.tutor_ap_calc_AB },
-    { name: "AP/Honors Calculus BC ", status: props.tutor.tutor_ap_calc_BC },
+    { name: "AP/Honors Calculus AB ", status: props.tutor.tutor_ap_calc_ab },
+    { name: "AP/Honors Calculus BC ", status: props.tutor.tutor_ap_calc_bc },
     { name: "AP/Honors Statistics ", status: props.tutor.tutor_ap_stats },
     {
       name: "AP/Honors Computer Science ",
@@ -158,6 +158,7 @@ function TutorProfile(props) {
     let mentor_subjects = [];
     for (let i = 0; i < subjects.length; i++) {
       if (subjects[i].status === true) {
+        console.log(subjects[i].name, subjects[i].status);
         mentor_subjects.push(subjects[i].name);
       }
     }
@@ -241,7 +242,6 @@ function TutorProfile(props) {
             })}{" "}
           </div>
         </div>
-
         <div>
           <p className="profileQuestion">Subjects comfortable tutoring: </p>
           <div className="subjectPillContainer">
