@@ -290,7 +290,8 @@ function TutorMatchCard(props) {
               <Col xs="1" className="flaggedSubjectLanguage">
                 {tutorSubjects.map((subject) => {
                   if (
-                    props.tutor === "Precalculus/Trigonometry " ||
+                    subject === "Precalculus/Trigonometry " ||
+                    subject === "Biology/Life Sciences " ||
                     subject === "Chemistry " ||
                     subject === "Physics " ||
                     subject === "Computer Science " ||

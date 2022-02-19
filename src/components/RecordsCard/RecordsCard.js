@@ -172,8 +172,8 @@ function RecordsCard(props) {
     { name: "AP/Honors Biology ", status: props.match.tutor_ap_bio },
     { name: "AP/Honors Chemistry ", status: props.match.tutor_ap_chem },
     { name: "AP/Honors Physics ", status: props.match.tutor_ap_physics },
-    { name: "AP/Honors Calculus AB ", status: props.match.tutor_ap_calc_AB },
-    { name: "AP/Honors Calculus BC ", status: props.match.tutor_ap_calc_BC },
+    { name: "AP/Honors Calculus AB ", status: props.match.tutor_ap_calc_ab },
+    { name: "AP/Honors Calculus BC ", status: props.match.tutor_ap_calc_bc },
     { name: "AP/Honors Statistics ", status: props.match.tutor_ap_stats },
     {
       name: "AP/Honors Computer Science ",
@@ -652,6 +652,7 @@ function RecordsCard(props) {
                           {tutorSubjects.map((subject) => {
                             if (
                               subject === "Precalculus/Trigonometry " ||
+                              subject === "Biology/Life Sciences " ||
                               subject === "Chemistry " ||
                               subject === "Physics " ||
                               subject === "Computer Science " ||
