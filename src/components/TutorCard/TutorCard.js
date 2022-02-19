@@ -166,7 +166,7 @@ function TutorCard(props) {
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             {/* <Row> */}
-            <Col xs="3">
+            <Col xs="3" className="cardFirstLastName">
               {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
             </Col>
             <Col xs="2">

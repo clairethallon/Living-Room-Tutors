@@ -60,7 +60,7 @@ function TuteeCard(props) {
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             {/* <Row> */}
-            <Col xs="3">
+            <Col xs="3" className="cardFirstLastName">
               {props.tutee.tutee_firstname} {props.tutee.tutee_lastname}
             </Col>
             <Col xs="2">
