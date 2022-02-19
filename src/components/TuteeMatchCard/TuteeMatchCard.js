@@ -150,7 +150,6 @@ function TuteeMatchCard(props) {
     selectedTutee.tutee_language_hmong,
     selectedTutee.tutee_language_somali,
     selectedTutee.tutee_language_tagalog,
-    selectedTutee.tutee_language_tagalog,
     selectedTutee.tutee_language_vietnamese,
     selectedTutee.tutee_language_spanish,
   ];

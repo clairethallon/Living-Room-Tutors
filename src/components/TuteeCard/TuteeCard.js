@@ -49,7 +49,6 @@ function TuteeCard(props) {
     props.tutee.tutee_language_hmong,
     props.tutee.tutee_language_somali,
     props.tutee.tutee_language_tagalog,
-    props.tutee.tutee_language_tagalog,
     props.tutee.tutee_language_vietnamese,
     props.tutee.tutee_language_spanish,
     props.tutee.tutee_language_other,

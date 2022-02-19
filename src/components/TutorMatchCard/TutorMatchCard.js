@@ -42,7 +42,6 @@ function TutorMatchCard(props) {
     props.tutor.tutor_language_hmong,
     props.tutor.tutor_language_somali,
     props.tutor.tutor_language_tagalog,
-    props.tutor.tutor_language_tagalog,
     props.tutor.tutor_language_vietnamese,
     props.tutor.tutor_language_spanish,
   ];
