@@ -20,7 +20,6 @@
 p {
   font-family: inherit;
   font-size: 14px;
-  text-transform: capitalize;
 }
 
 #tutorEmail,
@@ -45,4 +44,12 @@ p {
 
 .mb-3 {
   margin-bottom: 0px !important;
+}
+
+.tuteeMisc {
+  font-family: Lato-BoldItalic;
+}
+
+.tuteeSubjects {
+  font-family: Lato-BoldItalic;
 }
