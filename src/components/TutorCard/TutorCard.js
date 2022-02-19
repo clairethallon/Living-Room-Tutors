@@ -179,6 +179,7 @@ function TutorCard(props) {
                 if (
                   subject === "Precalculus/Trigonometry " ||
                   subject === "Chemistry " ||
+                  subject === "Biology/Life Sciences " ||
                   subject === "Physics " ||
                   subject === "Computer Science " ||
                   subject === "Chinese " ||
@@ -211,7 +212,7 @@ function TutorCard(props) {
               })}
 
               {languages.map((language) => {
-                if (language === true) {
+                if (language !== false && language !== null) {
                   return <LanguageFlag />;
                 }
               })}

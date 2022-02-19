@@ -249,6 +249,7 @@ function TutorProfile(props) {
               if (
                 subject === "Precalculus/Trigonometry " ||
                 subject === "Chemistry " ||
+                subject === "Biology/Life Sciences " ||
                 subject === "Physics " ||
                 subject === "Computer Science " ||
                 subject === "Chinese " ||

@@ -28,6 +28,7 @@ function TuteeProfile(props) {
     { name: "Tagalog ", status: props.tutee.tutee_language_tagalog },
     { name: "Vietnamese ", status: props.tutee.tutee_language_vietnamese },
     { name: "Spanish ", status: props.tutee.tutee_language_spanish },
+    { name: props.tutee.tutee_language_other, status: true },
   ];
 
   const subjects = [
@@ -173,6 +174,7 @@ function TuteeProfile(props) {
           <p className="profileQuestion">1st subject choice:</p>
           {subject1 === "Precalculus/Trigonometry " ||
           subject1 === "Chemistry " ||
+          subject1 === "Biology/Life Sciences " ||
           subject1 === "Physics " ||
           subject1 === "Computer Science " ||
           subject1 === "Chinese " ||
@@ -212,6 +214,7 @@ function TuteeProfile(props) {
           {subject2 === "Precalculus/Trigonometry " ||
           subject2 === "Chemistry " ||
           subject2 === "Physics " ||
+          subject2 === "Biology/Life Sciences " ||
           subject2 === "Computer Science " ||
           subject2 === "Chinese " ||
           subject2 === "Spanish " ||
@@ -249,6 +252,7 @@ function TuteeProfile(props) {
           <p className="profileQuestion">3nd subject choice:</p>
           {subject3 === "Precalculus/Trigonometry " ||
           subject3 === "Chemistry " ||
+          subject3 === "Biology/Life Sciences " ||
           subject3 === "Physics " ||
           subject3 === "Computer Science " ||
           subject3 === "Chinese " ||

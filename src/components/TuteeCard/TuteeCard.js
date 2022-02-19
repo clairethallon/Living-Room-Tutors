@@ -52,6 +52,7 @@ function TuteeCard(props) {
     props.tutee.tutee_language_tagalog,
     props.tutee.tutee_language_vietnamese,
     props.tutee.tutee_language_spanish,
+    props.tutee.tutee_language_other,
   ];
 
   return (
@@ -82,7 +83,7 @@ function TuteeCard(props) {
                 }
               })}
               {languages.map((language) => {
-                if (language === true) {
+                if (language !== false && language !== null) {
                   return <LanguageFlag />;
                 }
               })}
