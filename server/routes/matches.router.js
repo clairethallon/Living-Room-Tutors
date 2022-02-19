@@ -122,7 +122,7 @@ inner join subjects_tutees AS Subject3 on Subject3.id = tutees.subject_3
 inner join "language" AS tutor_languages on tutor_languages.id = tutors.language_tutor_id
 inner join "language" AS tutee_languages on tutee_languages.id = tutees.language_tutee_id
 JOIN mentoring_grade ON tutors.mentoring_grade_id = mentoring_grade.id
-ORDER BY match_timestamp ASC;`;
+ORDER BY match_timestamp DESC;`;
 
   pool
     .query(query)

@@ -16,14 +16,15 @@ function TutorInfo(props) {
   const history = useHistory();
 
   const store = useSelector((store) => store);
-  const newtutorInfo = useSelector((store) => store.newtutor.newtutorInfoReducer);
+  const newtutorInfo = useSelector(
+    (store) => store.newtutor.newtutorInfoReducer
+  );
 
   const presenting = true;
 
   useEffect(() => {
     scrollToTop();
     checkReducer(newtutorInfo);
-
   }, []);
 
   const scrollToTop = () => {
@@ -31,12 +32,11 @@ function TutorInfo(props) {
   };
 
   const checkReducer = (newtutorInfo) => {
-    console.log('in checkReducer', newtutorInfo);
+    console.log("in checkReducer", newtutorInfo);
     if (newtutorInfo.length == 0) {
-      console.log('EMPTY');
+      console.log("EMPTY");
       return false;
-    }
-    else {
+    } else {
       setNewTutorFirstName(newtutorInfo.firstName);
       setNewTutorLastName(newtutorInfo.lastName);
       setNewEmail(newtutorInfo.email);
@@ -44,24 +44,25 @@ function TutorInfo(props) {
       setNewTutorPhone(newtutorInfo.phone);
       setNewGrade(newtutorInfo.grade);
       setNewTutorSchool(newtutorInfo.school);
-      if (newtutorInfo.school === 'Mayo High School' ||
-        newtutorInfo.school === 'John Marshall High School' ||
-        newtutorInfo.school === 'Century High School' ||
-        newtutorInfo.school === 'Lourdes High School' ||
-        newtutorInfo.school === 'Byron High School' ||
-        newtutorInfo.school === 'Dover-Eyota High School' ||
-        newtutorInfo.school === 'Stewertville High School' ||
-        newtutorInfo.school === 'College') {
+      if (
+        newtutorInfo.school === "Mayo High School" ||
+        newtutorInfo.school === "John Marshall High School" ||
+        newtutorInfo.school === "Century High School" ||
+        newtutorInfo.school === "Lourdes High School" ||
+        newtutorInfo.school === "Byron High School" ||
+        newtutorInfo.school === "Dover-Eyota High School" ||
+        newtutorInfo.school === "Stewertville High School" ||
+        newtutorInfo.school === "College"
+      ) {
         setdefaultSchoolVal(newtutorInfo.school);
         setNewTutorSchool(newtutorInfo.school);
-      }
-      else {
+      } else {
         setOtherField(true);
         setdefaultSchoolVal("Other");
         setOtherSchool(newtutorInfo.school);
       }
     }
-  }
+  };
 
   const [newTutorFirstName, setNewTutorFirstName] = useState("");
   const [newTutorLastName, setNewTutorLastName] = useState("");
@@ -119,8 +120,8 @@ function TutorInfo(props) {
     if (event.target.value == "Other") {
       setOtherField(true);
       setdefaultSchoolVal(event.target.value);
-      setNewTutorSchool('');
-      setOtherSchool('');
+      setNewTutorSchool("");
+      setOtherSchool("");
       return;
     } else {
       setOtherField(false);
@@ -129,11 +130,9 @@ function TutorInfo(props) {
     if (event.target.value === "") {
       setNewTutorSchool(undefined);
       setdefaultSchoolVal(event.target.value);
-
     } else {
       setNewTutorSchool(event.target.value);
       setdefaultSchoolVal(event.target.value);
-
     }
   };
 
@@ -146,12 +145,12 @@ function TutorInfo(props) {
     if (presenting) {
       setNewTutorFirstName("Adeline");
       setNewTutorLastName("Chapman");
-      setNewEmail("adeline@adeline.com");
+      setNewEmail("adeline@adelinechapman.com");
       setPronouns("she/they");
       setNewTutorPhone("1234567890");
       setNewGrade("Junior");
       setNewTutorSchool("Century High School");
-      setdefaultSchoolVal("Century High School")
+      setdefaultSchoolVal("Century High School");
     }
   };
 
@@ -224,7 +223,6 @@ function TutorInfo(props) {
                 value={newTutorLastName}
                 onChange={(event) => changeTutorLastName(event)}
                 defaultValue={newTutorLastName}
-
               />
             </FloatingLabel>
           </div>
@@ -242,7 +240,6 @@ function TutorInfo(props) {
                 value={Pronouns}
                 onChange={(event) => changePronouns(event)}
                 defaultValue={Pronouns}
-
               />
             </FloatingLabel>
           </div>
@@ -268,7 +265,6 @@ function TutorInfo(props) {
                 value={newTutorEmail}
                 onChange={(event) => changeTutorEmail(event)}
                 defaultValue={newTutorEmail}
-
               />
             </FloatingLabel>
           </div>
@@ -289,7 +285,6 @@ function TutorInfo(props) {
                 value={newTutorPhone}
                 onChange={(event) => changeTutorPhone(event)}
                 defaultValue={newTutorPhone}
-
               />
             </FloatingLabel>
           </div>
@@ -306,7 +301,6 @@ function TutorInfo(props) {
               value={newGrade}
               onChange={(event) => changeTutorGrade(event)}
               defaultValue={newGrade}
-
             >
               <option value="">Select your current grade level</option>
               <option value="Freshman">Freshman</option>
@@ -332,8 +326,6 @@ function TutorInfo(props) {
               aria-label="schoolAttending"
               defaultValue={defaultSchoolVal}
             >
-
-
               <option value="">Select where you go to school</option>
               <option value="Mayo High School">Mayo High School</option>
               <option value="John Marshall High School">
@@ -368,8 +360,8 @@ function TutorInfo(props) {
                 </FloatingLabel>
               </>
             ) : (
-                <> </>
-              )}
+              <> </>
+            )}
           </div>
 
           <Button
@@ -379,8 +371,8 @@ function TutorInfo(props) {
             Save and Continue <span className="rightarrow">{rightArrow}</span>
           </Button>
         </div>
-      </Container >
-    </div >
+      </Container>
+    </div>
   );
 }
 

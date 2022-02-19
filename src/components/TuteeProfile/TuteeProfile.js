@@ -28,7 +28,7 @@ function TuteeProfile(props) {
     { name: "Tagalog ", status: props.tutee.tutee_language_tagalog },
     { name: "Vietnamese ", status: props.tutee.tutee_language_vietnamese },
     { name: "Spanish ", status: props.tutee.tutee_language_spanish },
-    { name: props.tutee.tutee_language_other, status: true },
+    { name: props.tutee.tutee_language_other, status: false },
   ];
 
   const subjects = [
@@ -88,6 +88,9 @@ function TuteeProfile(props) {
       if (languages[i].status === true) {
         currentLanguages.push(languages[i].name);
       }
+    }
+    if (props.tutee.tutee_language_other !== null) {
+      currentLanguages.push(props.tutee.tutee_language_other);
     }
     console.log("CURRENT LANGUAGES", currentLanguages);
     setTuteeLanguages(currentLanguages);
