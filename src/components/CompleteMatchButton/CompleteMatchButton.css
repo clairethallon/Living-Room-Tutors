@@ -1,35 +1,37 @@
 /*  */
-.modal-body{
+.modal-body {
   padding: 0;
   padding-left: 1rem;
   padding-right: 1rem;
-
 }
-#modalFoot{
+#modalFoot {
   padding: 35px;
   display: flex;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    padding-left: 20px;
-    padding: 0.75rem;
-    border-top: 1px solid #dee2e6;
-    border-bottom-right-radius: calc(0.3rem - 1px);
-    border-bottom-left-radius: calc(0.3rem - 1px);
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
 }
-p{
+p {
   font-family: inherit;
   font-size: 14px;
+  text-transform: capitalize;
 }
 
-#tutorEmail, #tuteeEmail, #adultEmail{
+#tutorEmail,
+#tuteeEmail,
+#adultEmail {
   max-height: 300px;
   overflow-y: auto;
   padding-top: 15px;
   padding-right: 15px;
 }
-.fixed{
+.fixed {
   position: fixed;
   background-color: white;
   padding-bottom: 10px;
@@ -37,9 +39,8 @@ p{
   padding-right: 75px;
 }
 
-.bold{
+.bold {
   font-weight: bold;
-
 }
 
 .mb-3 {

@@ -242,7 +242,6 @@ function TutorProfile(props) {
             })}{" "}
           </div>
         </div>
-        {JSON.stringify(props.tutor.tutor_ap_calc_bc)}
         <div>
           <p className="profileQuestion">Subjects comfortable tutoring: </p>
           <div className="subjectPillContainer">
