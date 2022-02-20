@@ -70,7 +70,7 @@ function RecordsCard(props) {
   const grades = [
     {
       name: "Pre-K/Kindergarten",
-      status: props.match.mentor_prek_kindergarten,
+      status: props.match.prek_kindergarten,
     },
     { name: "1st Grade", status: props.match.mentor_grade_1 },
     { name: "2nd Grade", status: props.match.mentor_grade_2 },
@@ -312,7 +312,7 @@ function RecordsCard(props) {
 
   return (
     <div>
-      {JSON.stringify(tuteeLanguages)}
+      {/* {JSON.stringify(props.match)} */}
 
       {props.year == "all" || !props.year || props.year == prettyTime.year ? (
         <Accordion className="accordionCard" defaultActiveKey="1">
@@ -626,13 +626,19 @@ function RecordsCard(props) {
                           Languages comfortable tutoring in:
                         </p>
                         <div className="languagePillContainer">
-                          {tutorLanguages.map((languageTutor) => {
-                            return (
-                              <div className="languagePill">
-                                <span className="languageFlag">{flagIcon}</span>{" "}
-                                {languageTutor}
-                              </div>
-                            );
+                          {languageTutor.map((language) => {
+                            if (language.status === true) {
+                              return (
+
+                                <div className="languagePill">
+                                  {" "}
+                                  <span className="languageFlag">
+                                    {flagIcon}
+                                  </span>{" "}
+                                  {language.name}
+                                </div>
+                              );
+                            }
                           })}
                         </div>
                       </div>
@@ -648,9 +654,18 @@ function RecordsCard(props) {
                           Grades comfortable tutoring:{" "}
                         </p>
                         <div className="gradesPillContainer">
-                          {mentorChosenGrade.map((grade) => {
-                            return <div className="gradesPill">{grade}</div>;
-                          })}{" "}
+                          {grades.map((grade) => {
+                            if (grade.status === true) {
+                              return (
+
+                                <div className="gradesPill">
+                                  {" "}
+
+                                  {grade.name}
+                                </div>
+                              );
+                            }
+                          })}
                         </div>
                       </div>
 
