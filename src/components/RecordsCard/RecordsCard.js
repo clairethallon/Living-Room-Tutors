@@ -312,7 +312,7 @@ function RecordsCard(props) {
 
   return (
     <div>
-      {JSON.stringify(props.match)}
+      {/* {JSON.stringify(props.match)} */}
 
       {props.year == "all" || !props.year || props.year == prettyTime.year ? (
         <Accordion className="accordionCard" defaultActiveKey="1">
@@ -536,42 +536,57 @@ function RecordsCard(props) {
 
                     <div className="subjectContainer">
                       <p className="profileQuestion">3nd subject choice:</p>
-                      {props.match.subject_3 === "Precalculus/Trigonometry " ||
-                        props.match.subject_3 === "Chemistry " ||
-                        props.match.subject_3 === "Physics " ||
-                        props.match.subject_3 === "Computer Science " ||
-                        props.match.subject_3 === "Chinese " ||
-                        props.match.subject_3 === "Spanish " ||
-                        props.match.subject_3 === "French " ||
-                        props.match.subject_3 === "German " ||
-                        props.match.subject_3 === "World History " ||
-                        props.match.subject_3 === "U.S. History " ||
-                        props.match.subject_3 === "AP/Honors Biology " ||
-                        props.match.subject_3 === "AP/Honors Chemistry " ||
-                        props.match.subject_3 === "AP/Honors Physics " ||
-                        props.match.subject_3 === "AP/Honors Calculus AB " ||
-                        props.match.subject_3 === "AP/Honors Calculus BC " ||
-                        props.match.subject_3 === "AP/Honors Statistics " ||
-                        props.match.subject_3 === "AP/Honors Computer Science " ||
-                        props.match.subject_3 ===
-                        "AP/Honors English Literature and Composition " ||
-                        props.match.subject_3 === "AP/Honors Language and Composition " ||
-                        props.match.subject_3 === "AP/Honors Macroeconomics " ||
-                        props.match.subject_3 === "AP/Honors Microeconomics " ||
-                        props.match.subject_3 === "AP/Honors Psychology " ||
-                        props.match.subject_3 === "AP/Honors United States History " ||
-                        props.match.subject_3 === "AP/Honors Government and Politics (US) " ||
-                        props.match.subject_3 === "AP/Honors Human Geography " ||
-                        props.match.subject_3 === "SAT Subject Tests " ||
-                        props.match.subject_3 === "SAT Prep " ||
-                        props.match.subject_3 === "ACT Prep " ? (
-                          <div className="subjectPillFlagged">
-                            <span className="subjectFlag">{flagIcon}</span>{" "}
-                            {props.match.subject_3}
-                          </div>
-                        ) : (
-                          <div className="subjectPill">{props.match.subject_3}</div>
-                        )}
+                      {tuteeSubjects.map((tuteeSubj) => {
+                        if (tuteeSubj.dbname === props.match.subject_3 &&
+                          tuteeSubj.dbname === "Precalculus/Trigonometry " ||
+                          tuteeSubj.dbname === "Chemistry " ||
+                          tuteeSubj.dbname === "Physics " ||
+                          tuteeSubj.dbname === "Computer Science " ||
+                          tuteeSubj.dbname === "Chinese " ||
+                          tuteeSubj.dbname === "Spanish " ||
+                          tuteeSubj.dbname === "French " ||
+                          tuteeSubj.dbname === "German " ||
+                          tuteeSubj.dbname === "World History " ||
+                          tuteeSubj.dbname === "U.S. History " ||
+                          tuteeSubj.dbname === "AP/Honors Biology " ||
+                          tuteeSubj.dbname === "AP/Honors Chemistry " ||
+                          tuteeSubj.dbname === "AP/Honors Physics " ||
+                          tuteeSubj.dbname === "AP/Honors Calculus AB " ||
+                          tuteeSubj.dbname === "AP/Honors Calculus BC " ||
+                          tuteeSubj.dbname === "AP/Honors Statistics " ||
+                          tuteeSubj.dbname === "AP/Honors Computer Science " ||
+                          tuteeSubj.dbname ===
+                          "AP/Honors English Literature and Composition " ||
+                          tuteeSubj.dbname === "AP/Honors Language and Composition " ||
+                          tuteeSubj.dbname === "AP/Honors Macroeconomics " ||
+                          tuteeSubj.dbname === "AP/Honors Microeconomics " ||
+                          tuteeSubj.dbname === "AP/Honors Psychology " ||
+                          tuteeSubj.dbname === "AP/Honors United States History " ||
+                          tuteeSubj.dbname === "AP/Honors Government and Politics (US) " ||
+                          tuteeSubj.dbname === "AP/Honors Human Geography " ||
+                          tuteeSubj.dbname === "SAT Subject Tests " ||
+                          tuteeSubj.dbname === "SAT Prep " ||
+                          tuteeSubj.dbname === "ACT Prep ") {
+                          return (
+
+                            <div className="subjectPillFlagged">
+                              {" "}
+                              <span className="subjectPill">
+                                {flagIcon}
+                              </span>{" "}
+                              {tuteeSubj.name}
+                            </div>
+                          );
+                        }
+                        else if (tuteeSubj.dbname === props.match.subject_3) {
+                          return (
+                            <div className="subjectPill">
+                              {" "}
+                              {tuteeSubj.name}
+                            </div>
+                          );
+                        }
+                      })}
                     </div>
 
                     {props.match.tutee_subject_details && (
