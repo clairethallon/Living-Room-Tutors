@@ -18,6 +18,8 @@ import groupDmatches from "./group_D_matches.reducer";
 import selected_tutee from "./selected_tutee.reducer";
 import specialSubjects from "./special_subjects.reducer";
 import languageFilter from "./language_filter.reducer";
+import currentlangs from "./currenttuteelang.reducer";
+
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -43,7 +45,8 @@ const rootReducer = combineReducers({
   groupDmatches,
   selected_tutee,
   specialSubjects,
-  languageFilter
+  languageFilter,
+  currentlangs
 });
 
 export default rootReducer;

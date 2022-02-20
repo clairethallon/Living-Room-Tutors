@@ -1,0 +1,14 @@
+const currenttuteelangReducer = (state = [], action) => {
+  switch (action.type) {
+    case "SET_CURRENT_LANG":
+      return action.payload;
+    case "UNSET_CURRENT_LANG":
+      return {};
+    default:
+      return state;
+  }
+};
+
+// user will be on the redux state at:
+// state.user
+export default currenttuteelangReducer;

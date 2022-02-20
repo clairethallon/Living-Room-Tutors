@@ -7,6 +7,7 @@ import { Tab, Tabs } from "react-bootstrap";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import "./CompleteMatchButton.css";
 
+
 import { Link } from "react-router-dom";
 
 // Basic functional component structure for React with default state
@@ -18,6 +19,8 @@ function CompleteMatchButton(props) {
   }, []);
 
   const dispatch = useDispatch();
+  const history = useHistory();
+
 
   const selectedTutee = useSelector((store) => store.selected_tutee);
 
@@ -94,15 +97,15 @@ function CompleteMatchButton(props) {
     }
   };
 
-  const postMatch = () => {
+  const postMatch = async () => {
     console.log("in postMatch", props.tutor, selectedTutee);
-    dispatch({
+    await dispatch({
       type: "SEND_NEW_MATCH",
       tutor: props.tutor,
       tutee: selectedTutee,
     });
-
-    handleClose();
+    await handleClose();
+    await history.push('/records')
   };
 
   const createCopyText = (id) => {
@@ -201,17 +204,17 @@ function CompleteMatchButton(props) {
                   <p>
                     <span>
                       {selectedTutee.tutee_misc_info === null &&
-                      selectedTutee.tutee_subject_details === null
+                        selectedTutee.tutee_subject_details === null
                         ? " "
                         : " Additional comments include: "}
                     </span>
                     <span className="tuteeMisc">
                       {selectedTutee.tutee_misc_info === null &&
-                      selectedTutee.tutee_subject_details === null
+                        selectedTutee.tutee_subject_details === null
                         ? " "
                         : selectedTutee.tutee_misc_info +
-                          " " +
-                          selectedTutee.tutee_subject_details}
+                        " " +
+                        selectedTutee.tutee_subject_details}
                     </span>
                   </p>
                 </p>
@@ -250,8 +253,8 @@ function CompleteMatchButton(props) {
                   {selectedTutee.email_student === null
                     ? ""
                     : selectedTutee.tutee_firstname +
-                      "'s email: " +
-                      selectedTutee.email_student}
+                    "'s email: " +
+                    selectedTutee.email_student}
                   <br></br>
                   {selectedTutee.email_guardian === null
                     ? ""
@@ -274,217 +277,217 @@ function CompleteMatchButton(props) {
               </div>
             </Tab>
             {selectedTutee.student_or_guardian == "student" ||
-            selectedTutee.student_or_guardian == "Student" ? (
-              <Tab eventKey="Email-To-Tutee" title="Email to Tutee">
-                <br></br>
-                <Button
-                  className="primaryButton matchButton"
-                  style={{
-                    marginLeft: "auto",
-                    display: "flex",
-                    justifyContent: "flex-end",
-                    marginBottom: "10px",
-                  }}
-                  onClick={() => createCopyText("tuteeEmail")}
-                >
-                  Copy Email to Tutee
+              selectedTutee.student_or_guardian == "Student" ? (
+                <Tab eventKey="Email-To-Tutee" title="Email to Tutee">
+                  <br></br>
+                  <Button
+                    className="primaryButton matchButton"
+                    style={{
+                      marginLeft: "auto",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      marginBottom: "10px",
+                    }}
+                    onClick={() => createCopyText("tuteeEmail")}
+                  >
+                    Copy Email to Tutee
                 </Button>
 
-                <div id="tuteeEmail">
-                  <p>
-                    <b>To: (tutee) {selectedTutee.email_student}</b>
+                  <div id="tuteeEmail">
+                    <p>
+                      <b>To: (tutee) {selectedTutee.email_student}</b>
+                      <br></br>
+                      <b>
+                        Cc: (tutor) {props.tutor.tutor_email}{" "}
+                        {selectedTutee.email_guardian === null
+                          ? ""
+                          : " ; (guardian) " + selectedTutee.email_guardian}
+                      </b>
+                    </p>
                     <br></br>
-                    <b>
-                      Cc: (tutor) {props.tutor.tutor_email}{" "}
-                      {selectedTutee.email_guardian === null
-                        ? ""
-                        : " ; (guardian) " + selectedTutee.email_guardian}
-                    </b>
-                  </p>
-                  <br></br>
 
-                  <p>
-                    Dear {selectedTutee.tutee_firstname}
-                    {selectedTutee.tutee_lastname},
+                    <p>
+                      Dear {selectedTutee.tutee_firstname}
+                      {selectedTutee.tutee_lastname},
                   </p>
-                  <p>
-                    Congratulations! You have been matched! After careful
-                    consideration of your application, we feel your best match
+                    <p>
+                      Congratulations! You have been matched! After careful
+                      consideration of your application, we feel your best match
                     is with tutor{" "}
-                    <b>
-                      {props.tutor.tutor_first_name}{" "}
-                      {props.tutor.tutor_last_name}
-                    </b>
+                      <b>
+                        {props.tutor.tutor_first_name}{" "}
+                        {props.tutor.tutor_last_name}
+                      </b>
                     .
                   </p>
-                  <p>
-                    {props.tutor.tutor_first_name} is in{" "}
-                    {props.tutor.tutor_grade === "In College"
-                      ? "College"
-                      : props.tutor.tutor_grade + " grade"}
+                    <p>
+                      {props.tutor.tutor_first_name} is in{" "}
+                      {props.tutor.tutor_grade === "In College"
+                        ? "College"
+                        : props.tutor.tutor_grade + " grade"}
                     and attends {props.tutor.tutor_school}.{" "}
-                    {props.tutor.tutor_first_name} is cc'd on this email and
+                      {props.tutor.tutor_first_name} is cc'd on this email and
                     will be reaching out to you to schedule a meeting. We will
                     also include {props.tutor.tutor_first_name}’s contact
                     information below.
                   </p>
 
-                  <p>
-                    We recommend using Zoom to conduct the tutoring sessions,
-                    however, there are other online conferencing platforms such
-                    as Google Meet, or Skype. Please note that Zoom operates
-                    best with the Chrome Browser. Please consider either
-                    installing Chrome or the Zoom application if you have not
-                    done so. We will also attach resources below in case you
-                    need assistance joining the meeting.
+                    <p>
+                      We recommend using Zoom to conduct the tutoring sessions,
+                      however, there are other online conferencing platforms such
+                      as Google Meet, or Skype. Please note that Zoom operates
+                      best with the Chrome Browser. Please consider either
+                      installing Chrome or the Zoom application if you have not
+                      done so. We will also attach resources below in case you
+                      need assistance joining the meeting.
                   </p>
 
-                  <p>
-                    If you ever have any questions or concerns, do not hesitate
-                    to reach out. Email us at livingroomtutor@gmail.com. Our
-                    team here at LRT understands the difficulty of finding a
-                    tutor tailored just for you. Your personalized tutor,
+                    <p>
+                      If you ever have any questions or concerns, do not hesitate
+                      to reach out. Email us at livingroomtutor@gmail.com. Our
+                      team here at LRT understands the difficulty of finding a
+                      tutor tailored just for you. Your personalized tutor,
                     {props.tutor.tutor_first_name}, is going to be a wonderful
                     resource for you.
                   </p>
-                  <p>
-                    Note: If your tutor does not reach out after 5 business days
-                    upon receiving this email, please contact us. There will be
-                    an LRT guide document attached below. Please review the
-                    document thoroughly.
+                    <p>
+                      Note: If your tutor does not reach out after 5 business days
+                      upon receiving this email, please contact us. There will be
+                      an LRT guide document attached below. Please review the
+                      document thoroughly.
                   </p>
-                  <p>
-                    Our team at LRT wishes you and{" "}
-                    {props.tutor.tutor_first_name}
+                    <p>
+                      Our team at LRT wishes you and{" "}
+                      {props.tutor.tutor_first_name}
                     the best! Thank you for using our service.
                   </p>
-                  <p>Sincerely,</p>
-                  <p>
-                    <b>Living Room Tutors Team</b>
-                  </p>
-                  <p>
-                    <u>{props.tutor.tutor_first_name}'s Contact Information:</u>
-                    <br></br>
+                    <p>Sincerely,</p>
+                    <p>
+                      <b>Living Room Tutors Team</b>
+                    </p>
+                    <p>
+                      <u>{props.tutor.tutor_first_name}'s Contact Information:</u>
+                      <br></br>
                     email: {props.tutor.tutor_email} <br></br>
                     phone: {props.tutor.tutor_phone}
-                  </p>
-                  <p>
-                    <u>LRT Guide Document:</u>
-                    <br></br>
-                    <a href="https://docs.google.com/document/d/1sOTJKTd0vUQGcOqFKAY_WP57xqhRtukZdYaYKfLxUx4/edit?usp=sharing">
-                      Tutee Guide
+                    </p>
+                    <p>
+                      <u>LRT Guide Document:</u>
+                      <br></br>
+                      <a href="https://docs.google.com/document/d/1sOTJKTd0vUQGcOqFKAY_WP57xqhRtukZdYaYKfLxUx4/edit?usp=sharing">
+                        Tutee Guide
                     </a>
-                  </p>
-                </div>
-              </Tab>
-            ) : (
-              <Tab eventKey="Email-To-Guardian" title="Email to Guardian">
-                <br></br>
-                <Button
-                  className="primaryButton matchButton"
-                  style={{
-                    marginLeft: "auto",
-                    display: "flex",
-                    justifyContent: "flex-end",
-                    marginBottom: "10px",
-                  }}
-                  onClick={() => createCopyText("adultEmail")}
-                >
-                  Copy Email to Guardian
-                </Button>
-                <div id="adultEmail">
-                  <p>
-                    <b>To: (guardian) {selectedTutee.email_guardian}</b>
-                    <br></br>
-                    <b>
-                      Cc: (tutor) {props.tutor.tutor_email}{" "}
-                      {selectedTutee.email_student === null
-                        ? ""
-                        : " ; (tutee) " + selectedTutee.email_student}
-                    </b>
-                  </p>
+                    </p>
+                  </div>
+                </Tab>
+              ) : (
+                <Tab eventKey="Email-To-Guardian" title="Email to Guardian">
                   <br></br>
-                  <p>
-                    Dear Parents/Guardians/Teachers of{" "}
-                    {selectedTutee.tutee_firstname}{" "}
-                    {selectedTutee.tutee_lastname},
+                  <Button
+                    className="primaryButton matchButton"
+                    style={{
+                      marginLeft: "auto",
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      marginBottom: "10px",
+                    }}
+                    onClick={() => createCopyText("adultEmail")}
+                  >
+                    Copy Email to Guardian
+                </Button>
+                  <div id="adultEmail">
+                    <p>
+                      <b>To: (guardian) {selectedTutee.email_guardian}</b>
+                      <br></br>
+                      <b>
+                        Cc: (tutor) {props.tutor.tutor_email}{" "}
+                        {selectedTutee.email_student === null
+                          ? ""
+                          : " ; (tutee) " + selectedTutee.email_student}
+                      </b>
+                    </p>
+                    <br></br>
+                    <p>
+                      Dear Parents/Guardians/Teachers of{" "}
+                      {selectedTutee.tutee_firstname}{" "}
+                      {selectedTutee.tutee_lastname},
                   </p>
 
-                  <p>
-                    Congratulations! {selectedTutee.tutee_firstname} has been
+                    <p>
+                      Congratulations! {selectedTutee.tutee_firstname} has been
                     matched!
                   </p>
 
-                  <p>
-                    After careful consideration of the application, we feel the
+                    <p>
+                      After careful consideration of the application, we feel the
                     best tutor match is{" "}
-                    <b>
-                      {props.tutor.tutor_first_name}{" "}
-                      {props.tutor.tutor_last_name}
-                    </b>
+                      <b>
+                        {props.tutor.tutor_first_name}{" "}
+                        {props.tutor.tutor_last_name}
+                      </b>
                     . {props.tutor.tutor_first_name} is in{" "}
-                    {props.tutor.tutor_grade === "In College"
-                      ? "College"
-                      : props.tutor.tutor_grade + " grade"}{" "}
+                      {props.tutor.tutor_grade === "In College"
+                        ? "College"
+                        : props.tutor.tutor_grade + " grade"}{" "}
                     and attends {props.tutor.tutor_school}.{" "}
-                    {props.tutor.tutor_first_name} is cc'd in this email for
+                      {props.tutor.tutor_first_name} is cc'd in this email for
                     your convenience. Feel free to begin communication with your
                     tutor. We will also include {props.tutor.tutor_first_name}'s
                     contact information below.
                   </p>
 
-                  <p>
-                    We recommend using Zoom to conduct the tutoring sessions,
-                    however, there are other online conferencing platforms such
-                    as Google Meet, or Skype. Please note that Zoom operates
-                    best with the Chrome Browser. Please consider either
-                    installing Chrome or the Zoom application if you have not
-                    done so. We will also attach resources below in case you
-                    need assistance joining the meeting.
+                    <p>
+                      We recommend using Zoom to conduct the tutoring sessions,
+                      however, there are other online conferencing platforms such
+                      as Google Meet, or Skype. Please note that Zoom operates
+                      best with the Chrome Browser. Please consider either
+                      installing Chrome or the Zoom application if you have not
+                      done so. We will also attach resources below in case you
+                      need assistance joining the meeting.
                   </p>
 
-                  <p>
-                    If you ever have any questions or concerns, do not hesitate
-                    to reach out. Email us at livingroomtutor@gmail.com. Our
-                    team here at LRT understands the difficulty of finding a
+                    <p>
+                      If you ever have any questions or concerns, do not hesitate
+                      to reach out. Email us at livingroomtutor@gmail.com. Our
+                      team here at LRT understands the difficulty of finding a
                     tutor tailored just for you. Your personalized tutor,{" "}
-                    {props.tutor.tutor_first_name}, is going to be a wonderful
+                      {props.tutor.tutor_first_name}, is going to be a wonderful
                     resource for {selectedTutee.tutee_firstname}.
                   </p>
-                  <p>
-                    {" "}
+                    <p>
+                      {" "}
                     Note: If your tutor does not reach out after 5 business days
                     upon receiving this email, please contact us. There will be
                     an LRT guide document attached below. Please review the
                     document thoroughly.
                   </p>
-                  <p>
-                    Our team at LRT wishes {selectedTutee.tutee_firstname} and{" "}
-                    {props.tutor.tutor_first_name} the best! Thank you for using
+                    <p>
+                      Our team at LRT wishes {selectedTutee.tutee_firstname} and{" "}
+                      {props.tutor.tutor_first_name} the best! Thank you for using
                     our service.
                   </p>
-                  <p>Sincerely,</p>
-                  <p>
-                    <b>Living Room Tutors Team</b>
-                  </p>
+                    <p>Sincerely,</p>
+                    <p>
+                      <b>Living Room Tutors Team</b>
+                    </p>
 
-                  <p>
-                    <u>{props.tutor.tutor_first_name}'s Contact Information:</u>
-                    <br></br>
+                    <p>
+                      <u>{props.tutor.tutor_first_name}'s Contact Information:</u>
+                      <br></br>
                     email: {props.tutor.tutor_email} <br></br>
                     phone: {props.tutor.tutor_phone}
-                  </p>
+                    </p>
 
-                  <p>
-                    <u>LRT Guide Document:</u>
-                    <br></br>
-                    <a href="https://docs.google.com/document/d/1sOTJKTd0vUQGcOqFKAY_WP57xqhRtukZdYaYKfLxUx4/edit?usp=sharing">
-                      Tutee Guide
+                    <p>
+                      <u>LRT Guide Document:</u>
+                      <br></br>
+                      <a href="https://docs.google.com/document/d/1sOTJKTd0vUQGcOqFKAY_WP57xqhRtukZdYaYKfLxUx4/edit?usp=sharing">
+                        Tutee Guide
                     </a>
-                  </p>
-                </div>
-              </Tab>
-            )}
+                    </p>
+                  </div>
+                </Tab>
+              )}
           </Tabs>
         </Modal.Body>
         <Modal.Footer>
@@ -513,15 +516,15 @@ function CompleteMatchButton(props) {
               >
                 Cancel
               </Button>
-              <Link to="/records">
-                <Button
-                  className="primaryButton"
-                  variant="primary"
-                  onClick={postMatch}
-                >
-                  Confirm Match
+              {/* <Link to="/records"> */}
+              <Button
+                className="primaryButton"
+                variant="primary"
+                onClick={postMatch}
+              >
+                Confirm Match
                 </Button>
-              </Link>
+              {/* </Link> */}
             </div>
           </div>
         </Modal.Footer>
