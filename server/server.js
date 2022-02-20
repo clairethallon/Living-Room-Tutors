@@ -14,7 +14,7 @@ const testRouter = require("./routes/test.router");
 const tuteesRouter = require("./routes/tutees.router");
 const tutorsRouter = require("./routes/tutors.router");
 const matchesRouter = require("./routes/matches.router");
-const mailRouter = require("./routes/mail.router");
+// const mailRouter = require("./routes/mail.router");
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -36,7 +36,7 @@ app.use("/api/test", testRouter);
 app.use("/api/tutees", tuteesRouter);
 app.use("/api/tutors", tutorsRouter);
 app.use("/api/matches", matchesRouter);
-app.use("/api/mail", mailRouter);
+// app.use("/api/mail", mailRouter);
 
 // Serve static files
 app.use(express.static("build"));
