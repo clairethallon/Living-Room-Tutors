@@ -19,10 +19,10 @@ function RecordsTable(props) {
       <div>
         <Row className="cardHead">
           <Col xs="3" className="cardHeadCol">
-            <p className="tableHeads">Tutor Name</p>
+            <p className="tableHeads">Tutee Name</p>
           </Col>
           <Col xs="3" className="cardHeadCol">
-            <p className="tableHeads">Tutee Name</p>
+            <p className="tableHeads">Tutor Name</p>
           </Col>
           <Col xs="3" className="cardHeadCol">
             <p className="tableHeads">Matched Date</p>
