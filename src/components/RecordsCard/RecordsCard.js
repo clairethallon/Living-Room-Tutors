@@ -426,41 +426,41 @@ function RecordsCard(props) {
                     <div className="subjectContainer">
                       <p className="profileQuestion">1st subject choice:</p>
                       {tuteeSubjects.map((tuteeSubj) => {
-                        if (tuteeSubj.dbname === props.match.subject_1 &&
-                          tuteeSubj.dbname === "Precalculus/Trigonometry " ||
-                          tuteeSubj.dbname === "Chemistry " ||
-                          tuteeSubj.dbname === "Physics " ||
-                          tuteeSubj.dbname === "Computer Science " ||
-                          tuteeSubj.dbname === "Chinese " ||
-                          tuteeSubj.dbname === "Spanish " ||
-                          tuteeSubj.dbname === "French " ||
-                          tuteeSubj.dbname === "German " ||
-                          tuteeSubj.dbname === "World History " ||
-                          tuteeSubj.dbname === "U.S. History " ||
-                          tuteeSubj.dbname === "AP/Honors Biology " ||
-                          tuteeSubj.dbname === "AP/Honors Chemistry " ||
-                          tuteeSubj.dbname === "AP/Honors Physics " ||
-                          tuteeSubj.dbname === "AP/Honors Calculus AB " ||
-                          tuteeSubj.dbname === "AP/Honors Calculus BC " ||
-                          tuteeSubj.dbname === "AP/Honors Statistics " ||
-                          tuteeSubj.dbname === "AP/Honors Computer Science " ||
-                          tuteeSubj.dbname ===
+                        if (tuteeSubj.dbname === props.match.subject_1 && (
+                          tuteeSubj.name === "Precalculus/Trigonometry " ||
+                          tuteeSubj.name === "Chemistry " ||
+                          tuteeSubj.name === "Biology/Life Sciences " ||
+                          tuteeSubj.name === "Physics " ||
+                          tuteeSubj.name === "Computer Science " ||
+                          tuteeSubj.name === "Chinese " ||
+                          tuteeSubj.name === "Spanish " ||
+                          tuteeSubj.name === "French " ||
+                          tuteeSubj.name === "German " ||
+                          tuteeSubj.name === "World History " ||
+                          tuteeSubj.name === "U.S. History " ||
+                          tuteeSubj.name === "AP/Honors Biology " ||
+                          tuteeSubj.name === "AP/Honors Chemistry " ||
+                          tuteeSubj.name === "AP/Honors Physics " ||
+                          tuteeSubj.name === "AP/Honors Calculus AB " ||
+                          tuteeSubj.name === "AP/Honors Calculus BC " ||
+                          tuteeSubj.name === "AP/Honors Statistics " ||
+                          tuteeSubj.name === "AP/Honors Computer Science " ||
+                          tuteeSubj.name ===
                           "AP/Honors English Literature and Composition " ||
-                          tuteeSubj.dbname === "AP/Honors Language and Composition " ||
-                          tuteeSubj.dbname === "AP/Honors Macroeconomics " ||
-                          tuteeSubj.dbname === "AP/Honors Microeconomics " ||
-                          tuteeSubj.dbname === "AP/Honors Psychology " ||
-                          tuteeSubj.dbname === "AP/Honors United States History " ||
-                          tuteeSubj.dbname === "AP/Honors Government and Politics (US) " ||
-                          tuteeSubj.dbname === "AP/Honors Human Geography " ||
-                          tuteeSubj.dbname === "SAT Subject Tests " ||
-                          tuteeSubj.dbname === "SAT Prep " ||
-                          tuteeSubj.dbname === "ACT Prep ") {
+                          tuteeSubj.name === "AP/Honors Language and Composition " ||
+                          tuteeSubj.name === "AP/Honors Macroeconomics " ||
+                          tuteeSubj.name === "AP/Honors Microeconomics " ||
+                          tuteeSubj.name === "AP/Honors Psychology " ||
+                          tuteeSubj.name === "AP/Honors United States History " ||
+                          tuteeSubj.name === "AP/Honors Government and Politics (US) " ||
+                          tuteeSubj.name === "AP/Honors Human Geography " ||
+                          tuteeSubj.name === "SAT Subject Tests " ||
+                          tuteeSubj.name === "SAT Prep " ||
+                          tuteeSubj.name === "ACT Prep ")) {
                           return (
-
                             <div className="subjectPillFlagged">
                               {" "}
-                              <span className="subjectPill">
+                              <span className="subjectFlag">
                                 {flagIcon}
                               </span>{" "}
                               {tuteeSubj.name}
@@ -482,41 +482,41 @@ function RecordsCard(props) {
                     <div className="subjectContainer">
                       <p className="profileQuestion">2nd subject choice:</p>
                       {tuteeSubjects.map((tuteeSubj) => {
-                        if (tuteeSubj.dbname === props.match.subject_2 &&
-                          tuteeSubj.dbname === "Precalculus/Trigonometry " ||
-                          tuteeSubj.dbname === "Chemistry " ||
-                          tuteeSubj.dbname === "Physics " ||
-                          tuteeSubj.dbname === "Computer Science " ||
-                          tuteeSubj.dbname === "Chinese " ||
-                          tuteeSubj.dbname === "Spanish " ||
-                          tuteeSubj.dbname === "French " ||
-                          tuteeSubj.dbname === "German " ||
-                          tuteeSubj.dbname === "World History " ||
-                          tuteeSubj.dbname === "U.S. History " ||
-                          tuteeSubj.dbname === "AP/Honors Biology " ||
-                          tuteeSubj.dbname === "AP/Honors Chemistry " ||
-                          tuteeSubj.dbname === "AP/Honors Physics " ||
-                          tuteeSubj.dbname === "AP/Honors Calculus AB " ||
-                          tuteeSubj.dbname === "AP/Honors Calculus BC " ||
-                          tuteeSubj.dbname === "AP/Honors Statistics " ||
-                          tuteeSubj.dbname === "AP/Honors Computer Science " ||
-                          tuteeSubj.dbname ===
+                        if (tuteeSubj.dbname === props.match.subject_2 && (
+                          tuteeSubj.name === "Precalculus/Trigonometry " ||
+                          tuteeSubj.name === "Chemistry " ||
+                          tuteeSubj.name === "Physics " ||
+                          tuteeSubj.name === "Computer Science " ||
+                          tuteeSubj.name === "Biology/Life Sciences " ||
+                          tuteeSubj.name === "Chinese " ||
+                          tuteeSubj.name === "Spanish " ||
+                          tuteeSubj.name === "French " ||
+                          tuteeSubj.name === "German " ||
+                          tuteeSubj.name === "World History " ||
+                          tuteeSubj.name === "U.S. History " ||
+                          tuteeSubj.name === "AP/Honors Biology " ||
+                          tuteeSubj.name === "AP/Honors Chemistry " ||
+                          tuteeSubj.name === "AP/Honors Physics " ||
+                          tuteeSubj.name === "AP/Honors Calculus AB " ||
+                          tuteeSubj.name === "AP/Honors Calculus BC " ||
+                          tuteeSubj.name === "AP/Honors Statistics " ||
+                          tuteeSubj.name === "AP/Honors Computer Science " ||
+                          tuteeSubj.name ===
                           "AP/Honors English Literature and Composition " ||
-                          tuteeSubj.dbname === "AP/Honors Language and Composition " ||
-                          tuteeSubj.dbname === "AP/Honors Macroeconomics " ||
-                          tuteeSubj.dbname === "AP/Honors Microeconomics " ||
-                          tuteeSubj.dbname === "AP/Honors Psychology " ||
-                          tuteeSubj.dbname === "AP/Honors United States History " ||
-                          tuteeSubj.dbname === "AP/Honors Government and Politics (US) " ||
-                          tuteeSubj.dbname === "AP/Honors Human Geography " ||
-                          tuteeSubj.dbname === "SAT Subject Tests " ||
-                          tuteeSubj.dbname === "SAT Prep " ||
-                          tuteeSubj.dbname === "ACT Prep ") {
+                          tuteeSubj.name === "AP/Honors Language and Composition " ||
+                          tuteeSubj.name === "AP/Honors Macroeconomics " ||
+                          tuteeSubj.name === "AP/Honors Microeconomics " ||
+                          tuteeSubj.name === "AP/Honors Psychology " ||
+                          tuteeSubj.name === "AP/Honors United States History " ||
+                          tuteeSubj.name === "AP/Honors Government and Politics (US) " ||
+                          tuteeSubj.name === "AP/Honors Human Geography " ||
+                          tuteeSubj.name === "SAT Subject Tests " ||
+                          tuteeSubj.name === "SAT Prep " ||
+                          tuteeSubj.name === "ACT Prep ")) {
                           return (
-
                             <div className="subjectPillFlagged">
                               {" "}
-                              <span className="subjectPill">
+                              <span className="subjectFlag">
                                 {flagIcon}
                               </span>{" "}
                               {tuteeSubj.name}
@@ -537,45 +537,46 @@ function RecordsCard(props) {
                     <div className="subjectContainer">
                       <p className="profileQuestion">3nd subject choice:</p>
                       {tuteeSubjects.map((tuteeSubj) => {
-                        if (tuteeSubj.dbname === props.match.subject_3 &&
-                          tuteeSubj.dbname === "Precalculus/Trigonometry " ||
-                          tuteeSubj.dbname === "Chemistry " ||
-                          tuteeSubj.dbname === "Physics " ||
-                          tuteeSubj.dbname === "Computer Science " ||
-                          tuteeSubj.dbname === "Chinese " ||
-                          tuteeSubj.dbname === "Spanish " ||
-                          tuteeSubj.dbname === "French " ||
-                          tuteeSubj.dbname === "German " ||
-                          tuteeSubj.dbname === "World History " ||
-                          tuteeSubj.dbname === "U.S. History " ||
-                          tuteeSubj.dbname === "AP/Honors Biology " ||
-                          tuteeSubj.dbname === "AP/Honors Chemistry " ||
-                          tuteeSubj.dbname === "AP/Honors Physics " ||
-                          tuteeSubj.dbname === "AP/Honors Calculus AB " ||
-                          tuteeSubj.dbname === "AP/Honors Calculus BC " ||
-                          tuteeSubj.dbname === "AP/Honors Statistics " ||
-                          tuteeSubj.dbname === "AP/Honors Computer Science " ||
-                          tuteeSubj.dbname ===
+                        if (tuteeSubj.dbname === props.match.subject_3 && (
+                          tuteeSubj.name === "Precalculus/Trigonometry " ||
+                          tuteeSubj.name === "Chemistry " ||
+                          tuteeSubj.name === "Physics " ||
+                          tuteeSubj.name === "Computer Science " ||
+                          tuteeSubj.dbname === "Biology/Life Sciences " ||
+                          tuteeSubj.name === "Chinese " ||
+                          tuteeSubj.name === "Spanish " ||
+                          tuteeSubj.name === "French " ||
+                          tuteeSubj.name === "German " ||
+                          tuteeSubj.name === "World History " ||
+                          tuteeSubj.name === "U.S. History " ||
+                          tuteeSubj.name === "AP/Honors Biology " ||
+                          tuteeSubj.name === "AP/Honors Chemistry " ||
+                          tuteeSubj.name === "AP/Honors Physics " ||
+                          tuteeSubj.name === "AP/Honors Calculus AB " ||
+                          tuteeSubj.name === "AP/Honors Calculus BC " ||
+                          tuteeSubj.name === "AP/Honors Statistics " ||
+                          tuteeSubj.name === "AP/Honors Computer Science " ||
+                          tuteeSubj.name ===
                           "AP/Honors English Literature and Composition " ||
-                          tuteeSubj.dbname === "AP/Honors Language and Composition " ||
-                          tuteeSubj.dbname === "AP/Honors Macroeconomics " ||
-                          tuteeSubj.dbname === "AP/Honors Microeconomics " ||
-                          tuteeSubj.dbname === "AP/Honors Psychology " ||
-                          tuteeSubj.dbname === "AP/Honors United States History " ||
-                          tuteeSubj.dbname === "AP/Honors Government and Politics (US) " ||
-                          tuteeSubj.dbname === "AP/Honors Human Geography " ||
-                          tuteeSubj.dbname === "SAT Subject Tests " ||
-                          tuteeSubj.dbname === "SAT Prep " ||
-                          tuteeSubj.dbname === "ACT Prep ") {
+                          tuteeSubj.name === "AP/Honors Language and Composition " ||
+                          tuteeSubj.name === "AP/Honors Macroeconomics " ||
+                          tuteeSubj.name === "AP/Honors Microeconomics " ||
+                          tuteeSubj.name === "AP/Honors Psychology " ||
+                          tuteeSubj.name === "AP/Honors United States History " ||
+                          tuteeSubj.name === "AP/Honors Government and Politics (US) " ||
+                          tuteeSubj.name === "AP/Honors Human Geography " ||
+                          tuteeSubj.name === "SAT Subject Tests " ||
+                          tuteeSubj.name === "SAT Prep " ||
+                          tuteeSubj.name === "ACT Prep ")) {
                           return (
-
                             <div className="subjectPillFlagged">
                               {" "}
-                              <span className="subjectPill">
+                              <span className="subjectFlag">
                                 {flagIcon}
                               </span>{" "}
                               {tuteeSubj.name}
                             </div>
+
                           );
                         }
                         else if (tuteeSubj.dbname === props.match.subject_3) {
