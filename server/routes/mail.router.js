@@ -8,23 +8,13 @@ const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
-  "974624020655-keep76op2bshp75g2dufkih1rkt1p1cf.apps.googleusercontent.com",
-  "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",
+  process.env.OAUTH_CLIENT_ID,
+  process.env.OAUTH_CLIENT_SECRET,
   "https://developers.google.com/oauthplayground"
 );
 
-const gconfig = {
-  mailUser: "noreply.livingroomtutors@gmail.com",
-  clientId:
-    "974624020655-keep76op2bshp75g2dufkih1rkt1p1cf.apps.googleusercontent.com",
-  clientSecret: "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",
-  refreshToken:
-    "1//04lwwFNn-S9yTCgYIARAAGAQSNwF-L9IrJsLTDCMcZ6LH_lSBeM56LfTsroka__l0sXFsMy7OweyrOHppSUcCj2xwr73OQs9lwfA",
-};
-
 oauth2Client.setCredentials({
-  refresh_token:
-    "1//04lwwFNn-S9yTCgYIARAAGAQSNwF-L9IrJsLTDCMcZ6LH_lSBeM56LfTsroka__l0sXFsMy7OweyrOHppSUcCj2xwr73OQs9lwfA",
+  refresh_token: process.env.OAUTH_REFRESH_TOKEN,
 });
 
 const accessToken = oauth2Client.getAccessToken();
@@ -40,17 +30,17 @@ router.post("/", cors(), async (req, res) => {
     secure: true,
     auth: {
       type: "OAuth2",
-      user: gconfig.mailUser,
-      clientId: gconfig.clientId,
-      clientSecret: gconfig.clientSecret,
-      refreshToken: gconfig.refreshToken,
+      user: process.env.MAIL_USER,
+      clientId: process.env.OAUTH_CLIENT_ID,
+      clientSecret: process.env.OAUTH_CLIENT_SECRET,
+      refreshToken: process.env.OAUTH_REFRESH_TOKEN,
       accessToken: accessToken,
     },
   });
 
   let info = await transporter
     .sendMail({
-      from: gconfig.mailUser,
+      from: process.env.MAIL_USER,
       to: `${email}`,
       subject: "Thank You For Contacting Living Room Tutors!",
       text: "Thank you so much for submitting an application to Living Room Tutors! An administrator is reviewing your application and will be in touch with you soon. If you have any questions in the meantime, please email livingroomtutor@gmail.com. Thank you so much! Living Room Tutors",
