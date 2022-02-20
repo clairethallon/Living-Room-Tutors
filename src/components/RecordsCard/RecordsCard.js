@@ -318,11 +318,12 @@ function RecordsCard(props) {
         <Accordion className="accordionCard" defaultActiveKey="1">
           <Accordion.Item eventKey="0">
             <Accordion.Header>
-              <Col xs="3">
-                {props.match.tutor_first_name} {props.match.tutor_last_name}
-              </Col>
+
               <Col xs="3">
                 {props.match.tutee_firstname} {props.match.tutee_lastname}
+              </Col>
+              <Col xs="3">
+                {props.match.tutor_first_name} {props.match.tutor_last_name}
               </Col>
               <Col xs="3">
                 {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
