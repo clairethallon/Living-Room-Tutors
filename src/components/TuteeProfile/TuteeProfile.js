@@ -230,80 +230,112 @@ function TuteeProfile(props) {
 
         <div className="subjectContainer">
           <p className="profileQuestion">2nd subject choice:</p>
-          {subject2 === "Precalculus/Trigonometry " ||
-            subject2 === "Chemistry " ||
-            subject2 === "Physics " ||
-            subject2 === "Biology/Life Sciences " ||
-            subject2 === "Computer Science " ||
-            subject2 === "Chinese " ||
-            subject2 === "Spanish " ||
-            subject2 === "French " ||
-            subject2 === "German " ||
-            subject2 === "World History " ||
-            subject2 === "U.S. History " ||
-            subject2 === "AP/Honors Biology " ||
-            subject2 === "AP/Honors Chemistry " ||
-            subject2 === "AP/Honors Physics " ||
-            subject2 === "AP/Honors Calculus AB " ||
-            subject2 === "AP/Honors Calculus BC " ||
-            subject2 === "AP/Honors Statistics " ||
-            subject2 === "AP/Honors Computer Science " ||
-            subject2 === "AP/Honors English Literature and Composition " ||
-            subject2 === "AP/Honors Language and Composition " ||
-            subject2 === "AP/Honors Macroeconomics " ||
-            subject2 === "AP/Honors Microeconomics " ||
-            subject2 === "AP/Honors Psychology " ||
-            subject2 === "AP/Honors United States History " ||
-            subject2 === "AP/Honors Government and Politics (US) " ||
-            subject2 === "AP/Honors Human Geography " ||
-            subject2 === "SAT Subject Tests " ||
-            subject2 === "SAT Prep " ||
-            subject2 === "ACT Prep " ? (
-              <div className="subjectPillFlagged">
-                <span className="subjectFlag">{flagIcon}</span> {subject2}
-              </div>
-            ) : (
-              <div className="subjectPill">{subject2}</div>
-            )}
+          {subjects.map((tuteeSubj) => {
+            if (tuteeSubj.dbname === props.tutee.subject_2 && (
+              tuteeSubj.name === "Precalculus/Trigonometry " ||
+              tuteeSubj.name === "Chemistry " ||
+              tuteeSubj.name === "Biology/Life Sciences " ||
+              tuteeSubj.name === "Physics " ||
+              tuteeSubj.name === "Computer Science " ||
+              tuteeSubj.name === "Chinese " ||
+              tuteeSubj.name === "Spanish " ||
+              tuteeSubj.name === "French " ||
+              tuteeSubj.name === "German " ||
+              tuteeSubj.name === "World History " ||
+              tuteeSubj.name === "U.S. History " ||
+              tuteeSubj.name === "AP/Honors Biology " ||
+              tuteeSubj.name === "AP/Honors Chemistry " ||
+              tuteeSubj.name === "AP/Honors Physics " ||
+              tuteeSubj.name === "AP/Honors Calculus AB " ||
+              tuteeSubj.name === "AP/Honors Calculus BC " ||
+              tuteeSubj.name === "AP/Honors Statistics " ||
+              tuteeSubj.name === "AP/Honors Computer Science " ||
+              tuteeSubj.name ===
+              "AP/Honors English Literature and Composition " ||
+              tuteeSubj.name === "AP/Honors Language and Composition " ||
+              tuteeSubj.name === "AP/Honors Macroeconomics " ||
+              tuteeSubj.name === "AP/Honors Microeconomics " ||
+              tuteeSubj.name === "AP/Honors Psychology " ||
+              tuteeSubj.name === "AP/Honors United States History " ||
+              tuteeSubj.name === "AP/Honors Government and Politics (US) " ||
+              tuteeSubj.name === "AP/Honors Human Geography " ||
+              tuteeSubj.name === "SAT Subject Tests " ||
+              tuteeSubj.name === "SAT Prep " ||
+              tuteeSubj.name === "ACT Prep ")) {
+              return (
+                <div className="subjectPillFlagged">
+                  {" "}
+                  <span className="subjectFlag">
+                    {flagIcon}
+                  </span>{" "}
+                  {tuteeSubj.name}
+                </div>
+              );
+            }
+            else if (tuteeSubj.dbname === props.tutee.subject_2) {
+              return (
+                <div className="subjectPill">
+                  {" "}
+                  {tuteeSubj.name}
+                </div>
+              );
+            }
+          })}
         </div>
 
         <div className="subjectContainer">
           <p className="profileQuestion">3nd subject choice:</p>
-          {subject3 === "Precalculus/Trigonometry " ||
-            subject3 === "Chemistry " ||
-            subject3 === "Biology/Life Sciences " ||
-            subject3 === "Physics " ||
-            subject3 === "Computer Science " ||
-            subject3 === "Chinese " ||
-            subject3 === "Spanish " ||
-            subject3 === "French " ||
-            subject3 === "German " ||
-            subject3 === "World History " ||
-            subject3 === "U.S. History " ||
-            subject3 === "AP/Honors Biology " ||
-            subject3 === "AP/Honors Chemistry " ||
-            subject3 === "AP/Honors Physics " ||
-            subject3 === "AP/Honors Calculus AB " ||
-            subject3 === "AP/Honors Calculus BC " ||
-            subject3 === "AP/Honors Statistics " ||
-            subject3 === "AP/Honors Computer Science " ||
-            subject3 === "AP/Honors English Literature and Composition " ||
-            subject3 === "AP/Honors Language and Composition " ||
-            subject3 === "AP/Honors Macroeconomics " ||
-            subject3 === "AP/Honors Microeconomics " ||
-            subject3 === "AP/Honors Psychology " ||
-            subject3 === "AP/Honors United States History " ||
-            subject3 === "AP/Honors Government and Politics (US) " ||
-            subject3 === "AP/Honors Human Geography " ||
-            subject3 === "SAT Subject Tests " ||
-            subject3 === "SAT Prep " ||
-            subject3 === "ACT Prep " ? (
-              <div className="subjectPillFlagged">
-                <span className="subjectFlag">{flagIcon}</span> {subject3}
-              </div>
-            ) : (
-              <div className="subjectPill">{subject3}</div>
-            )}
+          {subjects.map((tuteeSubj) => {
+            if (tuteeSubj.dbname === props.tutee.subject_3 && (
+              tuteeSubj.name === "Precalculus/Trigonometry " ||
+              tuteeSubj.name === "Chemistry " ||
+              tuteeSubj.name === "Biology/Life Sciences " ||
+              tuteeSubj.name === "Physics " ||
+              tuteeSubj.name === "Computer Science " ||
+              tuteeSubj.name === "Chinese " ||
+              tuteeSubj.name === "Spanish " ||
+              tuteeSubj.name === "French " ||
+              tuteeSubj.name === "German " ||
+              tuteeSubj.name === "World History " ||
+              tuteeSubj.name === "U.S. History " ||
+              tuteeSubj.name === "AP/Honors Biology " ||
+              tuteeSubj.name === "AP/Honors Chemistry " ||
+              tuteeSubj.name === "AP/Honors Physics " ||
+              tuteeSubj.name === "AP/Honors Calculus AB " ||
+              tuteeSubj.name === "AP/Honors Calculus BC " ||
+              tuteeSubj.name === "AP/Honors Statistics " ||
+              tuteeSubj.name === "AP/Honors Computer Science " ||
+              tuteeSubj.name ===
+              "AP/Honors English Literature and Composition " ||
+              tuteeSubj.name === "AP/Honors Language and Composition " ||
+              tuteeSubj.name === "AP/Honors Macroeconomics " ||
+              tuteeSubj.name === "AP/Honors Microeconomics " ||
+              tuteeSubj.name === "AP/Honors Psychology " ||
+              tuteeSubj.name === "AP/Honors United States History " ||
+              tuteeSubj.name === "AP/Honors Government and Politics (US) " ||
+              tuteeSubj.name === "AP/Honors Human Geography " ||
+              tuteeSubj.name === "SAT Subject Tests " ||
+              tuteeSubj.name === "SAT Prep " ||
+              tuteeSubj.name === "ACT Prep ")) {
+              return (
+                <div className="subjectPillFlagged">
+                  {" "}
+                  <span className="subjectFlag">
+                    {flagIcon}
+                  </span>{" "}
+                  {tuteeSubj.name}
+                </div>
+              );
+            }
+            else if (tuteeSubj.dbname === props.tutee.subject_3) {
+              return (
+                <div className="subjectPill">
+                  {" "}
+                  {tuteeSubj.name}
+                </div>
+              );
+            }
+          })}
         </div>
 
         {props.tutee.tutee_subject_details && (
