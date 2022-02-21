@@ -20,9 +20,9 @@ function TuteeMatchTable(props) {
           <Col xs="3" className="cardHeadCol">
             <p className="tableHeads">Special Subjects & Languages</p>
           </Col>
-          <Col xs="1" className="cardHeadCol">
+          {/* <Col xs="1" className="cardHeadCol">
             <p className="tableHeads">Action</p>
-          </Col>
+          </Col> */}
           <Col xs="2"></Col>
         </Row>
       </div>

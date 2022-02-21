@@ -184,7 +184,7 @@ function CompleteMatchButton(props) {
                   {selectedTutee.tutee_grade === "prek_kindergarten"
                     ? "Pre-K/Kindergarten"
                     : selectedTutee.tutee_grade + " grade"}{" "}
-                  and attends {selectedTutee.tutee_school}. Below, you will find{" "}
+                  and attends <b className="schoolName">{selectedTutee.tutee_school}</b>. Below, you will find{" "}
                   {selectedTutee.tutee_firstname}'s contact information.
                 </p>
                 <p>
@@ -325,7 +325,7 @@ function CompleteMatchButton(props) {
                       {props.tutor.tutor_grade === "In College"
                         ? "College"
                         : props.tutor.tutor_grade + " grade"}
-                    and attends {props.tutor.tutor_school}.{" "}
+                    and attends <b className="schoolName">{props.tutor.tutor_school}</b>.{" "}
                       {props.tutor.tutor_first_name} is cc'd on this email and
                     will be reaching out to you to schedule a meeting. We will
                     also include {props.tutor.tutor_first_name}’s contact
@@ -429,7 +429,7 @@ function CompleteMatchButton(props) {
                       {props.tutor.tutor_grade === "In College"
                         ? "College"
                         : props.tutor.tutor_grade + " grade"}{" "}
-                    and attends {props.tutor.tutor_school}.{" "}
+                    and attends <b className="schoolName">{props.tutor.tutor_school}</b>.{" "}
                       {props.tutor.tutor_first_name} is cc'd in this email for
                     your convenience. Feel free to begin communication with your
                     tutor. We will also include {props.tutor.tutor_first_name}'s

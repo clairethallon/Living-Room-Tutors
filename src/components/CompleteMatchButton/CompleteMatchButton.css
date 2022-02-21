@@ -53,3 +53,7 @@ p {
 .tuteeSubjects {
   font-family: Lato-BoldItalic;
 }
+
+.schoolName{
+  text-transform: capitalize;
+}
