@@ -234,118 +234,122 @@ function TutorMatchCard(props) {
     }
   };
 
+  const AccordionClose = (e) => {
+    console.log('in test');
+    e.stopPropagation();
+  }
   return (
     <div>
       {languageFilter.length == 0 ||
-      languageFilter == "View All" ||
-      (languageFilter === "Chinese" &&
-        props.tutor.tutor_language_chinese === true) ||
-      (languageFilter === "Arabic" &&
-        props.tutor.tutor_language_arabic === true) ||
-      (languageFilter === "French" &&
-        props.tutor.tutor_language_french === true) ||
-      (languageFilter === "Hmong" &&
-        props.tutor.tutor_language_hmong === true) ||
-      (languageFilter === "Other" &&
-        props.tutor.tutor_language_other === true) ||
-      (languageFilter === "Somali" &&
-        props.tutor.tutor_language_somali === true) ||
-      (languageFilter === "Spanish" &&
-        props.tutor.tutor_language_spanish === true) ||
-      (languageFilter === "Tagalog" &&
-        props.tutor.tutor_language_tagalog === true) ||
-      (languageFilter === "Vietnamese" &&
-        props.tutor.tutor_language_vietnamese === true) ? (
-        <Accordion className="accordionCard" defaultActiveKey="1">
-          <Accordion.Item eventKey="0">
-            <Accordion.Header>
-              {/* <Row> */}
-              <Col xs="2">
-                {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
-              </Col>
-              <Col xs="2">
-                {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
-              </Col>
-              {props.group === "A" ? (
-                <Col xs="3">
-                  {subject1}
-                  <br></br> {subject2}
-                  <br></br>
-                  {subject3}
+        languageFilter == "View All" ||
+        (languageFilter === "Chinese" &&
+          props.tutor.tutor_language_chinese === true) ||
+        (languageFilter === "Arabic" &&
+          props.tutor.tutor_language_arabic === true) ||
+        (languageFilter === "French" &&
+          props.tutor.tutor_language_french === true) ||
+        (languageFilter === "Hmong" &&
+          props.tutor.tutor_language_hmong === true) ||
+        (languageFilter === "Other" &&
+          props.tutor.tutor_language_other === true) ||
+        (languageFilter === "Somali" &&
+          props.tutor.tutor_language_somali === true) ||
+        (languageFilter === "Spanish" &&
+          props.tutor.tutor_language_spanish === true) ||
+        (languageFilter === "Tagalog" &&
+          props.tutor.tutor_language_tagalog === true) ||
+        (languageFilter === "Vietnamese" &&
+          props.tutor.tutor_language_vietnamese === true) ? (
+          <Accordion className="accordionCard" defaultActiveKey="1">
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>
+                {/* <Row> */}
+                <Col xs="2">
+                  {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
                 </Col>
-              ) : props.group === "B" ? (
-                <Col xs="3">
-                  {subject1}
-                  <br></br> {subject2}
+                <Col xs="2">
+                  {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
                 </Col>
-              ) : props.group === "C" ? (
-                <Col xs="3">
-                  {subject1}
-                  <br></br>
-                  {subject3}
-                </Col>
-              ) : (
-                <Col xs="3">{subject1}</Col>
-              )}
-              <Col xs="1" className="flaggedSubjectLanguage">
-                {tutorSubjects.map((subject) => {
-                  if (
-                    subject === "Precalculus/Trigonometry " ||
-                    subject === "Biology/Life Sciences " ||
-                    subject === "Chemistry " ||
-                    subject === "Physics " ||
-                    subject === "Computer Science " ||
-                    subject === "Chinese " ||
-                    subject === "Spanish " ||
-                    subject === "French " ||
-                    subject === "German " ||
-                    subject === "World History " ||
-                    subject === "U.S. History " ||
-                    subject === "AP/Honors Biology " ||
-                    subject === "AP/Honors Chemistry " ||
-                    subject === "AP/Honors Physics " ||
-                    subject === "AP/Honors Calculus AB " ||
-                    subject === "AP/Honors Calculus BC " ||
-                    subject === "AP/Honors Statistics " ||
-                    subject === "AP/Honors Computer Science " ||
-                    subject ===
+                {props.group === "A" ? (
+                  <Col xs="3">
+                    {subject1}
+                    <br></br> {subject2}
+                    <br></br>
+                    {subject3}
+                  </Col>
+                ) : props.group === "B" ? (
+                  <Col xs="3">
+                    {subject1}
+                    <br></br> {subject2}
+                  </Col>
+                ) : props.group === "C" ? (
+                  <Col xs="3">
+                    {subject1}
+                    <br></br>
+                    {subject3}
+                  </Col>
+                ) : (
+                        <Col xs="3">{subject1}</Col>
+                      )}
+                <Col xs="1" className="flaggedSubjectLanguage">
+                  {tutorSubjects.map((subject) => {
+                    if (
+                      subject === "Precalculus/Trigonometry " ||
+                      subject === "Biology/Life Sciences " ||
+                      subject === "Chemistry " ||
+                      subject === "Physics " ||
+                      subject === "Computer Science " ||
+                      subject === "Chinese " ||
+                      subject === "Spanish " ||
+                      subject === "French " ||
+                      subject === "German " ||
+                      subject === "World History " ||
+                      subject === "U.S. History " ||
+                      subject === "AP/Honors Biology " ||
+                      subject === "AP/Honors Chemistry " ||
+                      subject === "AP/Honors Physics " ||
+                      subject === "AP/Honors Calculus AB " ||
+                      subject === "AP/Honors Calculus BC " ||
+                      subject === "AP/Honors Statistics " ||
+                      subject === "AP/Honors Computer Science " ||
+                      subject ===
                       "AP/Honors English Literature and Composition " ||
-                    subject === "AP/Honors Language and Composition " ||
-                    subject === "AP/Honors Macroeconomics " ||
-                    subject === "AP/Honors Microeconomics " ||
-                    subject === "AP/Honors Psychology " ||
-                    subject === "AP/Honors United States History " ||
-                    subject === "AP/Honors Government and Politics (US) " ||
-                    subject === "AP/Honors Human Geography " ||
-                    subject === "SAT Subject Tests " ||
-                    subject === "SAT Prep " ||
-                    subject === "ACT Prep "
-                  ) {
-                    return <SubjectFlag />;
-                  }
-                })}
+                      subject === "AP/Honors Language and Composition " ||
+                      subject === "AP/Honors Macroeconomics " ||
+                      subject === "AP/Honors Microeconomics " ||
+                      subject === "AP/Honors Psychology " ||
+                      subject === "AP/Honors United States History " ||
+                      subject === "AP/Honors Government and Politics (US) " ||
+                      subject === "AP/Honors Human Geography " ||
+                      subject === "SAT Subject Tests " ||
+                      subject === "SAT Prep " ||
+                      subject === "ACT Prep "
+                    ) {
+                      return <SubjectFlag />;
+                    }
+                  })}
 
-                {languages.map((language) => {
-                  if (language === true) {
-                    return <LanguageFlag />;
-                  }
-                })}
-              </Col>
-              <Col xs="2"></Col>
-              <Col>
-                <CompleteMatchButton tutor={props.tutor} />
-              </Col>
-              {/* </Row> */}
-            </Accordion.Header>
-            <Accordion.Body>
-              {/* {JSON.stringify(props.tutor)} */}
-              <TutorProfile tutor={props.tutor} />
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-      ) : (
-        <span></span>
-      )}
+                  {languages.map((language) => {
+                    if (language === true) {
+                      return <LanguageFlag />;
+                    }
+                  })}
+                </Col>
+                <Col xs="2"></Col>
+                <Col onClick={(e) => AccordionClose(e)}>
+                  <CompleteMatchButton tutor={props.tutor} />
+                </Col>
+                {/* </Row> */}
+              </Accordion.Header>
+              <Accordion.Body>
+                {/* {JSON.stringify(props.tutor)} */}
+                <TutorProfile tutor={props.tutor} />
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        ) : (
+          <span></span>
+        )}
     </div>
   );
 }
