@@ -209,11 +209,14 @@ function CompleteMatchButton(props) {
                         : " Additional comments include: "}
                     </span>
                     <span className="tuteeMisc">
-                      {selectedTutee.tutee_misc_info === null &&
-                        selectedTutee.tutee_subject_details === null
+                      {selectedTutee.tutee_misc_info === null
                         ? " "
-                        : selectedTutee.tutee_misc_info +
-                        " " +
+                        : selectedTutee.tutee_misc_info}
+                    </span>
+                    <span className="tuteeMisc">
+                      {selectedTutee.tutee_subject_details === null
+                        ? " "
+                        :
                         selectedTutee.tutee_subject_details}
                     </span>
                   </p>
