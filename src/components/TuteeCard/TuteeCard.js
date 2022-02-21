@@ -53,6 +53,10 @@ function TuteeCard(props) {
     props.tutee.tutee_language_spanish,
     props.tutee.tutee_language_other,
   ];
+  const AccordionClose = (e) => {
+    console.log('in test');
+    e.stopPropagation();
+  }
 
   return (
     <div>
@@ -69,8 +73,8 @@ function TuteeCard(props) {
             {props.tutee.tutee_grade === "prek_kindergarten" ? (
               <Col xs="2">Pre-K/Kindergarten</Col>
             ) : (
-              <Col xs="2">{props.tutee.tutee_grade}</Col>
-            )}
+                <Col xs="2">{props.tutee.tutee_grade}</Col>
+              )}
             <Col xs="2" className="flaggedSubjectLanguage">
               {specialSubjects.map((subject) => {
                 if (
@@ -87,7 +91,7 @@ function TuteeCard(props) {
                 }
               })}
             </Col>
-            <Col className="cardButtons" xs="2">
+            <Col className="cardButtons" xs="2" onClick={(e) => AccordionClose(e)}>
               <TuteeActivateDeactivateButton active={props.tutee} />
               <MatchPageButton tutee={props.tutee} />
               {/* <--conditionally render the MatchButton to only show up when the tutee is activated. */}

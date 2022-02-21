@@ -331,7 +331,12 @@ function TutorInfo(props) {
           <div className="formQandA">
             <p>
               If you are a parent/guardian registering a student, please enter
-              your email: <span className="requiredField"> *</span>
+              your email: {newStudentInfo.submitter == "ParentOrGuardian" && (
+                <span className="requiredField"> *</span>
+              )}
+
+
+
             </p>
             <FloatingLabel
               controlID="GuardianEmail"
@@ -351,7 +356,9 @@ function TutorInfo(props) {
           <div className="formQandA">
             <p className="pWithSubP">
               What is the Student's email address?
-              <span className="requiredField"> *</span>
+              {newStudentInfo.submitter == "Student" && (
+                <span className="requiredField"> *</span>
+              )}
             </p>
             <p className="subP">
               Please confirm the email address you enter is correct. Email is
