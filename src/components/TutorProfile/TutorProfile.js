@@ -29,7 +29,7 @@ function TutorProfile(props) {
     { name: "Tagalog ", status: props.tutor.tutor_language_tagalog },
     { name: "Vietnamese ", status: props.tutor.tutor_language_vietnamese },
     { name: "Spanish ", status: props.tutor.tutor_language_spanish },
-    { name: props.tutor.tutor_language_other, status: true },
+    { name: props.tutor.tutor_language_other, status: false },
   ];
 
   const subjects = [
@@ -214,15 +214,29 @@ function TutorProfile(props) {
         <div>
           <p className="profileQuestion">Languages comfortable tutoring in:</p>
           <div className="languagePillContainer">
-            {tutorLanguages.map((language) => {
-              if (language !== null) {
+            {languages.map((language) => {
+              if (language.status === true) {
                 return (
+
                   <div className="languagePill">
-                    <span className="languageFlag">{flagIcon}</span> {language}
+                    {" "}
+                    <span className="languageFlag">
+                      {flagIcon}
+                    </span>{" "}
+                    {language.name}
                   </div>
                 );
               }
             })}
+            {props.tutor.tutor_language_other !== null ?
+              <div className="languagePill">
+                {" "}
+                <span className="languageFlag">
+                  {flagIcon}
+                </span>{" "}
+                {props.tutor.tutor_language_other}
+              </div>
+              : <span></span>}
           </div>
         </div>
       </div>
@@ -237,53 +251,70 @@ function TutorProfile(props) {
         <div>
           <p className="profileQuestion">Grades comfortable tutoring: </p>
           <div className="gradesPillContainer">
-            {mentorChosenGrade.map((grade) => {
-              return <div className="gradesPill">{grade}</div>;
-            })}{" "}
+            {grades.map((grade) => {
+              if (grade.status === true) {
+                return (
+
+                  <div className="gradesPill">
+                    {" "}
+
+                    {grade.name}
+                  </div>
+                );
+              }
+            })}
           </div>
         </div>
         <div>
           <p className="profileQuestion">Subjects comfortable tutoring: </p>
           <div className="subjectPillContainer">
-            {tutorSubjects.map((subject) => {
-              if (
-                subject === "Precalculus/Trigonometry " ||
-                subject === "Chemistry " ||
-                subject === "Biology/Life Sciences " ||
-                subject === "Physics " ||
+            {subjects.map((subject) => {
+              if (subject.status === true && (
+                subject.name === "Precalculus/Trigonometry " ||
+                subject.name === "Biology/Life Sciences " ||
+                subject.name === "Chemistry " ||
+                subject.name === "Physics " ||
                 subject === "Computer Science " ||
-                subject === "Chinese " ||
-                subject === "Spanish " ||
-                subject === "French " ||
-                subject === "German " ||
-                subject === "World History " ||
-                subject === "U.S. History " ||
-                subject === "AP/Honors Biology " ||
-                subject === "AP/Honors Chemistry " ||
-                subject === "AP/Honors Physics " ||
-                subject === "AP/Honors Calculus AB " ||
-                subject === "AP/Honors Calculus BC " ||
-                subject === "AP/Honors Statistics " ||
-                subject === "AP/Honors Computer Science " ||
-                subject === "AP/Honors English Literature and Composition " ||
-                subject === "AP/Honors Language and Composition " ||
-                subject === "AP/Honors Macroeconomics " ||
-                subject === "AP/Honors Microeconomics " ||
-                subject === "AP/Honors Psychology " ||
-                subject === "AP/Honors United States History " ||
-                subject === "AP/Honors Government and Politics (US) " ||
-                subject === "AP/Honors Human Geography " ||
-                subject === "SAT Subject Tests " ||
-                subject === "SAT Prep " ||
-                subject === "ACT Prep "
-              ) {
+                subject.name === "Chinese " ||
+                subject.name === "Spanish " ||
+                subject.name === "French " ||
+                subject.name === "German " ||
+                subject.name === "World History " ||
+                subject.name === "U.S. History " ||
+                subject.name === "AP/Honors Biology " ||
+                subject.name === "AP/Honors Chemistry " ||
+                subject.name === "AP/Honors Physics " ||
+                subject.name === "AP/Honors Calculus AB " ||
+                subject.name === "AP/Honors Calculus BC " ||
+                subject.name === "AP/Honors Statistics " ||
+                subject.name === "AP/Honors Computer Science " ||
+                subject.name ===
+                "AP/Honors English Literature and Composition " ||
+                subject.name ===
+                "AP/Honors Language and Composition " ||
+                subject.name === "AP/Honors Macroeconomics " ||
+                subject.name === "AP/Honors Microeconomics " ||
+                subject.name === "AP/Honors Psychology " ||
+                subject.name === "AP/Honors United States History " ||
+                subject.name ===
+                "AP/Honors Government and Politics (US) " ||
+                subject.name === "AP/Honors Human Geography " ||
+                subject.name === "SAT Subject Tests " ||
+                subject.name === "SAT Prep " ||
+                subject.name === "ACT Prep "
+              )) {
                 return (
                   <div className="subjectPillFlagged">
-                    <span className="subjectFlag">{flagIcon}</span> {subject}
+                    <span className="subjectFlag">
+                      {flagIcon}
+                    </span>{" "}
+                    {subject.name}
                   </div>
                 );
-              } else {
-                return <div className="subjectPill">{subject}</div>;
+              } else if (subject.status === true) {
+                return (
+                  <div className="subjectPill">{subject.name}</div>
+                );
               }
             })}
           </div>

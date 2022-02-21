@@ -318,7 +318,6 @@ function RecordsCard(props) {
         <Accordion className="accordionCard" defaultActiveKey="1">
           <Accordion.Item eventKey="0">
             <Accordion.Header>
-
               <Col xs="3">
                 {props.match.tutee_firstname} {props.match.tutee_lastname}
               </Col>
@@ -417,6 +416,15 @@ function RecordsCard(props) {
                             );
                           }
                         })}
+                        {props.match.tutee_language_other !== null ?
+                          <div className="languagePill">
+                            {" "}
+                            <span className="languageFlag">
+                              {flagIcon}
+                            </span>{" "}
+                            {props.match.tutee_language_other}
+                          </div>
+                          : <span></span>}
                       </div>
                     </div>
                   </div>
@@ -688,7 +696,17 @@ function RecordsCard(props) {
                               );
                             }
                           })}
+                          {props.match.tutor_language_other !== null ?
+                            <div className="languagePill">
+                              {" "}
+                              <span className="languageFlag">
+                                {flagIcon}
+                              </span>{" "}
+                              {props.match.tutor_language_other}
+                            </div>
+                            : <span></span>}
                         </div>
+
                       </div>
                     </div>
 
