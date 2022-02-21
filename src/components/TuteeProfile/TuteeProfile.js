@@ -156,14 +156,29 @@ function TuteeProfile(props) {
         <div>
           <p className="profileQuestion">Language preference:</p>
           <div className="languagePillContainer">
-            {tuteeLanguages.map((language) => {
-              return (
-                <div className="languagePill">
-                  {" "}
-                  <span className="languageFlag">{flagIcon}</span> {language}
-                </div>
-              );
+            {languages.map((language) => {
+              if (language.status === true) {
+                return (
+
+                  <div className="languagePill">
+                    {" "}
+                    <span className="languageFlag">
+                      {flagIcon}
+                    </span>{" "}
+                    {language.name}
+                  </div>
+                );
+              }
             })}
+            {props.tutee.tutee_language_other !== null ?
+              <div className="languagePill">
+                {" "}
+                <span className="languageFlag">
+                  {flagIcon}
+                </span>{" "}
+                {props.tutee.tutee_language_other}
+              </div>
+              : <span></span>}
           </div>
         </div>
       </div>
