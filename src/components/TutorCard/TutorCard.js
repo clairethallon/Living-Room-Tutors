@@ -49,6 +49,11 @@ function TutorCard(props) {
     }
   };
 
+  const AccordionClose = (e) => {
+    console.log('in test');
+    e.stopPropagation();
+  }
+
   useEffect(() => {
     subjectFinder(subjects);
     makePrettyTime(props.tutor.tutor_submission_timestamp);
@@ -225,7 +230,7 @@ function TutorCard(props) {
                 : <span></span>}
 
             </Col>
-            <Col className="cardButtons" xs="2">
+            <Col className="cardButtons" xs="2" onClick={(e) => AccordionClose(e)}>
               <TutorActivateDeactivateButton active={props.tutor} />
               {/* <--conditionally render the MatchButton to only show up when the Tutor is activated. */}
             </Col>

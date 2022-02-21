@@ -57,3 +57,11 @@ p {
 .schoolName{
   text-transform: capitalize;
 }
+
+
+.tuteeCopyButton{
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
