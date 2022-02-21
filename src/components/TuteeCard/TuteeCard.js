@@ -54,7 +54,7 @@ function TuteeCard(props) {
     props.tutee.tutee_language_other,
   ];
   const AccordionClose = (e) => {
-    console.log('in test');
+    console.log('in AccordionClose');
     e.stopPropagation();
   }
 

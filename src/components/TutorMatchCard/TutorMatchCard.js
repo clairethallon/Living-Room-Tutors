@@ -235,7 +235,7 @@ function TutorMatchCard(props) {
   };
 
   const AccordionClose = (e) => {
-    console.log('in test');
+    console.log('in AccordionClose');
     e.stopPropagation();
   }
   return (
