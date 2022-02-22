@@ -176,7 +176,11 @@ function TutorCard(props) {
               {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
             </Col>
             <Col xs="2">
-              {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+              {props.tutor.tutor_submission_timestamp[5]}{props.tutor.tutor_submission_timestamp[6]}.
+                {props.tutor.tutor_submission_timestamp[8]}{props.tutor.tutor_submission_timestamp[9]}.
+                {props.tutor.tutor_submission_timestamp[0]}{props.tutor.tutor_submission_timestamp[1]}
+              {props.tutor.tutor_submission_timestamp[2]}{props.tutor.tutor_submission_timestamp[3]}
+              {/* {prettyTime.month}.{prettyTime.day}.{prettyTime.year} */}
             </Col>
             <Col xs="2">{props.tutor.tutor_grade}</Col>
             <Col xs="2" className="flaggedSubjectLanguage">
