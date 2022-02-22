@@ -10,12 +10,34 @@ import calenderIcon from "../../images/calenderIcon.svg";
 
 function RecordsPage(props) {
   const [yearSelected, setYearSelected] = useState("");
+  const [yearCount, setYearCount] = useState(0);
+
+  const matches = useSelector((store) => store.matches);
 
   const calendar = <FontAwesomeIcon icon={faCalendarAlt} />;
 
   const changeYear = () => {
     console.log(event.target.value);
     setYearSelected(event.target.value);
+    const timeStampArray = [];
+    let numYearMatches = 0;
+    for (let i = 0; i < matches.length; i++) {
+      let matchYear = {
+        year: ""
+      };
+      for (let j = 0; j < 4; j++) {
+        matchYear.year += matches[i].match_timestamp[j];
+      }
+      timeStampArray.push(matchYear);
+      console.log(timeStampArray);
+    }
+    for (let i = 0; i < timeStampArray.length; i++) {
+      if (timeStampArray[i].year == event.target.value) {
+        numYearMatches += 1;
+        console.log('Number of year matches:', numYearMatches);
+      }
+    }
+    setYearCount(numYearMatches);
   };
 
   return (
@@ -26,7 +48,7 @@ function RecordsPage(props) {
         <img alt="calender" className="calenderIcon" src={calenderIcon} />{" "}
         Filter Matches by Year
       </label>
-
+      {/* {JSON.stringify(yearSelected)} */}
       <Form.Select
         id="yearFilter"
         className="filterByYearDropdown"
@@ -38,6 +60,8 @@ function RecordsPage(props) {
         <option value="2021">2021</option>
         <option value="2020">2020</option>
       </Form.Select>
+      {yearSelected === "all" || yearSelected === '' ? <p>Number of total matches: <b>{matches.length}</b></p> :
+        <p>Number of matches in {yearSelected}: <b>{yearCount}</b></p>}
       <RecordsTable year={yearSelected} />
     </div>
   );
