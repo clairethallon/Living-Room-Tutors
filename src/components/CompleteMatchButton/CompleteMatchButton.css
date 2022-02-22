@@ -58,9 +58,13 @@ p {
   text-transform: capitalize;
 }
 
-.tuteeCopyButton {
+.copyButton {
   margin-left: auto;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
+}
+
+.copyBtnDiv {
+  width: max-content;
 }
