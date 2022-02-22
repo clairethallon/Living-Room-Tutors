@@ -10,12 +10,33 @@ import calenderIcon from "../../images/calenderIcon.svg";
 
 function RecordsPage(props) {
   const [yearSelected, setYearSelected] = useState("");
+  const matches = useSelector((store) => store.matches);
 
   const calendar = <FontAwesomeIcon icon={faCalendarAlt} />;
 
   const changeYear = () => {
     console.log(event.target.value);
     setYearSelected(event.target.value);
+    const timeStampArray = [];
+    const numYearMatches = 0;
+    for (let i = 0; i < matches.length; i++) {
+      let matchYear = {
+        year: ""
+      };
+      for (let j = 0; j < 4; j++) {
+        matchYear.year += matches[i].match_timestamp[j];
+      }
+      timeStampArray.push(matchYear);
+      console.log(timeStampArray);
+    }
+    for (let i = 0; i < timeStampArray.length; i++) {
+      if (timeStampArray[i].year == event.target.value) {
+        numYearMatches + 1;
+      }
+    }
+    console.log("EYEYEY", numYearMatches);
+
+
   };
 
   return (
@@ -26,7 +47,7 @@ function RecordsPage(props) {
         <img alt="calender" className="calenderIcon" src={calenderIcon} />{" "}
         Filter Matches by Year
       </label>
-
+      {/* {JSON.stringify(yearSelected)} */}
       <Form.Select
         id="yearFilter"
         className="filterByYearDropdown"
