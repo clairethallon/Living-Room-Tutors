@@ -35,17 +35,18 @@ function TutorMatchCard(props) {
     await tutorSubjectFinder(tutorSubject);
   }, []);
 
-  const languages = [
-    props.tutor.tutor_language_arabic,
-    props.tutor.tutor_language_chinese,
-    props.tutor.tutor_language_french,
-    props.tutor.tutor_language_hmong,
-    props.tutor.tutor_language_somali,
-    props.tutor.tutor_language_tagalog,
-    props.tutor.tutor_language_vietnamese,
-    props.tutor.tutor_language_spanish,
-  ];
 
+  const languages = [
+    { name: "Arabic ", status: props.tutor.tutor_language_arabic },
+    { name: "Chinese ", status: props.tutor.tutor_language_chinese },
+    { name: "French ", status: props.tutor.tutor_language_french },
+    { name: "Hmong ", status: props.tutor.tutor_language_hmong },
+    { name: "Somali ", status: props.tutor.tutor_language_somali },
+    { name: "Tagalog ", status: props.tutor.tutor_language_tagalog },
+    { name: "Vietnamese ", status: props.tutor.tutor_language_vietnamese },
+    { name: "Spanish ", status: props.tutor.tutor_language_spanish },
+    { name: props.tutor.tutor_language_other, status: false },
+  ];
   const specialSubjects = useSelector((store) => store.specialSubjects);
 
   const tutorSubject = [
@@ -291,51 +292,55 @@ function TutorMatchCard(props) {
                 ) : (
                         <Col xs="3">{subject1}</Col>
                       )}
-                <Col xs="1" className="flaggedSubjectLanguage">
-                  {tutorSubjects.map((subject) => {
-                    if (
-                      subject === "Precalculus/Trigonometry " ||
-                      subject === "Biology/Life Sciences " ||
-                      subject === "Chemistry " ||
-                      subject === "Physics " ||
+                <Col xs="2" className="flaggedSubjectLanguage">
+                  {tutorSubject.map((subject) => {
+                    if (subject.status === true && (
+                      subject.name === "Precalculus/Trigonometry " ||
+                      subject.name === "Biology/Life Sciences " ||
+                      subject.name === "Chemistry " ||
+                      subject.name === "Physics " ||
                       subject === "Computer Science " ||
-                      subject === "Chinese " ||
-                      subject === "Spanish " ||
-                      subject === "French " ||
-                      subject === "German " ||
-                      subject === "World History " ||
-                      subject === "U.S. History " ||
-                      subject === "AP/Honors Biology " ||
-                      subject === "AP/Honors Chemistry " ||
-                      subject === "AP/Honors Physics " ||
-                      subject === "AP/Honors Calculus AB " ||
-                      subject === "AP/Honors Calculus BC " ||
-                      subject === "AP/Honors Statistics " ||
-                      subject === "AP/Honors Computer Science " ||
-                      subject ===
+                      subject.name === "Chinese " ||
+                      subject.name === "Spanish " ||
+                      subject.name === "French " ||
+                      subject.name === "German " ||
+                      subject.name === "World History " ||
+                      subject.name === "U.S. History " ||
+                      subject.name === "AP/Honors Biology " ||
+                      subject.name === "AP/Honors Chemistry " ||
+                      subject.name === "AP/Honors Physics " ||
+                      subject.name === "AP/Honors Calculus AB " ||
+                      subject.name === "AP/Honors Calculus BC " ||
+                      subject.name === "AP/Honors Statistics " ||
+                      subject.name === "AP/Honors Computer Science " ||
+                      subject.name ===
                       "AP/Honors English Literature and Composition " ||
-                      subject === "AP/Honors Language and Composition " ||
-                      subject === "AP/Honors Macroeconomics " ||
-                      subject === "AP/Honors Microeconomics " ||
-                      subject === "AP/Honors Psychology " ||
-                      subject === "AP/Honors United States History " ||
-                      subject === "AP/Honors Government and Politics (US) " ||
-                      subject === "AP/Honors Human Geography " ||
-                      subject === "SAT Subject Tests " ||
-                      subject === "SAT Prep " ||
-                      subject === "ACT Prep "
-                    ) {
+                      subject.name ===
+                      "AP/Honors Language and Composition " ||
+                      subject.name === "AP/Honors Macroeconomics " ||
+                      subject.name === "AP/Honors Microeconomics " ||
+                      subject.name === "AP/Honors Psychology " ||
+                      subject.name === "AP/Honors United States History " ||
+                      subject.name ===
+                      "AP/Honors Government and Politics (US) " ||
+                      subject.name === "AP/Honors Human Geography " ||
+                      subject.name === "SAT Subject Tests " ||
+                      subject.name === "SAT Prep " ||
+                      subject.name === "ACT Prep "
+                    )) {
                       return <SubjectFlag />;
                     }
                   })}
-
                   {languages.map((language) => {
-                    if (language === true) {
+                    if (language.status === true) {
                       return <LanguageFlag />;
                     }
                   })}
+                  {props.tutor.tutor_language_other !== null ?
+                    <LanguageFlag />
+                    : <span></span>}
                 </Col>
-                <Col xs="2"></Col>
+                <Col xs="1"></Col>
                 <Col onClick={(e) => AccordionClose(e)}>
                   <CompleteMatchButton tutor={props.tutor} />
                 </Col>
