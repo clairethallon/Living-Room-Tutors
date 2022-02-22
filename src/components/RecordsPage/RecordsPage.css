@@ -2,3 +2,8 @@
   width: 180px;
   margin-bottom: 25px;
 }
+
+.matchPageHeader {
+  display: flex;
+  justify-content: space-between;
+}

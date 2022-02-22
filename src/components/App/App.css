@@ -209,6 +209,10 @@ input {
   display: flex;
 }
 
+.subjectAndLanguage p {
+  margin-right: 6px;
+}
+
 .accordion-item {
   border: 1px solid rgba(255, 255, 255, 0) !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -427,6 +431,10 @@ h3 {
 
 .languageFilterDropdown {
   width: 180px !important;
+}
+
+.languageFilterContainer {
+  margin-bottom: 20px;
 }
 
 /* .nav-link {

@@ -46,30 +46,30 @@ function MatchPage(props) {
       <TuteeMatchCard />
       <hr className="tutorTuteeHr"></hr>
       <h2>Available Tutors to Match</h2>
-      <Form.Group>
-        <Form.Label htmlFor="languageFilter">
-          Filter Tutors by Language
-        </Form.Label>
+      <div className="languageFilterContainer">
+        <Form.Group>
+          <Form.Label htmlFor="languageFilter">Filter by Language</Form.Label>
 
-        <Form.Select
-          id="languageFilter"
-          className="languageFilterDropdown"
-          aria-label="Default select example"
-          onChange={(event) => changeLang(event)}
-          style={{ width: "132px" }}
-        >
-          <option>View All</option>
-          <option value="Arabic">Arabic</option>
-          <option value="Chinese">Chinese</option>
-          <option value="French">French</option>
-          <option value="Hmong">Hmong</option>
-          <option value="Somali">Somali</option>
-          <option value="Spanish">Spanish</option>
-          <option value="Tagalog">Tagalog</option>
-          <option value="Vietnamese">Vietnamese</option>
-          <option value="Other">Other</option>
-        </Form.Select>
-      </Form.Group>
+          <Form.Select
+            id="languageFilter"
+            className="languageFilterDropdown"
+            aria-label="Default select example"
+            onChange={(event) => changeLang(event)}
+            style={{ width: "132px" }}
+          >
+            <option>View All</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Chinese">Chinese</option>
+            <option value="French">French</option>
+            <option value="Hmong">Hmong</option>
+            <option value="Somali">Somali</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Tagalog">Tagalog</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Other">Other</option>
+          </Form.Select>
+        </Form.Group>
+      </div>
       <TutorMatchTable />
     </div>
   );
