@@ -19,7 +19,7 @@
 }
 p {
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 #tutorEmail,
@@ -54,14 +54,17 @@ p {
   font-family: Lato-BoldItalic;
 }
 
-.schoolName{
+.schoolName {
   text-transform: capitalize;
 }
 
-
-.tuteeCopyButton{
+.copyButton {
   margin-left: auto;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
+}
+
+.copyBtnDiv {
+  width: max-content;
 }

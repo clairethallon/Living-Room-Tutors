@@ -23,7 +23,7 @@ function RecordsPage(props) {
     let numYearMatches = 0;
     for (let i = 0; i < matches.length; i++) {
       let matchYear = {
-        year: ""
+        year: "",
       };
       for (let j = 0; j < 4; j++) {
         matchYear.year += matches[i].match_timestamp[j];
@@ -34,7 +34,7 @@ function RecordsPage(props) {
     for (let i = 0; i < timeStampArray.length; i++) {
       if (timeStampArray[i].year == event.target.value) {
         numYearMatches += 1;
-        console.log('Number of year matches:', numYearMatches);
+        console.log("Number of year matches:", numYearMatches);
       }
     }
     setYearCount(numYearMatches);
@@ -43,25 +43,39 @@ function RecordsPage(props) {
   return (
     <div className="adminPageContainer">
       <AdminNavBar />
-      <h1>Matched Tutors & Tutees</h1>
-      <label htmlFor="yearFilter">
-        <img alt="calender" className="calenderIcon" src={calenderIcon} />{" "}
-        Filter Matches by Year
-      </label>
-      {/* {JSON.stringify(yearSelected)} */}
-      <Form.Select
-        id="yearFilter"
-        className="filterByYearDropdown"
-        aria-label="Default select example"
-        onChange={(event) => changeYear(event)}
-      >
-        <option value="all"> View All</option>
-        <option value="2022">2022</option>
-        <option value="2021">2021</option>
-        <option value="2020">2020</option>
-      </Form.Select>
-      {yearSelected === "all" || yearSelected === '' ? <p>Number of total matches: <b>{matches.length}</b></p> :
-        <p>Number of matches in {yearSelected}: <b>{yearCount}</b></p>}
+
+      <h1>Records</h1>
+      <div className="matchPageHeader">
+        <div>
+          {yearSelected === "all" || yearSelected === "" ? (
+            <p>
+              <b>{matches.length}</b> matches found
+            </p>
+          ) : (
+            <p>
+              <b>{yearCount}</b> matches found in {yearSelected}
+            </p>
+          )}
+        </div>
+        <div>
+          <label htmlFor="yearFilter">
+            <img alt="calender" className="calenderIcon" src={calenderIcon} />{" "}
+            Filter Matches by Year
+          </label>
+          {/* {JSON.stringify(yearSelected)} */}
+          <Form.Select
+            id="yearFilter"
+            className="filterByYearDropdown"
+            aria-label="Default select example"
+            onChange={(event) => changeYear(event)}
+          >
+            <option value="all"> View All</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+          </Form.Select>
+        </div>
+      </div>
       <RecordsTable year={yearSelected} />
     </div>
   );
