@@ -16,15 +16,10 @@ function TuteeMatchCard(props) {
   const [subject1, setSubject1] = useState("");
   const [subject2, setSubject2] = useState("");
   const [subject3, setSubject3] = useState("");
-  const [prettyTime, setPrettyTime] = useState({
-    year: "",
-    month: "",
-    day: "",
-  });
+
 
   useEffect(async () => {
     await subjectFinder(subjects);
-    await makePrettyTime(selectedTutee.tutee_submission_timestamp);
   }, []);
 
   const specialSubjects = [
@@ -122,25 +117,6 @@ function TuteeMatchCard(props) {
         setSubject3(subjects[i].name);
       }
     }
-  };
-
-  const makePrettyTime = (timestamp) => {
-    console.log(timestamp);
-    let newTime = {
-      year: "",
-      month: "",
-      day: "",
-    };
-    for (let i = 0; i < timestamp.length; i++) {
-      if (i < 4) {
-        newTime.year += timestamp[i];
-      } else if (i > 4 && i < 7) {
-        newTime.month += timestamp[i];
-      } else if (i > 7 && i < 10) {
-        newTime.day += timestamp[i];
-      }
-    }
-    setPrettyTime(newTime);
   };
 
   const languages = [
