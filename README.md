@@ -27,6 +27,8 @@ With auto-generated template emails and recommended matches based on subject, gr
 ## Screenshots
 
 <img src='/src/images/forms.gif'/>
+<img src='/src/images/tutorstutees.gif'>
+<img src='src/images/matchesAndRecords.gif>
 
 <img src="" />## Built With
 
