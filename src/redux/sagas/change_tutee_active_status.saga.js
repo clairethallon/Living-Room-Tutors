@@ -13,7 +13,7 @@ function* changeTuteeActiveStatus(action) {
     yield put({ type: "FETCH_ACTIVE_TUTEES" });
     yield put({ type: "FETCH_DEACTIVE_TUTEES" });
   } catch (error) {
-    alert("no");
+    alert("no in changeTuteeActiveStatus");
     console.log("fetch active tutees error", error);
   }
 }

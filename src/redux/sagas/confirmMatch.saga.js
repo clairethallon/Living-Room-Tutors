@@ -11,7 +11,7 @@ function* postNewMatch(action) {
     const response = yield axios.post("/api/matches", objectToSend);
     yield put({ type: 'UPDATE_MATCHED_STATUS', objectToSend });
   } catch (err) {
-    alert("no");
+    alert("no in postNewMatch");
     console.log("error posting new match:", err);
   }
 }
@@ -26,7 +26,7 @@ function* updateMatchedStatus(action) {
     const response = yield axios.put("/api/matches/matchStatus", objectToSend);
     yield put({ type: 'FETCH_MATCHES' });
   } catch (err) {
-    alert("no");
+    alert("no in updateMatchedStatus");
     console.log("error posting new match:", err);
   }
 }

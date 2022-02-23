@@ -8,7 +8,7 @@ function* fetchDeactiveTutors() {
     const response = yield axios.get("/api/tutors/deactive");
     yield put({ type: "SET_DEACTIVE_TUTORS", payload: response.data });
   } catch (error) {
-    alert("no");
+    alert("no in fetchDeactiveTutors");
     console.log("fetch deactive tutors error", error);
   }
 }

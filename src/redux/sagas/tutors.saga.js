@@ -8,7 +8,7 @@ function* fetchTutors() {
     const response = yield axios.get("/api/tutors");
     yield put({ type: "SET_TUTORS", payload: response.data });
   } catch (error) {
-    alert("no");
+    alert("no in fetchTutors");
     console.log("fetch tutors error", error);
   }
 }
@@ -27,11 +27,11 @@ function* postNewTutor(action) {
         email: action.payload.email,
       });
     } catch (err) {
-      alert("no");
+      alert("no in postNewTutor email");
       console.log("error posting new tutor email:", err);
     }
   } catch (err) {
-    alert("no");
+    alert("no in postNewTutor");
     console.log("error posting new tutor:", err);
   }
 }

@@ -49,7 +49,7 @@ function* fetchGroupDMatches(action) {
     );
     yield put({ type: "SET_GROUP_D_MATCHES", payload: response.data });
   } catch (error) {
-    alert("no");
+    alert("no in fetchGroupDMatches");
     console.log("fetchGroupDMatches error", error);
   }
 }
@@ -60,7 +60,7 @@ function* setTutee(action) {
     console.log("in setTuteeSaga");
     yield put({ type: "SET_SELECTED_TUTEE", payload: action.payload });
   } catch (error) {
-    alert("no");
+    alert("no in setTutee");
     console.log("setTuteeSaga error", error);
   }
 }

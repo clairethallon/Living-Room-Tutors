@@ -8,7 +8,7 @@ function* fetchTutees() {
     const response = yield axios.get("/api/tutees");
     yield put({ type: "SET_TUTEES", payload: response.data });
   } catch (error) {
-    alert("no");
+    alert("no in fetchTutees");
     console.log("fetch tutees error", error);
   }
 }
@@ -36,11 +36,11 @@ function* postNewStudent(action) {
         email: emailToSend,
       });
     } catch (err) {
-      alert("no");
+      alert("no in postNewStudent email");
       console.log("error posting new student email:", err);
     }
   } catch (err) {
-    alert("no");
+    alert("no postNewStudent");
     console.log("error posting new student:", err);
   }
 }

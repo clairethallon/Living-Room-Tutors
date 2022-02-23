@@ -8,7 +8,7 @@ function* fetchDeactiveTutees() {
     const response = yield axios.get("/api/tutees/deactive");
     yield put({ type: "SET_DEACTIVE_TUTEES", payload: response.data });
   } catch (error) {
-    alert("no");
+    alert("no in fetchDeactiveTutees");
     console.log("fetch deactive tutees error", error);
   }
 }

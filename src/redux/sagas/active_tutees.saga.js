@@ -8,7 +8,7 @@ function* fetchActiveTutees() {
     const response = yield axios.get("/api/tutees/active");
     yield put({ type: "SET_ACTIVE_TUTEES", payload: response.data });
   } catch (error) {
-    alert("no");
+    alert("no in fetchActiveTutees");
     console.log("fetch active tutees error", error);
   }
 }

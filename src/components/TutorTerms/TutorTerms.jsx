@@ -120,6 +120,7 @@ function StudentTerms(props) {
     French: tutorSubjects.French,
     Vietnamese: tutorSubjects.Vietnamese,
     Hmong: tutorSubjects.Hmong,
+    otherLanguage: tutorSubjects.otherLanguage,
     firstName: tutorInfo.firstName,
     lastName: tutorInfo.lastName,
     email: tutorInfo.email,
