@@ -13,7 +13,7 @@ function* changeTutorActiveStatus(action) {
     yield put({ type: "FETCH_ACTIVE_TUTORS" });
     yield put({ type: "FETCH_DEACTIVE_TUTORS" });
   } catch (error) {
-    alert("no");
+    alert("no in changeTutorActiveStatus");
     console.log("fetch active tutors error", error);
   }
 }

@@ -8,13 +8,14 @@ function* fetchMatches() {
     const response = yield axios.get("/api/matches");
     yield put({ type: "SET_MATCHES", payload: response.data });
   } catch (error) {
-    alert("no");
-    console.log("fetch matches error", error);
+    function* fetchMatches() {
+      alert("no in fetchMatches");
+      console.log("fetch matches error", error);
+    }
+  }
+
+  function* matchesSaga() {
+    yield takeLatest("FETCH_MATCHES", fetchMatches);
   }
 }
-
-function* matchesSaga() {
-  yield takeLatest("FETCH_MATCHES", fetchMatches);
-}
-
 export default matchesSaga;

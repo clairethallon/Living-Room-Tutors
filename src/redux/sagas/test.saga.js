@@ -7,7 +7,7 @@ function* fetchWidget() {
     const response = yield axios.get("/api/test");
     yield put({ type: "SET_WIDGET", payload: response.data });
   } catch (error) {
-    alert("no");
+    alert("no in fetchWidget");
     console.log("fetch widget error", error);
   }
 }
