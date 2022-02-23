@@ -148,9 +148,9 @@ function App() {
               // redirect to the /user page
               <Redirect to="/admin" />
             ) : (
-              // Otherwise, show the login page
-              <LoginPage />
-            )}
+                // Otherwise, show the login page
+                <LoginPage />
+              )}
           </Route>
 
           <Route exact path="/registration">
@@ -159,9 +159,9 @@ function App() {
               // redirect them to the /user page
               <Redirect to="/admin" />
             ) : (
-              // Otherwise, show the registration page
-              <RegisterPage /> //<----this might need to change back to <TuteesPage/> depending on the client needs and how we want to approach admin registration
-            )}
+                // Otherwise, show the registration page
+                <RegisterPage /> //<----this might need to change back to <TuteesPage/> depending on the client needs and how we want to approach admin registration
+              )}
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}

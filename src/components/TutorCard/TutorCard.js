@@ -10,8 +10,10 @@ import TutorProfile from "../TutorProfile/TutorProfile";
 function TutorCard(props) {
   const specialSubjects = useSelector((store) => store.specialSubjects);
 
-  const [tutorSubjects, setTutorSubjects] = useState([]);
-
+  const AccordionClose = (e) => {
+    console.log('in test');
+    e.stopPropagation();
+  }
 
   const languages = [
     { name: "Arabic ", status: props.tutor.tutor_language_arabic },
@@ -24,40 +26,6 @@ function TutorCard(props) {
     { name: "Spanish ", status: props.tutor.tutor_language_spanish },
     { name: props.tutor.tutor_language_other, status: false },
   ];
-
-  const [prettyTime, setPrettyTime] = useState({
-    year: "",
-    month: "",
-    day: "",
-  });
-
-  const makePrettyTime = (timestamp) => {
-    let newTime = {
-      year: "",
-      month: "",
-      day: "",
-    };
-    for (let i = 0; i < timestamp.length; i++) {
-      if (i < 4) {
-        newTime.year += timestamp[i];
-      } else if (i > 4 && i < 7) {
-        newTime.month += timestamp[i];
-      } else if (i > 7 && i < 10) {
-        newTime.day += timestamp[i];
-      }
-      setPrettyTime(newTime);
-    }
-  };
-
-  const AccordionClose = (e) => {
-    console.log('in test');
-    e.stopPropagation();
-  }
-
-  useEffect(() => {
-    subjectFinder(subjects);
-    makePrettyTime(props.tutor.tutor_submission_timestamp);
-  }, []);
 
   const subjects = [
     { name: "K-5 Math ", status: props.tutor.tutor_k5_math },
@@ -148,23 +116,7 @@ function TutorCard(props) {
     { name: "ACT Prep ", status: props.tutor.tutor_act_prep },
   ];
 
-  const subjectFinder = (subjects) => {
-    // console.log(subjects);
-    let mentor_subjects = [];
-    for (let i = 0; i < subjects.length; i++) {
-      if (subjects[i].status === true) {
-        mentor_subjects.push(subjects[i].name);
-        console.log(
-          props.tutor.tutor_first_name,
-          subjects[i].name,
-          subjects[i].status
-        );
-      }
-    }
-    console.log("MENTORING_SUBJECTS", mentor_subjects);
-    setTutorSubjects(mentor_subjects);
-    return mentor_subjects;
-  };
+
 
   return (
     <div>
@@ -176,7 +128,10 @@ function TutorCard(props) {
               {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
             </Col>
             <Col xs="2">
-              {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+              {props.tutor.tutor_submission_timestamp[5]}{props.tutor.tutor_submission_timestamp[6]}.
+                {props.tutor.tutor_submission_timestamp[8]}{props.tutor.tutor_submission_timestamp[9]}.
+                {props.tutor.tutor_submission_timestamp[0]}{props.tutor.tutor_submission_timestamp[1]}
+              {props.tutor.tutor_submission_timestamp[2]}{props.tutor.tutor_submission_timestamp[3]}
             </Col>
             <Col xs="2">{props.tutor.tutor_grade}</Col>
             <Col xs="2" className="flaggedSubjectLanguage">

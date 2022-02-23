@@ -12,10 +12,6 @@ function RecordsCard(props) {
   const emailIcon = <FontAwesomeIcon icon={faEnvelope} />;
   const phoneIcon = <FontAwesomeIcon icon={faPhone} />;
   const flagIcon = <FontAwesomeIcon icon={faStar} />;
-  const [tuteeLanguages, setTuteeLanguages] = useState([]);
-  const [tutorLanguages, setTutorLanguages] = useState([]);
-  const [mentorChosenGrade, setMentorChosenGrade] = useState([]);
-  const [tutorSubjects, setTutorSubjects] = useState([]);
   const [prettyTime, setPrettyTime] = useState({
     year: "",
     month: "",
@@ -24,23 +20,27 @@ function RecordsCard(props) {
   const dispatch = useDispatch();
 
 
-  const [subject1, setSubject1] = useState("");
-  const [subject2, setSubject2] = useState("");
-  const [subject3, setSubject3] = useState("");
-
-  const specialSubjects = useSelector((store) => store.specialSubjects);
-  const currentlangs = useSelector((store) => store.currentlangs);
-
-
   useEffect(() => {
-    tuteeLanguageFinder(languageTutee);
-    tutorLanguageFinder(languageTutor);
-    gradeFinder(grades);
-    subjectFinder(tuteeSubjects);
-    tutorSubjectFinder(subjects);
     makePrettyTime(props.match.match_timestamp);
   }, []);
 
+  const makePrettyTime = (timestamp) => {
+    let newTime = {
+      year: "",
+      month: "",
+      day: "",
+    };
+    for (let i = 0; i < timestamp.length; i++) {
+      if (i < 4) {
+        newTime.year += timestamp[i];
+      } else if (i > 4 && i < 7) {
+        newTime.month += timestamp[i];
+      } else if (i > 7 && i < 10) {
+        newTime.day += timestamp[i];
+      }
+      setPrettyTime(newTime);
+    }
+  };
 
 
   const languageTutee = [
@@ -219,96 +219,7 @@ function RecordsCard(props) {
     { name: "ACT Prep ", status: props.match.tutor_act_prep },
   ];
 
-  const tuteeLanguageFinder = (languages) => {
-    console.log(languages);
-    let currentLanguages = [];
-    for (let i = 0; i < languages.length; i++) {
-      if (languages[i].status === true) {
-        currentLanguages.push(languages[i].name);
-      }
-    }
-    if (props.match.tutee_language_other !== null) {
-      currentLanguages.push(props.match.tutee_language_other);
-    }
-    console.log("CURRENT LANGUAGES", currentLanguages);
-    setTuteeLanguages(currentLanguages);
-    return currentLanguages;
-  };
 
-  const tutorLanguageFinder = (languages) => {
-    console.log(languages);
-    let currentLanguages = [];
-    for (let i = 0; i < languages.length; i++) {
-      if (languages[i].status === true) {
-        currentLanguages.push(languages[i].name);
-      }
-    }
-    if (props.match.tutor_language_other !== null) {
-      currentLanguages.push(props.match.tutor_language_other);
-    }
-    console.log("CURRENT LANGUAGES", currentLanguages);
-    setTutorLanguages(currentLanguages);
-    return currentLanguages;
-  };
-
-  const gradeFinder = (grades) => {
-    console.log(grades);
-    let chosenGrade = [];
-    for (let i = 0; i < grades.length; i++) {
-      if (grades[i].status === true) {
-        chosenGrade.push(grades[i].name);
-      }
-    }
-    console.log("MENTOR GRADE", chosenGrade);
-    setMentorChosenGrade(chosenGrade);
-    return chosenGrade;
-  };
-
-  const tutorSubjectFinder = (subjects) => {
-    // console.log(subjects);
-    let mentor_subjects = [];
-    for (let i = 0; i < subjects.length; i++) {
-      if (subjects[i].status === true) {
-        mentor_subjects.push(subjects[i].name);
-      }
-    }
-    console.log("MENTORING_SUBJECTS", mentor_subjects);
-    setTutorSubjects(mentor_subjects);
-    return mentor_subjects;
-  };
-
-  const makePrettyTime = (timestamp) => {
-    let newTime = {
-      year: "",
-      month: "",
-      day: "",
-    };
-    for (let i = 0; i < timestamp.length; i++) {
-      if (i < 4) {
-        newTime.year += timestamp[i];
-      } else if (i > 4 && i < 7) {
-        newTime.month += timestamp[i];
-      } else if (i > 7 && i < 10) {
-        newTime.day += timestamp[i];
-      }
-      setPrettyTime(newTime);
-    }
-  };
-
-  const subjectFinder = (subjects) => {
-    console.log("in subjectFinder");
-    for (let i = 0; i < subjects.length; i++) {
-      if (subjects[i].dbname == props.match.subject_1) {
-        setSubject1(subjects[i].name);
-      }
-      if (subjects[i].dbname == props.match.subject_2) {
-        setSubject2(subjects[i].name);
-      }
-      if (subjects[i].dbname == props.match.subject_3) {
-        setSubject3(subjects[i].name);
-      }
-    }
-  };
 
   return (
     <div>
@@ -325,7 +236,10 @@ function RecordsCard(props) {
                 {props.match.tutor_first_name} {props.match.tutor_last_name}
               </Col>
               <Col xs="3">
-                {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+                {props.match.match_timestamp[5]}{props.match.match_timestamp[6]}.
+                {props.match.match_timestamp[8]}{props.match.match_timestamp[9]}.
+                {props.match.match_timestamp[0]}{props.match.match_timestamp[1]}
+                {props.match.match_timestamp[2]}{props.match.match_timestamp[3]}
               </Col>
               <Col className="cardButtons" xs="2"></Col>
               {/* </Row> */}

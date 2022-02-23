@@ -18,7 +18,7 @@ function TutorInfo(props) {
   );
   const history = useHistory();
 
-  const presenting = true;
+  const presenting = false;
 
   useEffect(() => {
     scrollToTop();
@@ -228,22 +228,6 @@ function TutorInfo(props) {
   const AddNewStudentInfo = () => {
     console.log("in AddNewTutorInfo");
 
-    // if (newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === "" ){
-    //   return alert("Please include a Parent or Guardian email.")}
-    //   else if (newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === null ){
-    //     return alert("Please include a Parent or Guardian email.")}
-    //     else if(newStudentInfo.submitter = "ParentOrGuardian" && newStudentInfo.parentEmail === undefined){
-    //       return alert("Please include a Parent or Guardian email.")}
-
-    // let parent = false
-    // if (newStudentInfo.submitter = "ParentOrGuardian"){
-    //   parent === true }
-
-    // let parentEmail = false
-    // if(newStudentInfo.parentEmail === "" || newStudentInfo.parentEmail === null || newStudentInfo.parentEmail === undefined ){
-    //   parentEmail === true
-    // }
-
     if (
       newStudentInfo.submitter == "" ||
       newStudentInfo.submitter == null ||
@@ -251,8 +235,6 @@ function TutorInfo(props) {
       newStudentInfo.firstName == null ||
       newStudentInfo.lastName == "" ||
       newStudentInfo.lastName == null ||
-      // newStudentInfo.email == "" ||
-      // newStudentInfo.email == null ||
       newStudentInfo.phone == "" ||
       newStudentInfo.phone == null ||
       newStudentInfo.school == "" ||

@@ -40,11 +40,6 @@ function TutorMatchTable(props) {
           <Col xs="2"></Col>
         </Row>
       </div>
-      {/* <div>
-        {activeTutors.map((tutor) => {
-          return <TutorMatchCard tutor={tutor} />;
-        })}
-      </div> */}
       <div>
         {groupAmatches.map((groupATutor) => {
           return <TutorMatchCard tutor={groupATutor} group={"A"} />;

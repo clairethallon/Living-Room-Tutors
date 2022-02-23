@@ -9,15 +9,6 @@ function TuteeProfile(props) {
   const flagIcon = <FontAwesomeIcon icon={faStar} />;
 
   const store = useSelector((store) => store);
-  const [tuteeLanguages, setTuteeLanguages] = useState([]);
-  const [subject1, setSubject1] = useState("");
-  const [subject2, setSubject2] = useState("");
-  const [subject3, setSubject3] = useState("");
-
-  useEffect(() => {
-    languageFinder(languages);
-    subjectFinder(subjects);
-  }, []);
 
   const languages = [
     { name: "Arabic ", status: props.tutee.tutee_language_arabic },
@@ -80,37 +71,6 @@ function TuteeProfile(props) {
     { name: "SAT Prep ", dbname: "sat_prep" },
     { name: "ACT Prep ", dbname: "act_prep" },
   ];
-
-  const languageFinder = (languages) => {
-    console.log(languages);
-    let currentLanguages = [];
-    for (let i = 0; i < languages.length; i++) {
-      if (languages[i].status === true) {
-        currentLanguages.push(languages[i].name);
-      }
-    }
-    if (props.tutee.tutee_language_other !== null) {
-      currentLanguages.push(props.tutee.tutee_language_other);
-    }
-    console.log("CURRENT LANGUAGES", currentLanguages);
-    setTuteeLanguages(currentLanguages);
-    return currentLanguages;
-  };
-
-  const subjectFinder = (subjects) => {
-    console.log("in subjectFinder");
-    for (let i = 0; i < subjects.length; i++) {
-      if (subjects[i].dbname == props.tutee.subject_1) {
-        setSubject1(subjects[i].name);
-      }
-      if (subjects[i].dbname == props.tutee.subject_2) {
-        setSubject2(subjects[i].name);
-      }
-      if (subjects[i].dbname == props.tutee.subject_3) {
-        setSubject3(subjects[i].name);
-      }
-    }
-  };
 
   return (
     <div>

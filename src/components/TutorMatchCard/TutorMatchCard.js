@@ -18,21 +18,13 @@ function TutorMatchCard(props) {
   const languageFilter = useSelector((store) => store.languageFilter);
   const selected_tutee = useSelector((store) => store.selected_tutee);
 
-  const [tutorSubjects, setTutorSubjects] = useState([]);
 
   const [subject1, setSubject1] = useState("");
   const [subject2, setSubject2] = useState("");
   const [subject3, setSubject3] = useState("");
-  const [prettyTime, setPrettyTime] = useState({
-    year: "",
-    month: "",
-    day: "",
-  });
 
   useEffect(async () => {
     await subjectFinder(subjects);
-    await makePrettyTime(props.tutor.submission_timestamp);
-    await tutorSubjectFinder(tutorSubject);
   }, []);
 
 
@@ -203,37 +195,6 @@ function TutorMatchCard(props) {
     }
   };
 
-  const tutorSubjectFinder = (tutorSubject) => {
-    // console.log(subjects);
-    let mentor_subjects = [];
-    for (let i = 0; i < tutorSubject.length; i++) {
-      if (tutorSubject[i].status === true) {
-        mentor_subjects.push(tutorSubject[i].name);
-      }
-    }
-    console.log("MENTORING_SUBJECTS", mentor_subjects);
-    setTutorSubjects(mentor_subjects);
-    return mentor_subjects;
-  };
-
-  const makePrettyTime = (timestamp) => {
-    console.log(timestamp);
-    let newTime = {
-      year: "",
-      month: "",
-      day: "",
-    };
-    for (let i = 0; i < timestamp.length; i++) {
-      if (i < 4) {
-        newTime.year += timestamp[i];
-      } else if (i > 4 && i < 7) {
-        newTime.month += timestamp[i];
-      } else if (i > 7 && i < 10) {
-        newTime.day += timestamp[i];
-      }
-      setPrettyTime(newTime);
-    }
-  };
 
   const AccordionClose = (e) => {
     console.log('in AccordionClose');
@@ -269,7 +230,10 @@ function TutorMatchCard(props) {
                   {props.tutor.tutor_first_name} {props.tutor.tutor_last_name}
                 </Col>
                 <Col xs="2">
-                  {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+                  {props.tutor.tutor_submission_timestamp[5]}{props.tutor.tutor_submission_timestamp[6]}.
+                {props.tutor.tutor_submission_timestamp[8]}{props.tutor.tutor_submission_timestamp[9]}.
+                {props.tutor.tutor_submission_timestamp[0]}{props.tutor.tutor_submission_timestamp[1]}
+                  {props.tutor.tutor_submission_timestamp[2]}{props.tutor.tutor_submission_timestamp[3]}
                 </Col>
                 {props.group === "A" ? (
                   <Col xs="3">

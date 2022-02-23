@@ -13,7 +13,7 @@ function StudentSubjects(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const presenting = true;
+  const presenting = false;
 
   useEffect(() => {
     scrollToTop();
@@ -211,21 +211,6 @@ function StudentSubjects(props) {
                   <option value="41">ACT Prep</option>
                 </Form.Select>
               </FloatingLabel>
-              {/* {changeOtherField && (
-                <>
-                  <FloatingLabel
-                    controlID="OtherSchool"
-                    label="Other Subject"
-                    className="OtherSubject"
-                    onChange={(event) => changeOtherPrimarySubject(event)}
-                  >
-                    <Form.Control
-                      type="OtherSubject"
-                      placeholder="OtherSubject"
-                    />
-                  </FloatingLabel>
-                </>
-              )} */}
 
               <FloatingLabel
                 controlId="secondarySubject"
@@ -286,21 +271,6 @@ function StudentSubjects(props) {
                   <option value="41">ACT Prep</option>
                 </Form.Select>
               </FloatingLabel>
-              {/* {changeOtherSecondaryField && (
-                <>
-                  <FloatingLabel
-                    controlID="OtherSecondarySchool"
-                    label="Other Subject (2nd Choice)"
-                    className="OtherSecondarySchool"
-                    onChange={(event) => changeOtherSecondarySubject(event)}
-                  >
-                    <Form.Control
-                      type="OtherSecondarySchool"
-                      placeholder="Other Subject (2nd Choice)"
-                    />
-                  </FloatingLabel>
-                </>
-              )} */}
 
               <FloatingLabel
                 controlId="tertiarySubject"
@@ -361,21 +331,6 @@ function StudentSubjects(props) {
                   <option value="41">ACT Prep</option>
                 </Form.Select>
               </FloatingLabel>
-              {/* {changeOtherTertiaryField && (
-                <>
-                  <FloatingLabel
-                    controlID="OtherTertiarySchool"
-                    label="Other Subject (3rd Choice)"
-                    className="OtherTertiarySchool"
-                    onChange={(event) => changeOtherTertiarySubject(event)}
-                  >
-                    <Form.Control
-                      type="OtherTertiarySchool"
-                      placeholder="Other Subject (3rd Choice)"
-                    />
-                  </FloatingLabel>
-                </>
-              )} */}
             </div>
             {/*---------- last section---------- */}
             <div className="formQandA">

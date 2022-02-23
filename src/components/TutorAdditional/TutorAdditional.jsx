@@ -18,7 +18,7 @@ function StudentAdditional(props) {
   const [heading, setHeading] = useState("Tutor Additional Info");
   const history = useHistory();
 
-  const presenting = true;
+  const presenting = false;
 
   //useState is get to " " to display a check mark if the user doesn't fill out the additional info form since it's not required
   const [newutorAdditionalInfo, setNewTutorAdditionalInfo] = useState(" ");
