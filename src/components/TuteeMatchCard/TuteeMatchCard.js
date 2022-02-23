@@ -165,8 +165,10 @@ function TuteeMatchCard(props) {
               {selectedTutee.tutee_firstname} {selectedTutee.tutee_lastname}
             </Col>
             <Col xs="2">
-              {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
-            </Col>
+              {selectedTutee.tutee_submission_timestamp[5]}{selectedTutee.tutee_submission_timestamp[6]}.
+                {selectedTutee.tutee_submission_timestamp[8]}{selectedTutee.tutee_submission_timestamp[9]}.
+                {selectedTutee.tutee_submission_timestamp[0]}{selectedTutee.tutee_submission_timestamp[1]}
+              {selectedTutee.tutee_submission_timestamp[2]}{selectedTutee.tutee_submission_timestamp[3]}            </Col>
             <Col xs="3">
               {subject1}
               <br></br>

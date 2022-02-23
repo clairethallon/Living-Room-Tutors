@@ -325,7 +325,10 @@ function RecordsCard(props) {
                 {props.match.tutor_first_name} {props.match.tutor_last_name}
               </Col>
               <Col xs="3">
-                {prettyTime.month}.{prettyTime.day}.{prettyTime.year}
+                {props.match.match_timestamp[5]}{props.match.match_timestamp[6]}.
+                {props.match.match_timestamp[8]}{props.match.match_timestamp[9]}.
+                {props.match.match_timestamp[0]}{props.match.match_timestamp[1]}
+                {props.match.match_timestamp[2]}{props.match.match_timestamp[3]}
               </Col>
               <Col className="cardButtons" xs="2"></Col>
               {/* </Row> */}
