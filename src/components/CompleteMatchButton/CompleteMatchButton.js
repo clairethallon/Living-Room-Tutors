@@ -148,6 +148,7 @@ function CompleteMatchButton(props) {
           }}
         >
           <Tabs id="uncontrolled-tab-example" className="mb-3">
+            {/* EMAIL TO TUTOR */}
             <Tab eventKey="Pending-Tutees" title="Email to Tutor">
               <br></br>
               <div className="copyButton">
@@ -281,9 +282,10 @@ function CompleteMatchButton(props) {
             </Tab>
             {selectedTutee.student_or_guardian == "student" ||
               selectedTutee.student_or_guardian == "Student" ? (
-                <Tab eventKey="Email-To-Tutee" title="Email to Tutee">
-                  <br></br>
+                < Tab eventKey="Email-To-Tutee" title="Email to Tutee">
 
+                  {/* EMAIL TO TUTEE */}
+                  <br></br>
                   <div className="copyButton">
                     <div
                       onClick={() => createCopyText("tuteeEmail")}
@@ -391,6 +393,7 @@ function CompleteMatchButton(props) {
                       <CopyButton buttonText="Copy Email to Guardian" />
                     </div>
                   </div>
+                  {/* EMAIL TO GUARDIAN */}
 
                   <div id="adultEmail">
                     <p>

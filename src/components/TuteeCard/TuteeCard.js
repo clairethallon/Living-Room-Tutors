@@ -8,33 +8,6 @@ import SubjectFlag from "../SubjectFlag/SubjectFlag";
 import TuteeProfile from "../TuteeProfile/TuteeProfile";
 
 function TuteeCard(props) {
-  useEffect(() => {
-    makePrettyTime(props.tutee.tutee_submission_timestamp);
-  }, []);
-
-  const [prettyTime, setPrettyTime] = useState({
-    year: "",
-    month: "",
-    day: "",
-  });
-
-  const makePrettyTime = (timestamp) => {
-    let newTime = {
-      year: "",
-      month: "",
-      day: "",
-    };
-    for (let i = 0; i < timestamp.length; i++) {
-      if (i < 4) {
-        newTime.year += timestamp[i];
-      } else if (i > 4 && i < 7) {
-        newTime.month += timestamp[i];
-      } else if (i > 7 && i < 10) {
-        newTime.day += timestamp[i];
-      }
-      setPrettyTime(newTime);
-    }
-  };
 
   const subject1 = props.tutee.subject_1;
   const subject2 = props.tutee.subject_2;
@@ -72,7 +45,6 @@ function TuteeCard(props) {
                 {props.tutee.tutee_submission_timestamp[8]}{props.tutee.tutee_submission_timestamp[9]}.
                 {props.tutee.tutee_submission_timestamp[0]}{props.tutee.tutee_submission_timestamp[1]}
               {props.tutee.tutee_submission_timestamp[2]}{props.tutee.tutee_submission_timestamp[3]}
-              {/* {prettyTime.month}.{prettyTime.day}.{prettyTime.year} */}
             </Col>
             {props.tutee.tutee_grade === "prek_kindergarten" ? (
               <Col xs="2">Pre-K/Kindergarten</Col>

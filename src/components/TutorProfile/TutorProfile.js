@@ -10,15 +10,6 @@ function TutorProfile(props) {
   const flagIcon = <FontAwesomeIcon icon={faStar} />;
 
   const store = useSelector((store) => store);
-  const [tutorLanguages, setTutorLanguages] = useState([]);
-  const [tutorSubjects, setTutorSubjects] = useState([]);
-  const [mentorChosenGrade, setMentorChosenGrade] = useState([]);
-
-  useEffect(() => {
-    languageFinder(languages);
-    subjectFinder(subjects);
-    gradeFinder(grades);
-  }, []);
 
   const languages = [
     { name: "Arabic ", status: props.tutor.tutor_language_arabic },
@@ -140,45 +131,6 @@ function TutorProfile(props) {
     { name: "12th Grade", status: props.tutor.mentor_grade_12 },
   ];
 
-  const languageFinder = (languages) => {
-    console.log(languages);
-    let currentLanguages = [];
-    for (let i = 0; i < languages.length; i++) {
-      if (languages[i].status === true) {
-        currentLanguages.push(languages[i].name);
-      }
-    }
-    console.log("CURRENT LANGUAGES", currentLanguages);
-    setTutorLanguages(currentLanguages);
-    return currentLanguages;
-  };
-
-  const subjectFinder = (subjects) => {
-    // console.log(subjects);
-    let mentor_subjects = [];
-    for (let i = 0; i < subjects.length; i++) {
-      if (subjects[i].status === true) {
-        console.log(subjects[i].name, subjects[i].status);
-        mentor_subjects.push(subjects[i].name);
-      }
-    }
-    console.log("MENTORING_SUBJECTS", mentor_subjects);
-    setTutorSubjects(mentor_subjects);
-    return mentor_subjects;
-  };
-
-  const gradeFinder = (grades) => {
-    console.log(grades);
-    let chosenGrade = [];
-    for (let i = 0; i < grades.length; i++) {
-      if (grades[i].status === true) {
-        chosenGrade.push(grades[i].name);
-      }
-    }
-    console.log("MENTOR GRADE", chosenGrade);
-    setMentorChosenGrade(chosenGrade);
-    return chosenGrade;
-  };
 
   return (
     <div>
