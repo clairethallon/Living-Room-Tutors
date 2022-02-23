@@ -616,7 +616,7 @@ function TutorSubjects(props) {
       French: French,
       Vietnamese: Vietnamese,
       Hmong: Hmong,
-      otherLanguage: Other
+      otherLanguage: otherLanguage
     };
 
     let gradesErrors = false;
