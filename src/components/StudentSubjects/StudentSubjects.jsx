@@ -13,7 +13,7 @@ function StudentSubjects(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const presenting = true;
+  const presenting = false;
 
   useEffect(() => {
     scrollToTop();

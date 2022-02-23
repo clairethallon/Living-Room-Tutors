@@ -18,7 +18,7 @@ function TutorInfo(props) {
   );
   const history = useHistory();
 
-  const presenting = true;
+  const presenting = false;
 
   useEffect(() => {
     scrollToTop();

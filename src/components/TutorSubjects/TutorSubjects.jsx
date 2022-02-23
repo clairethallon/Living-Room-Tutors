@@ -14,7 +14,7 @@ function TutorSubjects(props) {
   const dispatch = useDispatch();
   const store = useSelector((store) => store);
 
-  const presenting = true;
+  const presenting = false;
 
   const setDefaults = () => {
     if (presenting) {

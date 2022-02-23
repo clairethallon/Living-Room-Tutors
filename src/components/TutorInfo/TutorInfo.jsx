@@ -20,7 +20,7 @@ function TutorInfo(props) {
     (store) => store.newtutor.newtutorInfoReducer
   );
 
-  const presenting = true;
+  const presenting = false;
 
   useEffect(() => {
     scrollToTop();
@@ -360,8 +360,8 @@ function TutorInfo(props) {
                 </FloatingLabel>
               </>
             ) : (
-              <> </>
-            )}
+                <> </>
+              )}
           </div>
 
           <Button

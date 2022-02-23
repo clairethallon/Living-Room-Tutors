@@ -17,7 +17,7 @@ function StudentAdditional(props) {
     (store) => store.newStudent.newstudentAdditionalReducer
   );
 
-  const presenting = true;
+  const presenting = false;
 
   //useState is get to " " to display a check mark if the user doesn't fill out the additional info form since it's not required
   const [newAdditionalInfo, setNewAdditionalInfo] = useState(" ");
