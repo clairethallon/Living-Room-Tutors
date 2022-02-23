@@ -303,8 +303,8 @@ RETURNING "id";`;
           const subjectTutorId = result.rows[0].id;
           console.log("SubjectTutorID:", subjectTutorId);
           const insertTutorLanguageQuery = `
-            INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong" )
-            VALUES  ($1, $2, $3, $4, $5, $6, $7, $8)
+            INSERT INTO "language" ( "Spanish", "Somali", "Arabic", "Chinese", "Tagalog", "French", "Vietnamese", "Hmong", "Other" )
+            VALUES  ($1, $2, $3, $4, $5, $6, $7, $8, $9)
             RETURNING "id";`;
           pool
             .query(insertTutorLanguageQuery, [
@@ -316,6 +316,7 @@ RETURNING "id";`;
               req.body.French,
               req.body.Vietnamese,
               req.body.Hmong,
+              req.body.otherLanguage
             ])
             .then((result) => {
               const languageTutorId = result.rows[0].id;

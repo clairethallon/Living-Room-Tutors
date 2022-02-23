@@ -13,9 +13,11 @@ function* fetchMatches() {
       console.log("fetch matches error", error);
     }
   }
-
-  function* matchesSaga() {
-    yield takeLatest("FETCH_MATCHES", fetchMatches);
-  }
 }
+
+function* matchesSaga() {
+  yield takeLatest("FETCH_MATCHES", fetchMatches);
+}
+
 export default matchesSaga;
+
