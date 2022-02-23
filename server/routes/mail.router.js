@@ -53,6 +53,7 @@ router.post("/", cors(), async (req, res) => {
     </div>`,
     })
     .catch(console.error);
+  res.send('meow');
   // console.log("Message sent: %s", info.messageId);
 });
 
