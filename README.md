@@ -70,7 +70,7 @@ There is a database.sql file to use to set up a database. After that, once you f
   - The admin can filter these matches further by language if the tutee is in need of tutoring in a specific language.
   - Once the admin finds the best match an clicks "Complete Match", a modal pops up with two emails drafted for the tutor and the tutee/tutee's parent/guardian. The admin can click "Copy" which copies the email to clipboard. From there, they can paste the email into their account, check for typos and other information accuracy, and then send them.
   - Once both emails are sent and the admin clicks "Confirm", the match is added to the database which pulls the tutor and tutee out of the active/deactive pool, and the admin is navigated to the Records page.
-- On the deactivated tutees page, admin can view tutees that have been deactivated, and reactive the tute if necessary.
+- On the deactivated tutees page, admin can view tutees that have been deactivated, and reactive the tutee if necessary.
 
 - On the Records page, admin can view all matched tutors and tutees, displayed by match date. If the admin clicks on the match card to open it, they can view detailed information about the matched tutor and tutee. 
 - Admin can also filter matches by year to view how many matches have been made in a given year since LRT began.
