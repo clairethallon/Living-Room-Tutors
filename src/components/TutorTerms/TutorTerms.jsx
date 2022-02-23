@@ -42,16 +42,8 @@ function StudentTerms(props) {
 
     if (agreedToggle === false) {
       setAgreedToggle(true);
-      dispatch({
-        type: "ADD_TUTOR_TERMS",
-        payload: true,
-      });
     } else {
       setAgreedToggle(false);
-      dispatch({
-        type: "ADD_TUTOR_TERMS",
-        payload: false,
-      });
     }
   };
 
