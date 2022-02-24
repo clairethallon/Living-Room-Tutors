@@ -740,6 +740,11 @@ label {
   width: 100px;
 }
 
+.okButton a {
+  text-decoration: none !important;
+  color: white !important;
+}
+
 .submissionModalFooter {
   display: flex;
   justify-content: center;
