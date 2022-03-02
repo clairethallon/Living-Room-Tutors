@@ -210,7 +210,7 @@ function TutorSubjects(props) {
   const [Vietnamese, setVietnamese] = useState(false);
   const [Hmong, setHmong] = useState(false);
   const [IsLangChecked, setIsLangChecked] = useState(false);
-  const [otherLanguage, setotherLanguage] = useState('');
+  const [otherLanguage, setotherLanguage] = useState(null);
   // ******** LANGUAGE CHECK BOXES **************
 
   // *********** TUTOR GRADE LEVELS ****************
