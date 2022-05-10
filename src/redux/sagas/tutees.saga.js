@@ -36,7 +36,7 @@ function* postNewStudent(action) {
         email: emailToSend,
       });
     } catch (err) {
-      alert("no in postNewStudent email");
+      //alert("no in postNewStudent email");
       console.log("error posting new student email:", err);
     }
   } catch (err) {

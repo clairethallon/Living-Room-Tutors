@@ -27,7 +27,7 @@ function* postNewTutor(action) {
         email: action.payload.email,
       });
     } catch (err) {
-      alert("no in postNewTutor email");
+      //alert("no in postNewTutor email");
       console.log("error posting new tutor email:", err);
     }
   } catch (err) {

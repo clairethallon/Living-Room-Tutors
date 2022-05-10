@@ -51,8 +51,7 @@ function TutorInfo(props) {
         newtutorInfo.school === "Lourdes High School" ||
         newtutorInfo.school === "Byron High School" ||
         newtutorInfo.school === "Dover-Eyota High School" ||
-        newtutorInfo.school === "Stewertville High School" ||
-        newtutorInfo.school === "College"
+        newtutorInfo.school === "Stewartville High School"
       ) {
         setdefaultSchoolVal(newtutorInfo.school);
         setNewTutorSchool(newtutorInfo.school);
@@ -303,10 +302,10 @@ function TutorInfo(props) {
               defaultValue={newGrade}
             >
               <option value="">Select your current grade level</option>
-              <option value="Freshman">Freshman</option>
-              <option value="Sophomore">Sophomore</option>
-              <option value="Junior">Junior</option>
-              <option value="Senior">Senior</option>
+              <option value="Freshman">9th</option>
+              <option value="Sophomore">10th</option>
+              <option value="Junior">11th</option>
+              <option value="Senior">12th</option>
               <option value="College">I'm in College</option>
             </Form.Select>
           </div>
@@ -337,10 +336,9 @@ function TutorInfo(props) {
               <option value="Dover-Eyota High School">
                 Dover-Eyota High School
               </option>
-              <option value="Stewertville High School">
-                Stewertville High School
+              <option value="Stewartville High School">
+                Stewartville High School
               </option>
-              <option value="College">I'm in College</option>
               <option value="Other">Other</option>
             </Form.Select>
 

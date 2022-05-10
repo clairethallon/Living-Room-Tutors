@@ -241,7 +241,7 @@ function CompleteMatchButton(props) {
                 <p>
                   {" "}
                   If you ever have any questions or concerns, do not hesitate to
-                  reach out. Email us at livingroomtutor@gmail.com.
+                  reach out. Email us at team@livingroomtutors.com.
                 </p>
                 <p>
                   Our team at LRT wishes you and {selectedTutee.tutee_firstname}{" "}
@@ -275,7 +275,7 @@ function CompleteMatchButton(props) {
                   </a>
                   <br></br>
                   <a href="https://docs.google.com/presentation/d/1P2iS4r5KldjDjzYzU3Wy9FOSiFMSmdZBCegxTdIWzrE/edit?usp=sharing">
-                    Tutor Trainig Modules
+                    Tutor Training Modules
                   </a>
                 </p>
               </div>
@@ -347,7 +347,7 @@ function CompleteMatchButton(props) {
 
                     <p>
                       If you ever have any questions or concerns, do not hesitate
-                      to reach out. Email us at livingroomtutor@gmail.com. Our
+                      to reach out. Email us at team@livingroomtutors.com. Our
                       team here at LRT understands the difficulty of finding a
                       tutor tailored just for you. Your personalized tutor, {props.tutor.tutor_first_name}, is going to be a wonderful
                     resource for you.
@@ -451,7 +451,7 @@ function CompleteMatchButton(props) {
 
                     <p>
                       If you ever have any questions or concerns, do not hesitate
-                      to reach out. Email us at livingroomtutor@gmail.com. Our
+                      to reach out. Email us at team@livingroomtutors.com. Our
                       team here at LRT understands the difficulty of finding a
                     tutor tailored just for you. Your personalized tutor,{" "}
                       {props.tutor.tutor_first_name}, is going to be a wonderful
